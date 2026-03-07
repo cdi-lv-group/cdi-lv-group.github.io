@@ -1,36 +1,106 @@
 # ==========================================
-# LV课题组 成员数据
+# LV课题组 完整成员数据字典 (全梯队示例版)
+# 文件路径: _data/team.yml
+# 说明：您可以直接覆盖原有文件，后续如果有不需要的梯队人员，直接删掉对应那块即可
 # ==========================================
 
+# --- 1. 教授 (Professor) ---
+- name: "张教授"
+  group_id: "professor"
+  title: "教授 / 博士生导师"
+  role: "联合负责人"
+  avatar: "/assets/images/team/default_avatar.jpg"
+  bio: "深耕计算机视觉与机器学习领域二十余年，主要致力于大规模三维场景重建、点云处理与通用人工智能的底层机理研究。"
+  email: "zhang_prof@tongji.edu.cn"
+  link: "#"
+
+# --- 2. 副教授 (Associate Professor) ---
 - name: "郭炜炜"
-  group_id: "faculty"
+  group_id: "associate_prof"
   title: "副教授 / 博士生导师"
   role: "课题组负责人 (PI)"
   avatar: "/assets/images/team/guo_weiwei.jpg"
   bio: "致力于通过人工智能技术与以人为中心设计创新，实现智能体在复杂不确定真实世界智能自主行为。主要关注多模态感知、推理与交互技术及其应用。"
-  email: "xxx@tongji.edu.cn"
-  link: "guo-weiwei.github.io"
+  email: "xxx@tongji.edu.cn" # 请替换为郭老师真实邮箱
+  link: "/pages/people/guo-weiwei.html"
 
+# --- 3. 助理教授 (Assistant Professor) ---
+- name: "李老师"
+  group_id: "assistant_prof"
+  title: "助理教授 / 硕士生导师"
+  role: "青年骨干"
+  avatar: "/assets/images/team/default_avatar.jpg"
+  bio: "主要研究方向为具身智能（Embodied AI）与强化学习，重点探索机器人在开放物理环境下的长视野任务规划与自主导航。"
+  email: "li_ap@tongji.edu.cn"
+  link: "#"
+
+# --- 4. 讲师 (Lecturer) ---
+- name: "王老师"
+  group_id: "lecturer"
+  title: "讲师"
+  role: "核心教师"
+  avatar: "/assets/images/team/default_avatar.jpg"
+  bio: "主要关注人机交互（HRI）与生成式交互界面设计，主讲《人机交互技术前沿》与《人机智能协同产品与系统设计》课程。"
+  email: "wang_lec@tongji.edu.cn"
+  link: "#"
+
+# --- 5. 博士后与研究员 (Researchers) ---
+- name: "赵博士"
+  group_id: "researchers"
+  title: "博士后"
+  role: "专职科研人员"
+  avatar: "/assets/images/team/default_avatar.jpg"
+  bio: "博士毕业于国防科技大学。目前主要负责空天智能感知项目的核心算法攻坚与多源传感器数据融合方案设计。"
+  email: "zhao_postdoc@tongji.edu.cn"
+
+# --- 6. 博士研究生 (Ph.D. Students) ---
 - name: "左文彬"
   group_id: "phd"
   title: "博士生"
   role: "核心骨干"
-  avatar: "/assets/images/team/wenbinzuo.jpg"
-  bio: "主要研究方向为计算机视觉、3D感知及点云分析等前沿视觉技术。"
+  avatar: "/assets/images/team/zuowenbin.jpg"
+  bio: "主要研究方向为计算机视觉、3D感知及点云分析等前沿视觉技术。致力于为学术社区做出贡献的开源倡导者。"
   email: "2511992@tongji.edu.cn"
-  link: "wbzuo.github.io"
+  link: "/pages/people/zuo-wenbin.html"
 
-- name: "张三"
+# --- 7. 硕士研究生 (Master Students) ---
+- name: "陈同学"
+  group_id: "master"
+  title: "2024级 硕士生"
+  role: "研究助理"
+  avatar: "/assets/images/team/default_avatar.jpg"
+  bio: "主要研究多模态大语言模型（MLLM）在机器人操作任务中的对齐与微调。"
+  email: "chen_m@tongji.edu.cn"
+
+# --- 8. 本科生 (Undergraduates) ---
+- name: "林同学"
+  group_id: "undergrad"
+  title: "2022级 本科生"
+  role: "科研见习"
+  avatar: "/assets/images/team/default_avatar.jpg"
+  bio: "参与学院拔尖人才培养计划，目前协助课题组进行大规模自动驾驶 3D 边界框的标注与数据清洗工作。"
+  email: "lin_ug@tongji.edu.cn"
+
+# --- 9. 科研助理与实习生 (Interns) ---
+- name: "吴同学"
+  group_id: "interns"
+  title: "算法实习生"
+  role: "项目助理"
+  avatar: "/assets/images/team/default_avatar.jpg"
+  bio: "主要协助搭建课题组日常论文检索应用（基于 arXiv API）与 Linux GPU 服务器集群的日常维护。"
+  email: "wu_intern@tongji.edu.cn"
+
+# --- 10. 校友与往届成员 (Alumni) ---
+- name: "刘博士"
+  group_id: "alumni"
+  title: "2025届 博士毕业生"
+  role: "原 课题组骨干"
+  avatar: "/assets/images/team/default_avatar.jpg"
+  destination: "🌟 毕业去向：华为诺亚方舟实验室 (高级视觉算法研究员)"
+  
+- name: "孙同学"
   group_id: "alumni"
   title: "2024届 硕士毕业生"
   role: "原 课题组成员"
   avatar: "/assets/images/team/default_avatar.jpg"
-  destination: "🌟 毕业去向：腾讯 AI Lab (计算机视觉算法研究员)"
-
-- name: "李四"
-  group_id: "interns"
-  title: "本科实习生"
-  role: "科研助理"
-  avatar: "/assets/images/team/default_avatar.jpg"
-  bio: "主要协助进行多模态数据的清洗与标注工作。"
-  email: "lisi@tongji.edu.cn"
+  destination: "🎓 毕业去向：赴 香港科技大学 (HKUST) 攻读全额奖学金博士"
