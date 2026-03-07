@@ -1,0 +1,66 @@
+# ==========================================
+# Jekyll 网站全局配置 (最新优化版)
+# ==========================================
+title: "LV课题组"
+description: "致力于多模态感知、推理与交互的共性基础研究，并专注于智能体与生成式交互、具身智能与HRI、空天智能以及 3D 感知等前沿应用方向。"
+author: "Wenbin Zuo"
+url: "https://cdi-lv-group.github.io"
+baseurl: "lvgroup" # 仓库名如果是 cdi-lv-group.github.io，这里保持留空
+
+# 语言设置
+language: "zh-CN" 
+timezone: "Asia/Shanghai"
+
+# 构建设置
+markdown: kramdown
+# theme: minima  # 【已注释】为避免与我们自定义的首页卡片和网格样式冲突，停用默认主题
+
+# 主题与外观设置 (为白天/夜间模式预留)
+theme_settings:
+  enable_dark_mode: true
+  default_mode: "auto" # auto表示跟随访客的电脑系统设置，也可固定为 "light" 或 "dark"
+
+# 插件
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+  - jekyll-sitemap
+
+# 输出与过滤设置
+permalink: /:categories/:title
+exclude:
+  - .gitignore
+  - README.md
+  - DATA_MANAGEMENT.md
+  - Gemfile
+  - Gemfile.lock
+
+# 自定义变量 (用于网页全局调用)
+lab:
+  name: "CDI 实验室"
+  group_short_name: "LV课题组"
+  group_full_name: "Lifelike Interaction and Visuomotor Perception Group"
+  school: "同济大学"
+  institute: "设计创意学院 && 上海自主智能无人系统科学中心"
+  location: "上海市杨浦区四平路1239号"
+  email: "2511992@tongji.edu.cn" # 你的邮箱，或课题组公用邮箱
+  phone: "+86 021-XXXXXXX"
+  wechat: "LV_Group_Official"
+  github: "https://github.com/cdi-lv-group" 
+
+# ==========================================
+# 导航菜单 (四字对齐极致优化版)
+# ==========================================
+navigation:
+  - title: "课题主页"
+    url: "/"
+  - title: "研究方向"
+    url: "/pages/research.html"
+  - title: "学术论文"
+    url: "/pages/publications.html"
+  - title: "团队成员"
+    url: "/pages/people.html"
+  - title: "产业合作"
+    url: "/pages/industry.html"
+  - title: "联系加入"
+    url: "/pages/contact.html"

@@ -1,0 +1,32 @@
+# ==========================================
+# LV课题组 团队分类与展示顺序控制字典
+# 文件路径: _data/groups.yml
+# ==========================================
+
+- id: "faculty"
+  title: "指导教师"
+  subtitle: "Faculty Members"
+
+- id: "researchers"
+  title: "博士后与研究员"
+  subtitle: "Postdocs & Researchers"
+
+- id: "phd"
+  title: "博士研究生"
+  subtitle: "Ph.D. Students"
+
+- id: "master"
+  title: "硕士研究生"
+  subtitle: "Master Students"
+
+- id: "undergrad"
+  title: "本科生"
+  subtitle: "Undergraduate Students"
+
+- id: "interns"
+  title: "科研助理与实习生"
+  subtitle: "Research Assistants & Interns"
+
+- id: "alumni"
+  title: "校友与往届成员"
+  subtitle: "Alumni"

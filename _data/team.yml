@@ -1,0 +1,36 @@
+# ==========================================
+# LV课题组 成员数据
+# ==========================================
+
+- name: "郭炜炜"
+  group_id: "faculty"
+  title: "副教授 / 博士生导师"
+  role: "课题组负责人 (PI)"
+  avatar: "/assets/images/team/guo_weiwei.jpg"
+  bio: "致力于通过人工智能技术与以人为中心设计创新，实现智能体在复杂不确定真实世界智能自主行为。主要关注多模态感知、推理与交互技术及其应用。"
+  email: "xxx@tongji.edu.cn"
+  link: "guo-weiwei.github.io"
+
+- name: "左文彬"
+  group_id: "phd"
+  title: "博士生"
+  role: "核心骨干"
+  avatar: "/assets/images/team/wenbinzuo.jpg"
+  bio: "主要研究方向为计算机视觉、3D感知及点云分析等前沿视觉技术。"
+  email: "2511992@tongji.edu.cn"
+  link: "wbzuo.github.io"
+
+- name: "张三"
+  group_id: "alumni"
+  title: "2024届 硕士毕业生"
+  role: "原 课题组成员"
+  avatar: "/assets/images/team/default_avatar.jpg"
+  destination: "🌟 毕业去向：腾讯 AI Lab (计算机视觉算法研究员)"
+
+- name: "李四"
+  group_id: "interns"
+  title: "本科实习生"
+  role: "科研助理"
+  avatar: "/assets/images/team/default_avatar.jpg"
+  bio: "主要协助进行多模态数据的清洗与标注工作。"
+  email: "lisi@tongji.edu.cn"
