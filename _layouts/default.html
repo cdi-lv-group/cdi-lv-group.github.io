@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{ page.title }} | {{ site.title }}</title>
+    <title>{% if page.title %}{{ page.title }} | {% endif %}{{ site.title }}</title>
     <meta name="description" content="{{ site.description }}">
     
     <script src="https://cdn.tailwindcss.com"></script>
@@ -16,7 +16,16 @@
             backdrop-filter: blur(10px);
             border-bottom: 1px solid rgba(226, 232, 240, 0.8);
         }
-        /* 针对你要求的不同身份标签颜色 */
+        /* 通用标签基础样式 */
+        .role-badge {
+            display: inline-block;
+            padding: 0.2rem 0.75rem;
+            border-radius: 9999px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            line-height: 1.5;
+        }
+        /* 颜色绑定扩展 */
         .badge-indigo { background-color: #e0e7ff; color: #4338ca; border: 1px solid #c7d2fe; }
         .badge-purple { background-color: #f3e8ff; color: #7e22ce; border: 1px solid #e9d5ff; }
         .badge-blue { background-color: #dbeafe; color: #1d4ed8; border: 1px solid #bfdbfe; }
@@ -32,17 +41,17 @@
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between h-16 items-center">
                 <div class="flex-shrink-0 flex items-center">
-                    <a href="/" class="text-xl font-bold tracking-tight text-blue-600">
+                    <a href="{{ site.baseurl }}/" class="text-xl font-bold tracking-tight text-blue-600">
                         {{ site.title }} <span class="text-slate-400 font-light ml-2">Lab</span>
                     </a>
                 </div>
                 <div class="hidden md:block">
                     <div class="ml-10 flex items-baseline space-x-8 text-sm font-medium">
-                        <a href="/" class="text-slate-600 hover:text-blue-600 transition">首页</a>
-                        <a href="/research" class="text-slate-600 hover:text-blue-600 transition">研究方向</a>
-                        <a href="/people" class="text-slate-600 hover:text-blue-600 transition">团队成员</a>
-                        <a href="/publications" class="text-slate-600 hover:text-blue-600 transition">学术成果</a>
-                        <a href="/news" class="text-slate-600 hover:text-blue-600 transition">新闻动态</a>
+                        <a href="{{ site.baseurl }}/" class="text-slate-600 hover:text-blue-600 transition">首页</a>
+                        <a href="{{ site.baseurl }}/research" class="text-slate-600 hover:text-blue-600 transition">研究方向</a>
+                        <a href="{{ site.baseurl }}/pages/people.html" class="text-slate-600 hover:text-blue-600 transition">团队成员</a>
+                        <a href="{{ site.baseurl }}/publications" class="text-slate-600 hover:text-blue-600 transition">学术成果</a>
+                        <a href="{{ site.baseurl }}/news" class="text-slate-600 hover:text-blue-600 transition">新闻动态</a>
                     </div>
                 </div>
             </div>
@@ -56,10 +65,10 @@
     <footer class="bg-white border-t border-slate-200 mt-20 py-12">
         <div class="max-w-6xl mx-auto px-4 text-center">
             <p class="text-slate-500 text-sm">
-                &copy; 2024-2026 {{ site.title }}. Built by {{ site.author }}.
+                &copy; {{ "now" | date: "%Y" }} {{ site.title }}. Built by {{ site.author }}.
             </p>
-            <p class="text-slate-400 text-xs mt-2">
-                同济大学 · 云计算、大数据、AI、区块链与物联网实验室
+            <p class="text-slate-400 text-xs mt-2 italic">
+                同济大学 · {{ site.description }}
             </p>
         </div>
     </footer>

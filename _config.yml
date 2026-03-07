@@ -5,7 +5,7 @@ title: "LV课题组"
 description: "致力于多模态感知、推理与交互的共性基础研究，并专注于智能体与生成式交互、具身智能与HRI、空天智能以及 3D 感知等前沿应用方向。"
 author: "Wenbin Zuo"
 url: "https://cdi-lv-group.github.io"
-baseurl: "/lvgroup" # 仓库名如果是 cdi-lv-group.github.io，这里保持留空
+baseurl: "/" # 仓库名如果是 cdi-lv-group.github.io，这里保持留空
 
 # 语言设置
 language: "zh-CN" 
