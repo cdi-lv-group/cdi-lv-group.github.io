@@ -13,17 +13,17 @@ title: 团队成员
     <div class="max-w-6xl mx-auto px-4 relative z-10 text-center md:text-left">
         <div class="inline-block mb-4 px-4 py-1.5 rounded-full bg-blue-50 dark:bg-slate-800 border border-blue-100 dark:border-blue-900 text-blue-600 dark:text-blue-400 text-sm font-bold tracking-wide shadow-sm transition-colors duration-300">
             <span class="lang-zh">团队成员</span>
-            <span class="lang-en">Team Members</span>
+            <span class="lang-en">Our Team</span>
         </div>
         
         <h1 class="text-4xl md:text-6xl font-extrabold text-slate-900 dark:text-white mb-6 tracking-tight leading-tight transition-colors duration-300">
-            <span class="lang-zh">凝聚 <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-500 dark:from-blue-400 dark:to-cyan-300">多元智慧</span> 的核心力量</span>
-            <span class="lang-en">The Core Power of <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-500 dark:from-blue-400 dark:to-cyan-300">Diverse Wisdom</span></span>
+            <span class="lang-zh">汇聚智能领域的 <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-500 dark:from-blue-400 dark:to-cyan-300">创新先锋</span></span>
+            <span class="lang-en">Pioneering <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-500 dark:from-blue-400 dark:to-cyan-300">Innovative Minds</span> in AI</span>
         </h1>
         
         <p class="text-lg md:text-xl text-slate-500 dark:text-slate-400 max-w-3xl leading-relaxed font-light mx-auto md:mx-0 transition-colors duration-300">
-            <span class="lang-zh">我们的团队由充满激情的跨学科研究者组成。在这里，我们共同打破学术边界，在多模态感知与具身智能领域不断追求卓越，探索真实世界的无限可能。</span>
-            <span class="lang-en">Our team consists of passionate interdisciplinary researchers. Here, we break academic boundaries together, pursuing excellence in multimodal perception and embodied AI to explore the infinite possibilities of the real world.</span>
+            <span class="lang-zh">我们是一群致力于探索人工智能前沿的研究者、工程师和创新者。通过跨学科的协作，我们在感知与具身智能领域不断追求卓越，共同构建未来。</span>
+            <span class="lang-en">We are a community of passionate researchers, engineers, and innovators exploring the frontiers of AI. Through interdisciplinary collaboration, we strive for excellence in perception and embodied intelligence.</span>
         </p>
     </div>
 </section>
