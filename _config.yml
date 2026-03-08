@@ -51,6 +51,7 @@ lab:
 # ==========================================
 # 导航菜单 (四字对齐极致优化版)
 # ==========================================
+
 navigation:
   - title: "课题主页"
     url: "/"
@@ -60,7 +61,7 @@ navigation:
     url: "/pages/publications.html"
   - title: "团队成员"
     url: "/pages/people.html"
-  - title: "产业合作"
-    url: "/pages/industry.html"
+  - title: "新闻动态"             # <--- 这里改成了新闻动态
+    url: "/pages/news.html"      # <--- 链接也同步指向 news.html
   - title: "联系加入"
     url: "/pages/contact.html"

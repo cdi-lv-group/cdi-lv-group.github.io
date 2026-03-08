@@ -1,0 +1,31 @@
+# ==========================================
+# LV课题组 新闻动态数据库
+# 文件路径: _data/news.yml
+# ==========================================
+
+- date: "2026.03"
+  title: "LV课题组全新官方网站正式上线"
+  category: "Lab Event"
+  description: "经过精心筹备，LV课题组全新主页正式上线。我们将在这里持续分享实验室在3D视觉、多模态感知与具身智能领域的最新学术成果、开源项目以及招生动态。"
+  link: "#"
+
+- date: "2026.02"
+  title: "自动化文献追踪系统部署完成"
+  category: "Infrastructure"
+  description: "实验室部署了全新的 arXiv 自动化检索与推送脚本，通过飞书机器人实现了每日最新前沿论文的精准推流，进一步提升了课题组的科研效率。"
+
+- date: "2026.01"
+  title: "开源项目 Unismot 正式发布"
+  category: "Open Source"
+  description: "实验室在 GitHub 发布了全新的计算机视觉开源项目 Unismot。该项目提供了一个统一的单目标与多目标跟踪框架，并在 UniRTL 和 COCO 数据集上完成了深度验证。"
+  link: "https://github.com/wbzuo"
+
+- date: "2025.12"
+  title: "课题组成员参与 Perplexity AI 学术计划"
+  category: "Collaboration"
+  description: "实验室成员成功获得 Perplexity AI 教育版 Pro 支持，探索将新一代 AI 检索引擎深度融入日常代码开发与学术文献调研中。"
+
+- date: "2025.11"
+  title: "博士生招录与人才引进工作稳步推进"
+  category: "Admissions"
+  description: "实验室持续推进与上海自主智能无人系统科学中心的人才培养合作，完成了新一届博士生（Ph.D.）的简历初筛与推荐选拔工作。"
