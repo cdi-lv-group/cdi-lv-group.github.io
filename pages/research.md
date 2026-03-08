@@ -23,17 +23,18 @@ title: 研究方向
     
     <div class="max-w-6xl mx-auto px-4 relative z-10 text-center md:text-left">
         <div class="inline-block mb-4 px-4 py-1.5 rounded-full bg-blue-50 dark:bg-slate-800 border border-blue-100 dark:border-blue-900 text-blue-600 dark:text-blue-400 text-sm font-bold tracking-wide shadow-sm transition-colors duration-300">
-            Research Areas
+            <span class="lang-zh">团队成员</span>
+            <span class="lang-en">Team Members</span>
         </div>
         
         <h1 class="text-4xl md:text-6xl font-extrabold text-slate-900 dark:text-white mb-6 tracking-tight leading-tight transition-colors duration-300">
-            <span class="lang-zh">探索智能的 <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-500 dark:from-blue-400 dark:to-cyan-300">物理边界</span></span>
-            <span class="lang-en">Exploring the <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-500 dark:from-blue-400 dark:to-cyan-300">Physical Boundaries</span></span>
+            <span class="lang-zh">凝聚 <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-500 dark:from-blue-400 dark:to-cyan-300">多元智慧</span> 的核心力量</span>
+            <span class="lang-en">The Core Power of <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-500 dark:from-blue-400 dark:to-cyan-300">Diverse Wisdom</span></span>
         </h1>
         
         <p class="text-lg md:text-xl text-slate-500 dark:text-slate-400 max-w-3xl leading-relaxed font-light mx-auto md:mx-0 transition-colors duration-300">
-            <span class="lang-zh">我们致力于多模态感知、3D视觉与具身智能的基础理论与前沿应用研究，旨在让智能体在复杂、不确定的真实世界中具备强大的自主行为能力。</span>
-            <span class="lang-en">We are dedicated to foundational theories and cutting-edge applications in multimodal perception, 3D vision, and embodied AI, aiming to equip agents with robust autonomous behaviors in complex, real-world environments.</span>
+            <span class="lang-zh">我们的团队由充满激情的跨学科研究者组成。在这里，我们共同打破学术边界，在多模态感知与具身智能领域不断追求卓越，探索真实世界的无限可能。</span>
+            <span class="lang-en">Our team consists of passionate interdisciplinary researchers. Here, we break academic boundaries together, pursuing excellence in multimodal perception and embodied AI to explore the infinite possibilities of the real world.</span>
         </p>
     </div>
 </section>
