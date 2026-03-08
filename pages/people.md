@@ -3,17 +3,25 @@ layout: default
 title: 团队成员
 ---
 
+{% if page.lang == 'en' %}
+  {% assign t_title = "Team Members" %}
+  {% assign t_desc = "Exploring intelligent autonomous behavior in the real world through multimodal perception, 3D vision, and embodied intelligence." %}
+  {% assign t_email = "Email" %}
+  {% assign t_home = "Homepage" %}
+{% else %}
+  {% assign t_title = "团队成员" %}
+  {% assign t_desc = "致力于探索真实世界中的智能自主行为。研究领域涵盖多模态感知、3D视觉与具身智能。" %}
+  {% assign t_email = "邮箱" %}
+  {% assign t_home = "个人主页" %}
+{% endif %}
+
 <section class="bg-white dark:bg-slate-900 border-b border-slate-100 dark:border-slate-800 py-16 transition-colors duration-300 relative z-0">
     <div class="max-w-6xl mx-auto px-4 relative z-10">
         <h1 class="text-4xl font-extrabold text-slate-900 dark:text-white mb-4 tracking-tight">
-            {% if page.lang == 'en' %}Team Members{% else %}团队成员{% endif %}
+            {{ t_title }}
         </h1>
         <p class="text-lg text-slate-500 dark:text-slate-400 max-w-3xl leading-relaxed">
-            {% if page.lang == 'en' %}
-            Exploring intelligent autonomous behavior in the real world through multimodal perception, 3D vision, and embodied intelligence.
-            {% else %}
-            致力于探索真实世界中的智能自主行为。研究领域涵盖多模态感知、3D视觉与具身智能。
-            {% endif %}
+            {{ t_desc }}
         </p>
     </div>
 </section>
@@ -29,7 +37,7 @@ title: 团队成员
                 <h2 class="text-2xl font-bold text-slate-800 dark:text-white uppercase tracking-wide">
                     {{ group.title[page.lang] | default: group.title.zh }}
                 </h2>
-                {% if page.lang == 'zh' %}
+                {% if page.lang == 'zh' and group.subtitle %}
                 <span class="text-slate-400 dark:text-slate-500 font-light italic ml-2">{{ group.subtitle }}</span>
                 {% endif %}
             </div>
@@ -58,7 +66,7 @@ title: 团队成员
                             </p>
                             
                             <div class="flex flex-wrap justify-center md:justify-start gap-3">
-                                {% include team-links.html links=member.links email=member.email color=group.color %}
+                                {% include team-links.html links=member.links email=member.email color=group.color lang=page.lang %}
                             </div>
                         </div>
                     </div>
@@ -103,7 +111,7 @@ title: 团队成员
                                 "{{ member.bio[page.lang] | default: member.bio.zh }}"
                             </p>
                             <div class="flex flex-wrap gap-2 mt-auto">
-                                {% include team-links.html links=member.links email=member.email color=group.color small=true %}
+                                {% include team-links.html links=member.links email=member.email color=group.color small=true lang=page.lang %}
                             </div>
                         </div>
                     </div>
