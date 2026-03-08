@@ -189,21 +189,39 @@ title: 团队成员
             <span class="text-slate-400 font-light italic">Alumni</span>
         </div>
         
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {% assign alumni = site.data.team | where: "group_id", "alumni" %}
             {% for member in alumni %}
-            <div class="group p-5 bg-white border border-slate-100 rounded-2xl hover:border-blue-200 hover:shadow-md transition-all">
-                <div class="flex items-center space-x-3 mb-2">
-                    <div class="w-2 h-2 rounded-full bg-slate-300 group-hover:bg-blue-400 transition-colors"></div>
+            <div class="group relative bg-white rounded-2xl p-6 border border-slate-100 shadow-sm hover:shadow-lg hover:border-blue-100 transition-all duration-300 flex flex-col h-full overflow-hidden">
+                <div class="absolute top-0 left-0 w-full h-1 bg-slate-100 group-hover:bg-blue-400 transition-colors duration-300"></div>
+                
+                <div class="flex items-center space-x-3 mb-3 mt-1">
+                    <div class="w-2.5 h-2.5 rounded-full bg-slate-300 group-hover:bg-blue-500 transition-colors"></div>
                     <span class="font-bold text-slate-800 text-lg">{{ member.name }}</span>
                 </div>
-                <p class="text-xs text-slate-400 mb-4">{{ member.title }}</p>
-                <div class="text-xs font-medium text-blue-700 bg-blue-50 px-3 py-2 rounded-lg leading-relaxed inline-block">
-                    {{ member.destination }}
+                
+                <p class="text-xs text-slate-500 mb-5 font-medium tracking-wide uppercase">{{ member.title }}</p>
+                
+                <div class="mt-auto">
+                    <div class="text-xs font-semibold text-blue-700 bg-blue-50 border border-blue-100/50 px-3 py-2.5 rounded-xl leading-relaxed">
+                        {{ member.destination }}
+                    </div>
+                </div>
+
+                <div class="absolute bottom-6 right-6 flex space-x-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 translate-y-2 group-hover:translate-y-0">
+                    {% if member.links.linkedin %}
+                    <a href="{{ member.links.linkedin }}" target="_blank" class="text-slate-400 hover:text-blue-600 bg-white shadow-sm p-1.5 rounded-md transition" title="LinkedIn">
+                        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path fill-rule="evenodd" d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" clip-rule="evenodd"></path></svg>
+                    </a>
+                    {% endif %}
+                    {% if member.links.homepage %}
+                    <a href="{{ member.links.homepage }}" target="_blank" class="text-slate-400 hover:text-blue-600 bg-white shadow-sm p-1.5 rounded-md transition" title="Homepage">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+                    </a>
+                    {% endif %}
                 </div>
             </div>
             {% endfor %}
         </div>
     </div>
-
 </section>
