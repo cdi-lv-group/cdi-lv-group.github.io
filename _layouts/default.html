@@ -28,7 +28,7 @@
         .glass-nav { background: rgba(255, 255, 255, 0.85); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(226, 232, 240, 0.8); }
         .dark .glass-nav { background: rgba(15, 23, 42, 0.85); border-bottom: 1px solid rgba(30, 41, 59, 0.8); }
         
-        /* 2. 核心 CSS：根据 HTML 的 lang 属性隐藏对应的语言区块 */
+        /* 核心 CSS：根据 HTML 的 lang 属性隐藏对应的语言区块 */
         html[lang="zh"] .lang-en { display: none !important; }
         html[lang="en"] .lang-zh { display: none !important; }
     </style>
@@ -60,8 +60,8 @@
                     </div>
                     
                     <div class="flex items-center bg-slate-100 dark:bg-slate-800 rounded-lg p-0.5 border border-slate-200 dark:border-slate-700">
-                        <button onclick="switchLang('zh')" id="btn-zh" class="px-2 py-1 text-[10px] font-bold rounded-md transition-all text-slate-500 hover:text-slate-700">中</button>
-                        <button onclick="switchLang('en')" id="btn-en" class="px-2 py-1 text-[10px] font-bold rounded-md transition-all text-slate-500 hover:text-slate-700">EN</button>
+                        <button onclick="switchLang('zh')" id="btn-zh" class="px-2 py-1 text-[10px] font-bold rounded-md transition-all">中</button>
+                        <button onclick="switchLang('en')" id="btn-en" class="px-2 py-1 text-[10px] font-bold rounded-md transition-all">EN</button>
                     </div>
                     
                     <button id="theme-toggle" class="text-slate-500 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 focus:outline-none rounded-lg text-sm p-2 transition-colors">
@@ -77,18 +77,45 @@
         {{ content }}
     </main>
 
-    <footer class="bg-white dark:bg-slate-900 border-t border-slate-200 dark:border-slate-800 mt-20 py-12 transition-colors">
+    <section class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12 mt-10 border-t border-slate-100 dark:border-slate-800/50 transition-colors">
+        <div class="flex items-center space-x-3 mb-8">
+            <div class="h-1 w-6 bg-blue-600 dark:bg-blue-500 rounded-full"></div>
+            <h2 class="text-xs font-black uppercase tracking-[0.2em] text-slate-400 dark:text-slate-500">
+                <span class="lang-zh">友情链接</span>
+                <span class="lang-en">Quick Links</span>
+            </h2>
+        </div>
+        
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+            {% for link in site.links %}
+            <a href="{{ link.url }}" target="_blank" rel="noopener noreferrer" 
+               class="group p-4 rounded-2xl border border-slate-100 dark:border-slate-800 bg-white/40 dark:bg-slate-800/40 hover:bg-white dark:hover:bg-slate-800 hover:border-blue-200 dark:hover:border-blue-700 hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
+                <div class="flex flex-col">
+                    <span class="text-sm font-bold text-slate-700 dark:text-slate-200 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
+                        <span class="lang-zh">{{ link.name.zh }}</span>
+                        <span class="lang-en">{{ link.name.en }}</span>
+                    </span>
+                    <span class="text-[10px] text-slate-400 dark:text-slate-500 mt-1.5 font-medium truncate opacity-60 group-hover:opacity-100 transition-opacity uppercase tracking-tighter">
+                        {{ link.url | remove: "https://" | remove: "http://" | remove: "www." }}
+                    </span>
+                </div>
+            </a>
+            {% endfor %}
+        </div>
+    </section>
+
+    <footer class="bg-white dark:bg-slate-900 border-t border-slate-200 dark:border-slate-800 py-12 transition-colors">
         <div class="max-w-6xl mx-auto px-4 flex flex-col md:flex-row justify-between items-center text-center md:text-left gap-6">
             <div>
                 <p class="text-slate-800 dark:text-slate-200 font-bold text-lg mb-1">{{ site.lab.group_short_name }}</p>
-                <p class="text-slate-500 dark:text-slate-400 text-xs tracking-wide uppercase mb-2">{{ site.lab.group_full_name }}</p>
-                <p class="text-slate-400 dark:text-slate-500 text-sm mt-2">
+                <p class="text-slate-500 dark:text-slate-400 text-[10px] tracking-widest uppercase mb-2">{{ site.lab.group_full_name }}</p>
+                <p class="text-slate-400 dark:text-slate-500 text-sm mt-2 font-light">
                     &copy; {{ "now" | date: "%Y" }} 
                     <span class="lang-zh">{{ site.lab.school.zh }}</span>
                     <span class="lang-en">{{ site.lab.school.en }}</span>. All rights reserved.
                 </p>
             </div>
-            <div class="text-slate-400 dark:text-slate-500 text-sm text-center md:text-right space-y-1">
+            <div class="text-slate-400 dark:text-slate-500 text-xs md:text-sm text-center md:text-right space-y-1 font-light">
                 <p>
                     <span class="lang-zh">{{ site.lab.institute.zh }}</span>
                     <span class="lang-en">{{ site.lab.institute.en }}</span>
@@ -108,58 +135,52 @@
             localStorage.setItem('lang', lang);
             updateLangBtnStyle();
             
-            // 无刷新修改 URL 参数，方便分享链接
+            // 无刷新修改 URL 参数
             const url = new URL(window.location);
             url.searchParams.set('lang', lang);
             window.history.pushState({}, '', url);
         }
 
-        // 更新中英按钮的高亮状态
         function updateLangBtnStyle() {
             const currentLang = document.documentElement.lang;
             const btnZh = document.getElementById('btn-zh');
             const btnEn = document.getElementById('btn-en');
             
+            const activeClass = "bg-white dark:bg-slate-600 shadow-sm text-blue-600 dark:text-white";
+            const inactiveClass = "text-slate-500 hover:text-slate-700 dark:hover:text-slate-300";
+
             if (currentLang === 'zh') {
-                btnZh.className = "px-2 py-1 text-[10px] font-bold rounded-md transition-all bg-white dark:bg-slate-600 shadow-sm text-blue-600 dark:text-white";
-                btnEn.className = "px-2 py-1 text-[10px] font-bold rounded-md transition-all text-slate-500 hover:text-slate-700 dark:hover:text-slate-300";
+                btnZh.className = `px-2 py-1 text-[10px] font-bold rounded-md transition-all ${activeClass}`;
+                btnEn.className = `px-2 py-1 text-[10px] font-bold rounded-md transition-all ${inactiveClass}`;
             } else {
-                btnEn.className = "px-2 py-1 text-[10px] font-bold rounded-md transition-all bg-white dark:bg-slate-600 shadow-sm text-blue-600 dark:text-white";
-                btnZh.className = "px-2 py-1 text-[10px] font-bold rounded-md transition-all text-slate-500 hover:text-slate-700 dark:hover:text-slate-300";
+                btnEn.className = `px-2 py-1 text-[10px] font-bold rounded-md transition-all ${activeClass}`;
+                btnZh.className = `px-2 py-1 text-[10px] font-bold rounded-md transition-all ${inactiveClass}`;
             }
         }
         
-        // 页面加载完毕后执行一次按钮高亮
         updateLangBtnStyle();
 
         // --- 暗黑模式逻辑 ---
-        var themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
-        var themeToggleLightIcon = document.getElementById('theme-toggle-light-icon');
-        if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+        const themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
+        const themeToggleLightIcon = document.getElementById('theme-toggle-light-icon');
+        const themeToggleBtn = document.getElementById('theme-toggle');
+
+        if (document.documentElement.classList.contains('dark')) {
             themeToggleLightIcon.classList.remove('hidden');
         } else {
             themeToggleDarkIcon.classList.remove('hidden');
         }
-        var themeToggleBtn = document.getElementById('theme-toggle');
+
         themeToggleBtn.addEventListener('click', function() {
             themeToggleDarkIcon.classList.toggle('hidden');
             themeToggleLightIcon.classList.toggle('hidden');
-            if (localStorage.getItem('color-theme')) {
-                if (localStorage.getItem('color-theme') === 'light') {
-                    document.documentElement.classList.add('dark');
-                    localStorage.setItem('color-theme', 'dark');
-                } else {
-                    document.documentElement.classList.remove('dark');
-                    localStorage.setItem('color-theme', 'light');
-                }
+            
+            if (document.documentElement.classList.contains('dark')) {
+                document.documentElement.classList.remove('dark');
+                localStorage.setItem('color-theme', 'light');
             } else {
-                if (document.documentElement.classList.contains('dark')) {
-                    document.documentElement.classList.remove('dark');
-                    localStorage.setItem('color-theme', 'light');
-                } else {
-                    document.documentElement.classList.add('dark');
-                    localStorage.setItem('color-theme', 'dark');
-                }
+                document.documentElement.classList.add('dark');
+                localStorage.setItem('color-theme', 'dark');
             }
         });
     </script>
