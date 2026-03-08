@@ -203,7 +203,7 @@ title: 首页
                 </div>
 
                 <div class="shrink-0">
-                    <a href="{{ site.baseurl }}/pages/join_us.html" class="inline-flex items-center justify-center px-8 py-5 bg-slate-900 dark:bg-white text-white dark:text-slate-900 rounded-2xl font-black text-lg hover:scale-105 hover:shadow-2xl active:scale-95 transition-all duration-300 group/btn">
+                    <a href="{{ site.baseurl }}/pages/contact.html" class="inline-flex items-center justify-center px-8 py-5 bg-slate-900 dark:bg-white text-white dark:text-slate-900 rounded-2xl font-black text-lg hover:scale-105 hover:shadow-2xl active:scale-95 transition-all duration-300 group/btn">
                         <span class="lang-zh">立即申请</span>
                         <span class="lang-en">Apply Now</span>
                         <svg class="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
