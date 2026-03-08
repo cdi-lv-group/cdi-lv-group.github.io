@@ -160,7 +160,7 @@ title: 研究方向
                     </svg>
                 </a>
                 
-                <a href="https://github.com/{{ site.github_username }}" target="_blank"
+                <a href="{{ site.github }}" target="_blank"
                    class="w-full sm:w-auto inline-flex items-center justify-center px-10 py-4 rounded-2xl font-bold text-slate-600 dark:text-slate-300 border border-slate-200 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-slate-800 transition-all">
                     <span class="lang-zh">开源代码库</span>
                     <span class="lang-en">GitHub Repos</span>
