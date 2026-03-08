@@ -12,18 +12,21 @@ title: 首页
     <div class="inline-block mb-6 px-5 py-2 rounded-full bg-white border border-blue-100 text-blue-600 text-sm font-bold tracking-wide shadow-sm hover:shadow-md transition-shadow">
       Tongji University · LV Research Group
     </div>
+    
     <h1 class="text-5xl md:text-7xl font-extrabold text-slate-900 mb-8 tracking-tight leading-tight">
       探索物理世界的 <br class="hidden md:block" />
       <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-500">3D感知与具身智能</span>
     </h1>
+    
     <p class="text-xl md:text-2xl text-slate-500 mb-12 max-w-3xl mx-auto leading-relaxed font-light">
       致力于多模态感知、推理与交互的共性基础研究，探索空天智能与智能体在复杂真实世界中的前沿边界。
     </p>
+    
     <div class="flex flex-col sm:flex-row justify-center items-center space-y-4 sm:space-y-0 sm:space-x-6 mb-16">
       <a href="{{ site.baseurl }}/pages/people.html" class="w-full sm:w-auto bg-blue-600 text-white px-10 py-4 rounded-2xl font-bold hover:bg-blue-700 hover:shadow-lg hover:shadow-blue-200 hover:-translate-y-1 transition-all duration-300">
         了解团队
       </a>
-      <a href="{{ site.baseurl }}/research" class="w-full sm:w-auto bg-white border border-slate-200 text-slate-700 px-10 py-4 rounded-2xl font-bold hover:bg-slate-50 hover:shadow-sm transition-all duration-300">
+      <a href="{{ site.baseurl }}/pages/research.html" class="w-full sm:w-auto bg-white border border-slate-200 text-slate-700 px-10 py-4 rounded-2xl font-bold hover:bg-slate-50 hover:shadow-sm transition-all duration-300">
         研究方向
       </a>
     </div>
@@ -34,6 +37,7 @@ title: 首页
     </div>
   </div>
 </section>
+
 
 <section class="max-w-6xl mx-auto px-4 py-20 border-t border-slate-100">
   <div class="flex flex-col md:flex-row justify-between items-end mb-12 gap-4">
@@ -47,10 +51,12 @@ title: 首页
 
   <div class="grid md:grid-cols-3 gap-8">
     {% for item in site.data.research %}
-    <a href="{{ site.baseurl }}/research" class="group bg-white p-10 rounded-[2.5rem] shadow-sm border border-slate-100 hover:shadow-2xl hover:border-blue-100 hover:-translate-y-2 transition-all duration-500 flex flex-col h-full cursor-pointer">
+    <a href="{{ site.baseurl }}/pages/research.html" class="group bg-white p-10 rounded-[2.5rem] shadow-sm border border-slate-100 hover:shadow-2xl hover:border-blue-100 hover:-translate-y-2 transition-all duration-500 flex flex-col h-full cursor-pointer">
+      
       <div class="w-16 h-16 bg-blue-50 text-blue-600 rounded-2xl flex items-center justify-center text-3xl mb-6 group-hover:bg-blue-600 group-hover:text-white transition-colors duration-300 shadow-sm">
         {{ item.icon }}
       </div>
+      
       <h3 class="text-2xl font-bold mb-4 text-slate-900 group-hover:text-blue-600 transition-colors">{{ item.title }}</h3>
       <p class="text-slate-500 leading-relaxed flex-grow">{{ item.description }}</p>
       
@@ -64,6 +70,7 @@ title: 首页
   </div>
 </section>
 
+
 <section class="bg-slate-50 py-20">
   <div class="max-w-6xl mx-auto px-4 grid md:grid-cols-2 gap-12">
       
@@ -71,28 +78,24 @@ title: 首页
           <div class="flex items-center space-x-4 mb-8 border-l-4 border-blue-600 pl-4">
               <h2 class="text-2xl font-bold text-slate-800 tracking-tight">最新动态</h2>
           </div>
-          <div class="bg-white rounded-[2rem] p-8 border border-slate-100 shadow-sm h-full">
-            <ul class="space-y-6">
+          
+          <div class="bg-white rounded-[2rem] p-8 border border-slate-100 shadow-sm h-full flex flex-col">
+            <ul class="space-y-6 flex-grow">
+              {% for item in site.data.news limit:3 %}
               <li class="flex items-start gap-4 pb-6 border-b border-slate-50 last:border-0 last:pb-0">
-                <span class="text-blue-600 font-bold shrink-0 w-20">2026.03</span>
-                <p class="text-slate-600 leading-relaxed text-sm">
-                  🎉 恭喜课题组新版主页正式上线！我们将在这里分享最新的学术成果与开源项目。
-                </p>
+                <span class="text-blue-600 font-bold shrink-0 w-20 pt-0.5">{{ item.date }}</span>
+                <div class="flex-1">
+                  <a href="{% if item.link and item.link != '#' %}{{ item.link }}{% else %}{{ site.baseurl }}/pages/news.html{% endif %}" class="font-bold text-slate-800 hover:text-blue-600 transition block mb-1 text-sm leading-snug">
+                    {{ item.title }}
+                  </a>
+                  <p class="text-slate-500 leading-relaxed text-xs line-clamp-2">
+                    {{ item.description }}
+                  </p>
+                </div>
               </li>
-              <li class="flex items-start gap-4 pb-6 border-b border-slate-50 last:border-0 last:pb-0">
-                <span class="text-slate-500 font-medium shrink-0 w-20">2026.01</span>
-                <p class="text-slate-600 leading-relaxed text-sm">
-                  🚀 课题组正式开源了基于多目标跟踪的 <span class="font-semibold text-slate-800">Unismot</span> 项目框架，支持 UniRTL 与 COCO 数据集，欢迎在 GitHub 体验。
-                </p>
-              </li>
-              <li class="flex items-start gap-4">
-                <span class="text-slate-500 font-medium shrink-0 w-20">2025.12</span>
-                <p class="text-slate-600 leading-relaxed text-sm">
-                  🏆 实验室成员荣获同济大学优秀科研奖励，并在国际顶级会议上进行成果汇报。
-                </p>
-              </li>
+              {% endfor %}
             </ul>
-            <a href="{{ site.baseurl }}/news" class="mt-6 inline-block text-sm font-semibold text-blue-600 hover:text-blue-800 transition">查看所有新闻 &rarr;</a>
+            <a href="{{ site.baseurl }}/pages/news.html" class="mt-6 inline-block text-sm font-semibold text-blue-600 hover:text-blue-800 transition">查看所有新闻 &rarr;</a>
           </div>
       </div>
 
@@ -100,24 +103,34 @@ title: 首页
           <div class="flex items-center space-x-4 mb-8 border-l-4 border-indigo-500 pl-4">
               <h2 class="text-2xl font-bold text-slate-800 tracking-tight">精选成果</h2>
           </div>
+          
           <div class="bg-white rounded-[2rem] p-8 border border-slate-100 shadow-sm h-full flex flex-col justify-between">
-              <div class="space-y-6">
-                  <div class="group">
-                      <span class="inline-block px-2 py-1 bg-indigo-50 text-indigo-600 text-xs font-bold rounded mb-2">CVPR 2026</span>
-                      <h3 class="text-base font-bold text-slate-900 group-hover:text-blue-600 transition-colors leading-snug mb-1 cursor-pointer">
-                          Towards Generalizable 3D Perception: A Novel Framework for Embodied Agents
+              <div class="space-y-6 flex-grow">
+                  {% for paper in site.data.publications limit:3 %}
+                  <div class="group border-b border-slate-50 pb-5 last:border-0 last:pb-0">
+                      
+                      <div class="flex items-center gap-2 mb-2">
+                          <span class="inline-block px-2 py-0.5 bg-indigo-50 text-indigo-600 text-xs font-bold rounded">
+                              {{ paper.venue }}
+                          </span>
+                          {% if paper.highlight %}
+                          <span class="inline-block px-2 py-0.5 bg-red-50 text-red-600 text-[0.65rem] font-bold rounded uppercase">
+                              🔥 {{ paper.highlight }}
+                          </span>
+                          {% endif %}
+                      </div>
+                      
+                      <h3 class="text-sm font-bold text-slate-900 group-hover:text-blue-600 transition-colors leading-snug mb-1">
+                          <a href="{% if paper.links.paper %}{{ paper.links.paper }}{% else %}{{ site.baseurl }}/pages/publications.html{% endif %}" target="_blank">
+                              {{ paper.title }}
+                          </a>
                       </h3>
-                      <p class="text-sm text-slate-500 italic line-clamp-1">Weiwei Guo, Wenbin Zuo, et al.</p>
+                      
+                      <p class="text-xs text-slate-500 italic line-clamp-1">{{ paper.authors }}</p>
                   </div>
-                  <div class="group">
-                      <span class="inline-block px-2 py-1 bg-indigo-50 text-indigo-600 text-xs font-bold rounded mb-2">NeurIPS 2025</span>
-                      <h3 class="text-base font-bold text-slate-900 group-hover:text-blue-600 transition-colors leading-snug mb-1 cursor-pointer">
-                          Unismot: Unified Single and Multiple Object Tracking in Complex Scenarios
-                      </h3>
-                      <p class="text-sm text-slate-500 italic line-clamp-1">Wenbin Zuo, Weiwei Guo, et al.</p>
-                  </div>
+                  {% endfor %}
               </div>
-              <a href="{{ site.baseurl }}/publications" class="mt-8 inline-block text-sm font-semibold text-blue-600 hover:text-blue-800 transition">浏览所有论文 &rarr;</a>
+              <a href="{{ site.baseurl }}/pages/publications.html" class="mt-6 inline-block text-sm font-semibold text-blue-600 hover:text-blue-800 transition">浏览所有论文 &rarr;</a>
           </div>
       </div>
 
