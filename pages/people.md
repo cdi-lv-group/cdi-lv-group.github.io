@@ -17,6 +17,7 @@ title: 团队成员
 </section>
 
 <section class="max-w-6xl mx-auto px-4 py-16">
+    
     {% for group in site.data.groups %}
         {% assign members = site.data.team | where: "group_id", group.id | sort: "rank" %}
         
@@ -27,7 +28,9 @@ title: 团队成员
                     <span class="lang-zh">{{ group.title.zh }}</span>
                     <span class="lang-en">{{ group.title.en }}</span>
                 </h2>
+                {% if group.subtitle %}
                 <span class="text-slate-400 dark:text-slate-500 font-light italic ml-2 lang-zh">{{ group.subtitle }}</span>
+                {% endif %}
             </div>
 
             {% if group.id == 'professor' or group.id == 'researchers' %}
@@ -41,7 +44,7 @@ title: 团队成员
                                     <span class="lang-zh">{{ member.title.zh }}</span>
                                     <span class="lang-en">{{ member.title.en }}</span>
                                 </span>
-                                <h3 class="text-4xl font-bold text-slate-900 dark:text-white mb-2 italic">
+                                <h3 class="text-4xl font-bold text-slate-900 dark:text-white mb-2">
                                     <span class="lang-zh">{{ member.name.zh }}</span>
                                     <span class="lang-en">{{ member.name.en }}</span>
                                 </h3>
@@ -56,6 +59,7 @@ title: 团队成员
                                 <span class="lang-zh">"{{ member.bio.zh }}"</span>
                                 <span class="lang-en">"{{ member.bio.en }}"</span>
                             </p>
+                            
                             <div class="flex flex-wrap justify-center md:justify-start gap-3">
                                 {% include team-links.html links=member.links email=member.email color=group.color %}
                             </div>
