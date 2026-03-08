@@ -1,5 +1,25 @@
+---
+# Jekyll 默认布局
+---
+{% comment %} 
+  1. 核心语言逻辑：检测 URL 是否包含 /en/ 
+{% endcomment %}
+{% assign curr_lang = "zh" %}
+{% if page.url contains '/en/' %}
+  {% assign curr_lang = "en" %}
+{% endif %}
+
+{% comment %} 
+  2. 计算对侧语言的跳转 URL 
+{% endcomment %}
+{% if curr_lang == "zh" %}
+  {% assign alt_url = "/en" | append: page.url | replace: '//', '/' %}
+{% else %}
+  {% assign alt_url = page.url | replace: '/en/', '/' %}
+{% endif %}
+
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="{% if curr_lang == 'en' %}en{% else %}zh-CN{% endif %}">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -15,7 +35,6 @@
     </script>
 
     <script src="https://cdn.tailwindcss.com"></script>
-    
     <script>
         tailwind.config = {
             darkMode: 'class',
@@ -25,56 +44,55 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     
     <style>
-        body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
-        
-        /* 导航栏毛玻璃效果，增加暗黑模式下的颜色适配 */
+        body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; transition: background-color 0.3s ease, color 0.3s ease; }
         .glass-nav {
             background: rgba(255, 255, 255, 0.85);
             backdrop-filter: blur(12px);
             border-bottom: 1px solid rgba(226, 232, 240, 0.8);
         }
         .dark .glass-nav {
-            background: rgba(15, 23, 42, 0.85); /* slate-900 */
-            border-bottom: 1px solid rgba(30, 41, 59, 0.8); /* slate-800 */
+            background: rgba(15, 23, 42, 0.85);
+            border-bottom: 1px solid rgba(30, 41, 59, 0.8);
         }
-
         .role-badge { display: inline-block; padding: 0.2rem 0.75rem; border-radius: 9999px; font-size: 0.75rem; font-weight: 600; line-height: 1.5; }
-        .badge-indigo { background-color: #e0e7ff; color: #4338ca; border: 1px solid #c7d2fe; }
-        .badge-purple { background-color: #f3e8ff; color: #7e22ce; border: 1px solid #e9d5ff; }
         .badge-blue { background-color: #dbeafe; color: #1d4ed8; border: 1px solid #bfdbfe; }
-        .badge-cyan { background-color: #ecfeff; color: #0891b2; border: 1px solid #cffafe; }
-        .badge-green { background-color: #f0fdf4; color: #15803d; border: 1px solid #dcfce7; }
-        .badge-orange { background-color: #fff7ed; color: #c2410c; border: 1px solid #ffedd5; }
-        .badge-gray { background-color: #f3f4f6; color: #374151; border: 1px solid #e5e7eb; }
-        
-        /* 增加全局过渡动画，让模式切换更丝滑 */
-        body { transition: background-color 0.3s ease, color 0.3s ease; }
     </style>
 </head>
 
-<body class="bg-slate-50 text-slate-900 dark:bg-slate-900 dark:text-slate-200 leading-relaxed flex flex-col min-h-screen transition-colors duration-300">
+<body class="bg-slate-50 text-slate-900 dark:bg-slate-900 dark:text-slate-200 flex flex-col min-h-screen">
 
     <nav class="glass-nav sticky top-0 z-50">
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between h-16 items-center">
                 
                 <div class="flex-shrink-0 flex flex-col justify-center">
-                    <a href="{{ '/' | relative_url }}" class="text-xl font-bold tracking-tight text-blue-600 dark:text-blue-400 leading-none mb-1">
-                        {{ site.title }} <span class="text-slate-400 dark:text-slate-500 font-light ml-1">Lab</span>
+                    <a href="{% if curr_lang == 'en' %}/en/{% else %}/{% endif %}" class="text-xl font-bold tracking-tight text-blue-600 dark:text-blue-400 leading-none mb-1">
+                        {{ site.lab.group_short_name }} <span class="text-slate-400 dark:text-slate-500 font-light ml-1">Lab</span>
                     </a>
                     <span class="text-[0.6rem] text-slate-500 dark:text-slate-400 font-medium tracking-wide uppercase leading-none">
                         {{ site.lab.group_full_name }}
                     </span>
                 </div>
 
-                <div class="hidden md:flex items-center space-x-8">
-                    <div class="flex items-baseline space-x-8 text-sm font-medium">
+                <div class="hidden md:flex items-center space-x-6">
+                    <div class="flex items-baseline space-x-6 text-sm font-medium">
                         {% for item in site.navigation %}
-                            <a href="{{ item.url | relative_url }}" 
-                               class="{% if page.url == item.url %}text-blue-600 dark:text-blue-400 font-bold{% else %}text-slate-600 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-400{% endif %} transition duration-300">
-                               {{ item.title }}
+                            {% comment %} 拼接多语言 URL {% endcomment %}
+                            {% assign target_url = item.url %}
+                            {% if curr_lang == 'en' %}
+                                {% assign target_url = "/en" | append: item.url | replace: '//', '/' %}
+                            {% endif %}
+                            
+                            <a href="{{ target_url | relative_url }}" 
+                               class="{% if page.url == target_url %}text-blue-600 dark:text-blue-400 font-bold{% else %}text-slate-600 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-400{% endif %} transition duration-300">
+                               {{ item.title[curr_lang] }}
                             </a>
                         {% endfor %}
+                    </div>
+                    
+                    <div class="flex items-center bg-slate-100 dark:bg-slate-800 rounded-lg p-0.5 border border-slate-200 dark:border-slate-700">
+                        <a href="{{ alt_url }}" class="px-2 py-1 text-[10px] font-bold rounded-md transition-all {% if curr_lang == 'zh' %}bg-white dark:bg-slate-600 shadow-sm text-blue-600 dark:text-white{% else %}text-slate-500 hover:text-slate-700{% endif %}">中</a>
+                        <a href="{{ alt_url }}" class="px-2 py-1 text-[10px] font-bold rounded-md transition-all {% if curr_lang == 'en' %}bg-white dark:bg-slate-600 shadow-sm text-blue-600 dark:text-white{% else %}text-slate-500 hover:text-slate-700{% endif %}">EN</a>
                     </div>
                     
                     <button id="theme-toggle" type="button" class="text-slate-500 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 focus:outline-none rounded-lg text-sm p-2 transition-colors">
@@ -82,7 +100,6 @@
                         <svg id="theme-toggle-light-icon" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path></svg>
                     </button>
                 </div>
-
             </div>
         </div>
     </nav>
@@ -91,18 +108,18 @@
         {{ content }}
     </main>
 
-    <footer class="bg-white dark:bg-slate-900 border-t border-slate-200 dark:border-slate-800 mt-20 py-12 transition-colors duration-300">
+    <footer class="bg-white dark:bg-slate-900 border-t border-slate-200 dark:border-slate-800 mt-20 py-12 transition-colors">
         <div class="max-w-6xl mx-auto px-4 flex flex-col md:flex-row justify-between items-center text-center md:text-left gap-6">
             <div>
                 <p class="text-slate-800 dark:text-slate-200 font-bold text-lg mb-1">{{ site.lab.group_short_name }}</p>
                 <p class="text-slate-500 dark:text-slate-400 text-xs tracking-wide uppercase mb-2">{{ site.lab.group_full_name }}</p>
                 <p class="text-slate-400 dark:text-slate-500 text-sm mt-2">
-                    &copy; {{ "now" | date: "%Y" }} {{ site.lab.school }}. All rights reserved.
+                    &copy; {{ "now" | date: "%Y" }} {{ site.lab.school[curr_lang] }}. All rights reserved.
                 </p>
             </div>
             <div class="text-slate-400 dark:text-slate-500 text-sm text-center md:text-right space-y-1">
-                <p>{{ site.lab.institute }}</p>
-                <p>{{ site.lab.location }}</p>
+                <p>{{ site.lab.institute[curr_lang] }}</p>
+                <p>{{ site.lab.location[curr_lang] }}</p>
                 <p class="mt-2"><a href="mailto:{{ site.lab.email }}" class="hover:text-blue-600 dark:hover:text-blue-400 transition">{{ site.lab.email }}</a></p>
             </div>
         </div>
@@ -111,22 +128,15 @@
     <script>
         var themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
         var themeToggleLightIcon = document.getElementById('theme-toggle-light-icon');
-
-        // 初始化图标状态
         if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
             themeToggleLightIcon.classList.remove('hidden');
         } else {
             themeToggleDarkIcon.classList.remove('hidden');
         }
-
         var themeToggleBtn = document.getElementById('theme-toggle');
-
         themeToggleBtn.addEventListener('click', function() {
-            // 切换图标
             themeToggleDarkIcon.classList.toggle('hidden');
             themeToggleLightIcon.classList.toggle('hidden');
-
-            // 切换系统主题缓存
             if (localStorage.getItem('color-theme')) {
                 if (localStorage.getItem('color-theme') === 'light') {
                     document.documentElement.classList.add('dark');
