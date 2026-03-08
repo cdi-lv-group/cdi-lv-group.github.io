@@ -1,24 +1,15 @@
 # ==========================================
-# Jekyll 网站全局配置 (双语增强版)
+# Jekyll 网站全局配置 (单文件双语终极版)
 # ==========================================
 title: "LV课题组 | LV Group"
 description: "致力于多模态感知、推理与交互的共性基础研究。"
 author: "Wenbin Zuo"
 url: "https://cdi-lv-group.github.io"
-baseurl: "" # 如果是个人/组织主页，建议留空
+baseurl: "" 
 
-# 语言设置
-lang: "zh" # 默认语言
-languages: ["zh", "en"]
+# 构建与基础设置
 timezone: "Asia/Shanghai"
-
-# 构建设置
 markdown: kramdown
-
-# 主题与外观设置
-theme_settings:
-  enable_dark_mode: true
-  default_mode: "auto"
 
 # 插件
 plugins:
@@ -26,7 +17,7 @@ plugins:
   - jekyll-seo-tag
   - jekyll-sitemap
 
-# 自定义变量 (支持双语调用)
+# 实验室基础信息 (双语支持)
 lab:
   name: 
     zh: "CDI 实验室"
@@ -46,18 +37,30 @@ lab:
   github: "https://github.com/cdi-lv-group"
 
 # ==========================================
-# 导航菜单 (双语对齐版)
+# 导航菜单 (双语支持)
 # ==========================================
 navigation:
-  - title: { zh: "课题主页", en: "Home" }
-    url: "/"
-  - title: { zh: "研究方向", en: "Research" }
-    url: "/pages/research.html"
-  - title: { zh: "学术论文", en: "Publications" }
-    url: "/pages/publications.html"
-  - title: { zh: "团队成员", en: "People" }
-    url: "/pages/people.html"
-  - title: { zh: "新闻动态", en: "News" }
-    url: "/pages/news.html"
-  - title: { zh: "联系加入", en: "Join Us" }
-    url: "/pages/contact.html"
+  - url: "/"
+    title: 
+      zh: "课题主页"
+      en: "Home"
+  - url: "/pages/research.html"
+    title: 
+      zh: "研究方向"
+      en: "Research"
+  - url: "/pages/publications.html"
+    title: 
+      zh: "学术论文"
+      en: "Publications"
+  - url: "/pages/people.html"
+    title: 
+      zh: "团队成员"
+      en: "People"
+  - url: "/pages/news.html"
+    title: 
+      zh: "新闻动态"
+      en: "News"
+  - url: "/pages/contact.html"
+    title: 
+      zh: "联系加入"
+      en: "Join Us"
