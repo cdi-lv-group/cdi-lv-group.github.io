@@ -3,15 +3,34 @@ layout: default
 title: 团队成员
 ---
 
-<section class="bg-white dark:bg-slate-900 border-b border-slate-100 dark:border-slate-800 py-16 transition-colors duration-300 relative z-0">
+<section class="bg-white dark:bg-slate-900 border-b border-slate-100 dark:border-slate-800 py-16 md:py-24 transition-colors duration-500 relative overflow-hidden">
+    
+    <div class="absolute top-0 right-0 -translate-y-1/2 translate-x-1/4 w-96 h-96 bg-blue-50 dark:bg-blue-900/20 rounded-full blur-3xl opacity-50 pointer-events-none"></div>
+    <div class="absolute bottom-0 left-0 translate-y-1/2 -translate-x-1/4 w-72 h-72 bg-indigo-50 dark:bg-indigo-900/10 rounded-full blur-3xl opacity-50 pointer-events-none"></div>
+
     <div class="max-w-6xl mx-auto px-4 relative z-10">
-        <h1 class="text-4xl font-extrabold text-slate-900 dark:text-white mb-4 tracking-tight">
+        <div class="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-blue-50 dark:bg-blue-900/30 border border-blue-100 dark:border-blue-800 mb-6 transition-all">
+            <span class="w-2 h-2 rounded-full bg-blue-500 animate-pulse"></span>
+            <span class="text-xs font-bold uppercase tracking-wider text-blue-600 dark:text-blue-400">
+                <span class="lang-zh">实验室风采</span>
+                <span class="lang-en">Our Talent</span>
+            </span>
+        </div>
+
+        <h1 class="text-4xl md:text-5xl font-extrabold text-slate-900 dark:text-white mb-6 tracking-tight">
             <span class="lang-zh">团队成员</span>
             <span class="lang-en">Team Members</span>
         </h1>
-        <p class="text-lg text-slate-500 dark:text-slate-400 max-w-3xl leading-relaxed">
-            <span class="lang-zh">致力于探索真实世界中的智能自主行为。研究领域涵盖多模态感知、3D视觉与具身智能。</span>
-            <span class="lang-en">Exploring intelligent autonomous behavior in the real world through multimodal perception, 3D vision, and embodied intelligence.</span>
+
+        <p class="text-lg md:text-xl text-slate-500 dark:text-slate-400 max-w-3xl leading-relaxed font-light">
+            <span class="lang-zh">
+                致力于通过人工智能技术与以人为中心的设计，实现智能体在复杂不确定真实世界中的智能自主行为。主要关注
+                <span class="text-blue-600 dark:text-blue-400 font-medium">多模态感知、3D视觉与具身智能</span>。
+            </span>
+            <span class="lang-en">
+                Dedicated to achieving intelligent autonomous behavior in complex environments. Our research focuses on 
+                <span class="text-blue-600 dark:text-blue-400 font-medium">multimodal perception, 3D vision, and embodied intelligence</span>.
+            </span>
         </p>
     </div>
 </section>
