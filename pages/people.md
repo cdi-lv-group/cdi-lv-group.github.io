@@ -3,37 +3,31 @@ layout: default
 title: 团队成员
 ---
 
-<section class="bg-white dark:bg-slate-900 border-b border-slate-100 dark:border-slate-800 py-16 md:py-24 transition-colors duration-500 relative overflow-hidden">
+<section class="bg-white dark:bg-slate-900 border-b border-slate-100 dark:border-slate-800 py-16 md:py-24 relative overflow-hidden z-0 transition-colors duration-300">
     
-    <div class="absolute top-0 right-0 -translate-y-1/2 translate-x-1/4 w-96 h-96 bg-blue-50 dark:bg-blue-900/20 rounded-full blur-3xl opacity-50 pointer-events-none"></div>
-    <div class="absolute bottom-0 left-0 translate-y-1/2 -translate-x-1/4 w-72 h-72 bg-indigo-50 dark:bg-indigo-900/10 rounded-full blur-3xl opacity-50 pointer-events-none"></div>
-
-    <div class="max-w-6xl mx-auto px-4 relative z-10">
-        <div class="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-blue-50 dark:bg-blue-900/30 border border-blue-100 dark:border-blue-800 mb-6 transition-all">
-            <span class="w-2 h-2 rounded-full bg-blue-500 animate-pulse"></span>
-            <span class="text-xs font-bold uppercase tracking-wider text-blue-600 dark:text-blue-400">
-                <span class="lang-zh">实验室风采</span>
-                <span class="lang-en">Our Talent</span>
-            </span>
-        </div>
-
-        <h1 class="text-4xl md:text-5xl font-extrabold text-slate-900 dark:text-white mb-6 tracking-tight">
+    <div class="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHBhdGggZD0iTTAgMGg0MHY0MEgweiIgZmlsbD0ibm9uZSIvPjxwYXRoIGQ9Ik0wIDM5LjVMMDQwIDM5LjUiIHN0cm9rZT0icmdiYSgwLCAwLCAwLCAwLjAzKSIgc3Ryb2tlLXdpZHRoPSIxIi8+PHBhdGggZD0iTTM5LjUgMEwzOS41IDQwIiBzdHJva2U9InJnYmEoMCwgMCwgMCwgMC4wMykiIHN0cm9rZS13aWR0aD0iMSIvPjwvc3ZnPg==')] opacity-60 dark:opacity-10 dark:invert transition-all duration-300 -z-10"></div>
+    
+    <div class="absolute top-0 right-0 w-[40rem] h-[40rem] bg-cyan-50 dark:bg-cyan-900/20 rounded-full blur-3xl opacity-60 -translate-y-1/2 translate-x-1/3 transition-colors duration-300 -z-10"></div>
+    <div class="absolute bottom-0 left-0 w-[30rem] h-[30rem] bg-blue-50 dark:bg-blue-900/20 rounded-full blur-3xl opacity-40 translate-y-1/3 -translate-x-1/3 transition-colors duration-300 -z-10"></div>
+    
+    <div class="max-w-6xl mx-auto px-4 relative z-10 text-center md:text-left">
+        <div class="inline-block mb-4 px-4 py-1.5 rounded-full bg-blue-50 dark:bg-slate-800 border border-blue-100 dark:border-blue-900 text-blue-600 dark:text-blue-400 text-sm font-bold tracking-wide shadow-sm transition-colors duration-300">
             <span class="lang-zh">团队成员</span>
             <span class="lang-en">Team Members</span>
+        </div>
+        
+        <h1 class="text-4xl md:text-6xl font-extrabold text-slate-900 dark:text-white mb-6 tracking-tight leading-tight transition-colors duration-300">
+            <span class="lang-zh">凝聚 <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-500 dark:from-blue-400 dark:to-cyan-300">多元智慧</span> 的核心力量</span>
+            <span class="lang-en">The Core Power of <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-500 dark:from-blue-400 dark:to-cyan-300">Diverse Wisdom</span></span>
         </h1>
-
-        <p class="text-lg md:text-xl text-slate-500 dark:text-slate-400 max-w-3xl leading-relaxed font-light">
-            <span class="lang-zh">
-                致力于通过人工智能技术与以人为中心的设计，实现智能体在复杂不确定真实世界中的智能自主行为。主要关注
-                <span class="text-blue-600 dark:text-blue-400 font-medium">多模态感知、3D视觉与具身智能</span>。
-            </span>
-            <span class="lang-en">
-                Dedicated to achieving intelligent autonomous behavior in complex environments. Our research focuses on 
-                <span class="text-blue-600 dark:text-blue-400 font-medium">multimodal perception, 3D vision, and embodied intelligence</span>.
-            </span>
+        
+        <p class="text-lg md:text-xl text-slate-500 dark:text-slate-400 max-w-3xl leading-relaxed font-light mx-auto md:mx-0 transition-colors duration-300">
+            <span class="lang-zh">我们的团队由充满激情的跨学科研究者组成。在这里，我们共同打破学术边界，在多模态感知与具身智能领域不断追求卓越，探索真实世界的无限可能。</span>
+            <span class="lang-en">Our team consists of passionate interdisciplinary researchers. Here, we break academic boundaries together, pursuing excellence in multimodal perception and embodied AI to explore the infinite possibilities of the real world.</span>
         </p>
     </div>
 </section>
+
 
 <section class="max-w-6xl mx-auto px-4 py-16">
     
