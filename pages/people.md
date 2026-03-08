@@ -79,18 +79,19 @@ title: 团队成员
             {% for s_id in student_ids %}
                 {% assign students = site.data.team | where: "group_id", s_id | sort: "rank" %}
                 {% for member in students %}
-                <div class="group bg-white rounded-3xl p-8 border border-slate-100 shadow-sm hover:shadow-xl transition-all flex flex-col sm:flex-row items-start gap-6 h-full">
-                    <img src="{{ site.baseurl }}{{ member.avatar }}" class="w-24 h-24 md:w-28 md:h-28 rounded-2xl object-cover shadow-sm group-hover:scale-105 transition-transform flex-shrink-0">
+                <div class="group bg-white rounded-[2rem] p-8 md:p-10 border border-slate-100 shadow-sm hover:shadow-xl transition-all flex flex-col sm:flex-row items-start gap-8 min-h-[18rem]">
+                    <img src="{{ site.baseurl }}{{ member.avatar }}" class="w-28 h-28 md:w-36 md:h-36 rounded-2xl object-cover shadow-sm group-hover:scale-105 transition-transform flex-shrink-0">
+                    
                     <div class="flex-1 flex flex-col h-full min-w-0">
-                        <div class="mb-3">
-                            <h3 class="text-xl font-bold text-slate-900 leading-tight">{{ member.name }}</h3>
+                        <div class="mb-4">
+                            <h3 class="text-2xl font-bold text-slate-900 leading-tight">{{ member.name }}</h3>
                             <span class="role-badge {% if s_id == 'phd' %}badge-blue{% else %}badge-cyan{% endif %} mt-2 inline-block">
                                 {{ member.title }}
                             </span>
                         </div>
-                        <p class="text-slate-500 text-sm leading-relaxed mb-5 line-clamp-4 italic flex-grow">"{{ member.bio }}"</p>
+                        <p class="text-slate-500 text-sm leading-relaxed mb-6 line-clamp-5 italic flex-grow">"{{ member.bio }}"</p>
                         
-                        <div class="flex flex-wrap items-center gap-4 mt-auto pt-2 border-t border-slate-50">
+                        <div class="flex flex-wrap items-center gap-4 mt-auto pt-4 border-t border-slate-50">
                             {% if member.email %}
                             <a href="mailto:{{ member.email }}" title="Email: {{ member.email }}" class="text-slate-400 hover:text-blue-600 transition">
                                 <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
@@ -140,16 +141,16 @@ title: 团队成员
             {% for i_id in intern_ids %}
                 {% assign interns = site.data.team | where: "group_id", i_id %}
                 {% for member in interns %}
-                <div class="bg-white rounded-3xl p-8 border border-slate-100 shadow-sm hover:shadow-md transition-all flex flex-col sm:flex-row items-start gap-6 h-full">
-                    <img src="{{ site.baseurl }}{{ member.avatar }}" class="w-20 h-20 md:w-24 md:h-24 rounded-2xl object-cover shadow-sm flex-shrink-0">
+                <div class="bg-white rounded-3xl p-8 border border-slate-100 shadow-sm hover:shadow-md transition-all flex flex-col sm:flex-row items-start gap-6 min-h-[14rem]">
+                    <img src="{{ site.baseurl }}{{ member.avatar }}" class="w-24 h-24 md:w-28 md:h-28 rounded-2xl object-cover shadow-sm flex-shrink-0">
                     <div class="flex-1 flex flex-col h-full min-w-0">
                         <div class="mb-3">
-                            <h3 class="text-lg font-bold text-slate-900 leading-tight">{{ member.name }}</h3>
+                            <h3 class="text-xl font-bold text-slate-900 leading-tight">{{ member.name }}</h3>
                             <span class="role-badge badge-green mt-2 inline-block">{{ member.title }}</span>
                         </div>
-                        <p class="text-slate-500 text-xs leading-relaxed mb-5 line-clamp-4 italic flex-grow">"{{ member.bio }}"</p>
+                        <p class="text-slate-500 text-sm leading-relaxed mb-5 line-clamp-3 italic flex-grow">"{{ member.bio }}"</p>
                         
-                        <div class="flex flex-wrap items-center gap-3 mt-auto pt-2 border-t border-slate-50">
+                        <div class="flex flex-wrap items-center gap-3 mt-auto pt-3 border-t border-slate-50">
                             {% if member.email %}
                             <a href="mailto:{{ member.email }}" title="Email" class="text-slate-400 hover:text-blue-600 transition">
                                 <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
@@ -202,4 +203,3 @@ title: 团队成员
     </div>
 
 </section>
-
