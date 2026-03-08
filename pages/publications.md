@@ -3,13 +3,32 @@ layout: default
 title: 学术成果
 ---
 
-<section class="bg-white dark:bg-slate-900 border-b border-slate-100 dark:border-slate-800 py-16 transition-colors duration-300 z-0 relative">
-    <div class="max-w-6xl mx-auto px-4 relative z-10">
-        <h1 class="text-4xl font-extrabold text-slate-900 dark:text-white mb-4 tracking-tight transition-colors duration-300">
-            <span class="lang-zh">学术成果</span>
-            <span class="lang-en">Publications</span>
+<section class="bg-white dark:bg-slate-900 border-b border-slate-100 dark:border-slate-800 py-20 md:py-28 relative overflow-hidden z-0 transition-colors duration-300">
+    
+    <div class="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHBhdGggZD0iTTAgMGg0MHY0MEgweiIgZmlsbD0ibm9uZSIvPjxwYXRoIGQ9Ik0wIDM5LjVMMDQwIDM5LjUiIHN0cm9rZT0icmdiYSgwLCAwLCAwLCAwLjAzKSIgc3Ryb2tlLXdpZHRoPSIxIi8+PHBhdGggZD0iTTM5LjUgMEwzOS41IDQwIiBzdHJva2U9InJnYmEoMCwgMCwgMCwgMC4wMykiIHN0cm9rZS13aWR0aD0iMSIvPjwvc3ZnPg==')] opacity-60 dark:opacity-10 dark:invert transition-all duration-300 -z-10"></div>
+    
+    <div class="absolute top-0 right-0 w-[40rem] h-[40rem] bg-blue-50 dark:bg-blue-900/20 rounded-full blur-3xl opacity-60 -translate-y-1/2 translate-x-1/3 transition-colors duration-300 -z-10"></div>
+    <div class="absolute bottom-0 left-0 w-[30rem] h-[30rem] bg-cyan-50 dark:bg-cyan-900/10 rounded-full blur-3xl opacity-40 translate-y-1/3 -translate-x-1/4 transition-colors duration-300 -z-10"></div>
+
+    <div class="max-w-6xl mx-auto px-4 relative z-10 text-center md:text-left">
+        
+        <div class="inline-block mb-4 px-4 py-1.5 rounded-full bg-blue-50 dark:bg-slate-800 border border-blue-100 dark:border-blue-900 text-blue-600 dark:text-blue-400 text-sm font-bold tracking-wide shadow-sm transition-colors duration-300">
+            <span class="lang-zh">科研产出</span>
+            <span class="lang-en">Research Output</span>
+        </div>
+
+        <h1 class="text-4xl md:text-6xl font-extrabold text-slate-900 dark:text-white mb-6 tracking-tight leading-tight transition-colors duration-300">
+            <span class="lang-zh">
+                探索与突破：<br class="block md:hidden"/>
+                <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-500 dark:from-blue-400 dark:to-cyan-300">学术成果</span>
+            </span>
+            <span class="lang-en">
+                Exploration & Breakthroughs: <br class="block md:hidden"/>
+                <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-500 dark:from-blue-400 dark:to-cyan-300">Publications</span>
+            </span>
         </h1>
-        <p class="text-lg text-slate-500 dark:text-slate-400 max-w-3xl leading-relaxed transition-colors duration-300">
+        
+        <p class="text-lg md:text-xl text-slate-500 dark:text-slate-400 max-w-3xl mx-auto md:mx-0 leading-relaxed font-light transition-colors duration-300">
             <span class="lang-zh">我们在 CVPR, ICCV, NeurIPS 等国际顶级学术会议与期刊上持续发表多模态感知、3D视觉与具身智能领域的研究成果。</span>
             <span class="lang-en">We continuously publish our research on multimodal perception, 3D vision, and embodied AI in top-tier international conferences and journals such as CVPR, ICCV, and NeurIPS.</span>
         </p>
