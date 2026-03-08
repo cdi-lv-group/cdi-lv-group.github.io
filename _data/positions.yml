@@ -1,34 +1,93 @@
 # ==========================================
-# LV课题组 招聘与招生数据库
-# 文件路径: _data/positions.yml
+# LV课题组 招聘与招生数据库 (双语版)
+# ==========================================
+# 【字段说明指南】
+# 1. title      (必填): 职位名称。嵌套 zh (中文) 和 en (英文)。
+# 2. count      (必填): 招录人数或频率（如：1-2名/年）。
+# 3. department (必填): 招录学院或依托单位。
+# 4. icon       (必填): 展示图标（使用 Emoji）。
+# 5. theme      (必填): 主题色，对应 Tailwind 颜色类（blue, cyan, green, indigo, orange）。
+# 6. description(必填): 详细要求与福利，嵌套 zh 和 en。
+# 7. tags       (选填): 核心关键词标签。若不填请保留空数组 []。
+# 8. link       (选填): 具体的申请链接或详情页面，若无则设为 "#"。
 # ==========================================
 
-- title: "博士生 (Ph.D.)"
-  count: "1-2名/年"
-  department: "上海自主智能无人系统科学中心 / 设计创意学院" # <--- 新增：招录学院
+# ------------------------------------------
+# [ 复制下方模版添加新职位 ]
+# ------------------------------------------
+# - title:
+#     zh: "中文职位"
+#     en: "English Title"
+#   count:
+#     zh: "人数"
+#     en: "Count"
+#   department:
+#     zh: "所属学院"
+#     en: "Department"
+#   icon: "✨"
+#   theme: "blue"
+#   description:
+#     zh: "中文描述..."
+#     en: "English description..."
+#   tags:           # <--- 选填，若不填请写 []
+#     zh: ["标签1", "标签2"]
+#     en: ["Tag1", "Tag2"]
+#   link: "#"       # <--- 选填，默认 "#"
+# ------------------------------------------
+
+- title: 
+    zh: "博士生 (Ph.D.)"
+    en: "Ph.D. Candidates"
+  count: 
+    zh: "1-2名/年"
+    en: "1-2 per year"
+  department: 
+    zh: "上海自主智能无人系统科学中心 / 设计创意学院"
+    en: "SISTUS / College of Design and Innovation"
   icon: "🎓"
   theme: "blue"
-  description: "提供全额奖学金。要求申请者具备扎实的数学基础与编程能力（PyTorch/C++），有顶会（CVPR/ICCV/NeurIPS等）发表经验者优先考虑。"
+  description: 
+    zh: "提供全额奖学金。要求申请者具备扎实的数学基础与编程能力（PyTorch/C++），有顶会（CVPR/ICCV/NeurIPS等）发表经验者优先考虑。"
+    en: "Full scholarships provided. Applicants should have solid math and programming skills (PyTorch/C++). Publications in top conferences (CVPR/ICCV/NeurIPS, etc.) are a strong plus."
   tags:
-    - "计算机视觉方向"
-    - "具身智能方向"
+    zh: ["计算机视觉", "具身智能"]
+    en: ["Computer Vision", "Embodied AI"]
+  link: "#"
 
-- title: "硕士生 (Master)"
-  count: "2-3名/年"
-  department: "同济大学 设计创意学院 (交叉学科)" # <--- 新增：招录学院
+- title: 
+    zh: "硕士生 (Master)"
+    en: "Master Students"
+  count: 
+    zh: "2-3名/年"
+    en: "2-3 per year"
+  department: 
+    zh: "同济大学 设计创意学院 (交叉学科)"
+    en: "College of Design and Innovation, Tongji University"
   icon: "📚"
   theme: "cyan"
-  description: "要求自我驱动力强，对科研有浓厚兴趣，掌握基本的深度学习框架。鼓励本科成绩优异、具备学科竞赛（如 ACM/数学建模）获奖经历的同学保研或报考。"
+  description: 
+    zh: "要求自我驱动力强，对科研有浓厚兴趣，掌握基本的深度学习框架。鼓励本科成绩优异、具备竞赛获奖经历的同学保研或报考。"
+    en: "Self-motivated students with a strong interest in research and basic knowledge of DL frameworks. Excellent undergrads with competition awards (ACM/Math Modeling) are encouraged to apply."
   tags:
-    - "学术研究导向"
-    - "工程落地导向"
+    zh: ["学术研究导向", "工程落地导向"]
+    en: ["Research Oriented", "Engineering Oriented"]
+  link: "#"
 
-- title: "科研实习生 (Intern)"
-  count: "若干名"
-  department: "不限学院与高校 (常年招收)" # <--- 实习生通常不限学院
+- title: 
+    zh: "科研实习生 (Intern)"
+    en: "Research Interns"
+  count: 
+    zh: "若干名"
+    en: "Multiple Positions"
+  department: 
+    zh: "不限学院与高校 (常年招收)"
+    en: "Open to all universities (Year-round)"
   icon: "🚀"
   theme: "green"
-  description: "面向本科高年级或低年级硕士生。要求能保证连续 3-6 个月、每周至少 3 天的实习时间。表现优异者可推荐直博或获得顶级名校的推荐信。"
+  description: 
+    zh: "面向本科高年级或低年级硕士。要求能保证连续 3-6 个月实习时间。表现优异者可推荐直博或获得顶级名校推荐信。"
+    en: "For senior undergrads or junior masters. Requires a 3-6 month commitment. Outstanding performers can be recommended for Ph.D. positions or receive strong recommendation letters."
   tags:
-    - "算法研究日常"
-    - "开源系统开发"
+    zh: ["算法研究", "开源开发"]
+    en: ["Algorithm Research", "Open Source"]
+  link: "#"

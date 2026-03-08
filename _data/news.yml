@@ -1,31 +1,84 @@
 # ==========================================
-# LV课题组 新闻动态数据库
-# 文件路径: _data/news.yml
+# LV课题组 新闻动态数据库 (双语版)
+# ==========================================
+# 更新指南:
+# 1. 每一项新闻以 "-" 开头。
+# 2. date: 建议格式 "YYYY.MM"，用于左侧时间轴展示。
+# 3. category: 分类标签，zh 为中文，en 为英文（如：Lab Event, Open Source）。
+# 4. title: 新闻标题，请确保双语内容准确。
+# 5. description: 详细描述，支持中英文无刷新切换。
+# 6. link: 外部链接或详情页地址，若无请写 "#"。
 # ==========================================
 
+# ------------------------------------------
+# [新数据模版 - 复制此段到下方进行填写]
+# ------------------------------------------
+# - date: "2026.XX"
+#   category:
+#     zh: "分类名称"
+#     en: "Category Name"
+#   title:
+#     zh: "在此输入中文标题"
+#     en: "Enter English title here"
+#   description:
+#     zh: "在此输入中文描述内容..."
+#     en: "Enter English description content here..."
+#   link: "#"
+# ------------------------------------------
+
 - date: "2026.03"
-  title: "LV课题组全新官方网站正式上线"
-  category: "Lab Event"
-  description: "经过精心筹备，LV课题组全新主页正式上线。我们将在这里持续分享实验室在3D视觉、多模态感知与具身智能领域的最新学术成果、开源项目以及招生动态。"
+  category: 
+    zh: "实验室动态"
+    en: "Lab Event"
+  title: 
+    zh: "LV课题组全新官方网站正式上线"
+    en: "New LV Lab Official Website Launched"
+  description: 
+    zh: "经过精心筹备，LV课题组全新主页正式上线。我们将在这里持续分享实验室在3D视觉、多模态感知与具身智能领域的最新学术成果、开源项目以及招生动态。"
+    en: "After careful preparation, the new LV Lab homepage is officially online. We will continue to share our latest research in 3D vision, multimodal perception, embodied AI, open-source projects, and admission news."
   link: "#"
 
 - date: "2026.02"
-  title: "自动化文献追踪系统部署完成"
-  category: "Infrastructure"
-  description: "实验室部署了全新的 arXiv 自动化检索与推送脚本，通过飞书机器人实现了每日最新前沿论文的精准推流，进一步提升了课题组的科研效率。"
+  category: 
+    zh: "基础设施"
+    en: "Infrastructure"
+  title: 
+    zh: "自动化文献追踪系统部署完成"
+    en: "Automated Literature Tracking System Deployed"
+  description: 
+    zh: "实验室部署了全新的 arXiv 自动化检索与推送脚本，通过飞书机器人实现了每日最新前沿论文的精准推流，进一步提升了课题组的科研效率。"
+    en: "The lab has deployed a new arXiv automated retrieval and notification script. Using Lark (Feishu) bots, we now achieve precise daily streams of frontier papers, further enhancing research efficiency."
 
 - date: "2026.01"
-  title: "开源项目 Unismot 正式发布"
-  category: "Open Source"
-  description: "实验室在 GitHub 发布了全新的计算机视觉开源项目 Unismot。该项目提供了一个统一的单目标与多目标跟踪框架，并在 UniRTL 和 COCO 数据集上完成了深度验证。"
+  category: 
+    zh: "开源项目"
+    en: "Open Source"
+  title: 
+    zh: "开源项目 Unismot 正式发布"
+    en: "Open Source Project Unismot Officially Released"
+  description: 
+    zh: "实验室在 GitHub 发布了全新的计算机视觉开源项目 Unismot。该项目提供了一个统一的单目标与多目标跟踪框架，并在 UniRTL 和 COCO 数据集上完成了深度验证。"
+    en: "The lab released Unismot, a new CV project on GitHub. It provides a unified framework for single and multi-object tracking, with deep validation on UniRTL and COCO datasets."
   link: "https://github.com/wbzuo"
 
 - date: "2025.12"
-  title: "课题组成员参与 Perplexity AI 学术计划"
-  category: "Collaboration"
-  description: "实验室成员成功获得 Perplexity AI 教育版 Pro 支持，探索将新一代 AI 检索引擎深度融入日常代码开发与学术文献调研中。"
+  category: 
+    zh: "学术合作"
+    en: "Collaboration"
+  title: 
+    zh: "课题组成员参与 Perplexity AI 学术计划"
+    en: "Lab Members Join Perplexity AI Academic Program"
+  description: 
+    zh: "实验室成员成功获得 Perplexity AI 教育版 Pro 支持，探索将新一代 AI 检索引擎深度融入日常代码开发与学术文献调研中。"
+    en: "Lab members successfully obtained Perplexity AI Education Pro support to explore integrating next-gen AI search engines into daily coding and academic literature research."
 
 - date: "2025.11"
-  title: "博士生招录与人才引进工作稳步推进"
-  category: "Admissions"
-  description: "实验室持续推进与上海自主智能无人系统科学中心的人才培养合作，完成了新一届博士生（Ph.D.）的简历初筛与推荐选拔工作。"
+  category: 
+    zh: "招生动态"
+    en: "Admissions"
+  title: 
+    zh: "博士生招录与人才引进工作稳步推进"
+    en: "Ph.D. Admissions and Talent Recruitment Progressing"
+  description: 
+    zh: "实验室持续推进与上海自主智能无人系统科学中心的人才培养合作，完成了新一届博士生（Ph.D.）的简历初筛与推荐选拔工作。"
+    en: "Continuing cooperation with the Shanghai Institute of Intelligent Science and Technology, the lab completed the initial screening and selection for the new Ph.D. candidates."
