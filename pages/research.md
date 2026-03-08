@@ -121,23 +121,51 @@ title: 研究方向
 
 </section>
 
-<section class="bg-slate-900 dark:bg-black py-24 mt-10 relative overflow-hidden transition-colors duration-300">
-    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[40rem] h-[40rem] bg-blue-600 rounded-full blur-[100px] opacity-20 pointer-events-none"></div>
-    
-    <div class="max-w-4xl mx-auto px-4 text-center relative z-10">
-        <h2 class="text-3xl md:text-4xl font-bold text-white mb-6">
-            <span class="lang-zh">了解我们在这些领域的最新成果</span>
-            <span class="lang-en">Discover Our Latest Achievements</span>
-        </h2>
-        
-        <p class="text-slate-400 mb-10 text-lg max-w-2xl mx-auto">
-            <span class="lang-zh">我们的研究成果常年发表于 CVPR, ICCV, ECCV, NeurIPS 等国际顶级会议与期刊。代码与预训练模型均同步开源于社区。</span>
-            <span class="lang-en">Our research findings are regularly published in top-tier international conferences and journals including CVPR, ICCV, ECCV, and NeurIPS. Code and models are open-sourced to the community.</span>
-        </p>
-        
-        <a href="{{ site.baseurl }}/pages/publications.html" class="inline-block bg-blue-600 text-white px-10 py-4 rounded-2xl font-bold hover:bg-blue-500 transition-all shadow-lg shadow-blue-900/50 hover:-translate-y-1 hover:shadow-xl hover:shadow-blue-900">
-            <span class="lang-zh">查看学术成果 (Publications) &rarr;</span>
-            <span class="lang-en">View Publications &rarr;</span>
-        </a>
+<section class="py-20 mt-10 relative overflow-hidden transition-colors duration-500 bg-white dark:bg-slate-950">
+    <div class="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full bg-gradient-to-b from-blue-50/50 to-transparent dark:from-blue-900/10 dark:to-transparent pointer-events-none -z-10"></div>
+    <div class="absolute -top-24 -right-24 w-96 h-96 bg-cyan-100/40 dark:bg-cyan-900/10 rounded-full blur-[100px] pointer-events-none -z-10"></div>
+
+    <div class="max-w-5xl mx-auto px-4 relative z-10">
+        <div class="relative bg-white/60 dark:bg-slate-900/40 backdrop-blur-xl rounded-[3rem] p-10 md:p-20 border border-blue-100 dark:border-slate-800 shadow-sm dark:shadow-none text-center transition-all duration-300">
+            
+            <div class="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-blue-600 text-white mb-8 shadow-lg shadow-blue-200 dark:shadow-none">
+                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"></path>
+                </svg>
+            </div>
+
+            <h2 class="text-3xl md:text-5xl font-black text-slate-900 dark:text-white mb-6 tracking-tight leading-tight">
+                <span class="lang-zh">
+                    了解我们在这些领域的 <br class="md:hidden" />
+                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-500 dark:from-blue-400 dark:to-cyan-300">最新科研成果</span>
+                </span>
+                <span class="lang-en">
+                    Discover Our <br class="md:hidden" />
+                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-500 dark:from-blue-400 dark:to-cyan-300">Latest Achievements</span>
+                </span>
+            </h2>
+            
+            <p class="text-slate-500 dark:text-slate-400 mb-12 text-lg md:text-xl max-w-2xl mx-auto font-normal leading-relaxed">
+                <span class="lang-zh">我们的研究成果常年发表于 <span class="text-blue-600 dark:text-blue-400 font-bold">CVPR, ICCV, ECCV, NeurIPS</span> 等国际顶级会议。代码与模型均同步开源。</span>
+                <span class="lang-en">Regularly published in <span class="text-blue-600 dark:text-blue-400 font-bold">CVPR, ICCV, ECCV, and NeurIPS</span>. All codes and models are open-sourced.</span>
+            </p>
+            
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+                <a href="{{ site.baseurl }}/pages/publications.html" 
+                   class="w-full sm:w-auto inline-flex items-center justify-center group bg-blue-600 hover:bg-blue-700 text-white px-10 py-4 rounded-2xl font-bold transition-all shadow-xl shadow-blue-100 dark:shadow-none hover:-translate-y-1">
+                    <span class="lang-zh">查看学术成果</span>
+                    <span class="lang-en">View Publications</span>
+                    <svg class="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                    </svg>
+                </a>
+                
+                <a href="https://github.com/{{ site.github_username }}" target="_blank"
+                   class="w-full sm:w-auto inline-flex items-center justify-center px-10 py-4 rounded-2xl font-bold text-slate-600 dark:text-slate-300 border border-slate-200 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-slate-800 transition-all">
+                    <span class="lang-zh">开源代码库</span>
+                    <span class="lang-en">GitHub Repos</span>
+                </a>
+            </div>
+        </div>
     </div>
 </section>
