@@ -171,3 +171,47 @@ title: 首页
 
   </div>
 </section>
+
+<section class="max-w-6xl mx-auto px-4 py-20">
+    <div class="relative group">
+        <div class="absolute -inset-1 bg-gradient-to-r from-blue-600 to-cyan-500 rounded-[3rem] blur opacity-25 group-hover:opacity-50 transition duration-1000 group-hover:duration-200"></div>
+        
+        <div class="relative bg-white dark:bg-slate-900 rounded-[3rem] p-10 md:p-16 border border-slate-100 dark:border-slate-800 shadow-xl overflow-hidden transition-colors duration-300">
+            
+            <div class="absolute top-0 right-0 w-64 h-64 bg-blue-50 dark:bg-blue-900/20 rounded-full blur-3xl -mr-32 -mt-32 transition-colors"></div>
+            
+            <div class="relative z-10 flex flex-col md:flex-row items-center justify-between gap-10">
+                <div class="text-center md:text-left flex-1">
+                    <div class="inline-flex items-center space-x-2 px-4 py-1.5 rounded-full bg-blue-50 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 text-sm font-black mb-6 tracking-widest uppercase">
+                        <span class="relative flex h-2 w-2 mr-2">
+                            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
+                            <span class="relative inline-flex rounded-full h-2 w-2 bg-blue-500"></span>
+                        </span>
+                        <span class="lang-zh">招贤纳士</span>
+                        <span class="lang-en">We Are Hiring</span>
+                    </div>
+                    
+                    <h2 class="text-3xl md:text-5xl font-black text-slate-900 dark:text-white mb-6 leading-tight">
+                        <span class="lang-zh">准备好定义 <br class="hidden md:block" /><span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-500">智能的未来</span> 了吗？</span>
+                        <span class="lang-en">Ready to Define the <br class="hidden md:block" /><span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-500">Future of AI</span>?</span>
+                    </h2>
+                    
+                    <p class="text-lg text-slate-500 dark:text-slate-400 max-w-2xl leading-relaxed mb-0 transition-colors">
+                        <span class="lang-zh">我们常年寻找充满热忱的博士生、硕士生及科研实习生。如果你对 3D 视觉和具身智能充满热忱，欢迎加入我们！</span>
+                        <span class="lang-en">We are constantly looking for passionate Ph.D., Master students, and Research Interns. Join us to explore the boundaries of 3D Vision and Embodied AI.</span>
+                    </p>
+                </div>
+
+                <div class="shrink-0">
+                    <a href="{{ site.baseurl }}/pages/join_us.html" class="inline-flex items-center justify-center px-8 py-5 bg-slate-900 dark:bg-white text-white dark:text-slate-900 rounded-2xl font-black text-lg hover:scale-105 hover:shadow-2xl active:scale-95 transition-all duration-300 group/btn">
+                        <span class="lang-zh">立即申请</span>
+                        <span class="lang-en">Apply Now</span>
+                        <svg class="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
