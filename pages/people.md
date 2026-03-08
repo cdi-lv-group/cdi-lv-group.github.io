@@ -3,31 +3,20 @@ layout: default
 title: 团队成员
 ---
 
-{% if page.lang == 'en' %}
-  {% assign t_title = "Team Members" %}
-  {% assign t_desc = "Exploring intelligent autonomous behavior in the real world through multimodal perception, 3D vision, and embodied intelligence." %}
-  {% assign t_email = "Email" %}
-  {% assign t_home = "Homepage" %}
-{% else %}
-  {% assign t_title = "团队成员" %}
-  {% assign t_desc = "致力于探索真实世界中的智能自主行为。研究领域涵盖多模态感知、3D视觉与具身智能。" %}
-  {% assign t_email = "邮箱" %}
-  {% assign t_home = "个人主页" %}
-{% endif %}
-
 <section class="bg-white dark:bg-slate-900 border-b border-slate-100 dark:border-slate-800 py-16 transition-colors duration-300 relative z-0">
     <div class="max-w-6xl mx-auto px-4 relative z-10">
         <h1 class="text-4xl font-extrabold text-slate-900 dark:text-white mb-4 tracking-tight">
-            {{ t_title }}
+            <span class="lang-zh">团队成员</span>
+            <span class="lang-en">Team Members</span>
         </h1>
         <p class="text-lg text-slate-500 dark:text-slate-400 max-w-3xl leading-relaxed">
-            {{ t_desc }}
+            <span class="lang-zh">致力于探索真实世界中的智能自主行为。研究领域涵盖多模态感知、3D视觉与具身智能。</span>
+            <span class="lang-en">Exploring intelligent autonomous behavior in the real world through multimodal perception, 3D vision, and embodied intelligence.</span>
         </p>
     </div>
 </section>
 
 <section class="max-w-6xl mx-auto px-4 py-16">
-    
     {% for group in site.data.groups %}
         {% assign members = site.data.team | where: "group_id", group.id | sort: "rank" %}
         
@@ -35,11 +24,10 @@ title: 团队成员
         <div class="mb-24">
             <div class="flex items-center space-x-4 mb-10 border-l-4 border-{{ group.color }}-500 pl-4">
                 <h2 class="text-2xl font-bold text-slate-800 dark:text-white uppercase tracking-wide">
-                    {{ group.title[page.lang] | default: group.title.zh }}
+                    <span class="lang-zh">{{ group.title.zh }}</span>
+                    <span class="lang-en">{{ group.title.en }}</span>
                 </h2>
-                {% if page.lang == 'zh' and group.subtitle %}
-                <span class="text-slate-400 dark:text-slate-500 font-light italic ml-2">{{ group.subtitle }}</span>
-                {% endif %}
+                <span class="text-slate-400 dark:text-slate-500 font-light italic ml-2 lang-zh">{{ group.subtitle }}</span>
             </div>
 
             {% if group.id == 'professor' or group.id == 'researchers' %}
@@ -50,23 +38,26 @@ title: 团队成员
                         <div class="flex-1 text-center md:text-left">
                             <div class="mb-4">
                                 <span class="px-3 py-1 rounded-full bg-{{ group.color }}-50 dark:bg-{{ group.color }}-900/30 text-{{ group.color }}-600 dark:text-{{ group.color }}-400 text-xs font-bold mb-3 inline-block uppercase tracking-wider">
-                                    {{ member.title[page.lang] | default: member.title.zh }}
+                                    <span class="lang-zh">{{ member.title.zh }}</span>
+                                    <span class="lang-en">{{ member.title.en }}</span>
                                 </span>
-                                <h3 class="text-4xl font-bold text-slate-900 dark:text-white mb-2">
-                                    {{ member.name[page.lang] | default: member.name.zh }}
+                                <h3 class="text-4xl font-bold text-slate-900 dark:text-white mb-2 italic">
+                                    <span class="lang-zh">{{ member.name.zh }}</span>
+                                    <span class="lang-en">{{ member.name.en }}</span>
                                 </h3>
                                 {% if member.role %}
                                 <p class="text-{{ group.color }}-600 dark:text-{{ group.color }}-400 font-bold text-xl uppercase tracking-wider">
-                                    {{ member.role[page.lang] | default: member.role.zh }}
+                                    <span class="lang-zh">{{ member.role.zh }}</span>
+                                    <span class="lang-en">{{ member.role.en }}</span>
                                 </p>
                                 {% endif %}
                             </div>
                             <p class="text-slate-600 dark:text-slate-300 leading-relaxed mb-6 text-base italic font-light">
-                                "{{ member.bio[page.lang] | default: member.bio.zh }}"
+                                <span class="lang-zh">"{{ member.bio.zh }}"</span>
+                                <span class="lang-en">"{{ member.bio.en }}"</span>
                             </p>
-                            
                             <div class="flex flex-wrap justify-center md:justify-start gap-3">
-                                {% include team-links.html links=member.links email=member.email color=group.color lang=page.lang %}
+                                {% include team-links.html links=member.links email=member.email color=group.color %}
                             </div>
                         </div>
                     </div>
@@ -80,15 +71,18 @@ title: 团队成员
                         <div class="flex items-center space-x-3 mb-2">
                             <div class="w-2 h-2 rounded-full bg-{{ group.color }}-400"></div>
                             <span class="font-bold text-slate-800 dark:text-white text-lg">
-                                {{ member.name[page.lang] | default: member.name.zh }}
+                                <span class="lang-zh">{{ member.name.zh }}</span>
+                                <span class="lang-en">{{ member.name.en }}</span>
                             </span>
                         </div>
                         <p class="text-xs text-slate-500 mb-4 uppercase font-medium">
-                            {{ member.title[page.lang] | default: member.title.zh }}
+                            <span class="lang-zh">{{ member.title.zh }}</span>
+                            <span class="lang-en">{{ member.title.en }}</span>
                         </p>
                         <div class="mt-auto">
                             <div class="text-xs font-semibold text-{{ group.color }}-700 dark:text-{{ group.color }}-300 bg-{{ group.color }}-50 dark:bg-{{ group.color }}-900/30 px-3 py-2.5 rounded-xl leading-relaxed">
-                                {{ member.destination[page.lang] | default: member.destination.zh }}
+                                <span class="lang-zh">{{ member.destination.zh }}</span>
+                                <span class="lang-en">{{ member.destination.en }}</span>
                             </div>
                         </div>
                     </div>
@@ -102,16 +96,19 @@ title: 团队成员
                         <img src="{{ site.baseurl }}{{ member.avatar | default: '/assets/images/team/default_avatar.jpg' }}" class="w-28 h-28 md:w-32 md:h-32 rounded-2xl object-cover shrink-0 group-hover:scale-105 transition-transform">
                         <div class="flex-1 flex flex-col">
                             <h3 class="text-2xl font-bold text-slate-900 dark:text-white mb-1">
-                                {{ member.name[page.lang] | default: member.name.zh }}
+                                <span class="lang-zh">{{ member.name.zh }}</span>
+                                <span class="lang-en">{{ member.name.en }}</span>
                             </h3>
                             <span class="text-xs font-bold text-{{ group.color }}-600 dark:text-{{ group.color }}-400 bg-{{ group.color }}-50 dark:bg-{{ group.color }}-900/20 px-2 py-1 rounded-md uppercase mb-4 inline-block self-start">
-                                {{ member.title[page.lang] | default: member.title.zh }}
+                                <span class="lang-zh">{{ member.title.zh }}</span>
+                                <span class="lang-en">{{ member.title.en }}</span>
                             </span>
                             <p class="text-slate-500 dark:text-slate-400 text-sm leading-relaxed mb-6 italic line-clamp-3 flex-grow">
-                                "{{ member.bio[page.lang] | default: member.bio.zh }}"
+                                <span class="lang-zh">"{{ member.bio.zh }}"</span>
+                                <span class="lang-en">"{{ member.bio.en }}"</span>
                             </p>
                             <div class="flex flex-wrap gap-2 mt-auto">
-                                {% include team-links.html links=member.links email=member.email color=group.color small=true lang=page.lang %}
+                                {% include team-links.html links=member.links email=member.email color=group.color small=true %}
                             </div>
                         </div>
                     </div>
