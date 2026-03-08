@@ -3,17 +3,6 @@ layout: default
 title: 学术成果
 ---
 
-{% comment %}
-========================================================
-页面：学术成果 (Publications)
-技术栈：Tailwind CSS + Jekyll Liquid
-核心机制：
-1. 按年份自动分组：使用 `group_by: "year"` 和 `reverse` 实现时间倒序排列。
-2. 智能双语兜底 (Fallback)：通过 `default` 过滤器防止数据缺失导致的报错。
-3. 论文类型标签：根据 `type` 字段自动渲染不同颜色的徽章 (Conference/Journal)。
-========================================================
-{% endcomment %}
-
 <section class="bg-white dark:bg-slate-900 border-b border-slate-100 dark:border-slate-800 py-16 transition-colors duration-300 z-0 relative">
     <div class="max-w-6xl mx-auto px-4 relative z-10">
         <h1 class="text-4xl font-extrabold text-slate-900 dark:text-white mb-4 tracking-tight transition-colors duration-300">
@@ -29,9 +18,6 @@ title: 学术成果
 
 <section class="max-w-6xl mx-auto px-4 py-16 md:py-24">
 
-    {% comment %} 
-      【核心逻辑】将 _data/publications.yml 中的数据按 year 字段分组，并按年份倒序排列 
-    {% endcomment %}
     {% assign grouped_papers = site.data.publications | group_by: "year" | sort: "name" | reverse %}
     
     {% for year_group in grouped_papers %}
@@ -48,7 +34,7 @@ title: 学术成果
                     <div class="md:w-1/3 flex-shrink-0 overflow-hidden rounded-2xl border border-slate-50 dark:border-slate-700 bg-slate-50 dark:bg-slate-900 relative transition-colors duration-300">
                         <div class="absolute inset-0 bg-blue-900/0 group-hover:bg-blue-900/10 dark:group-hover:bg-white/5 transition-colors duration-500 z-10"></div>
                         <img src="{% if paper.image contains 'http' %}{{ paper.image }}{% else %}{{ site.baseurl }}{{ paper.image }}{% endif %}" 
-                             alt="Teaser image for {{ paper.title.en | default: paper.title }}" 
+                             alt="{{ paper.title.zh | default: paper.title }}" 
                              class="w-full h-48 md:h-full object-cover group-hover:scale-105 transition-transform duration-700">
                     </div>
                     {% endif %}
@@ -60,7 +46,7 @@ title: 学术成果
                                 <span class="inline-block px-3 py-1 bg-green-50 dark:bg-green-900/30 text-green-600 dark:text-green-400 text-xs font-bold rounded-md tracking-wide uppercase transition-colors duration-300">Journal</span>
                             {% elsif paper.type == "preprint" %}
                                 <span class="inline-block px-3 py-1 bg-slate-100 dark:bg-slate-700 text-slate-500 dark:text-slate-400 text-xs font-bold rounded-md tracking-wide uppercase transition-colors duration-300">Preprint</span>
-                            {% else %}
+                            {% elsif paper.type == "conference" %}
                                 <span class="inline-block px-3 py-1 bg-indigo-50 dark:bg-indigo-900/30 text-indigo-600 dark:text-indigo-400 text-xs font-bold rounded-md tracking-wide uppercase transition-colors duration-300">Conference</span>
                             {% endif %}
 
@@ -113,13 +99,6 @@ title: 学术成果
                             <a href="{{ paper.links.project }}" target="_blank" class="flex items-center gap-1.5 px-4 py-2 bg-slate-50 dark:bg-slate-700/50 text-slate-600 dark:text-slate-300 text-sm font-semibold rounded-full hover:bg-slate-200 dark:hover:bg-slate-600 transition-colors">
                                 <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
                                 Project
-                            </a>
-                            {% endif %}
-                            
-                            {% if paper.links.video and paper.links.video != "" and paper.links.video != "#" %}
-                            <a href="{{ paper.links.video }}" target="_blank" class="flex items-center gap-1.5 px-4 py-2 bg-red-50 dark:bg-red-900/30 text-red-600 dark:text-red-400 text-sm font-semibold rounded-full hover:bg-red-600 dark:hover:bg-red-500 hover:text-white dark:hover:text-white transition-colors">
-                                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z"/></svg>
-                                Video
                             </a>
                             {% endif %}
                         </div>
