@@ -1,0 +1,37 @@
+# ==========================================
+# LV课题组 学术论文数据库
+# 文件路径: _data/publications.yml
+# ==========================================
+
+- title: "Unismot: Unified Single and Multiple Object Tracking in Complex Scenarios"
+  authors: "<b>Wenbin Zuo</b>, Weiwei Guo*, et al."
+  venue: "NeurIPS 2025"
+  year: 2025
+  highlight: "Spotlight" # 可选，比如 Oral, Spotlight, Best Paper
+  image: "https://images.unsplash.com/photo-1555949963-aa79dcee981c?q=80&w=800&auto=format&fit=crop" # 替换为你们论文的真实 Teaser 图
+  abstract: "提出了一种统一的单目标与多目标跟踪框架，在复杂遮挡和快速运动场景下，在 UniRTL 和 COCO 数据集上均取得了 SOTA 性能。"
+  links:
+    paper: "https://arxiv.org/abs/xxxx.xxxxx"
+    code: "https://github.com/cdi-lv-group/Unismot"
+    project: "#"
+
+- title: "Towards Generalizable 3D Perception: A Novel Framework for Embodied Agents"
+  authors: "Weiwei Guo*, <b>Wenbin Zuo</b>, et al."
+  venue: "IEEE Conference on Computer Vision and Pattern Recognition (CVPR)"
+  year: 2025
+  highlight: "Highlight"
+  image: "https://images.unsplash.com/photo-1620712943543-bcc4688e7485?q=80&w=800&auto=format&fit=crop"
+  abstract: "针对具身智能体在开放环境中的3D感知泛化性问题，提出了一种基于大语言模型引导的多模态对齐架构。"
+  links:
+    paper: "https://arxiv.org/abs/xxxx.xxxxx"
+    video: "https://youtube.com/..."
+
+- title: "A Simple Framework for Contrastive Learning of Visual Representations in 3D Point Clouds"
+  authors: "Author A, Author B, <b>Wenbin Zuo</b>, Weiwei Guo*"
+  venue: "International Conference on Computer Vision (ICCV)"
+  year: 2024
+  image: "https://images.unsplash.com/photo-1509228627152-72ae9ae6848d?q=80&w=800&auto=format&fit=crop"
+  abstract: "探索了对比学习在无监督3D点云特征提取中的应用，大幅降低了下游任务的标注数据需求。"
+  links:
+    paper: "#"
+    code: "#"
