@@ -1,133 +1,194 @@
 # ==========================================
-# LV课题组 完整成员数据字典 (全梯队多链接版)
-# 文件路径: _data/team.yml
+# LV课题组 成员数据字典 (双语多链接版)
+# ==========================================
+# 【维护说明】
+# 1. 必填项 (Required): name, group_id, title
+# 2. 选填项 (Optional): rank, role, avatar, bio, email, links, destination
+# 3. 排序规则: 页面先按 group_id 分组，组内按 rank (从小到大) 排序
+# 4. group_id 可选值 (必须精确): 
+#    - professor (教授/副教授), assistant_prof (助教), researchers (研究员/博后)
+#    - phd (博士), master (硕士), undergrad (本科), intern (实习生), alumni (校友)
 # ==========================================
 
-# --- 1. 教授 (Professor) ---
-- name: "张教授"
-  group_id: "professor"
-  title: "教授 / 博士生导师"
-  role: "联合负责人"
-  avatar: "/assets/images/team/default_avatar.jpg"
-  bio: "深耕计算机视觉与机器学习领域二十余年，主要致力于大规模三维场景重建、点云处理与通用人工智能的底层机理研究。"
-  email: "zhang_prof@tongji.edu.cn"
-  links:
-    homepage: "#"
-    scholar: "https://scholar.google.com/..."
+# --- 添加成员模版 (复制以下内容并填空) ---
+# - name: { zh: "中文姓名", en: "English Name" }           # [必填]
+#   group_id: "phd"                                       # [必填] 身份分类ID
+#   rank: 10                                              # [选填] 排序权重，越小越靠前
+#   title: { zh: "博士研究生", en: "Ph.D. Student" }       # [必填] 身份/年级描述
+#   role: { zh: "核心骨干", en: "Core Member" }            # [选填] 实验室职务
+#   avatar: "/assets/images/team/name.jpg"               # [选填] 头像路径，不填显示默认占位图
+#   bio:                                                  # [选填] 个人简介
+#     zh: "中文简介..."
+#     en: "English bio..."
+#   email: "xxx@tongji.edu.cn"                            # [选填] 邮箱
+#   destination:                                          # [仅校友选填] 毕业去向
+#     zh: "🎓 毕业去向：XX单位"
+#     en: "🎓 Destination: XX Org"
+#   links:                                                # [选填] 社交链接，不填不显示图标
+#     homepage: "#"
+#     scholar: "#"
+#     github: "#"
+#     linkedin: "#"
+#     zhihu: "#"
+# ----------------------------------------
 
-# --- 2. 副教授 (Associate Professor) ---
-- name: "郭炜炜"
-  group_id: "associate_prof"
-  title: "副教授 / 博士生导师"
-  role: "课题组负责人 (PI)"
+# --- 1. 教授 (Professor / Associate Professor) ---
+- name: { zh: "郭炜炜", en: "Weiwei Guo" }
+  group_id: "professor"
+  rank: 1
+  title: { zh: "副教授 / 博士生导师", en: "Associate Professor / Ph.D. Supervisor" }
+  role: { zh: "课题组负责人 (PI)", en: "Principal Investigator" }
   avatar: "/assets/images/team/guo_weiwei.jpg"
-  bio: "致力于通过人工智能技术与以人为中心设计创新，实现智能体在复杂不确定真实世界智能自主行为。主要关注多模态感知、推理与交互技术及其应用。"
-  email: "xxx@tongji.edu.cn" # 请替换为郭老师真实邮箱
+  bio: 
+    zh: "致力于通过人工智能技术与以人为中心设计创新，实现智能体在复杂不确定真实世界智能自主行为。主要关注多模态感知、推理与交互技术及其应用。"
+    en: "Dedicated to achieving intelligent autonomous behavior in complex environments through AI and human-centered design. Focuses on multimodal perception, reasoning, and interaction."
+  email: "xxx@tongji.edu.cn"
   links:
     homepage: "/pages/people/guo-weiwei.html"
     scholar: "https://scholar.google.com/..."
-    # github: "可以随时添加"
 
-# --- 3. 助理教授 (Assistant Professor) ---
-- name: "李老师"
-  group_id: "assistant_prof"
-  title: "助理教授 / 硕士生导师"
-  role: "青年骨干"
-  avatar: "/assets/images/team/default_avatar.jpg"
-  bio: "主要研究方向为具身智能（Embodied AI）与强化学习，重点探索机器人在开放物理环境下的长视野任务规划与自主导航。"
-  email: "li_ap@tongji.edu.cn"
-  links:
-    homepage: "#"
-    github: "https://github.com/..."
-
-# --- 4. 讲师 (Lecturer) ---
-- name: "王老师"
-  group_id: "lecturer"
-  title: "讲师"
-  role: "核心教师"
-  avatar: "/assets/images/team/default_avatar.jpg"
-  bio: "主要关注人机交互（HRI）与生成式交互界面设计，主讲《人机交互技术前沿》与《人机智能协同产品与系统设计》课程。"
-  email: "wang_lec@tongji.edu.cn"
-  links:
-    homepage: "#"
-    zhihu: "https://www.zhihu.com/people/..."
-
-# --- 5. 博士后与研究员 (Researchers) ---
-- name: "赵博士"
-  group_id: "researchers"
-  title: "博士后"
-  role: "专职科研人员"
-  avatar: "/assets/images/team/default_avatar.jpg"
-  bio: "博士毕业于国防科技大学。目前主要负责空天智能感知项目的核心算法攻坚与多源传感器数据融合方案设计。"
-  email: "zhao_postdoc@tongji.edu.cn"
-  links:
-    scholar: "https://scholar.google.com/..."
-    github: "https://github.com/..."
-
-# --- 6. 博士研究生 (Ph.D. Students) ---
-- name: "左文彬"
+# --- 2. 博士研究生 (Ph.D. Students) ---
+- name: { zh: "左文彬", en: "Wenbin Zuo" }
   group_id: "phd"
-  title: "博士生"
-  role: "核心骨干"
+  rank: 1
+  title: { zh: "博士生", en: "Ph.D. Student" }
+  role: { zh: "核心骨干", en: "Core Member" }
   avatar: "/assets/images/team/wenbinzuo.jpg"
-  bio: "主要研究方向为计算机视觉、3D感知及点云分析等前沿视觉技术。致力于为学术社区做出贡献的开源倡导者。"
+  bio: 
+    zh: "主要研究方向为计算机视觉、3D感知及点云分析等前沿视觉技术。致力于为学术社区做出贡献的开源倡导者。"
+    en: "Research interests include Computer Vision, 3D perception, and point cloud analysis. An open-source advocate dedicated to the academic community."
   email: "2511992@tongji.edu.cn"
   links:
     homepage: "/pages/people/zuo-wenbin.html"
     github: "https://github.com/wbzuo"
     scholar: "https://scholar.google.com/..."
-    csdn: "https://blog.csdn.net/..."
     zhihu: "https://www.zhihu.com/people/..."
-    # linkedin: "https://linkedin.com/in/..."
 
-# --- 7. 硕士研究生 (Master Students) ---
-- name: "陈同学"
-  group_id: "master"
-  title: "2024级 硕士生"
-  role: "研究助理"
-  avatar: "/assets/images/team/default_avatar.jpg"
-  bio: "主要研究多模态大语言模型（MLLM）在机器人操作任务中的对齐与微调。"
-  email: "chen_m@tongji.edu.cn"
-  links:
-    github: "https://github.com/..."
-
-# --- 8. 本科生 (Undergraduates) ---
-- name: "林同学"
-  group_id: "undergrad"
-  title: "2022级 本科生"
-  role: "科研见习"
-  avatar: "/assets/images/team/default_avatar.jpg"
-  bio: "参与学院拔尖人才培养计划，目前协助课题组进行大规模自动驾驶 3D 边界框的标注与数据清洗工作。"
-  email: "lin_ug@tongji.edu.cn"
-  # 这个人目前没有任何外部链接，完全不写 links 字段也是可以的
-
-# --- 9. 科研助理与实习生 (Interns) ---
-- name: "吴同学"
-  group_id: "interns"
-  title: "算法实习生"
-  role: "项目助理"
-  avatar: "/assets/images/team/default_avatar.jpg"
-  bio: "主要协助搭建课题组日常论文检索应用（基于 arXiv API）与 Linux GPU 服务器集群的日常维护。"
-  email: "wu_intern@tongji.edu.cn"
-  links:
-    github: "https://github.com/..."
-    csdn: "https://blog.csdn.net/..."
-
-# --- 10. 校友与往届成员 (Alumni) ---
-- name: "刘博士"
+# --- 3. 校友 (Alumni) ---
+- name: { zh: "刘博士", en: "Dr. Liu" }
   group_id: "alumni"
-  title: "2025届 博士毕业生"
-  role: "原 课题组骨干"
+  rank: 1
+  title: { zh: "2025届 博士毕业生", en: "Ph.D. Alumnus, Class of 2025" }
   avatar: "/assets/images/team/default_avatar.jpg"
-  destination: "🌟 毕业去向：华为诺亚方舟实验室 (高级视觉算法研究员)"
+  destination: 
+    zh: "🌟 毕业去向：华为诺亚方舟实验室 (高级研究员)"
+    en: "🌟 Destination: Huawei Noah's Ark Lab (Senior Researcher)"
   links:
     linkedin: "https://linkedin.com/in/..."
-  
-- name: "孙同学"
-  group_id: "alumni"
-  title: "2024届 硕士毕业生"
-  role: "原 课题组成员"
-  avatar: "/assets/images/team/default_avatar.jpg"
-  destination: "🎓 毕业去向：赴 香港科技大学 (HKUST) 攻读全额奖学金博士"
+
+
+# --- 1. 教授与专职科研 (Professor / Researchers) ---
+- name: { zh: "陈思远", en: "Siyuan Chen" }
+  group_id: "professor"
+  rank: 2
+  title: { zh: "教授 / 博士生导师", en: "Professor / Ph.D. Supervisor" }
+  role: { zh: "联合负责人", en: "Co-Director" }
+  avatar: "/assets/images/team/avatar_chen.jpg"
+  bio: 
+    zh: "深耕大规模三维场景理解二十余年，曾获国家杰出青年科学基金，主要研究领域包括点云语义分割与神经渲染。"
+    en: "Deeply engaged in large-scale 3D scene understanding for 20+ years. Research interests include point cloud segmentation and Neural Rendering."
+  email: "siyuan_chen@tongji.edu.cn"
   links:
-    homepage: "https://..."
+    scholar: "#"
+    homepage: "#"
+
+- name: { zh: "李嘉诚", en: "Jiacheng Li" }
+  group_id: "researchers"
+  rank: 1
+  title: { zh: "博士后", en: "Postdoctoral Researcher" }
+  role: { zh: "具身智能组长", en: "Embodied AI Lead" }
+  avatar: "/assets/images/team/avatar_li.jpg"
+  bio: 
+    zh: "博士毕业于清华大学，目前负责实验室机器人在复杂室内环境下的长视野规划项目。"
+    en: "Ph.D. from Tsinghua University. Currently leading long-horizon planning projects for robots in complex indoor environments."
+  email: "j_li@tongji.edu.cn"
+  links:
+    github: "#"
+    scholar: "#"
+
+# --- 2. 博士研究生 (Ph.D. Students) ---
+- name: { zh: "Sarah Williams", en: "Sarah Williams" }
+  group_id: "phd"
+  rank: 2
+  title: { zh: "2023级 博士生", en: "Ph.D. Student, Class of 2023" }
+  avatar: "/assets/images/team/avatar_sarah.jpg"
+  bio: 
+    zh: "国际留学生。目前主要研究方向为生成式 AI 在 3D 资产创建中的应用。"
+    en: "International student. Current research focuses on Generative AI for 3D asset creation."
+  email: "sarah_w@tongji.edu.cn"
+  links:
+    github: "#"
+    linkedin: "#"
+
+# --- 3. 硕士研究生 (Master Students) ---
+- name: { zh: "王浩然", en: "Haoran Wang" }
+  group_id: "master"
+  rank: 1
+  title: { zh: "2024级 硕士生", en: "M.S. Student, Class of 2024" }
+  avatar: "/assets/images/team/avatar_wang.jpg"
+  bio: 
+    zh: "研究兴趣包括视觉语言模型 (VLM) 以及在自动驾驶中的端到端感知。"
+    en: "Research interests include VLM and end-to-end perception in autonomous driving."
+  email: "haoran_w@tongji.edu.cn"
+  links:
+    github: "#"
+    zhihu: "#"
+
+- name: { zh: "张萌", en: "Meng Zhang" }
+  group_id: "master"
+  rank: 2
+  title: { zh: "2025级 硕士生", en: "M.S. Student, Class of 2025" }
+  avatar: "/assets/images/team/avatar_zhangm.jpg"
+  bio: 
+    zh: "主要探索高效参数微调 (PEFT) 算法，旨在降低多模态大模型的训练成本。"
+    en: "Exploring Parameter-Efficient Fine-Tuning (PEFT) to reduce training costs of multimodal large models."
+  email: "m_zhang@tongji.edu.cn"
+  links:
+    github: "#"
+
+# --- 4. 本科生与实习生 (Undergrad / Interns) ---
+- name: { zh: "赵子轩", en: "Zixuan Zhao" }
+  group_id: "undergrad"
+  rank: 1
+  title: { zh: "2022级 本科生", en: "Undergraduate, Class of 2022" }
+  avatar: "/assets/images/team/avatar_zhao.jpg"
+  bio: 
+    zh: "同济大学拔尖计划成员，目前在实验室进行 SLAM 算法的暑期科研实习。"
+    en: "Member of the Top-notch Program. Currently conducting summer research internship on SLAM algorithms."
+  email: "zixuan_z@tongji.edu.cn"
+
+- name: { zh: "吴晓波", en: "Xiaobo Wu" }
+  group_id: "intern"
+  rank: 1
+  title: { zh: "算法实习生", en: "Algorithm Intern" }
+  avatar: "/assets/images/team/avatar_wu.jpg"
+  bio: 
+    zh: "来自浙江大学的交换实习生，协助课题组进行大规模数据集的标注与清洗工作。"
+    en: "Exchange intern from Zhejiang University. Assisting in large-scale dataset annotation and cleaning."
+  email: "wu_xb@gmail.com"
+  links:
+    github: "#"
+
+# --- 5. 校友 (Alumni) ---
+- name: { zh: "孙建勋", en: "Jianxun Sun" }
+  group_id: "alumni"
+  rank: 2
+  title: { zh: "2024届 硕士毕业生", en: "M.S. Alumnus, Class of 2024" }
+  avatar: "/assets/images/team/avatar_sun.jpg"
+  destination: 
+    zh: "🎓 毕业去向：赴斯坦福大学 (Stanford) 攻读 CS 博士"
+    en: "🎓 Destination: Ph.D. in CS at Stanford University"
+  links:
+    homepage: "#"
+    linkedin: "#"
+
+- name: { zh: "周雨彤", en: "Yutong Zhou" }
+  group_id: "alumni"
+  rank: 3
+  title: { zh: "2023届 博士毕业生", en: "Ph.D. Alumnus, Class of 2023" }
+  avatar: "/assets/images/team/avatar_zhou.jpg"
+  destination: 
+    zh: "🌟 毕业去向：阿里巴巴达摩院 (高级算法工程师)"
+    en: "🌟 Destination: Alibaba DAMO Academy (Senior Engineer)"
+  links:
+    scholar: "#"
