@@ -1,37 +1,118 @@
 # ==========================================
-# LV课题组 学术论文数据库
-# 文件路径: _data/publications.yml
+# 📝 LV课题组 学术论文数据库 (Publications)
+# ==========================================
+#
+# 【数据维护指南 / Data Guide】
+# 每次添加新论文时，请复制以下模板并粘贴到下方真实数据的最上方。
+# ⚠️ 注意：YAML 语法中，冒号 `:` 后面必须有一个空格！缩进必须对齐。
+#
+# --- 👇 📄 论文卡片添加模板 (复制以下被注释的行，并去掉 # 开头) 👇 ---
+#
+# - title: 
+#     zh: "中文标题（如果没有官方中文名，可以直接自行翻译）"      # [必填] 中文环境显示的标题
+#     en: "English Title of the Paper"                         # [必填] 英文环境显示的标题
+#   authors: "Author A, <b>Wenbin Zuo</b>, Author C*"          # [必填] 核心成员请用 <b>加粗</b>，通讯作者加 *
+#   type: "conference"                                         # [必填] 论文类型: conference(会议) / journal(期刊) / preprint(预印本)
+#   venue: "CVPR 2026"                                         # [必填] 发表场所 (直接填写通用英文缩写，中英网页共用此字段)
+#   year: 2026                                                 # [必填] 发表年份 (纯数字，系统会自动按此字段给论文分组)
+#   highlight: "Oral"                                          # [选填] 荣誉徽章 (如 Oral/Spotlight/Best Paper)。普通接收请留空 ""
+#   image: "/assets/images/papers/paper_name.jpg"              # [选填] 论文效果图/Teaser图的路径
+#   abstract: 
+#     zh: "这是一段简短的中文摘要介绍..."                        # [选填] 论文中文摘要 (建议控制在2-3句话)
+#     en: "This is a short English abstract..."                # [选填] 论文英文摘要
+#   links:                                                     # [选填] 相关链接 (没有的链接可以直接删掉该行，或留空 "")
+#     paper: "https://arxiv.org/abs/xxxx"                      # [选填] PDF 或 arXiv 链接
+#     code: "https://github.com/cdi-lv-group/xxx"              # [选填] 代码开源链接 (如 GitHub)
+#     project: "https://..."                                   # [选填] 项目官方主页链接
+#     video: "https://youtube.com/..."                         # [选填] B站或 YouTube 讲解视频链接
+#
+# --- 👆 📄 论文卡片模板结束 👆 ---
 # ==========================================
 
-- title: "Unismot: Unified Single and Multiple Object Tracking in Complex Scenarios"
+
+# ==========================================
+# ⬇️ 以下为真实的论文数据 (请将新发表的论文添加到最前面)
+# ==========================================
+
+- title: 
+    zh: "Unismot: 复杂场景下统一的单/多目标跟踪框架"
+    en: "Unismot: Unified Single and Multiple Object Tracking in Complex Scenarios"
   authors: "<b>Wenbin Zuo</b>, Weiwei Guo*, et al."
+  type: "conference"
   venue: "NeurIPS 2025"
   year: 2025
-  highlight: "Spotlight" # 可选，比如 Oral, Spotlight, Best Paper
-  image: "https://images.unsplash.com/photo-1555949963-aa79dcee981c?q=80&w=800&auto=format&fit=crop" # 替换为你们论文的真实 Teaser 图
-  abstract: "提出了一种统一的单目标与多目标跟踪框架，在复杂遮挡和快速运动场景下，在 UniRTL 和 COCO 数据集上均取得了 SOTA 性能。"
+  highlight: "Spotlight"
+  image: "https://images.unsplash.com/photo-1555949963-aa79dcee981c?q=80&w=800&auto=format&fit=crop"
+  abstract: 
+    zh: "提出了一种统一的单目标与多目标跟踪框架，在复杂遮挡和快速运动场景下，在 UniRTL 和 COCO 数据集上均取得了 SOTA 性能。"
+    en: "We propose a unified framework for both single and multiple object tracking, achieving SOTA performance on UniRTL and COCO datasets in complex occlusion and fast-motion scenarios."
   links:
     paper: "https://arxiv.org/abs/xxxx.xxxxx"
     code: "https://github.com/cdi-lv-group/Unismot"
-    project: "#"
+    project: ""
+    video: ""
 
-- title: "Towards Generalizable 3D Perception: A Novel Framework for Embodied Agents"
-  authors: "Weiwei Guo*, <b>Wenbin Zuo</b>, et al."
-  venue: "IEEE Conference on Computer Vision and Pattern Recognition (CVPR)"
-  year: 2025
-  highlight: "Highlight"
-  image: "https://images.unsplash.com/photo-1620712943543-bcc4688e7485?q=80&w=800&auto=format&fit=crop"
-  abstract: "针对具身智能体在开放环境中的3D感知泛化性问题，提出了一种基于大语言模型引导的多模态对齐架构。"
+- title: 
+    zh: "基于大语言模型的多智能体协同具身规划与探索"
+    en: "Multi-Agent Collaborative Embodied Planning and Exploration Powered by Large Language Models"
+  authors: "<b>Wenbin Zuo</b>, Jane Doe, Weiwei Guo*"
+  type: "conference"
+  venue: "ICLR 2026"
+  year: 2026
+  highlight: "Oral"
+  image: "https://images.unsplash.com/photo-1674027444485-cec3da58eef4?q=80&w=800&auto=format&fit=crop"
+  abstract: 
+    zh: "针对复杂未知环境，提出了一种基于图结构 (Graph-based) 的多智能体协作架构。利用大语言模型 (LLMs) 的推理能力，实现了零样本的物理世界探索与长步长任务规划。"
+    en: "Targeting complex unknown environments, we propose a graph-based multi-agent collaboration architecture. Leveraging the reasoning capabilities of LLMs, it achieves zero-shot physical world exploration and long-horizon task planning."
   links:
     paper: "https://arxiv.org/abs/xxxx.xxxxx"
+    code: "https://github.com/cdi-lv-group/Agent-Explore"
     video: "https://youtube.com/..."
 
-- title: "A Simple Framework for Contrastive Learning of Visual Representations in 3D Point Clouds"
-  authors: "Author A, Author B, <b>Wenbin Zuo</b>, Weiwei Guo*"
-  venue: "International Conference on Computer Vision (ICCV)"
-  year: 2024
-  image: "https://images.unsplash.com/photo-1509228627152-72ae9ae6848d?q=80&w=800&auto=format&fit=crop"
-  abstract: "探索了对比学习在无监督3D点云特征提取中的应用，大幅降低了下游任务的标注数据需求。"
+- title: 
+    zh: "融合空间与视觉特征的下一代复杂文档理解大模型"
+    en: "Next-Generation Complex Document Understanding Large Model Fusing Spatial and Visual Features"
+  authors: "Alice Wang, <b>Wenbin Zuo</b>, Bob Lee, Weiwei Guo*"
+  type: "conference"
+  venue: "ACL 2025"
+  year: 2025
+  highlight: ""
+  image: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=800&auto=format&fit=crop"
+  abstract: 
+    zh: "提出了一种全新的多模态文档解析网络，深度融合了高精度 OCR 文本识别与页面版式 (Layout) 信息，在多项多模态文档问答 (DocVQA) 基准测试中打破了记录。"
+    en: "We present a novel multimodal document parsing network that deeply integrates high-precision OCR text recognition with page layout information, breaking records on multiple multimodal document question answering (DocVQA) benchmarks."
   links:
-    paper: "#"
+    paper: "https://arxiv.org/abs/xxxx.xxxxx"
+    code: "https://github.com/cdi-lv-group/DocVL-Model"
+
+- title: 
+    zh: "全天候 3D 场景下的统一单目标与多目标稳定追踪"
+    en: "Unified Stable Single and Multiple Object Tracking in All-Weather 3D Scenes"
+  authors: "<b>Wenbin Zuo</b>, Charlie Chen, Weiwei Guo*"
+  type: "conference"
+  venue: "ECCV 2024"
+  year: 2024
+  highlight: "Spotlight"
+  image: "https://images.unsplash.com/photo-1541888062534-7128169b4e58?q=80&w=800&auto=format&fit=crop"
+  abstract: 
+    zh: "为了应对极端天气条件下的 3D 目标追踪难题，本文设计了一种融合激光雷达点云与视觉特征的时空联合对比学习策略，显著降低了 ID 切换率 (IDS)。"
+    en: "To address 3D object tracking challenges under extreme weather conditions, we design a spatio-temporal joint contrastive learning strategy that fuses LiDAR point clouds with visual features, significantly reducing the ID switch rate (IDS)."
+  links:
+    paper: "https://arxiv.org/abs/xxxx.xxxxx"
+    project: "https://cdi-lv-group.github.io/AllWeather3DMOT/"
     code: "#"
+
+- title: 
+    zh: "面向海量遥感地球观测数据的弱监督语义分割引擎"
+    en: "A Weakly-Supervised Semantic Segmentation Engine for Massive Earth Observation Data"
+  authors: "David Kim, <b>Wenbin Zuo</b>, Weiwei Guo*"
+  type: "journal"
+  venue: "IEEE TGRS"
+  year: 2023
+  highlight: ""
+  image: "https://images.unsplash.com/photo-1524661135-423995f22d0b?q=80&w=800&auto=format&fit=crop"
+  abstract: 
+    zh: "结合地理空间数据分析平台的大规模计算能力，我们提出了一种仅依赖图像级标签的弱监督分割网络，能够高效处理 TB 级的多光谱遥感影像并实现高精度地物分类。"
+    en: "Leveraging the massive computing power of geospatial data platforms, we propose a weakly-supervised segmentation network relying only on image-level labels. It can efficiently process TB-level multi-spectral remote sensing imagery and achieve high-precision land cover classification."
+  links:
+    paper: "https://ieeexplore.ieee.org/document/xxxxxxx"
