@@ -7,7 +7,7 @@ title: 联系加入
     <div class="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHBhdGggZD0iTTAgMGg0MHY0MEgweiIgZmlsbD0ibm9uZSIvPjxwYXRoIGQ9Ik0wIDM5LjVMMDQwIDM5LjUiIHN0cm9rZT0icmdiYSgwLCAwLCAwLCAwLjAzKSIgc3Ryb2tlLXdpZHRoPSIxIi8+PHBhdGggZD0iTTM5LjUgMEwzOS41IDQwIiBzdHJva2U9InJnYmEoMCwgMCwgMCwgMC4wMykiIHN0cm9rZS13aWR0aD0iMSIvPjwvc3ZnPg==')] dark:opacity-[0.05] dark:invert opacity-40 -z-10 transition-opacity"></div>
     <div class="absolute top-0 right-0 w-[40rem] h-[40rem] bg-cyan-50 dark:bg-cyan-900/20 rounded-full blur-3xl opacity-60 -translate-y-1/2 translate-x-1/3 transition-colors duration-300 -z-10"></div>
     
-    <div class="max-w-6xl mx-auto px-4 relative z-10 text-center md:text-left">
+    
 
     <div class="inline-block mb-6 px-5 py-2 rounded-full bg-blue-50/50 dark:bg-slate-800/50 border border-blue-100 dark:border-blue-900/50 text-blue-600 dark:text-blue-400 text-sm font-bold tracking-wide shadow-sm hover:shadow-md transition-all duration-300 backdrop-blur-sm">
         <div class="flex items-center space-x-2">
@@ -24,7 +24,8 @@ title: 联系加入
             </span>
         </div>
     </div>
-
+    
+    <div class="max-w-6xl mx-auto px-4 relative z-10 text-center md:text-left">
         <h1 class="text-4xl md:text-6xl font-extrabold text-slate-900 dark:text-white mb-6 tracking-tight leading-tight transition-colors">
             <span class="lang-zh">
                 {{ site.join_header.title_main.zh }} <br class="hidden md:block" /> 
