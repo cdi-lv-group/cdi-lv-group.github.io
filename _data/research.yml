@@ -3,8 +3,35 @@
 # 文件路径: _data/research.yml
 # ==========================================
 
+# ==========================================
+# 📋 数据添加模板 (如何新增研究方向)
+# 请复制以下被注释的模块，粘贴到底部，并取消注释进行修改。
+# ==========================================
+# - icon: "📌"                             # 【必填】研究方向图标 (推荐使用 Emoji 或图标字体类名)
+#   image: "https://..."                   # 【选填】卡片背景配图 URL。如无配图，请直接删除此行
+#   title:                                 # 【必填】研究方向大标题
+#     zh: "这里填写中文标题"
+#     en: "Here is the English Title"
+#   description:                           # 【必填】简短描述 (建议 2-3 句话，不要太长)
+#     zh: "这里填写一小段关于该方向的中文简介。"
+#     en: "Here is a brief English description of this research area."
+#   points:                                # 【选填】该方向下的具体细分研究点 (列表形式)
+#     zh:
+#       - "中文研究细分点 1"
+#       - "中文研究细分点 2"
+#       - "中文研究细分点 3"
+#     en:
+#       - "English research point 1"
+#       - "English research point 2"
+#       - "English research point 3"
+# ==========================================
+
+
+# ------------------------------------------
+# 实际数据列表从这里开始
+# ------------------------------------------
+
 - icon: "👁️"
-  # 配图路径，如果没有配图可以把这一行删掉或注释掉
   image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=1000&auto=format&fit=crop"
   title:
     zh: "3D视觉与场景理解"
@@ -57,3 +84,40 @@
       - "End-to-end robot control based on Reinforcement Learning (RL) and Imitation Learning"
       - "Dexterous manipulation of quadruped robots and robotic arms in complex physical environments"
       - "Generative interaction and human-robot intention alignment"
+
+
+- icon: "🎨"
+  image: "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=1000&auto=format&fit=crop"
+  title:
+    zh: "视觉生成模型与AIGC"
+    en: "Visual Generative Models and AIGC"
+  description:
+    zh: "探索基于扩散模型 (Diffusion Models) 与多模态架构的生成技术，致力于高保真二维图像、三维资产及动态视频的可控生成，赋能前沿创新设计。"
+    en: "Exploring generative technologies based on Diffusion Models and multimodal architectures, dedicated to the controllable generation of high-fidelity 2D images, 3D assets, and dynamic videos to empower cutting-edge innovative design."
+  points:
+    zh:
+      - "文本到三维/四维 (Text-to-3D/4D) 场景与资产生成"
+      - "基于多模态大模型的细粒度可控图像与视频合成"
+      - "人工智能驱动的计算设计与创意辅助系统"
+    en:
+      - "Text-to-3D/4D scene and asset generation"
+      - "Fine-grained controllable image and video synthesis based on multimodal large models"
+      - "AI-driven computational design and creative assistance systems"
+
+- icon: "🎯"
+  image: "https://images.unsplash.com/photo-1555949963-ff9fe0c870eb?q=80&w=1000&auto=format&fit=crop"
+  title:
+    zh: "动态视觉与目标跟踪"
+    en: "Dynamic Vision and Object Tracking"
+  description:
+    zh: "针对复杂、无约束的真实开放世界，研发具有高鲁棒性的单目标跟踪 (SOT) 与多目标跟踪 (MOT) 算法，实现跨模态、长时效的精准视觉定位。"
+    en: "Developing highly robust algorithms for Single-Object Tracking (SOT) and Multi-Object Tracking (MOT) in complex, unconstrained open worlds, achieving accurate, cross-modal, and long-term visual localization."
+  points:
+    zh:
+      - "统一单目标与多目标跟踪的联合学习框架 (如 UniRTL 架构)"
+      - "融合多源传感器数据 (如视觉、红外、事件相机) 的全天候目标跟踪"
+      - "开放世界下的长尾目标发现与高动态轨迹预测"
+    en:
+      - "Unified learning frameworks for joint SOT and MOT (e.g., UniRTL architecture)"
+      - "All-weather object tracking fusing multi-source sensor data (Vision, Infrared, Event Cameras)"
+      - "Long-tail object discovery and highly dynamic trajectory prediction in the open world"
