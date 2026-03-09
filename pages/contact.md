@@ -9,9 +9,20 @@ title: 联系加入
     
     <div class="max-w-6xl mx-auto px-4 relative z-10 text-center md:text-left">
 
-    <div class="inline-block ...">
-        <span class="lang-zh">{{ site.join_header.badge.zh | replace: '%NAME%', site.lab.group_short_name }}</span>
-        <span class="lang-en">{{ site.join_header.badge.en | replace: '%NAME%', site.lab.group_short_name }}</span>
+    <div class="inline-block mb-6 px-5 py-2 rounded-full bg-blue-50/50 dark:bg-slate-800/50 border border-blue-100 dark:border-blue-900/50 text-blue-600 dark:text-blue-400 text-sm font-bold tracking-wide shadow-sm hover:shadow-md transition-all duration-300 backdrop-blur-sm">
+        <div class="flex items-center space-x-2">
+            <span class="relative flex h-2 w-2">
+            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
+            <span class="relative inline-flex rounded-full h-2 w-2 bg-blue-500"></span>
+            </span>
+            
+            <span class="lang-zh">
+                {{ site.join_header.badge.zh | replace: '%NAME%', site.lab.group_short_name }}
+            </span>
+            <span class="lang-en font-medium tracking-wider">
+                {{ site.join_header.badge.en | replace: '%NAME%', site.lab.group_short_name }}
+            </span>
+        </div>
     </div>
 
         <h1 class="text-4xl md:text-6xl font-extrabold text-slate-900 dark:text-white mb-6 tracking-tight leading-tight transition-colors">
