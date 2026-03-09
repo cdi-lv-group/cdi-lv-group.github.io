@@ -7,6 +7,37 @@ author: "Wenbin Zuo"
 url: "https://cdi-lv-group.github.io"
 baseurl: "" 
 
+
+# ==========================================
+# 首页 Hero 区域配置
+# ==========================================
+hero:
+  badge:
+    zh: "同济大学 · LV 课题组"
+    en: "Tongji University · LV Research Group"
+  
+  title_main:
+    zh: "探索物理世界的"
+    en: "Exploring the Physical Boundaries of"
+  
+  title_gradient:
+    zh: "3D感知与具身智能"
+    en: "3D Perception & Embodied AI"
+  
+  description:
+    zh: "致力于多模态感知、推理与交互的共性基础研究，探索空天智能与智能体在复杂真实世界中的前沿边界。"
+    en: "Dedicated to foundational research in multimodal perception, reasoning, and interaction, exploring the cutting-edge boundaries of aerospace intelligence and embodied agents in complex real-world environments."
+  
+  primary_btn:
+    text: { zh: "了解团队", en: "Meet the Team" }
+    url: "/pages/people.html"
+  
+  secondary_btn:
+    text: { zh: "研究方向", en: "Research Areas" }
+    url: "/pages/research.html"
+  
+  image: "https://images.unsplash.com/photo-1620712943543-bcc4688e7485?q=80&w=2000&auto=format&fit=crop"
+
 # 构建与基础设置
 timezone: "Asia/Shanghai"
 markdown: kramdown

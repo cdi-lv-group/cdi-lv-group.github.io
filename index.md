@@ -11,40 +11,40 @@ title: 首页
   <div class="max-w-6xl mx-auto px-4 text-center">
     
     <div class="inline-block mb-6 px-5 py-2 rounded-full bg-white dark:bg-slate-800 border border-blue-100 dark:border-blue-900 text-blue-600 dark:text-blue-400 text-sm font-bold tracking-wide shadow-sm hover:shadow-md transition-all">
-      <span class="lang-zh">同济大学 · LV 课题组</span>
-      <span class="lang-en">Tongji University · LV Research Group</span>
+      <span class="lang-zh">{{ site.hero.badge.zh }}</span>
+      <span class="lang-en">{{ site.hero.badge.en }}</span>
     </div>
     
     <h1 class="text-5xl md:text-7xl font-extrabold text-slate-900 dark:text-white mb-8 tracking-tight leading-tight transition-colors duration-300">
       <span class="lang-zh">
-        探索物理世界的 <br class="hidden md:block" />
-        <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-500 dark:from-blue-400 dark:to-cyan-300">3D感知与具身智能</span>
+        {{ site.hero.title_main.zh }} <br class="hidden md:block" />
+        <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-500 dark:from-blue-400 dark:to-cyan-300">{{ site.hero.title_gradient.zh }}</span>
       </span>
       <span class="lang-en">
-        Exploring the Physical Boundaries of <br class="hidden md:block" />
-        <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-500 dark:from-blue-400 dark:to-cyan-300">3D Perception & Embodied AI</span>
+        {{ site.hero.title_main.en }} <br class="hidden md:block" />
+        <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-500 dark:from-blue-400 dark:to-cyan-300">{{ site.hero.title_gradient.en }}</span>
       </span>
     </h1>
     
     <p class="text-xl md:text-2xl text-slate-500 dark:text-slate-400 mb-12 max-w-3xl mx-auto leading-relaxed font-light transition-colors duration-300">
-      <span class="lang-zh">致力于多模态感知、推理与交互的共性基础研究，探索空天智能与智能体在复杂真实世界中的前沿边界。</span>
-      <span class="lang-en">Dedicated to foundational research in multimodal perception, reasoning, and interaction, exploring the cutting-edge boundaries of aerospace intelligence and embodied agents in complex real-world environments.</span>
+      <span class="lang-zh">{{ site.hero.description.zh }}</span>
+      <span class="lang-en">{{ site.hero.description.en }}</span>
     </p>
     
     <div class="flex flex-col sm:flex-row justify-center items-center space-y-4 sm:space-y-0 sm:space-x-6 mb-16">
-      <a href="{{ site.baseurl }}/pages/people.html" class="w-full sm:w-auto bg-blue-600 dark:bg-blue-600 text-white px-10 py-4 rounded-2xl font-bold hover:bg-blue-700 dark:hover:bg-blue-500 hover:shadow-lg hover:-translate-y-1 transition-all duration-300">
-        <span class="lang-zh">了解团队</span>
-        <span class="lang-en">Meet the Team</span>
+      <a href="{{ site.hero.primary_btn.url | relative_url }}" class="w-full sm:w-auto bg-blue-600 text-white px-10 py-4 rounded-2xl font-bold hover:bg-blue-700 hover:shadow-lg hover:-translate-y-1 transition-all duration-300">
+        <span class="lang-zh">{{ site.hero.primary_btn.text.zh }}</span>
+        <span class="lang-en">{{ site.hero.primary_btn.text.en }}</span>
       </a>
-      <a href="{{ site.baseurl }}/pages/research.html" class="w-full sm:w-auto bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-300 px-10 py-4 rounded-2xl font-bold hover:bg-slate-50 dark:hover:bg-slate-700 transition-all duration-300">
-        <span class="lang-zh">研究方向</span>
-        <span class="lang-en">Research Areas</span>
+      <a href="{{ site.hero.secondary_btn.url | relative_url }}" class="w-full sm:w-auto bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-300 px-10 py-4 rounded-2xl font-bold hover:bg-slate-50 dark:hover:bg-slate-700 transition-all duration-300">
+        <span class="lang-zh">{{ site.hero.secondary_btn.text.zh }}</span>
+        <span class="lang-en">{{ site.hero.secondary_btn.text.en }}</span>
       </a>
     </div>
 
     <div class="relative max-w-5xl mx-auto rounded-[2rem] overflow-hidden shadow-2xl border-4 border-white dark:border-slate-800 transition-colors duration-300">
       <div class="absolute inset-0 bg-blue-900/10 mix-blend-multiply z-10"></div>
-      <img src="https://images.unsplash.com/photo-1620712943543-bcc4688e7485?q=80&w=2000&auto=format&fit=crop" alt="LV Group Visual" class="w-full h-64 md:h-96 object-cover transform hover:scale-105 transition-transform duration-700">
+      <img src="{{ site.hero.image }}" alt="Hero Visual" class="w-full h-64 md:h-96 object-cover transform hover:scale-105 transition-transform duration-700">
     </div>
   </div>
 </section>
