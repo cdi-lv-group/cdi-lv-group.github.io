@@ -1,5 +1,3 @@
----
-
 # 🎓 Academic Group Web Engine (Bilingual & Data-Driven)
 
 这是一个面向科研课题组（Research Groups）设计的**数据驱动型**静态网站模板。它通过“数据与代码分离”的架构，支持通过 **飞书 (Feishu/Lark)** 等云端平台同步更新，自动生成专业且美观的中英双语学术主页。
@@ -11,7 +9,6 @@
 * **Automation**: GitHub Actions + Python API Sync (支持多平台同步)
 * **UI**: Tailwind CSS / Bootstrap (响应式设计，学术风格)
 
----
 
 ## 📝 数据维护手册 (Data Dictionary & Templates)
 
