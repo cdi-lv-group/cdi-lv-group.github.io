@@ -135,8 +135,8 @@ news_header:
 # ==========================================
 join_header:
   badge:
-    zh: "加入"
-    en: "Join"
+    zh: "加入 %NAME%"
+    en: "Join %NAME%"
   
   title_main:
     zh: "与我们一起探索 "

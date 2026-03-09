@@ -8,10 +8,11 @@ title: 联系加入
     <div class="absolute top-0 right-0 w-[40rem] h-[40rem] bg-cyan-50 dark:bg-cyan-900/20 rounded-full blur-3xl opacity-60 -translate-y-1/2 translate-x-1/3 transition-colors duration-300 -z-10"></div>
     
     <div class="max-w-6xl mx-auto px-4 relative z-10 text-center md:text-left">
-        <div class="inline-block mb-4 px-4 py-1.5 rounded-full bg-blue-50 dark:bg-slate-800 border border-blue-100 dark:border-blue-900 text-blue-600 dark:text-blue-400 text-sm font-bold tracking-wide shadow-sm transition-colors">
-            <span class="lang-zh">{{ site.join_header.badge_text.zh }} {{ site.lab.group_short_name }}</span>
-            <span class="lang-en">{{ site.join_header.badge_text.en }} {{ site.lab.group_short_name }}</span>
-        </div>
+
+    <div class="inline-block ...">
+        <span class="lang-zh">{{ site.join_header.badge.zh | replace: '%NAME%', site.lab.group_short_name }}</span>
+        <span class="lang-en">{{ site.join_header.badge.en | replace: '%NAME%', site.lab.group_short_name }}</span>
+    </div>
 
         <h1 class="text-4xl md:text-6xl font-extrabold text-slate-900 dark:text-white mb-6 tracking-tight leading-tight transition-colors">
             <span class="lang-zh">
