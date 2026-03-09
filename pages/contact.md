@@ -9,8 +9,8 @@ title: 联系加入
     
     <div class="max-w-6xl mx-auto px-4 relative z-10 text-center md:text-left">
         <div class="inline-block mb-4 px-4 py-1.5 rounded-full bg-blue-50 dark:bg-slate-800 border border-blue-100 dark:border-blue-900 text-blue-600 dark:text-blue-400 text-sm font-bold tracking-wide shadow-sm transition-colors">
-            <span class="lang-zh">{{ site.join_header.badge.zh }}</span>
-            <span class="lang-en">{{ site.join_header.badge.en }}</span>
+            <span class="lang-zh">{{ site.join_header.badge_text.zh }} {{ site.lab.group_short_name }}</span>
+            <span class="lang-en">{{ site.join_header.badge_text.en }} {{ site.lab.group_short_name }}</span>
         </div>
 
         <h1 class="text-4xl md:text-6xl font-extrabold text-slate-900 dark:text-white mb-6 tracking-tight leading-tight transition-colors">

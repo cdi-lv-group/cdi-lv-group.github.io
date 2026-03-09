@@ -135,8 +135,8 @@ news_header:
 # ==========================================
 join_header:
   badge:
-    zh: "加入 {{ site.lab.group_short_name }}"
-    en: "Join {{ site.lab.group_short_name }}"
+    zh: "加入"
+    en: "Join"
   
   title_main:
     zh: "与我们一起探索 "
