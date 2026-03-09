@@ -38,6 +38,33 @@ hero:
   
   image: "https://images.unsplash.com/photo-1620712943543-bcc4688e7485?q=80&w=2000&auto=format&fit=crop"
 
+
+
+# ==========================================
+# 研究方向页面 Header 配置
+# ==========================================
+research_header:
+  badge:
+    zh: "研究方向"
+    en: "Research Areas"
+  
+  title_main:
+    zh: "探索智能的"
+    en: "Exploring the"
+  
+  title_gradient:
+    zh: "物理边界"
+    en: "Physical Boundaries"
+  
+  title_suffix:
+    zh: "" # 中文标题后缀为空
+    en: "of AI"
+  
+  description:
+    zh: "我们致力于多模态感知、3D视觉与具身智能的基础理论与前沿应用研究，旨在让智能体在复杂、不确定的真实世界中具备强大的自主行为能力。"
+    en: "We are dedicated to foundational theories and cutting-edge applications in multimodal perception, 3D vision, and embodied AI, aiming to equip agents with robust autonomous behaviors in complex, real-world environments."
+
+
 # 构建与基础设置
 timezone: "Asia/Shanghai"
 markdown: kramdown
