@@ -9,16 +9,26 @@ title: 联系加入
     
     <div class="max-w-6xl mx-auto px-4 relative z-10 text-center md:text-left">
         <div class="inline-block mb-4 px-4 py-1.5 rounded-full bg-blue-50 dark:bg-slate-800 border border-blue-100 dark:border-blue-900 text-blue-600 dark:text-blue-400 text-sm font-bold tracking-wide shadow-sm transition-colors">
-            <span class="lang-zh">加入 {{ site.lab.group_short_name }}</span>
-            <span class="lang-en">Join {{ site.lab.group_short_name }}</span>
+            <span class="lang-zh">{{ site.join_header.badge.zh }}</span>
+            <span class="lang-en">{{ site.join_header.badge.en }}</span>
         </div>
+
         <h1 class="text-4xl md:text-6xl font-extrabold text-slate-900 dark:text-white mb-6 tracking-tight leading-tight transition-colors">
-            <span class="lang-zh">与我们一起探索 <br class="hidden md:block" /> <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-500 dark:from-blue-400 dark:to-cyan-300">智能的物理边界</span></span>
-            <span class="lang-en">Exploring the <br class="hidden md:block" /> <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-500 dark:from-blue-400 dark:to-cyan-300">Physical Boundaries</span> of AI</span>
+            <span class="lang-zh">
+                {{ site.join_header.title_main.zh }} <br class="hidden md:block" /> 
+                <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-500 dark:from-blue-400 dark:to-cyan-300">{{ site.join_header.title_gradient.zh }}</span>
+                {{ site.join_header.title_suffix.zh }}
+            </span>
+            <span class="lang-en">
+                {{ site.join_header.title_main.en }} <br class="hidden md:block" /> 
+                <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-500 dark:from-blue-400 dark:to-cyan-300">{{ site.join_header.title_gradient.en }}</span>
+                {{ site.join_header.title_suffix.en }}
+            </span>
         </h1>
+
         <p class="text-lg md:text-xl text-slate-500 dark:text-slate-400 max-w-3xl leading-relaxed font-light mx-auto md:mx-0 transition-colors">
-            <span class="lang-zh">我们常年招收对 3D 视觉、多模态感知与具身智能充满热忱的优秀博士生、硕士生及科研实习生。如果你热爱硬核技术并渴望在顶级学术舞台发声，欢迎加入！</span>
-            <span class="lang-en">We are constantly looking for talented Ph.D., Master students, and Research Interns passionate about 3D Vision, Multimodal Perception, and Embodied AI. If you love hardcore technology, join us!</span>
+            <span class="lang-zh">{{ site.join_header.description.zh }}</span>
+            <span class="lang-en">{{ site.join_header.description.en }}</span>
         </p>
     </div>
 </section>

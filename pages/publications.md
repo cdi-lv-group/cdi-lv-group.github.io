@@ -13,27 +13,28 @@ title: 学术成果
     <div class="max-w-6xl mx-auto px-4 relative z-10 text-center md:text-left">
         
         <div class="inline-block mb-4 px-4 py-1.5 rounded-full bg-blue-50 dark:bg-slate-800 border border-blue-100 dark:border-blue-900 text-blue-600 dark:text-blue-400 text-sm font-bold tracking-wide shadow-sm transition-colors duration-300">
-            <span class="lang-zh">科研产出</span>
-            <span class="lang-en">Research Output</span>
+            <span class="lang-zh">{{ site.publications_header.badge.zh }}</span>
+            <span class="lang-en">{{ site.publications_header.badge.en }}</span>
         </div>
 
         <h1 class="text-4xl md:text-6xl font-extrabold text-slate-900 dark:text-white mb-6 tracking-tight leading-tight transition-colors duration-300">
             <span class="lang-zh">
-                探索与突破：<br class="block md:hidden"/>
-                <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-500 dark:from-blue-400 dark:to-cyan-300">学术成果</span>
+                {{ site.publications_header.title_main.zh }}<br class="block md:hidden"/>
+                <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-500 dark:from-blue-400 dark:to-cyan-300">{{ site.publications_header.title_gradient.zh }}</span>
             </span>
             <span class="lang-en">
-                Exploration & Breakthroughs: <br class="block md:hidden"/>
-                <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-500 dark:from-blue-400 dark:to-cyan-300">Publications</span>
+                {{ site.publications_header.title_main.en }}<br class="block md:hidden"/>
+                <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-500 dark:from-blue-400 dark:to-cyan-300">{{ site.publications_header.title_gradient.en }}</span>
             </span>
         </h1>
         
         <p class="text-lg md:text-xl text-slate-500 dark:text-slate-400 max-w-3xl mx-auto md:mx-0 leading-relaxed font-light transition-colors duration-300">
-            <span class="lang-zh">我们在 CVPR, ICCV, NeurIPS 等国际顶级学术会议与期刊上持续发表多模态感知、3D视觉与具身智能领域的研究成果。</span>
-            <span class="lang-en">We continuously publish our research on multimodal perception, 3D vision, and embodied AI in top-tier international conferences and journals such as CVPR, ICCV, and NeurIPS.</span>
+            <span class="lang-zh">{{ site.publications_header.description.zh }}</span>
+            <span class="lang-en">{{ site.publications_header.description.en }}</span>
         </p>
     </div>
 </section>
+
 
 <section class="max-w-6xl mx-auto px-4 py-16 md:py-24">
 

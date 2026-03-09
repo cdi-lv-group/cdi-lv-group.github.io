@@ -65,6 +65,95 @@ research_header:
     en: "We are dedicated to foundational theories and cutting-edge applications in multimodal perception, 3D vision, and embodied AI, aiming to equip agents with robust autonomous behaviors in complex, real-world environments."
 
 
+# ==========================================
+# 学术论文页面 Header 配置
+# ==========================================
+publications_header:
+  badge:
+    zh: "科研产出"
+    en: "Research Output"
+  
+  title_main:
+    zh: "探索与突破："
+    en: "Exploration & Breakthroughs: "
+  
+  title_gradient:
+    zh: "学术成果"
+    en: "Publications"
+  
+  description:
+    zh: "我们在 CVPR, ICCV, NeurIPS 等国际顶级学术会议与期刊上持续发表多模态感知、3D视觉与具身智能领域的研究成果。"
+    en: "We continuously publish our research on multimodal perception, 3D vision, and embodied AI in top-tier international conferences and journals such as CVPR, ICCV, and NeurIPS."
+
+
+# ==========================================
+# 团队成员页面 Header 配置
+# ==========================================
+people_header:
+  badge:
+    zh: "团队成员"
+    en: "Our Team"
+  
+  title_main:
+    zh: "汇聚智能领域的 "
+    en: "Pioneering "
+  
+  title_gradient:
+    zh: "创新先锋"
+    en: "Innovative Minds"
+  
+  title_suffix:
+    zh: ""
+    en: " in AI"
+  
+  description:
+    zh: "我们是一群致力于探索人工智能前沿的研究者、工程师和创新者。通过跨学科的协作，我们在感知与具身智能领域不断追求卓越，共同构建未来。"
+    en: "We are a community of passionate researchers, engineers, and innovators exploring the frontiers of AI. Through interdisciplinary collaboration, we strive for excellence in perception and embodied intelligence."
+
+# ==========================================
+# 新闻动态页面 Header 配置
+# ==========================================
+news_header:
+  badge:
+    zh: "新闻动态"
+    en: "Latest News"
+  
+  title_main:
+    zh: "记录实验室的 "
+    en: "Capturing Our "
+  
+  title_gradient:
+    zh: "重要时刻"
+    en: "Milestones"
+  
+  description:
+    zh: "记录 LV 课题组在学术研究、开源项目、团队建设与产业合作上的每一个重要里程碑。"
+    en: "Highlighting LV Lab's significant progress in academic research, open-source projects, team building, and industrial collaborations."
+
+# ==========================================
+# 加入我们页面 Header 配置
+# ==========================================
+join_header:
+  badge:
+    zh: "加入 {{ site.lab.group_short_name }}"
+    en: "Join {{ site.lab.group_short_name }}"
+  
+  title_main:
+    zh: "与我们一起探索 "
+    en: "Exploring the "
+  
+  title_gradient:
+    zh: "智能的物理边界"
+    en: "Physical Boundaries"
+  
+  title_suffix:
+    zh: ""
+    en: " of AI"
+  
+  description:
+    zh: "我们常年招收对 3D 视觉、多模态感知与具身智能充满热忱的优秀博士生、硕士生及科研实习生。如果你热爱硬核技术并渴望在顶级学术舞台发声，欢迎加入！"
+    en: "We are constantly looking for talented Ph.D., Master students, and Research Interns passionate about 3D Vision, Multimodal Perception, and Embodied AI. If you love hardcore technology, join us!"
+
 # 构建与基础设置
 timezone: "Asia/Shanghai"
 markdown: kramdown
