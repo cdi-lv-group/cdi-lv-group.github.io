@@ -50,42 +50,69 @@ title: 首页
 </section>
 
 <section class="max-w-6xl mx-auto px-4 py-20 border-t border-slate-100 dark:border-slate-800 transition-colors duration-300">
-  <div class="flex flex-col md:flex-row justify-between items-end mb-12 gap-4">
-      <div class="flex items-center space-x-4 border-l-4 border-cyan-500 pl-4">
+  <div class="flex flex-col md:flex-row justify-between items-end mb-12 gap-6">
+      <div class="flex items-center space-x-4 border-l-4 border-blue-600 dark:border-blue-500 pl-4">
           <div>
-              <h2 class="text-3xl font-bold text-slate-800 dark:text-white tracking-tight transition-colors duration-300">
+              <h2 class="text-3xl font-bold text-slate-800 dark:text-white tracking-tight transition-colors duration-300 uppercase">
                 <span class="lang-zh">核心研究方向</span>
                 <span class="lang-en">Core Research Areas</span>
               </h2>
-              <span class="text-slate-400 dark:text-slate-500 font-light italic transition-colors duration-300">Research Areas</span>
+              <p class="text-slate-400 dark:text-slate-500 font-light italic transition-colors duration-300 text-sm mt-1">
+                <span class="lang-zh">探索人工智能与设计的边界</span>
+                <span class="lang-en">Exploring the boundaries of AI & Design</span>
+              </p>
           </div>
+      </div>
+      
+      <div class="hidden md:block">
+          <a href="{{ site.baseurl }}/pages/research.html" class="group flex items-center space-x-2 text-blue-600 dark:text-blue-400 font-bold hover:text-blue-700 transition-all">
+              <span class="lang-zh">了解研究详情</span>
+              <span class="lang-en">More Details</span>
+              <svg class="w-5 h-5 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
+              </svg>
+          </a>
       </div>
   </div>
 
   <div class="grid md:grid-cols-3 gap-8">
     {% for item in site.data.research %}
-    <a href="{{ site.baseurl }}/pages/research.html" class="group bg-white dark:bg-slate-800 p-10 rounded-[2.5rem] shadow-sm border border-slate-100 dark:border-slate-700 hover:shadow-2xl hover:border-blue-100 dark:hover:border-blue-500 hover:-translate-y-2 transition-all duration-500 flex flex-col h-full cursor-pointer">
+    <a href="{{ site.baseurl }}/pages/research.html" class="group bg-white dark:bg-slate-800 p-10 rounded-[2.5rem] shadow-sm border border-slate-100 dark:border-slate-700 hover:shadow-2xl hover:border-blue-100 dark:hover:border-blue-500 hover:-translate-y-2 transition-all duration-500 flex flex-col h-full cursor-pointer relative overflow-hidden">
       
-      <div class="w-16 h-16 bg-blue-50 dark:bg-slate-700 text-blue-600 dark:text-blue-400 rounded-2xl flex items-center justify-center text-3xl mb-6 group-hover:bg-blue-600 group-hover:text-white dark:group-hover:bg-blue-500 transition-colors duration-300 shadow-sm">
+      <div class="absolute -right-4 -bottom-4 text-8xl font-black text-slate-50 dark:text-slate-700/30 italic group-hover:text-blue-50 dark:group-hover:text-blue-900/20 transition-colors pointer-events-none">
+        0{{ forloop.index }}
+      </div>
+
+      <div class="w-16 h-16 bg-blue-50 dark:bg-slate-700 text-blue-600 dark:text-blue-400 rounded-2xl flex items-center justify-center text-3xl mb-6 group-hover:bg-blue-600 group-hover:text-white dark:group-hover:bg-blue-500 transition-colors duration-300 shadow-sm relative z-10">
         {{ item.icon }}
       </div>
       
-      <h3 class="text-2xl font-bold mb-4 text-slate-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors duration-300">
+      <h3 class="text-2xl font-bold mb-4 text-slate-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors duration-300 relative z-10">
         <span class="lang-zh">{{ item.title.zh | default: item.title }}</span>
         <span class="lang-en">{{ item.title.en | default: item.title }}</span>
       </h3>
-      <p class="text-slate-500 dark:text-slate-400 leading-relaxed flex-grow transition-colors duration-300">
+      <p class="text-slate-500 dark:text-slate-400 leading-relaxed flex-grow transition-colors duration-300 relative z-10">
         <span class="lang-zh">{{ item.description.zh | default: item.description }}</span>
         <span class="lang-en">{{ item.description.en | default: item.description }}</span>
       </p>
       
-      <div class="mt-6 pt-6 border-t border-slate-50 dark:border-slate-700 flex justify-end opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-         <span class="w-10 h-10 rounded-full bg-blue-50 dark:bg-slate-700 flex items-center justify-center text-blue-600 dark:text-blue-400">
-           <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+      <div class="mt-6 pt-6 border-t border-slate-50 dark:border-slate-700 flex justify-end transition-all duration-300 relative z-10">
+         <span class="w-10 h-10 rounded-full bg-blue-50 dark:bg-slate-700 flex items-center justify-center text-blue-600 dark:text-blue-400 group-hover:bg-blue-600 group-hover:text-white transition-all">
+           <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+           </svg>
          </span>
       </div>
     </a>
     {% endfor %}
+  </div>
+
+  <div class="mt-10 md:hidden text-center">
+      <a href="{{ site.baseurl }}/pages/research.html" class="inline-flex items-center space-x-2 text-blue-600 font-bold">
+          <span class="lang-zh">了解更多研究详情</span>
+          <span class="lang-en">View All Areas</span>
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"></path></svg>
+      </a>
   </div>
 </section>
 
