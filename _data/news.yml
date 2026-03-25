@@ -1,16 +1,6 @@
-# ==========================================
 # Auto-generated from Feishu Bitable: 新闻动态
-# Last Sync Time: 2026-03-25 20:05:40
-# ==========================================
-
 - date: '2026.03'
-  category:
-    zh: 实验室动态
-    en: Lab Event
   title:
-    zh: LV课题组全新官方网站正式上线 (示例)
-    en: New LV Lab Official Website Launched
-  description:
-    zh: 💡提示：在这里填写新闻的详细中文描述。可以直接粘贴，无需管格式。
-    en: '💡Tip: Write the detailed news description here...'
+    zh: 🔴[必填] 全新官方网站上线
+    en: 🔴[必填] New Website Launched
   link: https://cdi-lv-group.github.io

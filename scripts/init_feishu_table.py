@@ -24,310 +24,100 @@ class BaseTableSchema:
 
 
 # ==========================================
-# 2. 具体的子表定义 (带有默认示例数据)
+# 2. 具体的子表定义 (双重提示版: 🔴 必填 / ⚪ 选填)
 # ==========================================
 class PeopleTableSchema(BaseTableSchema):
     @property
-    def table_name(self): 
-        return "团队成员"
-        
+    def table_name(self): return "团队成员"
     @property
     def fields(self):
         return [
-            {"field_name": "Name_zh", "type": 1}, 
-            {"field_name": "Name_en", "type": 1},
+            {"field_name": "Name_zh", "type": 1, "description": {"text": "🔴 [必填] 成员的中文姓名"}}, 
+            {"field_name": "Name_en", "type": 1, "description": {"text": "🔴 [必填] 英文姓名 (如: Wenbin Zuo)"}},
             {
-                "field_name": "Group_ID", 
-                "type": 3, # 3 代表单选标签
+                "field_name": "Group_ID", "type": 3, "description": {"text": "🔴 [必填] 决定成员显示在网站哪个板块"},
                 "property": {
                     "options": [
-                        # 严格对齐网站 _data/groups.yml 的分类字典
-                        {"name": "professor", "color": 0},
-                        {"name": "associate_prof", "color": 1},
-                        {"name": "assistant_prof", "color": 2},
-                        {"name": "researchers", "color": 3},
-                        {"name": "phd", "color": 4}, 
-                        {"name": "master", "color": 5}, 
-                        {"name": "undergrad", "color": 6}, 
-                        {"name": "interns", "color": 7}, 
+                        {"name": "professor", "color": 0}, {"name": "associate_prof", "color": 1},
+                        {"name": "assistant_prof", "color": 2}, {"name": "researchers", "color": 3},
+                        {"name": "phd", "color": 4}, {"name": "master", "color": 5}, 
+                        {"name": "undergrad", "color": 6}, {"name": "interns", "color": 7}, 
                         {"name": "alumni", "color": 8}
                     ]
                 }
             },
-            {"field_name": "Rank", "type": 2}, # 2 代表数字型，用于控制网站上的排序
-            {"field_name": "Title_zh", "type": 1}, 
-            {"field_name": "Title_en", "type": 1},
-            {"field_name": "Role_zh", "type": 1}, 
-            {"field_name": "Role_en", "type": 1},
-            
-            # 🚀 核心升级：17 代表附件类型。这样成员就可以直接在飞书中拖拽上传免冠照了
-            {"field_name": "Avatar", "type": 17}, 
-            
-            {"field_name": "Bio_zh", "type": 1}, 
-            {"field_name": "Bio_en", "type": 1},
-            {"field_name": "Email", "type": 1}, 
-            {"field_name": "Dest_zh", "type": 1}, 
-            {"field_name": "Dest_en", "type": 1},
-            
-            # 15 代表超链接类型
-            {"field_name": "Link_Homepage", "type": 15}, 
-            {"field_name": "Link_Scholar", "type": 15},
-            {"field_name": "Link_GitHub", "type": 15}, 
-            {"field_name": "Link_LinkedIn", "type": 15}, 
-            {"field_name": "Link_Zhihu", "type": 15}
+            {"field_name": "Rank", "type": 2, "description": {"text": "⚪ [选填] 排序权重 (数字越小越靠前)"}}, 
+            {"field_name": "Title_zh", "type": 1, "description": {"text": "🔴 [必填] 身份/年级 (如: 博士生)"}}, 
+            {"field_name": "Title_en", "type": 1, "description": {"text": "🔴 [必填] 身份/年级英文版"}},
+            {"field_name": "Role_zh", "type": 1, "description": {"text": "⚪ [选填] 组内职务 (如: 核心骨干)"}}, 
+            {"field_name": "Role_en", "type": 1, "description": {"text": "⚪ [选填] 组内职务英文版"}},
+            {"field_name": "Avatar", "type": 17, "description": {"text": "⚪ [选填] 拖拽正方形免冠照至此"}}, 
+            {"field_name": "Bio_zh", "type": 1, "description": {"text": "⚪ [选填] 中文个人简介 (Alt+Enter 换行)"}}, 
+            {"field_name": "Bio_en", "type": 1, "description": {"text": "⚪ [选填] 英文个人简介"}},
+            {"field_name": "Email", "type": 1, "description": {"text": "⚪ [选填] 常用联系邮箱"}}, 
+            {"field_name": "Dest_zh", "type": 1, "description": {"text": "⚪ [选填] (仅校友填写) 毕业去向"}}, 
+            {"field_name": "Dest_en", "type": 1, "description": {"text": "⚪ [选填] (仅校友填写) 毕业去向英文版"}},
+            {"field_name": "Link_Homepage", "type": 15, "description": {"text": "⚪ [选填] 个人主页链接"}}, 
+            {"field_name": "Link_Scholar", "type": 15, "description": {"text": "⚪ [选填] Google Scholar 主页"}},
+            {"field_name": "Link_GitHub", "type": 15, "description": {"text": "⚪ [选填] GitHub 主页"}}, 
+            {"field_name": "Link_LinkedIn", "type": 15, "description": {"text": "⚪ [选填] LinkedIn 主页"}}, 
+            {"field_name": "Link_Zhihu", "type": 15, "description": {"text": "⚪ [选填] 知乎主页"}}
         ]
         
     @property
     def sample_record(self):
         return {
-            "Name_zh": "张三 (示例)", 
-            "Name_en": "San Zhang",
-            "Group_ID": "professor", 
-            "Rank": 1,
-            "Title_zh": "教授 / 博导", 
-            "Title_en": "Professor",
-            "Role_zh": "课题组负责人", 
-            "Role_en": "Principal Investigator",
-            # 注意：通过 API 注入初始图片略微复杂，这里我们在文本列给用户留下操作指引
-            "Bio_zh": "💡提示：在这里填写中文简介。多行请按 Alt+Enter 换行。👉 【头像】请直接将正方形照片拖入左侧 Avatar 单元格中。",
-            "Bio_en": "💡Tip: Write English bio here. 👉 Drag and drop your square photo into the Avatar cell.",
-            "Email": "example@tongji.edu.cn",
-            # 超链接直接使用纯净的字符串形式即可，底层执行逻辑会自动帮你做字典封装
-            "Link_Homepage": "https://example.com" 
+            "Name_zh": "🔴[必填] 张三 (请替换)", "Name_en": "🔴[必填] San Zhang",
+            "Group_ID": "professor", "Rank": 1,
+            "Title_zh": "🔴[必填] 教授 / 博导", "Title_en": "🔴[必填] Professor",
+            "Role_zh": "⚪[选填] 课题组负责人", "Role_en": "⚪[选填] Principal Investigator",
+            "Bio_zh": "⚪[选填] 💡提示：多行请按 Alt+Enter。👉 左侧头像也是选填的，直接拖入照片即可。",
+            "Email": "⚪[选填] example@tongji.edu.cn", "Link_Homepage": "https://example.com" 
         }
 
 class NewsTableSchema(BaseTableSchema):
     @property
-    def table_name(self): 
-        return "新闻动态"
-        
+    def table_name(self): return "新闻动态"
     @property
     def fields(self):
         return [
-            # 5 代表日期类型，在飞书里会弹出日历选择器，方便大家统一时间格式
-            {"field_name": "Date", "type": 5}, 
-            
-            # 🚀 核心升级：将中文分类改为单选标签，规范大家的输入，避免错别字
+            {"field_name": "Date", "type": 5, "description": {"text": "🔴 [必填] 新闻发生日期"}}, 
             {
-                "field_name": "Category_zh", 
-                "type": 3, 
-                "property": {
-                    "options": [
-                        {"name": "实验室动态", "color": 0},
-                        {"name": "开源项目", "color": 1},
-                        {"name": "学术合作", "color": 2},
-                        {"name": "荣誉奖项", "color": 3},
-                        {"name": "基础设施", "color": 4},
-                        {"name": "招生动态", "color": 5}
-                    ]
-                }
+                "field_name": "Category_zh", "type": 3, "description": {"text": "🔴 [必填] 中文分类"},
+                "property": {"options": [{"name": "实验室动态", "color": 0}, {"name": "开源项目", "color": 1}, {"name": "学术合作", "color": 2}, {"name": "荣誉奖项", "color": 3}, {"name": "基础设施", "color": 4}, {"name": "招生动态", "color": 5}]}
             }, 
-            # 🚀 核心升级：同步将英文分类改为单选标签
             {
-                "field_name": "Category_en", 
-                "type": 3, 
-                "property": {
-                    "options": [
-                        {"name": "Lab Event", "color": 0},
-                        {"name": "Open Source", "color": 1},
-                        {"name": "Collaboration", "color": 2},
-                        {"name": "Awards", "color": 3},
-                        {"name": "Infrastructure", "color": 4},
-                        {"name": "Admissions", "color": 5}
-                    ]
-                }
+                "field_name": "Category_en", "type": 3, "description": {"text": "🔴 [必填] 英文分类"},
+                "property": {"options": [{"name": "Lab Event", "color": 0}, {"name": "Open Source", "color": 1}, {"name": "Collaboration", "color": 2}, {"name": "Awards", "color": 3}, {"name": "Infrastructure", "color": 4}, {"name": "Admissions", "color": 5}]}
             },
-            
-            {"field_name": "Title_zh", "type": 1}, 
-            {"field_name": "Title_en", "type": 1},
-            {"field_name": "Desc_zh", "type": 1}, 
-            {"field_name": "Desc_en", "type": 1}, 
-            
-            # 15 代表超链接类型
-            {"field_name": "Link", "type": 15}
+            {"field_name": "Title_zh", "type": 1, "description": {"text": "🔴 [必填] 新闻中文标题"}}, 
+            {"field_name": "Title_en", "type": 1, "description": {"text": "🔴 [必填] 新闻英文标题"}},
+            {"field_name": "Desc_zh", "type": 1, "description": {"text": "⚪ [选填] 新闻详细描述"}}, 
+            {"field_name": "Desc_en", "type": 1, "description": {"text": "⚪ [选填] 详细描述英文版"}}, 
+            {"field_name": "Link", "type": 15, "description": {"text": "⚪ [选填] 相关外部链接"}}
         ]
         
     @property
     def sample_record(self):
         return {
-            # 注入示例数据时，自动填入今天的时间戳
             "Date": int(time.time() * 1000), 
-            "Category_zh": "实验室动态", 
-            "Category_en": "Lab Event",
-            "Title_zh": "LV课题组全新官方网站正式上线 (示例)", 
-            "Title_en": "New LV Lab Official Website Launched",
-            "Desc_zh": "💡提示：在这里填写新闻的详细中文描述。可以直接粘贴，无需管格式。",
-            "Desc_en": "💡Tip: Write the detailed news description here...",
-            # 超链接如果没有，用户可以直接在飞书里留空或填 #
-            "Link": "https://cdi-lv-group.github.io"
+            "Category_zh": "实验室动态", "Category_en": "Lab Event",
+            "Title_zh": "🔴[必填] 全新官方网站上线", "Title_en": "🔴[必填] New Website Launched",
+            "Desc_zh": "⚪[选填] 💡在这里详细描述事件经过...", "Link": "https://cdi-lv-group.github.io"
         }
 
 class PublicationsTableSchema(BaseTableSchema):
     @property
-    def table_name(self): 
-        return "学术论文"
-        
+    def table_name(self): return "学术论文"
     @property
     def fields(self):
         return [
-            {"field_name": "Title_zh", "type": 1}, 
-            {"field_name": "Title_en", "type": 1}, 
-            {"field_name": "Authors", "type": 1},
+            {"field_name": "Title_zh", "type": 1, "description": {"text": "🔴 [必填] 论文中文标题"}}, 
+            {"field_name": "Title_en", "type": 1, "description": {"text": "🔴 [必填] 论文英文原名"}}, 
+            {"field_name": "Authors", "type": 1, "description": {"text": "🔴 [必填] 作者列表 (用 <b>名字</b> 加粗课题组成员)"}},
             {
-                "field_name": "Type", 
-                "type": 3, 
-                "property": {
-                    "options": [
-                        {"name": "conference", "color": 0}, 
-                        {"name": "journal", "color": 1}, 
-                        {"name": "preprint", "color": 2}
-                    ]
-                }
-            },
-            {"field_name": "Venue", "type": 1}, 
-            # 2 代表数字类型，确保网页上的按年份倒序排列能正常运作
-            {"field_name": "Year", "type": 2}, 
-            {"field_name": "Highlight", "type": 1},
-            
-            # 🚀 核心升级：17 代表附件类型。支持直接拖拽上传论文的 Teaser 效果图！
-            {"field_name": "Image", "type": 17}, 
-            
-            {"field_name": "Abstract_zh", "type": 1}, 
-            {"field_name": "Abstract_en", "type": 1},
-            
-            # 15 代表超链接类型，飞书会自动识别并渲染为可点击的卡片或蓝色链接
-            {"field_name": "Link_Paper", "type": 15}, 
-            {"field_name": "Link_Code", "type": 15}, 
-            {"field_name": "Link_Project", "type": 15}, 
-            {"field_name": "Link_Video", "type": 15}
-        ]
-        
-    @property
-    def sample_record(self):
-        return {
-            "Title_zh": "统一单目标与多目标跟踪的联合学习框架 (示例)", 
-            "Title_en": "Unified Learning Framework for SOT and MOT",
-            # 提醒填表人核心成员加粗的 HTML 写法
-            "Authors": "<b>Wenbin Zuo</b>, Jingkuan Song, Weiwei Guo*, et al.",
-            "Type": "conference", 
-            "Venue": "CVPR", 
-            "Year": 2026,
-            "Highlight": "Oral",
-            # 在文本提示中指导用户如何上传图片
-            "Abstract_zh": "💡提示：复制粘贴论文摘要到这里。👉 【Image】列请直接将论文的Teaser图（建议16:9）拖拽进去。",
-            "Abstract_en": "💡Tip: Paste the abstract here. 👉 Drag and drop the Teaser image into the Image cell.",
-            # 给出各个链接的占位符，没有的链接用户只需留空即可
-            "Link_Paper": "https://arxiv.org/abs/xxxx",
-            "Link_Code": "https://github.com/cdi-lv-group",
-            "Link_Project": "https://cdi-lv-group.github.io",
-            "Link_Video": "https://youtube.com"
-        }
-
-
-class PositionsTableSchema(BaseTableSchema):
-    @property
-    def table_name(self): 
-        return "招聘与招生"
-        
-    @property
-    def fields(self):
-        return [
-            {"field_name": "Title_zh", "type": 1}, 
-            {"field_name": "Title_en", "type": 1},
-            {"field_name": "Count_zh", "type": 1}, 
-            {"field_name": "Count_en", "type": 1},
-            {"field_name": "Dept_zh", "type": 1}, 
-            {"field_name": "Dept_en", "type": 1}, 
-            
-            # 填入 Emoji 作为图标
-            {"field_name": "Icon", "type": 1},
-            
-            # 🚀 核心升级：增加 slate 兜底配色，严格对齐前端 Tailwind CSS 变量
-            {
-                "field_name": "Theme", 
-                "type": 3, 
-                "property": {
-                    "options": [
-                        {"name": "blue", "color": 0}, 
-                        {"name": "cyan", "color": 1}, 
-                        {"name": "green", "color": 2}, 
-                        {"name": "indigo", "color": 3}, 
-                        {"name": "orange", "color": 4},
-                        {"name": "slate", "color": 5}
-                    ]
-                }
-            },
-            
-            {"field_name": "Desc_zh", "type": 1}, 
-            {"field_name": "Desc_en", "type": 1},
-            
-            # 使用普通文本，但通过提示规范分隔符
-            {"field_name": "Tags_zh", "type": 1}, 
-            {"field_name": "Tags_en", "type": 1}, 
-            
-            # 15 代表超链接类型
-            {"field_name": "Link", "type": 15}
-        ]
-        
-    @property
-    def sample_record(self):
-        return {
-            "Title_zh": "博士生 (Ph.D.) - 示例", 
-            "Title_en": "Ph.D. Candidates",
-            "Count_zh": "1-2名/年", 
-            "Count_en": "1-2 per year",
-            "Dept_zh": "上海自主智能无人系统科学中心 / 设计创意学院", 
-            "Dept_en": "SISTUS / College of Design and Innovation",
-            "Icon": "🎓", 
-            "Theme": "blue",
-            "Desc_zh": "💡提示：在这里填写要求与福利。比如：提供全额奖学金，要求扎实的数学基础与编程能力（PyTorch/C++）。",
-            "Desc_en": "💡Tip: Write position requirements and benefits here...",
-            
-            # 🚀 强提示：指导填表人如何格式化标签，以便后续拉取脚本一键 split
-            "Tags_zh": "计算机视觉,具身智能 (💡提示：如果有多个标签，请务必用【逗号】隔开)", 
-            "Tags_en": "Computer Vision,Embodied AI",
-            
-            # 超链接如果没有具体的申请网址，可以填 # 或者留空
-            "Link": "https://example.com/apply"
-        }
-
-class ResearchTableSchema(BaseTableSchema):
-    @property
-    def table_name(self): 
-        return "研究方向"
-        
-    @property
-    def fields(self):
-        return [
-            # 填入 Emoji 作为方向图标
-            {"field_name": "Icon", "type": 1}, 
-            
-            # 🚀 核心升级：17 代表附件类型。支持直接拖拽上传卡片的高清背景配图！
-            {"field_name": "Image", "type": 17}, 
-            
-            {"field_name": "Title_zh", "type": 1}, 
-            {"field_name": "Title_en", "type": 1},
-            {"field_name": "Desc_zh", "type": 1}, 
-            {"field_name": "Desc_en", "type": 1},
-            
-            # 使用普通文本，但通过提示规范换行符作为数组的分隔符
-            {"field_name": "Points_zh", "type": 1}, 
-            {"field_name": "Points_en", "type": 1}
-        ]
-        
-    @property
-    def sample_record(self):
-        return {
-            "Icon": "👁️", 
-            "Title_zh": "3D感知与空间理解 (示例)", 
-            "Title_en": "3D Perception & Understanding",
-            "Desc_zh": "💡提示：在这里填写该大方向的简介。👉 【Image】列请直接将好看的背景配图拖拽进去。",
-            "Desc_en": "💡Tip: Write a brief description here...",
-            
-            # 🚀 强提示：指导填表人如何排版列表项 (Points)，以便后续脚本一键 split('\n')
-            "Points_zh": "全天候 3D 场景下的稳定目标追踪\n多源异构传感器的动态数据融合与校准\n(💡提示：如果有多个研究细分点，请务必按 Alt+Enter 进行换行)", 
-            "Points_en": "Stable 3D object tracking in all-weather conditions\nDynamic data fusion and calibration"
-        }
+                "field_name": "Type", "type": 3, "description": {"text": "🔴 [必填] 论文类别"},
+                "property": {"options": [{"name": "conference",
 
 # ==========================================
 # 3. 核心初始化引擎

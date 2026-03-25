@@ -1,24 +1,2 @@
-# ==========================================
 # Auto-generated from Feishu Bitable: 团队成员
-# Last Sync Time: 2026-03-25 20:05:31
-# ==========================================
-
-- name:
-    zh: 张三 (示例)
-    en: San Zhang
-  group_id: professor
-  rank: 1
-  title:
-    zh: 教授 / 博导
-    en: Professor
-  role:
-    zh: 课题组负责人
-    en: Principal Investigator
-  avatar: /assets/images/team/san_zhang.jpg
-  bio:
-    zh: 💡提示：在这里填写中文简介。多行请按 Alt+Enter 换行。👉 【头像】请直接将正方形照片拖入左侧 Avatar 单元格中。
-    en: '💡Tip: Write English bio here. 👉 Drag and drop your square photo into the
-      Avatar cell.'
-  email: example@tongji.edu.cn
-  links:
-    homepage: https://example.com
+[]

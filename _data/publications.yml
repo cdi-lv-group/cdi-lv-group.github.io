@@ -1,22 +1,12 @@
-# ==========================================
 # Auto-generated from Feishu Bitable: 学术论文
-# Last Sync Time: 2026-03-25 20:05:33
-# ==========================================
-
 - title:
-    zh: 统一单目标与多目标跟踪的联合学习框架 (示例)
-    en: Unified Learning Framework for SOT and MOT
-  authors: <b>Wenbin Zuo</b>, Jingkuan Song, Weiwei Guo*, et al.
-  type: conference
-  venue: CVPR
+    zh: 🔴[必填] 联合学习框架
+    en: 🔴[必填] Unified Learning Framework
+  authors: 🔴[必填] <b>Wenbin Zuo</b>, et al.
+  venue: 🔴[必填] CVPR
   year: 2026
-  highlight: Oral
-  abstract:
-    zh: 💡提示：复制粘贴论文摘要到这里。👉 【Image】列请直接将论文的Teaser图（建议16:9）拖拽进去。
-    en: '💡Tip: Paste the abstract here. 👉 Drag and drop the Teaser image into the
-      Image cell.'
+  highlight: ⚪[选填] Oral
+  image: ''
   links:
-    paper: https://arxiv.org/abs/xxxx
-    code: https://github.com/cdi-lv-group
-    project: https://cdi-lv-group.github.io
-    video: https://youtube.com
+    paper: https://arxiv.org
+    code: https://github.com/wbzuo

@@ -12,7 +12,7 @@ class FeishuReader:
     def __init__(self, config_file="feishu_config.yml"):
         """初始化读取器，加载配置和凭证"""
         self.config_file = config_file
-        # ⚠️ 请确保在终端设置了这两个环境变量，或者在这里填入真实值（注意保密）
+        # ⚠️ 优先从环境变量获取秘钥，防止代码泄露
         self.app_id = os.environ.get("FEISHU_APP_ID", "cli_a924e03710219cee")
         self.app_secret = os.environ.get("FEISHU_APP_SECRET", "5klcCSICBJWjCHn9ngKJH4imARMnptWk")
 
@@ -63,9 +63,18 @@ class FeishuReader:
             sys.exit(1)
 
     def download_media(self, file_token, save_path):
+        """下载附件，包含空 Token 校验防止 400 错误"""
+        if not file_token:
+            return False
+            
         url = f"{self.base_url}/drive/v1/medias/{file_token}/download"
         headers = {"Authorization": f"Bearer {self.tenant_access_token}"}
-        print(f"      ⬇️ 下载图片至: {save_path} ...", end="")
+        
+        # 如果文件已存在则跳过，减少 API 调用
+        if os.path.exists(save_path):
+            return True
+
+        print(f"      ⬇️ 下载图片: {os.path.basename(save_path)} ...", end="")
         res = requests.get(url, headers=headers)
         if res.status_code == 200:
             os.makedirs(os.path.dirname(save_path), exist_ok=True)
@@ -79,7 +88,7 @@ class FeishuReader:
 
     def sanitize_filename(self, name):
         if not name: return "default"
-        safe_name = re.sub(r'[^a-zA-Z0-9_\-]', '', name.replace(' ', '_')).lower()
+        safe_name = re.sub(r'[^a-zA-Z0-9_\-]', '', str(name).replace(' ', '_')).lower()
         return safe_name if safe_name else "default"
 
     def fetch_records(self, table_name):
@@ -103,34 +112,47 @@ class FeishuReader:
                     for item in data["items"]:
                         record = item["fields"]
                         
-                        # ----- 图片路由处理 -----
+                        # --- 核心图片命名逻辑：语义化前缀 + File Token 前8位 ---
+                        
+                        # 1. 团队成员头像
                         if table_name == "团队成员":
                             avatar_data = record.get('Avatar')
                             if avatar_data and isinstance(avatar_data, list):
-                                ext = os.path.splitext(avatar_data[0]['name'])[1]
-                                safe_name = self.sanitize_filename(record.get('Name_en'))
-                                save_path = f"assets/images/team/{safe_name}{ext}"
-                                if self.download_media(avatar_data[0]['file_token'], save_path):
-                                    record['local_avatar_path'] = f"/{save_path}"
+                                file_token = avatar_data[0].get('file_token')
+                                if file_token:
+                                    ext = os.path.splitext(avatar_data[0]['name'])[1]
+                                    token_suffix = file_token[:8].lower()
+                                    safe_name = self.sanitize_filename(record.get('Name_en'))
+                                    save_path = f"assets/images/team/{safe_name}_{token_suffix}{ext}"
+                                    if self.download_media(file_token, save_path):
+                                        record['local_avatar_path'] = f"/{save_path}"
 
+                        # 2. 学术论文 Teaser 图
                         elif table_name == "学术论文":
                             image_data = record.get('Image')
                             if image_data and isinstance(image_data, list):
-                                ext = os.path.splitext(image_data[0]['name'])[1]
-                                title_prefix = "_".join(str(record.get('Title_en', '')).split()[:3])
-                                safe_name = self.sanitize_filename(title_prefix)
-                                save_path = f"assets/images/papers/{safe_name}{ext}"
-                                if self.download_media(image_data[0]['file_token'], save_path):
-                                    record['local_image_path'] = f"/{save_path}"
+                                file_token = image_data[0].get('file_token')
+                                if file_token:
+                                    ext = os.path.splitext(image_data[0]['name'])[1]
+                                    token_suffix = file_token[:8].lower()
+                                    title_prefix = "_".join(str(record.get('Title_en', '')).split()[:3])
+                                    safe_name = self.sanitize_filename(title_prefix)
+                                    save_path = f"assets/images/papers/{safe_name}_{token_suffix}{ext}"
+                                    if self.download_media(file_token, save_path):
+                                        record['local_image_path'] = f"/{save_path}"
 
+                        # 3. 研究方向背景图
                         elif table_name == "研究方向":
                             image_data = record.get('Image')
                             if image_data and isinstance(image_data, list):
-                                ext = os.path.splitext(image_data[0]['name'])[1]
-                                safe_name = self.sanitize_filename(record.get('Title_en'))
-                                save_path = f"assets/images/research/{safe_name}{ext}"
-                                if self.download_media(image_data[0]['file_token'], save_path):
-                                    record['local_image_path'] = f"/{save_path}"
+                                file_token = image_data[0].get('file_token')
+                                if file_token:
+                                    ext = os.path.splitext(image_data[0]['name'])[1]
+                                    token_suffix = file_token[:8].lower()
+                                    safe_name = self.sanitize_filename(record.get('Title_en'))
+                                    save_path = f"assets/images/research/{safe_name}_{token_suffix}{ext}"
+                                    if self.download_media(file_token, save_path):
+                                        record['local_image_path'] = f"/{save_path}"
 
                         all_records.append(record)
                 
@@ -142,21 +164,21 @@ class FeishuReader:
         return all_records
 
 # ==========================================
-# 2. 数据清洗器
+# 2. 数据清洗与转换器
 # ==========================================
 class DataConverter:
     @staticmethod
-    def _get_text(field): return field if field else ""
+    def _get_text(field): return str(field).strip() if field else ""
 
     @staticmethod
     def _get_link(field):
         if isinstance(field, dict): return field.get("link", "")
-        return field if field else ""
+        return str(field).strip() if field else ""
 
     @staticmethod
     def _get_option(field):
         if isinstance(field, dict): return field.get("text", "")
-        return field if field else ""
+        return str(field).strip() if field else ""
 
     @staticmethod
     def _clean_empty(d):
@@ -173,7 +195,7 @@ class DataConverter:
             item = {
                 "name": {"zh": cls._get_text(r.get("Name_zh")), "en": cls._get_text(r.get("Name_en"))},
                 "group_id": cls._get_option(r.get("Group_ID")),
-                "rank": int(r.get("Rank", 99)),
+                "rank": int(r.get("Rank") if r.get("Rank") else 99),
                 "title": {"zh": cls._get_text(r.get("Title_zh")), "en": cls._get_text(r.get("Title_en"))},
                 "role": {"zh": cls._get_text(r.get("Role_zh")), "en": cls._get_text(r.get("Role_en"))},
                 "avatar": r.get("local_avatar_path", ""),
@@ -200,7 +222,7 @@ class DataConverter:
                 "authors": cls._get_text(r.get("Authors")),
                 "type": cls._get_option(r.get("Type")),
                 "venue": cls._get_text(r.get("Venue")),
-                "year": int(r.get("Year", 2024)),
+                "year": int(r.get("Year") if r.get("Year") else 2024),
                 "highlight": cls._get_text(r.get("Highlight")),
                 "image": r.get("local_image_path", ""),
                 "abstract": {"zh": cls._get_text(r.get("Abstract_zh")), "en": cls._get_text(r.get("Abstract_en"))},
@@ -218,8 +240,8 @@ class DataConverter:
     def convert_research(cls, records):
         yaml_list = []
         for r in records:
-            pts_zh = [p.strip() for p in cls._get_text(r.get("Points_zh")).split('\n') if p.strip() and not p.startswith('(💡')]
-            pts_en = [p.strip() for p in cls._get_text(r.get("Points_en")).split('\n') if p.strip() and not p.startswith('(💡')]
+            pts_zh = [p.strip() for p in cls._get_text(r.get("Points_zh")).split('\n') if p.strip() and "选填" not in p]
+            pts_en = [p.strip() for p in cls._get_text(r.get("Points_en")).split('\n') if p.strip()]
             item = {
                 "icon": cls._get_text(r.get("Icon")),
                 "image": r.get("local_image_path", ""),
@@ -234,10 +256,8 @@ class DataConverter:
     def convert_positions(cls, records):
         yaml_list = []
         for r in records:
-            raw_tags_zh = cls._get_text(r.get("Tags_zh"))
-            tags_zh = [t.strip() for t in raw_tags_zh.replace('，', ',').split(',') if t.strip() and not t.startswith('(💡')]
-            raw_tags_en = cls._get_text(r.get("Tags_en"))
-            tags_en = [t.strip() for t in raw_tags_en.replace('，', ',').split(',') if t.strip()]
+            tags_zh = [t.strip() for t in cls._get_text(r.get("Tags_zh")).replace('，', ',').split(',') if t.strip() and "选填" not in t]
+            tags_en = [t.strip() for t in cls._get_text(r.get("Tags_en")).replace('，', ',').split(',') if t.strip()]
             item = {
                 "title": {"zh": cls._get_text(r.get("Title_zh")), "en": cls._get_text(r.get("Title_en"))},
                 "count": {"zh": cls._get_text(r.get("Count_zh")), "en": cls._get_text(r.get("Count_en"))},
@@ -269,7 +289,7 @@ class DataConverter:
 
 
 # ==========================================
-# 3. 核心执行逻辑 (写入本地文件)
+# 3. 核心执行逻辑
 # ==========================================
 if __name__ == "__main__":
     print("="*60)
@@ -280,7 +300,7 @@ if __name__ == "__main__":
     reader.authenticate()
     reader.load_table_map()
     
-    # 定义拉取任务与目标文件映射关系
+    # 任务配置：表格名 -> 转换函数 -> 目标 YAML 文件
     sync_tasks = [
         {"table": "团队成员", "func": DataConverter.convert_team, "file": "_data/team.yml"},
         {"table": "学术论文", "func": DataConverter.convert_publications, "file": "_data/publications.yml"},
@@ -289,7 +309,6 @@ if __name__ == "__main__":
         {"table": "新闻动态", "func": DataConverter.convert_news, "file": "_data/news.yml"}
     ]
     
-    # 确保 Jekyll 数据目录存在
     os.makedirs("_data", exist_ok=True)
     
     print("\n[4/4] 转换数据并写入 YAML 文件...")
@@ -298,22 +317,23 @@ if __name__ == "__main__":
         target_file = task["file"]
         
         raw_records = reader.fetch_records(table_name)
-        
         if not raw_records:
-            print(f"    ⚠️ 表格 [{table_name}] 为空或拉取失败，跳过写入。")
             continue
             
-        clean_data = task["func"](raw_records)
+        # 🌟 自动过滤包含“必填”或“示例”字样的引导/占位数据
+        filtered_records = [
+            r for r in raw_records 
+            if "必填" not in str(r.get("Name_zh", "")) and "示例" not in str(r.get("Name_zh", ""))
+        ]
         
-        # 写入文件
+        clean_data = task["func"](filtered_records)
+        
         with open(target_file, "w", encoding="utf-8") as f:
-            f.write(f"# ==========================================\n")
             f.write(f"# Auto-generated from Feishu Bitable: {table_name}\n")
-            f.write(f"# Last Sync Time: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}\n")
-            f.write(f"# ==========================================\n\n")
+            f.write(f"# Sync Time: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}\n\n")
             yaml.dump(clean_data, f, allow_unicode=True, sort_keys=False, indent=2, default_flow_style=False)
             
-        print(f"    ✅ 成功写入: {target_file}")
+        print(f"    ✅ 已生成/更新: {target_file}")
 
     print("\n" + "="*60)
     print("🎉 所有数据同步完成！你可以运行 bundle exec jekyll serve 预览网站了！")
