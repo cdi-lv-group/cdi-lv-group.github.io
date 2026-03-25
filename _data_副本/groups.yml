@@ -1,0 +1,64 @@
+# ==========================================
+# LV课题组 团队分类与全局颜色绑定字典
+# ==========================================
+# 添加新分类模板:
+# - id: "unique_id"      # [必填] 与 team.yml 中的 group_id 对应
+#   title:               # [必填] 双语显示标题
+#     zh: "中文标题"
+#     en: "English Title"
+#   color: "indigo"      # [选填] 颜色绑定: indigo, purple, blue, cyan, green, orange, gray
+# ==========================================
+
+- id: "professor"
+  title:
+    zh: "教授"
+    en: "Professor"
+  color: "indigo"
+
+- id: "associate_prof"
+  title:
+    zh: "副教授"
+    en: "Associate Professor"
+  color: "indigo"
+
+- id: "assistant_prof"
+  title:
+    zh: "助理教授"
+    en: "Assistant Professor"
+  color: "indigo"
+
+- id: "researchers"
+  title:
+    zh: "博士后与研究员"
+    en: "Postdocs & Researchers"
+  color: "purple"
+
+- id: "phd"
+  title:
+    zh: "博士研究生"
+    en: "Ph.D. Students"
+  color: "blue"
+
+- id: "master"
+  title:
+    zh: "硕士研究生"
+    en: "Master Students"
+  color: "cyan"
+
+- id: "undergrad"
+  title:
+    zh: "本科生"
+    en: "Undergraduate Students"
+  color: "green"
+
+- id: "interns"
+  title:
+    zh: "科研助理与实习生"
+    en: "Research Assistants & Interns"
+  color: "orange"
+
+- id: "alumni"
+  title:
+    zh: "校友与往届成员"
+    en: "Alumni"
+  color: "gray"

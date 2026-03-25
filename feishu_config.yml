@@ -1,0 +1,17 @@
+app_token: IIfwbseJuabBJBsZfGCcnNGinrB
+tables:
+  people:
+    table_name: 团队成员
+    output_file: _data/people.yml
+  news:
+    table_name: 新闻动态
+    output_file: _data/news.yml
+  publications:
+    table_name: 学术论文
+    output_file: _data/publications.yml
+  positions:
+    table_name: 招聘与招生
+    output_file: _data/positions.yml
+  research:
+    table_name: 研究方向
+    output_file: _data/research.yml
