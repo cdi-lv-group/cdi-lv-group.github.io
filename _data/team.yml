@@ -1,103 +1,91 @@
 # Auto-generated from Feishu Bitable: 团队成员
-# Sync Time: 2026-03-26 02:47
+# Sync Time: 2026-03-26 03:37:24
 
 - name:
-    zh: 🔴[必填] 郭炜炜
-    en: 🔴[必填] Weiwei Guo
-  group_id: phd
-  rank: 1
+    zh: 郑七
+    en: Sun Yang
+  group_id: master
+  year: 2022
   title:
-    zh: 🔴[必填] 副教授 / 博导
-    en: 🔴[必填] Associate Professor
-  role:
-    zh: ''
-    en: ''
-  avatar: /assets/images/team/_weiwei_guo_dgdfbcnn.jpg
-  bio:
-    zh: ⚪[选填] 💡致力于实现智能体在复杂真实世界智能自主行为。
-    en: ''
-  email: ''
-  links:
-    homepage: http://xxx@tongji.edu.cn
-    github: None
-    scholar: None
-- name:
-    zh: 🔴[必填] 左文彬
-    en: 🔴[必填] Wenbin Zuo
-  group_id: phd
-  rank: 1
-  title:
-    zh: 🔴[必填] 博士生
-    en: 🔴[必填] Ph.D. Student
-  role:
-    zh: ''
-    en: ''
+    zh: 硕士生
+    en: Master Student
   avatar: ''
   bio:
-    zh: ⚪[选填] 💡研究方向为计算机视觉、3D感知及点云分析。
-    en: ''
-  email: ''
+    zh: 我专注于计算机视觉。
+    en: I am a master student.
+  email: user5@example.com
+  dest:
+    zh: 杭州
+    en: Hangzhou
   links:
-    homepage: http://2511992@tongji.edu.cn
-    github: None
-    scholar: None
+    homepage: http://homepage.com/user5
+    github: https://github.com/user5
+    scholar: https://scholar.google.com/citations?user=user5
+    linkedin: https://linkedin.com/in/user5
+    zhihu: https://zhihu.com/user5
 - name:
-    zh: 🔴[必填] 李嘉诚
-    en: 🔴[必填] Jiacheng Li
+    zh: 王五
+    en: Wang Hong
   group_id: researchers
-  rank: 1
+  year: 2020
   title:
-    zh: 🔴[必填] 博士后
-    en: 🔴[必填] Postdoctoral Researcher
-  role:
-    zh: ''
-    en: ''
+    zh: 研究员
+    en: Researcher
   avatar: ''
   bio:
-    zh: ⚪[选填] 💡目前负责实验室机器人在复杂室内环境下的规划项目。
-    en: ''
-  email: ''
+    zh: 我从事自然语言处理工作。
+    en: I am a researcher.
+  email: user3@example.com
+  dest:
+    zh: 深圳
+    en: Shenzhen
   links:
-    homepage: http://j_li@tongji.edu.cn
-    github: None
-    scholar: None
+    homepage: http://homepage.com/user3
+    github: https://github.com/user3
+    scholar: https://scholar.google.com/citations?user=user3
+    linkedin: https://linkedin.com/in/user3
+    zhihu: https://zhihu.com/user3
 - name:
-    zh: 🔴[必填] 刘博士
-    en: 🔴[必填] Dr. Liu
-  group_id: alumni
-  rank: 1
+    zh: 赵六
+    en: Li Ming
+  group_id: phd
+  year: 2020
   title:
-    zh: 🔴[必填] 2025届毕业生
-    en: 🔴[必填] Ph.D. Alumnus
-  role:
-    zh: ''
-    en: ''
+    zh: 博士生
+    en: PhD Student
   avatar: ''
   bio:
-    zh: ⚪[选填] 🎓 毕业去向：华为诺亚方舟实验室
-    en: ''
-  email: ''
+    zh: 我研究深度学习。
+    en: I am a phd student.
+  email: user4@example.com
+  dest:
+    zh: 广州
+    en: Guangzhou
   links:
-    homepage: 'http://⚪[选填] #'
-    github: None
-    scholar: None
+    homepage: http://homepage.com/user4
+    github: https://github.com/user4
+    scholar: https://scholar.google.com/citations?user=user4
+    linkedin: https://linkedin.com/in/user4
+    zhihu: https://zhihu.com/user4
 - name:
-    zh: 🔴[必填] 陈思远
-    en: 🔴[必填] Siyuan Chen
-  group_id: professor
-  rank: 2
+    zh: 李四
+    en: Jane Smith
+  group_id: associate_prof
+  year: 2016
   title:
-    zh: 🔴[必填] 教授 / 博导
-    en: 🔴[必填] Professor
-  role:
-    zh: ''
-    en: ''
+    zh: 副教授
+    en: Associate Professor
   avatar: ''
   bio:
-    zh: ⚪[选填] 💡深耕大规模三维场景理解二十余年。
-    en: ''
-  email: ''
+    zh: 我专注于机器学习研究。
+    en: I am an associate professor.
+  email: user2@example.com
+  dest:
+    zh: 上海
+    en: Shanghai
   links:
-    homepage: http://siyuan_chen@tongji.edu.cn
-    github: None
-    scholar: None
+    homepage: http://homepage.com/user2
+    github: https://github.com/user2
+    scholar: https://scholar.google.com/citations?user=user2
+    linkedin: https://linkedin.com/in/user2
+    zhihu: https://zhihu.com/user2

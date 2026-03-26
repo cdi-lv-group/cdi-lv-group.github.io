@@ -1,17 +1,41 @@
 # Auto-generated from Feishu Bitable: 学术论文
-# Sync Time: 2026-03-26 02:47
+# Sync Time: 2026-03-26 03:37:25
 
 - title:
-    zh: ''
-    en: ''
-  authors: ''
-  venue: ''
-  year: 2024
-  highlight: ''
+    zh: 深度学习在自然语言处理中的应用
+    en: Deep Learning for Natural Language Processing
+  authors: 张三, 李四, 王五
+  type: journal
+  venue: NeurIPS 2017
+  year: 2017
+  highlight: This paper provides a comprehensive review of deep learning techniques
+    for natural language processing.
   image: ''
   abstract:
-    zh: ''
-    en: ''
+    zh: 深度学习在自然语言处理中的应用是一篇发表在NeurIPS 2017上的论文
+    en: Deep Learning for NLP is a comprehensive review of recent advances in the
+      field.
   links:
-    paper: None
-    code: None
+    paper: https://www.sciencedirect.com/science/article/pii/S0031320317300986
+    code: https://github.com/abc/Deep-Learning-for-NLP
+    project: https://github.com/abc/Deep-Learning-for-NLP
+    video: https://www.youtube.com/watch?v=abc123
+- title:
+    zh: 卷积神经网络在图像识别中的应用
+    en: Convolutional Neural Networks for Image Recognition
+  authors: 赵六, 钱七, 孙八
+  type: journal
+  venue: CVPR 2016
+  year: 2016
+  highlight: This paper explores the application of convolutional neural networks
+    in image recognition and demonstrates their effectiveness through extensive experiments.
+  image: ''
+  abstract:
+    zh: 卷积神经网络在图像识别中的应用是一篇发表在CVPR 2016上的论文
+    en: Convolutional Neural Networks (CNNs) have achieved remarkable success in image
+      recognition tasks.
+  links:
+    paper: https://www.sciencedirect.com/science/article/pii/S0031320316302915
+    code: https://github.com/def/CNN-for-Image-Recognition
+    project: https://github.com/def/CNN-for-Image-Recognition
+    video: https://www.youtube.com/watch?v=def456

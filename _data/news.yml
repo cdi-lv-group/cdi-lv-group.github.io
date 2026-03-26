@@ -1,4 +1,58 @@
 # Auto-generated from Feishu Bitable: 新闻动态
-# Sync Time: 2026-03-26 02:47
+# Sync Time: 2026-03-26 03:37:29
 
-[]
+- date: '2026-03-28'
+  category:
+    zh: 基础设施
+    en: Infrastructure
+  title:
+    zh: 基础设施
+    en: New Infrastructure Launch
+  description:
+    zh: 新基础设施启动
+    en: New Infrastructure Launch
+  link: https://infrastructure.com
+- date: '2026-03-26'
+  category:
+    zh: 荣誉奖项
+    en: Awards
+  title:
+    zh: 荣誉奖项
+    en: Awards Ceremony
+  description:
+    zh: 荣誉奖项颁奖典礼
+    en: Awards Ceremony
+  link: https://awards.com
+- date: '2026-03-24'
+  category:
+    zh: 学术合作
+    en: Collaboration
+  title:
+    zh: 学术合作
+    en: Academic Collaboration
+  description:
+    zh: 学术合作会议
+    en: Academic Collaboration Meeting
+  link: https://collaboration.com
+- date: '2026-03-22'
+  category:
+    zh: 开源项目
+    en: Open Source
+  title:
+    zh: 开源项目
+    en: Open Source Project
+  description:
+    zh: 开源项目公告
+    en: Open Source Project Announcement
+  link: https://opensource.com
+- date: '2026-03-20'
+  category:
+    zh: 实验室动态
+    en: Lab Event
+  title:
+    zh: 实验室动态
+    en: Lab Event
+  description:
+    zh: 实验室动态事件
+    en: This is a lab event
+  link: https://labevent.com
