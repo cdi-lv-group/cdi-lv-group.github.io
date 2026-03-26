@@ -13,7 +13,6 @@ class FeishuReader:
     def __init__(self, config_file="feishu_config.yml"):
         """初始化读取器，加载配置和凭证"""
         self.config_file = config_file
-        # ⚠️ 优先从环境变量获取秘钥，防止代码泄露
         self.app_id = os.environ.get("FEISHU_APP_ID")
         self.app_secret = os.environ.get("FEISHU_APP_SECRET")
 
@@ -88,7 +87,7 @@ class FeishuReader:
         return False
 
     def sync_unique_media(self, file_token, download_url, slug, folder, original_filename):
-        """去重与清理管理器"""
+        """去重与智能清理管理器"""
         if not file_token or not download_url: return ""
         
         ext = os.path.splitext(original_filename)[1].lower()
@@ -132,7 +131,7 @@ class FeishuReader:
 
         print(f"\n📥 [3/4] 拉取与处理：{table_name}")
         
-        # 🌟 动态路由配置：告诉脚本去哪个字段找图片，存到哪里，前缀怎么取
+        # 🌟 动态媒体路由配置
         media_routes = {
             "团队成员": {"field": "Avatar", "folder": "team", "slug_key": "Name_en", "is_long_title": False},
             "学术论文": {"field": "Image", "folder": "papers", "slug_key": "Title_en", "is_long_title": True},
@@ -156,13 +155,11 @@ class FeishuReader:
                         
                         if media_data and isinstance(media_data, list) and len(media_data) > 0:
                             file_token = media_data[0].get('file_token')
-                            download_url = media_data[0].get('url') # 带权限校验的 URL
+                            download_url = media_data[0].get('url')
                             original_name = media_data[0].get('name', '')
                             
-                            # 生成干净的标识前缀
                             raw_slug_str = str(record.get(route["slug_key"], ""))
                             if route["is_long_title"]:
-                                # 论文标题太长，只取前 3 个单词作为文件名一部分
                                 raw_slug_str = "_".join(raw_slug_str.split()[:3])
                                 
                             slug = self.sanitize_filename(raw_slug_str)
@@ -193,23 +190,30 @@ class DataConverter:
     def convert_team(cls, records):
         yaml_list = []
         for r in records:
+            # 读取直接填写的数字年份 (type: 2)
+            year_val = r.get("Admission_Year")
+            year_int = int(year_val) if year_val else 2024
+            
             item = {
                 "name": {"zh": cls._get_text(r.get("Name_zh")), "en": cls._get_text(r.get("Name_en"))},
                 "group_id": cls._get_option(r.get("Group_ID")),
-                "rank": int(r.get("Rank") if r.get("Rank") else 99),
+                "year": year_int,
                 "title": {"zh": cls._get_text(r.get("Title_zh")), "en": cls._get_text(r.get("Title_en"))},
-                "role": {"zh": cls._get_text(r.get("Role_zh")), "en": cls._get_text(r.get("Role_en"))},
-                "avatar": r.get("local_avatar_path", ""), # 映射本地图片
+                "avatar": r.get("local_avatar_path", ""),
                 "bio": {"zh": cls._get_text(r.get("Bio_zh")), "en": cls._get_text(r.get("Bio_en"))},
                 "email": cls._get_text(r.get("Email")),
+                "dest": {"zh": cls._get_text(r.get("Dest_zh")), "en": cls._get_text(r.get("Dest_en"))},
                 "links": {
                     "homepage": cls._get_link(r.get("Link_Homepage")),
                     "github": cls._get_link(r.get("Link_GitHub")),
-                    "scholar": cls._get_link(r.get("Link_Scholar"))
+                    "scholar": cls._get_link(r.get("Link_Scholar")),
+                    "linkedin": cls._get_link(r.get("Link_LinkedIn")),
+                    "zhihu": cls._get_link(r.get("Link_Zhihu"))
                 }
             }
             yaml_list.append(item)
-        return sorted(yaml_list, key=lambda x: x.get("rank", 99))
+        # 按照年份降序排列 (新的在前，老的在后)
+        return sorted(yaml_list, key=lambda x: x.get("year", 0), reverse=True)
 
     @classmethod
     def convert_publications(cls, records):
@@ -218,12 +222,18 @@ class DataConverter:
             item = {
                 "title": {"zh": cls._get_text(r.get("Title_zh")), "en": cls._get_text(r.get("Title_en"))},
                 "authors": cls._get_text(r.get("Authors")),
+                "type": cls._get_option(r.get("Type")),
                 "venue": cls._get_text(r.get("Venue")),
                 "year": int(r.get("Year") if r.get("Year") else 2024),
                 "highlight": cls._get_text(r.get("Highlight")),
-                "image": r.get("local_image_path", ""), # 映射本地图片
+                "image": r.get("local_image_path", ""), 
                 "abstract": {"zh": cls._get_text(r.get("Abstract_zh")), "en": cls._get_text(r.get("Abstract_en"))},
-                "links": {"paper": cls._get_link(r.get("Link_Paper")), "code": cls._get_link(r.get("Link_Code"))}
+                "links": {
+                    "paper": cls._get_link(r.get("Link_Paper")), 
+                    "code": cls._get_link(r.get("Link_Code")),
+                    "project": cls._get_link(r.get("Link_Project")),
+                    "video": cls._get_link(r.get("Link_Video"))
+                }
             }
             yaml_list.append(item)
         return sorted(yaml_list, key=lambda x: x.get("year", 0), reverse=True)
@@ -232,11 +242,37 @@ class DataConverter:
     def convert_research(cls, records):
         yaml_list = []
         for r in records:
+            # 将要点按换行符拆分成数组，方便前端渲染列表
+            points_zh = [p.strip() for p in cls._get_text(r.get("Points_zh")).split('\n') if p.strip()]
+            points_en = [p.strip() for p in cls._get_text(r.get("Points_en")).split('\n') if p.strip()]
+            
             item = {
                 "icon": cls._get_text(r.get("Icon")),
                 "title": {"zh": cls._get_text(r.get("Title_zh")), "en": cls._get_text(r.get("Title_en"))},
                 "description": {"zh": cls._get_text(r.get("Desc_zh")), "en": cls._get_text(r.get("Desc_en"))},
-                "image": r.get("local_image_path", "") # 映射本地图片
+                "points": {"zh": points_zh, "en": points_en},
+                "image": r.get("local_image_path", "") 
+            }
+            yaml_list.append(item)
+        return yaml_list
+
+    @classmethod
+    def convert_positions(cls, records):
+        yaml_list = []
+        for r in records:
+            # 将标签按逗号拆分成数组
+            tags_zh = [t.strip() for t in cls._get_text(r.get("Tags_zh")).replace('，', ',').split(',') if t.strip()]
+            tags_en = [t.strip() for t in cls._get_text(r.get("Tags_en")).replace('，', ',').split(',') if t.strip()]
+            
+            item = {
+                "title": {"zh": cls._get_text(r.get("Title_zh")), "en": cls._get_text(r.get("Title_en"))},
+                "department": {"zh": cls._get_text(r.get("Dept_zh")), "en": cls._get_text(r.get("Dept_en"))},
+                "count": {"zh": cls._get_text(r.get("Count_zh")), "en": cls._get_text(r.get("Count_en"))},
+                "theme": cls._get_option(r.get("Theme")) or "blue",
+                "icon": cls._get_text(r.get("Icon")),
+                "description": {"zh": cls._get_text(r.get("Desc_zh")), "en": cls._get_text(r.get("Desc_en"))},
+                "tags": {"zh": tags_zh, "en": tags_en},
+                "link": cls._get_link(r.get("Link"))
             }
             yaml_list.append(item)
         return yaml_list
@@ -246,10 +282,12 @@ class DataConverter:
         yaml_list = []
         for r in records:
             timestamp = r.get("Date")
-            date_str = datetime.fromtimestamp(timestamp / 1000).strftime('%Y.%m') if timestamp else ""
+            date_str = datetime.fromtimestamp(timestamp / 1000).strftime('%Y-%m-%d') if timestamp else ""
             item = {
                 "date": date_str,
+                "category": {"zh": cls._get_option(r.get("Category_zh")), "en": cls._get_option(r.get("Category_en"))},
                 "title": {"zh": cls._get_text(r.get("Title_zh")), "en": cls._get_text(r.get("Title_en"))},
+                "description": {"zh": cls._get_text(r.get("Desc_zh")), "en": cls._get_text(r.get("Desc_en"))},
                 "link": cls._get_link(r.get("Link"))
             }
             yaml_list.append(item)
@@ -260,7 +298,7 @@ class DataConverter:
 # ==========================================
 if __name__ == "__main__":
     print("="*60)
-    print("🚀 LV Group - 飞书全量数据智能同步引擎 (防 400 + 自动清理)")
+    print("🚀 LV Group - 飞书全量数据终极同步引擎")
     print("="*60)
 
     reader = FeishuReader()
@@ -272,6 +310,7 @@ if __name__ == "__main__":
         {"table": "团队成员", "func": DataConverter.convert_team, "file": "_data/team.yml", "key": "avatar"},
         {"table": "学术论文", "func": DataConverter.convert_publications, "file": "_data/publications.yml", "key": "image"},
         {"table": "研究方向", "func": DataConverter.convert_research, "file": "_data/research.yml", "key": "image"},
+        {"table": "招聘与招生", "func": DataConverter.convert_positions, "file": "_data/positions.yml", "key": None},
         {"table": "新闻动态", "func": DataConverter.convert_news, "file": "_data/news.yml", "key": None}
     ]
     
@@ -282,7 +321,7 @@ if __name__ == "__main__":
         raw_records = reader.fetch_records(t["table"])
         if not raw_records: continue
         
-        # 🌟 核心修改：跳过第 1 行（索引 0）的示例/占位符，直接从第 2 行（索引 1）开始读取
+        # 🌟 切片操作：跳过第 1 行（索引 0）的示例说明，直接从第 2 行读取正式数据
         filtered = raw_records[1:] if len(raw_records) > 1 else []
         
         clean_data = t["func"](filtered)
@@ -291,11 +330,8 @@ if __name__ == "__main__":
         if t["key"]:
             print(f"\n🔍 [{t['table']}] 媒体资产映射：")
             for item in clean_data:
-                # 获取名称
                 name = item.get("name", {}).get("en") or item.get("title", {}).get("en") or "Unknown"
-                # 如果论文标题太长，截断显示
                 display_name = (name[:20] + '..') if len(name) > 20 else name
-                # 获取路径
                 path = item.get(t["key"])
                 status = "✅" if path else "⚠️ 未配图"
                 print(f"   {status} {display_name.ljust(22)} -> {path}")
@@ -303,11 +339,11 @@ if __name__ == "__main__":
         # 写入 Jekyll 的 Data 文件
         with open(t["file"], "w", encoding="utf-8") as f:
             f.write(f"# Auto-generated from Feishu Bitable: {t['table']}\n")
-            f.write(f"# Sync Time: {datetime.now().strftime('%Y-%m-%d %H:%M')}\n\n")
+            f.write(f"# Sync Time: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}\n\n")
             yaml.dump(clean_data, f, allow_unicode=True, sort_keys=False, indent=2, default_flow_style=False)
             
         print(f"    💾 数据已更新: {t['file']}")
 
     print("\n" + "="*60)
-    print("🎉 全量同步大功告成！代码已支持所有的图文数据！")
+    print("🎉 全量同步大功告成！尽情享受全自动化运营吧！")
     print("="*60)

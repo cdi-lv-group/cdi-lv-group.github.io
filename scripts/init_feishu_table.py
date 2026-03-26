@@ -23,9 +23,12 @@ class BaseTableSchema:
         return {}
 
 
+import time
+
 # ==========================================
-# 2. 具体的子表定义 (双重提示版: 🔴 必填 / ⚪ 选填)
+# 飞书多维表格结构定义 (LV Group 终极版)
 # ==========================================
+
 class PeopleTableSchema(BaseTableSchema):
     @property
     def table_name(self): return "团队成员"
@@ -46,11 +49,9 @@ class PeopleTableSchema(BaseTableSchema):
                     ]
                 }
             },
-            {"field_name": "Rank", "type": 2, "description": {"text": "⚪ [选填] 排序权重 (数字越小越靠前)"}}, 
-            {"field_name": "Title_zh", "type": 1, "description": {"text": "🔴 [必填] 身份/年级 (如: 博士生)"}}, 
-            {"field_name": "Title_en", "type": 1, "description": {"text": "🔴 [必填] 身份/年级英文版"}},
-            {"field_name": "Role_zh", "type": 1, "description": {"text": "⚪ [选填] 组内职务 (如: 核心骨干)"}}, 
-            {"field_name": "Role_en", "type": 1, "description": {"text": "⚪ [选填] 组内职务英文版"}},
+            {"field_name": "Admission_Year", "type": 2, "description": {"text": "⚪ [选填] 入学年份 (直接输入4位数字，如: 2024)"}},
+            {"field_name": "Title_zh", "type": 1, "description": {"text": "🔴 [必填] 身份/年级 (如: 博士生, 若有行政职务可写: 博士生/实验室管理员)"}}, 
+            {"field_name": "Title_en", "type": 1, "description": {"text": "🔴 [必填] 身份/年级英文版 (如: Ph.D. Student)"}},
             {"field_name": "Avatar", "type": 17, "description": {"text": "⚪ [选填] 拖拽正方形免冠照至此"}}, 
             {"field_name": "Bio_zh", "type": 1, "description": {"text": "⚪ [选填] 中文个人简介 (Alt+Enter 换行)"}}, 
             {"field_name": "Bio_en", "type": 1, "description": {"text": "⚪ [选填] 英文个人简介"}},
@@ -68,9 +69,9 @@ class PeopleTableSchema(BaseTableSchema):
     def sample_record(self):
         return {
             "Name_zh": "🔴[必填] 张三 (请替换)", "Name_en": "🔴[必填] San Zhang",
-            "Group_ID": "professor", "Rank": 1,
+            "Group_ID": "professor", 
+            "Admission_Year": "2024", 
             "Title_zh": "🔴[必填] 教授 / 博导", "Title_en": "🔴[必填] Professor",
-            "Role_zh": "⚪[选填] 课题组负责人", "Role_en": "⚪[选填] Principal Investigator",
             "Bio_zh": "⚪[选填] 💡提示：多行请按 Alt+Enter。👉 左侧头像也是选填的，直接拖入照片即可。",
             "Email": "⚪[选填] example@tongji.edu.cn", "Link_Homepage": "https://example.com" 
         }
@@ -117,7 +118,100 @@ class PublicationsTableSchema(BaseTableSchema):
             {"field_name": "Authors", "type": 1, "description": {"text": "🔴 [必填] 作者列表 (用 <b>名字</b> 加粗课题组成员)"}},
             {
                 "field_name": "Type", "type": 3, "description": {"text": "🔴 [必填] 论文类别"},
-                "property": {"options": [{"name": "conference",
+                "property": {
+                    "options": [
+                        {"name": "conference", "color": 0}, 
+                        {"name": "journal", "color": 1}, 
+                        {"name": "preprint", "color": 2}, 
+                        {"name": "workshop", "color": 3},
+                        {"name": "book", "color": 4}
+                    ]
+                }
+            },
+            {"field_name": "Venue", "type": 1, "description": {"text": "🔴 [必填] 发表会议/期刊名称 (如: CVPR, TPAMI)"}}, 
+            {"field_name": "Year", "type": 2, "description": {"text": "🔴 [必填] 发表年份 (填数字，如: 2024)"}},
+            {"field_name": "Highlight", "type": 1, "description": {"text": "⚪ [选填] 亮点/奖项 (如: Oral, Best Paper)"}}, 
+            {"field_name": "Image", "type": 17, "description": {"text": "⚪ [选填] 拖拽 Teaser 图/代表图至此"}},
+            {"field_name": "Abstract_zh", "type": 1, "description": {"text": "⚪ [选填] 论文中文摘要"}}, 
+            {"field_name": "Abstract_en", "type": 1, "description": {"text": "⚪ [选填] 论文英文摘要"}},
+            {"field_name": "Link_Paper", "type": 15, "description": {"text": "⚪ [选填] 论文 PDF/Arxiv 链接"}}, 
+            {"field_name": "Link_Code", "type": 15, "description": {"text": "⚪ [选填] 开源代码 GitHub 链接"}},
+            {"field_name": "Link_Project", "type": 15, "description": {"text": "⚪ [选填] 项目主页 Project Page 链接"}}, 
+            {"field_name": "Link_Video", "type": 15, "description": {"text": "⚪ [选填] 演示视频 YouTube/B站 链接"}}
+        ]
+        
+    @property
+    def sample_record(self):
+        return {
+            "Title_zh": "🔴[必填] 示例：多模态目标跟踪框架", "Title_en": "🔴[必填] Example: Multi-Modal Tracking Framework",
+            "Authors": "🔴[必填] <b>San Zhang</b>, Lisi Wang, Wangwu Li",
+            "Type": "conference", "Venue": "CVPR", "Year": 2024,
+            "Highlight": "⚪[选填] 🏆 Oral Presentation",
+            "Link_Paper": "https://arxiv.org", "Link_Code": "https://github.com"
+        }
+
+class ResearchTableSchema(BaseTableSchema):
+    @property
+    def table_name(self): return "研究方向"
+    @property
+    def fields(self):
+        return [
+            {"field_name": "Title_zh", "type": 1, "description": {"text": "🔴 [必填] 研究方向中文名称"}}, 
+            {"field_name": "Title_en", "type": 1, "description": {"text": "🔴 [必填] 研究方向英文名称"}},
+            {"field_name": "Icon", "type": 1, "description": {"text": "⚪ [选填] FontAwesome 图标代码 (如: fa-robot)"}}, 
+            {"field_name": "Image", "type": 17, "description": {"text": "⚪ [选填] 拖拽方向配图/背景图至此"}},
+            {"field_name": "Desc_zh", "type": 1, "description": {"text": "🔴 [必填] 中文方向简介"}}, 
+            {"field_name": "Desc_en", "type": 1, "description": {"text": "🔴 [必填] 英文方向简介"}},
+            {"field_name": "Points_zh", "type": 1, "description": {"text": "⚪ [选填] 中文研究要点 (多个要点请 Alt+Enter 换行)"}}, 
+            {"field_name": "Points_en", "type": 1, "description": {"text": "⚪ [选填] 英文研究要点 (多个要点请 Alt+Enter 换行)"}}
+        ]
+        
+    @property
+    def sample_record(self):
+        return {
+            "Title_zh": "🔴[必填] 具身智能", "Title_en": "🔴[必填] Embodied AI",
+            "Icon": "⚪[选填] fa-brain",
+            "Desc_zh": "🔴[必填] 探索智能体在复杂物理环境中的多模态感知与交互能力...",
+            "Desc_en": "🔴[必填] Exploring multimodal perception and interaction of agents...",
+            "Points_zh": "⚪[选填] 视觉语言导航\n机械臂操控\n多模态大模型",
+            "Points_en": "⚪[选填] Vision-Language Navigation\nRobotic Manipulation\nMultimodal LLMs"
+        }
+
+class PositionsTableSchema(BaseTableSchema):
+    @property
+    def table_name(self): return "招聘与招生"
+    @property
+    def fields(self):
+        return [
+            {"field_name": "Title_zh", "type": 1, "description": {"text": "🔴 [必填] 岗位中文名称 (如: 2027级博士生)"}}, 
+            {"field_name": "Title_en", "type": 1, "description": {"text": "🔴 [必填] 岗位英文名称"}},
+            {"field_name": "Dept_zh", "type": 1, "description": {"text": "🔴 [必填] 部门中文 (如: 同济大学设计创意学院)"}}, 
+            {"field_name": "Dept_en", "type": 1, "description": {"text": "🔴 [必填] 部门英文"}},
+            {"field_name": "Count_zh", "type": 1, "description": {"text": "⚪ [选填] 名额说明中文 (如: 1-2名)"}}, 
+            {"field_name": "Count_en", "type": 1, "description": {"text": "⚪ [选填] 名额说明英文"}},
+            {
+                "field_name": "Theme", "type": 3, "description": {"text": "⚪ [选填] 网站卡片主题色"},
+                "property": {"options": [{"name": "slate", "color": 0}, {"name": "blue", "color": 1}, {"name": "emerald", "color": 2}, {"name": "violet", "color": 3}]}
+            },
+            {"field_name": "Icon", "type": 1, "description": {"text": "⚪ [选填] 图标代码 (如: fa-graduation-cap)"}},
+            {"field_name": "Desc_zh", "type": 1, "description": {"text": "🔴 [必填] 中文职位要求与描述"}}, 
+            {"field_name": "Desc_en", "type": 1, "description": {"text": "🔴 [必填] 英文职位要求与描述"}},
+            {"field_name": "Tags_zh", "type": 1, "description": {"text": "⚪ [选填] 中文标签 (用逗号分隔，如: 全奖,直博)"}}, 
+            {"field_name": "Tags_en", "type": 1, "description": {"text": "⚪ [选填] 英文标签 (用逗号分隔)"}},
+            {"field_name": "Link", "type": 15, "description": {"text": "⚪ [选填] 详细申请要求外链 或 邮箱投递链接"}}
+        ]
+        
+    @property
+    def sample_record(self):
+        return {
+            "Title_zh": "🔴[必填] 示例：2027级博士生", "Title_en": "🔴[必填] Example: 2027 Ph.D. Students",
+            "Dept_zh": "🔴[必填] 同济大学", "Dept_en": "🔴[必填] Tongji University",
+            "Count_zh": "⚪[选填] 每年 2 名", "Count_en": "⚪[选填] 2 positions per year",
+            "Theme": "blue", "Icon": "fa-user-graduate",
+            "Desc_zh": "🔴[必填] 欢迎对大语言模型和计算机视觉感兴趣的同学加入团队...",
+            "Desc_en": "🔴[必填] We welcome self-motivated students interested in LLMs...",
+            "Tags_zh": "⚪[选填] 计算机视觉, 机器学习", "Tags_en": "⚪[选填] Computer Vision, Machine Learning"
+        }
 
 # ==========================================
 # 3. 核心初始化引擎
