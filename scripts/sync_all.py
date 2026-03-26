@@ -16,6 +16,7 @@ class FeishuReader:
         # ⚠️ 优先从环境变量获取秘钥，防止代码泄露
         self.app_id = os.environ.get("FEISHU_APP_ID")
         self.app_secret = os.environ.get("FEISHU_APP_SECRET")
+
         if not self.app_id or not self.app_secret:
             print("❌ 错误：未找到 FEISHU_APP_ID 或 FEISHU_APP_SECRET 环境变量！")
             sys.exit(1)
