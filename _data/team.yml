@@ -1,0 +1,103 @@
+# Auto-generated from Feishu Bitable: 团队成员
+# Sync Time: 2026-03-26 02:41
+
+- name:
+    zh: 🔴[必填] 郭炜炜
+    en: 🔴[必填] Weiwei Guo
+  group_id: phd
+  rank: 1
+  title:
+    zh: 🔴[必填] 副教授 / 博导
+    en: 🔴[必填] Associate Professor
+  role:
+    zh: ''
+    en: ''
+  avatar: ''
+  bio:
+    zh: ⚪[选填] 💡致力于实现智能体在复杂真实世界智能自主行为。
+    en: ''
+  email: ''
+  links:
+    homepage: http://xxx@tongji.edu.cn
+    github: None
+    scholar: None
+- name:
+    zh: 🔴[必填] 左文彬
+    en: 🔴[必填] Wenbin Zuo
+  group_id: phd
+  rank: 1
+  title:
+    zh: 🔴[必填] 博士生
+    en: 🔴[必填] Ph.D. Student
+  role:
+    zh: ''
+    en: ''
+  avatar: ''
+  bio:
+    zh: ⚪[选填] 💡研究方向为计算机视觉、3D感知及点云分析。
+    en: ''
+  email: ''
+  links:
+    homepage: http://2511992@tongji.edu.cn
+    github: None
+    scholar: None
+- name:
+    zh: 🔴[必填] 李嘉诚
+    en: 🔴[必填] Jiacheng Li
+  group_id: researchers
+  rank: 1
+  title:
+    zh: 🔴[必填] 博士后
+    en: 🔴[必填] Postdoctoral Researcher
+  role:
+    zh: ''
+    en: ''
+  avatar: ''
+  bio:
+    zh: ⚪[选填] 💡目前负责实验室机器人在复杂室内环境下的规划项目。
+    en: ''
+  email: ''
+  links:
+    homepage: http://j_li@tongji.edu.cn
+    github: None
+    scholar: None
+- name:
+    zh: 🔴[必填] 刘博士
+    en: 🔴[必填] Dr. Liu
+  group_id: alumni
+  rank: 1
+  title:
+    zh: 🔴[必填] 2025届毕业生
+    en: 🔴[必填] Ph.D. Alumnus
+  role:
+    zh: ''
+    en: ''
+  avatar: ''
+  bio:
+    zh: ⚪[选填] 🎓 毕业去向：华为诺亚方舟实验室
+    en: ''
+  email: ''
+  links:
+    homepage: 'http://⚪[选填] #'
+    github: None
+    scholar: None
+- name:
+    zh: 🔴[必填] 陈思远
+    en: 🔴[必填] Siyuan Chen
+  group_id: professor
+  rank: 2
+  title:
+    zh: 🔴[必填] 教授 / 博导
+    en: 🔴[必填] Professor
+  role:
+    zh: ''
+    en: ''
+  avatar: ''
+  bio:
+    zh: ⚪[选填] 💡深耕大规模三维场景理解二十余年。
+    en: ''
+  email: ''
+  links:
+    homepage: http://siyuan_chen@tongji.edu.cn
+    github: None
+    scholar: None

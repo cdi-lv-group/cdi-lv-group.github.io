@@ -1,0 +1,83 @@
+# Auto-generated from Feishu Bitable: 研究方向
+# Sync Time: 2026-03-26 02:41
+
+- icon: 🔴[必填] 👁️
+  title:
+    zh: 🔴[必填] 3D 视觉与场景理解🔴[必填] 3D Vision & Scene Understanding
+    en: 🔴[必填] 💡研究大规模三维点云处理、语义分割与高精度场景重建技术，提升机器对复杂物理世界的空间感知能力。
+  description:
+    zh: ⚪[选填] 大规模场景语义理解与实例分割⚪[选填] 异构传感器动态融合与自校准
+    en: ''
+  image: ''
+- icon: 🔴[必填] 🧠
+  title:
+    zh: 🔴[必填] 多模态感知与推理🔴[必填] Multimodal Perception & Reasoning
+    en: 🔴[必填] 💡探索视觉、语言等多模态信息的对齐与融合机制，构建具备物理常识与因果推理能力的基础大模型。
+  description:
+    zh: ⚪[选填] 视觉-语言-动作 (VLA) 大模型联合训练⚪[选填] 开放词汇下的通用目标检测与识别
+    en: ''
+  image: ''
+- icon: 🔴[必填] 🦾
+  title:
+    zh: 🔴[必填] 具身智能与机器人控制🔴[必填] Embodied AI & Robotic Control
+    en: 🔴[必填] 💡研究机器人如何在复杂动态环境中进行自主决策、灵巧操作与路径规划，打通感知到动作的闭环。
+  description:
+    zh: ⚪[选填] 基于强化学习的端到端运动控制⚪[选填] 复杂物理环境下的灵巧手操作
+    en: ''
+  image: ''
+- icon: 🔴[必填] 🎨
+  title:
+    zh: 🔴[必填] 视觉生成模型与 AIGC🔴[必填] Visual Generative Models & AIGC
+    en: 🔴[必填] 💡基于扩散模型（Diffusion Models）探索高保真图像、视频及 3D 资产的可控生成，赋能创意设计。
+  description:
+    zh: ⚪[选填] 文本驱动的 3D 场景与资产生成⚪[选填] 细粒度可控视频合成与编辑技术
+    en: ''
+  image: ''
+- icon: 🔴[必填] 🎯
+  title:
+    zh: 🔴[必填] 动态视觉与目标跟踪🔴[必填] Dynamic Vision & Object Tracking
+    en: 🔴[必填] 💡针对无约束开放世界，研发高鲁棒性的单/多目标跟踪算法，实现跨模态、长时效的精准视觉定位。
+  description:
+    zh: ⚪[选填] 统一单目标与多目标跟踪的联合框架⚪[选填] 极端天气下的全天候目标追踪
+    en: ''
+  image: ''
+- icon: 🔴[必填] 🚗
+  title:
+    zh: 🔴[必填] 自动驾驶环境感知🔴[必填] Autonomous Driving Perception
+    en: 🔴[必填] 💡研究自动驾驶场景下的多传感器融合感知技术，提升在高速及拥堵环境下的障碍物检测精度。
+  description:
+    zh: ⚪[选填] 基于 BEV 视角的环视感知系统⚪[选填] 遮挡环境下的协同感知与预测
+    en: ''
+  image: ''
+- icon: 🔴[必填] 📷
+  title:
+    zh: 🔴[必填] 神经渲染与三维重建🔴[必填] Neural Rendering & Reconstruction
+    en: 🔴[必填] 💡利用 NeRF 及 Gaussian Splatting 技术实现高逼真度的场景表示，支持实时照片级渲染。
+  description:
+    zh: ⚪[选填] 大规模城市场景的快速神经渲染⚪[选填] 动态人体/物体的隐式几何重构
+    en: ''
+  image: ''
+- icon: 🔴[必填] 🤝
+  title:
+    zh: 🔴[必填] 智能人机交互 (HRI)🔴[必填] Intelligent Human-Robot Interaction
+    en: 🔴[必填] 💡研究机器人对人类意图的理解与反馈机制，优化协作机器人在生产生活中的安全性与效率。
+  description:
+    zh: ⚪[选填] 多模态手势与语音融合交互⚪[选填] 基于生理反馈的情感感知交互
+    en: ''
+  image: ''
+- icon: 🔴[必填] 🌍
+  title:
+    zh: 🔴[必填] 开放世界视觉识别🔴[必填] Open-World Visual Recognition
+    en: 🔴[必填] 💡解决长尾分布与未知类别识别难题，使视觉系统能够在从未见过的场景中进行零样本学习。
+  description:
+    zh: ⚪[选填] 零样本 (Zero-shot) 图像分类与分割⚪[选填] 持续学习与知识蒸馏算法
+    en: ''
+  image: ''
+- icon: 🔴[必填] 📑
+  title:
+    zh: 🔴[必填] 复杂文档理解与 VLM🔴[必填] Document Understanding & VLM
+    en: 🔴[必填] 💡处理复杂版式文档的语义提取，融合页面版式与文本信息，在多模态文档问答中实现突破。
+  description:
+    zh: ⚪[选填] 多模态文档问答 (DocVQA) 基准⚪[选填] 视觉信息与页面布局特征深度融合
+    en: ''
+  image: ''
