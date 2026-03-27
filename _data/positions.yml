@@ -1,4 +1,144 @@
 # Auto-generated from Feishu Bitable: 招聘与招生
-# Sync Time: 2026-03-26 03:37:28
+# Sync Time: 2026-03-27 01:29:12
 
-[]
+- title:
+    zh: 百度招聘
+    en: Baidu Recruitment
+  department:
+    zh: 计算机学院
+    en: Computer Science College
+  count:
+    zh: 100+
+    en: ''
+  theme: blue
+  icon: icon1
+  description:
+    zh: 百度招聘是一个很好的机会
+    en: We are recruiting talented individuals for our various positions.
+  tags:
+    zh:
+    - 百度招聘
+    en:
+    - Baidu Recruitment
+    - Computer Science College
+  link: https://www.baidu.com
+- title:
+    zh: 2026年春季招聘
+    en: 2026 Spring Recruitment
+  department:
+    zh: 计算机学院
+    en: School of Computer Science
+  count:
+    zh: 100人
+    en: '100'
+  theme: blue
+  icon: icon1
+  description:
+    zh: 我们正在寻找有才华的人加入我们的团队。
+    en: We are looking for talented individuals to join our team.
+  tags:
+    zh:
+    - 春季招聘
+    - 计算机科学
+    - 人才
+    en:
+    - spring recruitment
+    - computer science
+    - talent
+  link: https://www.example.com
+- title:
+    zh: 2026年秋季招生
+    en: 2026 Fall Enrollment
+  department:
+    zh: 商学院
+    en: School of Business
+  count:
+    zh: 50人
+    en: '50'
+  theme: emerald
+  icon: icon2
+  description:
+    zh: 我们很高兴宣布即将到来的学期秋季招生。
+    en: We are excited to announce our fall enrollment for the upcoming semester.
+  tags:
+    zh:
+    - 秋季招生
+    - 商业
+    - 教育
+    en:
+    - fall enrollment
+    - business
+    - education
+  link: https://www.example.com
+- title:
+    zh: 2026年冬季招生
+    en: 2026 Winter Enrollment
+  department:
+    zh: 文学院
+    en: School of Arts and Humanities
+  count:
+    zh: 30人
+    en: '30'
+  theme: violet
+  icon: icon3
+  description:
+    zh: 加入我们，体验丰富的冬季学期。
+    en: Join us for an enriching winter semester experience.
+  tags:
+    zh:
+    - 冬季招生
+    - 人文艺术
+    - 教育
+    en:
+    - winter enrollment
+    - arts and humanities
+    - education
+  link: https://www.example.com
+- title:
+    zh: 2026年夏季招聘
+    en: 2026 Summer Recruitment
+  department:
+    zh: 医学院
+    en: School of Medicine
+  count:
+    zh: 80人
+    en: '80'
+  theme: slate
+  icon: icon4
+  description:
+    zh: 与我们一起探索医学领域的激动人心的机会。
+    en: Discover exciting opportunities in the field of medicine with us.
+  tags:
+    zh:
+    - 夏季招聘
+    - 医学
+    - 医疗
+    en:
+    - summer recruitment
+    - medicine
+    - healthcare
+  link: https://www.example.com
+- title:
+    zh: 2026年春季招生
+    en: 2026 Spring Enrollment
+  department:
+    zh: 法学院
+    en: School of Law
+  count:
+    zh: 40人
+    en: '40'
+  theme: blue
+  icon: icon5
+  description:
+    zh: 通过我们全面的春季招生计划扩大您的法律知识。
+    en: Expand your legal knowledge with our comprehensive spring enrollment program.
+  tags:
+    zh:
+    - 春季招生
+    - 法律
+    - 教育
+    en:
+    - spring enrollment
+    - law
+    - education
+  link: https://www.example.com
