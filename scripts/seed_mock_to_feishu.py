@@ -530,7 +530,10 @@ class MockFeishuSeeder:
                 f"飞书接口调用失败: {payload.get('msg')} (code={payload.get('code')})"
             )
 
-        return payload.get("data", {})
+        data = payload.get("data")
+        if isinstance(data, dict):
+            return data
+        return payload
 
     @staticmethod
     def clean_text(value) -> str:
