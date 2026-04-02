@@ -208,10 +208,22 @@ class MockFeishuSeeder:
             for field in schema.fields
             if field.get("type") == 15
         }
+        number_fields = {
+            field["field_name"]
+            for field in schema.fields
+            if field.get("type") == 2
+        }
 
         processed: dict = {}
         for key, value in fields.items():
             if value in (None, "", [], {}):
+                continue
+
+            if key in number_fields:
+                number = self.number_or_none(value)
+                if number is None:
+                    continue
+                processed[key] = number
                 continue
 
             if key in link_fields:
@@ -565,6 +577,19 @@ class MockFeishuSeeder:
             return int(float(text))
         except (TypeError, ValueError):
             return None
+
+    @classmethod
+    def number_or_none(cls, value):
+        text = cls.clean_text(value)
+        if not text:
+            return None
+        try:
+            number = float(text)
+        except (TypeError, ValueError):
+            return None
+        if number.is_integer():
+            return int(number)
+        return number
 
     @classmethod
     def lines_text(cls, value) -> str:

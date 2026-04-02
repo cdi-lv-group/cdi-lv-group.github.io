@@ -80,8 +80,8 @@ class PeopleTableSchema(BaseTableSchema):
         return {
             "Name_zh": "张清和", "Name_en": "Qinghe Zhang",
             "Group_ID": "professor", 
-            "Rank": "1",
-            "Admission_Year": "2024", 
+            "Rank": 1,
+            "Admission_Year": 2024, 
             "Title_zh": "教授 / 博导", "Title_en": "Professor",
             "Role_zh": "实验室负责人",
             "Bio_zh": "长期研究空间智能、具身感知与多模态交互系统。",
