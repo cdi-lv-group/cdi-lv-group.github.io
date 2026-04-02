@@ -299,14 +299,57 @@ pip install pyyaml requests
 ```bash
 python scripts/sync_all.py
 python scripts/init_feishu_table.py
+python scripts/seed_mock_to_feishu.py --yes
 ```
 
 入口脚本：
 
 - `scripts/sync_all.py`
 - `scripts/test.py`
+- `scripts/seed_mock_to_feishu.py`
 
 表名、输出文件与 converter 映射在 `feishu_config.yml` 中维护。当前团队数据的正式输出文件名为 `_data/team.yml`，不再使用旧的 `people.yml` 命名。
+
+### 单独把 mock 数据写入飞书
+
+如果你想单独用仓库里的模拟数据回填飞书表，而不是从飞书拉取真实数据，可以使用：
+
+```bash
+python scripts/seed_mock_to_feishu.py --yes
+```
+
+这条命令会：
+
+- 读取 [feishu_seed.yml](/Users/wbzuo/Documents/04-Developer/Source-Code/github/cdi-lv-group.github.io/mock_data/feishu_seed.yml) 中的独立 mock 数据
+- 清空当前受管飞书表中的现有记录
+- 为每张表重新写入 1 条示例行和整套 mock 记录
+
+注意：
+
+- 这条命令会改写飞书表中的现有内容，所以必须显式加 `--yes`
+- 当前版本会尝试把 mock 数据里的本地图片和远程图片上传到飞书附件字段；如果单张图片下载或上传失败，会跳过该附件，但仍继续写入文本字段
+- `positions` 里的 `cyan` 主题会自动回退为 `blue`，以兼容现有飞书选项配置
+- 运行前仍然需要配置 `FEISHU_APP_ID`、`FEISHU_APP_SECRET`、`FEISHU_APP_TOKEN`
+
+### 直接通过 GitHub Actions 写入 mock 数据
+
+如果你不想在本地跑脚本，也可以直接通过 GitHub Actions 执行：
+
+1. 打开仓库的 `Actions`
+2. 选择 `Seed Mock Data to Feishu`
+3. 点击 `Run workflow`
+4. 在 `confirm` 输入框里填写：`SEED_MOCK_TO_FEISHU`
+5. 保持默认的 `data_file=mock_data/feishu_seed.yml`，或者换成你自己的 mock 文件
+
+对应工作流文件是 [seed-mock-to-feishu.yml](/Users/wbzuo/Documents/04-Developer/Source-Code/github/cdi-lv-group.github.io/.github/workflows/seed-mock-to-feishu.yml)。
+
+这条 Action 只会：
+
+- 读取仓库里的 mock 数据文件
+- 调用 [seed_mock_to_feishu.py](/Users/wbzuo/Documents/04-Developer/Source-Code/github/cdi-lv-group.github.io/scripts/seed_mock_to_feishu.py)
+- 直接改写飞书多维表内容，并尝试同步 `Avatar` / `Image` 附件
+
+它不会提交 Git 仓库内容，也不会替代现在每天自动运行的 [sync.yml](/Users/wbzuo/Documents/04-Developer/Source-Code/github/cdi-lv-group.github.io/.github/workflows/sync.yml)。
 
 ## 设计系统说明
 

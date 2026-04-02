@@ -1,0 +1,829 @@
+team:
+  - name:
+      zh: "顾清和"
+      en: "Qinghe Gu"
+    group_id: "professor"
+    rank: 1
+    title:
+      zh: "教授 / 博导"
+      en: "Professor / Ph.D. Supervisor"
+    role:
+      zh: "实验室负责人"
+      en: "Lab Director"
+    avatar: "/assets/images/team/avatar-orbit.svg"
+    bio:
+      zh: "长期研究具身智能、空间推理与跨模态学习，关注如何让智能体在复杂真实环境中稳定感知、计划并完成协作任务。"
+      en: "Qinghe works on embodied intelligence, spatial reasoning, and cross-modal learning, focusing on how agents can perceive, plan, and collaborate robustly in complex real environments."
+    email: "qinghe.gu@example.edu"
+    links:
+      homepage: "https://example.edu/qinghe-gu"
+      scholar: "https://scholar.example.edu/qinghe-gu"
+
+  - name:
+      zh: "许澜"
+      en: "Lan Xu"
+    group_id: "associate_prof"
+    rank: 1
+    title:
+      zh: "副教授"
+      en: "Associate Professor"
+    role:
+      zh: "感知系统负责人"
+      en: "Perception Systems Lead"
+    avatar: "/assets/images/team/avatar-aurora.svg"
+    bio:
+      zh: "研究重点是开放世界视觉识别与多传感器场景理解，擅长将学术问题拆解成工程上可验证的系统模块。"
+      en: "Lan focuses on open-world recognition and multi-sensor scene understanding, with a strong interest in translating research problems into verifiable system modules."
+    email: "lan.xu@example.edu"
+    links:
+      homepage: "https://example.edu/lan-xu"
+      github: "https://github.com/example/lan-xu"
+      linkedin: "https://www.linkedin.com/in/lan-xu-lab/"
+
+  - name:
+      zh: "陈宁"
+      en: "Ning Chen"
+    group_id: "assistant_prof"
+    rank: 1
+    title:
+      zh: "助理教授"
+      en: "Assistant Professor"
+    role:
+      zh: ""
+      en: ""
+    avatar: "/assets/images/team/avatar-cascade.svg"
+    bio:
+      zh: "聚焦文档智能与多模态知识抽取，探索结构化信息如何帮助大模型在专业场景中提升稳定性与可解释性。"
+      en: "Ning studies document intelligence and multimodal knowledge extraction, especially how structured signals improve stability and interpretability in professional AI systems."
+    email: "ning.chen@example.edu"
+    links:
+      homepage: "https://example.edu/ning-chen"
+
+  - name:
+      zh: "李沐川"
+      en: "Muchuan Li"
+    group_id: "researchers"
+    rank: 1
+    title:
+      zh: "博士后研究员"
+      en: "Postdoctoral Researcher"
+    role:
+      zh: "具身智能方向负责人"
+      en: "Embodied AI Lead"
+    avatar: "/assets/images/team/avatar-lattice.svg"
+    bio:
+      zh: "主要推进机器人世界模型、长时程任务规划与多智能体协同决策，希望构建真正能够进入现场工作的智能系统。"
+      en: "Muchuan leads work on robot world models, long-horizon planning, and multi-agent coordination, aiming to build embodied systems that can be deployed in the field."
+    email: "muchuan.li@example.edu"
+    links:
+      scholar: "https://scholar.example.edu/muchuan-li"
+      github: "https://github.com/example/muchuan-li"
+
+  - name:
+      zh: "周茜"
+      en: "Qian Zhou"
+    group_id: "researchers"
+    rank: 2
+    title:
+      zh: "研究科学家"
+      en: "Research Scientist"
+    role:
+      zh: ""
+      en: ""
+    avatar: "/assets/images/team/avatar-horizon.svg"
+    bio:
+      zh: "从事视觉生成模型与设计工具研究，关注高质量视觉内容生成在人机共创流程中的系统整合。"
+      en: "Qian works on visual generation models and design tooling, focusing on how high-quality generative systems integrate into human-AI co-creation workflows."
+    email: ""
+    links:
+      homepage: "https://example.edu/qian-zhou"
+
+  - name:
+      zh: "沈君昊"
+      en: "Junhao Shen"
+    group_id: "phd"
+    rank: 1
+    title:
+      zh: "博士生"
+      en: "Ph.D. Student"
+    role:
+      zh: "项目统筹"
+      en: "Project Coordinator"
+    avatar: "/assets/images/team/avatar-mosaic.svg"
+    bio:
+      zh: "围绕空间智能体评测与训练基础设施展开研究，正在搭建覆盖数据、任务、指标与可视化分析的实验平台。"
+      en: "Junhao studies evaluation and training infrastructure for spatial agents, building an experimentation stack that spans datasets, tasks, metrics, and visual analytics."
+    email: "junhao.shen@example.edu"
+    links:
+      homepage: "https://example.edu/junhao-shen"
+      github: "https://github.com/example/junhao-shen"
+      scholar: "https://scholar.example.edu/junhao-shen"
+
+  - name:
+      zh: "方雨辰"
+      en: "Yuchen Fang"
+    group_id: "phd"
+    rank: 2
+    title:
+      zh: "博士生"
+      en: "Ph.D. Student"
+    role:
+      zh: ""
+      en: ""
+    avatar: "/assets/images/team/default-avatar.svg"
+    bio:
+      zh: "研究音视频联合推理与时序感知，希望让多模态模型在嘈杂环境中依然保持对事件、动作和意图的可靠理解。"
+      en: "Yuchen studies audio-visual reasoning and temporal perception, aiming to keep multimodal systems reliable in noisy, dynamic environments."
+    email: "yuchen.fang@example.edu"
+    links:
+      github: "https://github.com/example/yuchen-fang"
+
+  - name:
+      zh: "孙雨棠"
+      en: "Olivia Sun"
+    group_id: "phd"
+    rank: 3
+    title:
+      zh: "博士生"
+      en: "Ph.D. Student"
+    role:
+      zh: ""
+      en: ""
+    avatar: "/assets/images/team/avatar-orbit.svg"
+    bio:
+      zh: "关注机器人操作中的语义表征压缩与动作策略蒸馏，尝试在有限算力条件下实现稳定、快速、可迁移的控制能力。"
+      en: "Olivia focuses on semantic compression and policy distillation for robot manipulation, seeking stable and transferable control under limited compute budgets."
+    email: ""
+    links:
+      homepage: "https://example.edu/olivia-sun"
+      linkedin: "https://www.linkedin.com/in/olivia-sun-lab/"
+
+  - name:
+      zh: "罗子轩"
+      en: "Zixuan Luo"
+    group_id: "master"
+    rank: 1
+    title:
+      zh: "硕士生"
+      en: "Master Student"
+    role:
+      zh: ""
+      en: ""
+    avatar: "/assets/images/team/avatar-aurora.svg"
+    bio:
+      zh: "研究兴趣包括开放词汇检测与面向设计场景的视觉搜索系统，喜欢把复杂模型做成可交互原型。"
+      en: "Zixuan is interested in open-vocabulary detection and visual search for design scenarios, with a habit of turning complex models into interactive prototypes."
+    email: "zixuan.luo@example.edu"
+    links:
+      github: "https://github.com/example/zixuan-luo"
+      zhihu: "https://www.zhihu.com/people/example-zixuan"
+
+  - name:
+      zh: "林安澜"
+      en: "Anlan Lin"
+    group_id: "master"
+    rank: 2
+    title:
+      zh: "硕士生"
+      en: "Master Student"
+    role:
+      zh: ""
+      en: ""
+    avatar: "/assets/images/team/default-avatar.svg"
+    bio:
+      zh: "目前主要负责新闻线索抽取和实验记录自动整理，希望把研究过程中重复而琐碎的信息组织工作系统化。"
+      en: "Anlan works on information extraction for research operations and hopes to systematize the repetitive but essential work of experiment documentation."
+    email: ""
+    links: {}
+
+  - name:
+      zh: "曹梦遥"
+      en: "Mengyao Cao"
+    group_id: "master"
+    rank: 3
+    title:
+      zh: "硕士生"
+      en: "Master Student"
+    role:
+      zh: ""
+      en: ""
+    avatar: "/assets/images/team/avatar-cascade.svg"
+    bio:
+      zh: "关注多模态检索增强生成和轻量化部署，希望缩短学术原型到真实产品验证之间的距离。"
+      en: "Mengyao studies multimodal retrieval-augmented generation and lightweight deployment to shorten the path from research prototypes to product validation."
+    email: "mengyao.cao@example.edu"
+    links:
+      homepage: "https://example.edu/mengyao-cao"
+      github: "https://github.com/example/mengyao-cao"
+
+  - name:
+      zh: "何一鸣"
+      en: "Yiming He"
+    group_id: "undergrad"
+    rank: 1
+    title:
+      zh: "本科生"
+      en: "Undergraduate Student"
+    role:
+      zh: ""
+      en: ""
+    avatar: "/assets/images/team/avatar-lattice.svg"
+    bio:
+      zh: "在实验室负责三维场景数据清洗与基准复现，对 SLAM、点云可视化和工程效率工具很感兴趣。"
+      en: "Yiming supports 3D scene data curation and benchmark reproduction, with strong interests in SLAM, point cloud visualization, and productivity tooling."
+    email: ""
+    links:
+      github: "https://github.com/example/yiming-he"
+
+  - name:
+      zh: "高伊然"
+      en: "Iris Gao"
+    group_id: "interns"
+    rank: 1
+    title:
+      zh: "科研实习生"
+      en: "Research Intern"
+    role:
+      zh: ""
+      en: ""
+    avatar: "/assets/images/team/avatar-horizon.svg"
+    bio:
+      zh: "参与前端原型、实验看板与研究内容传播设计，擅长将复杂技术叙事转化为清晰的视觉表达。"
+      en: "Iris contributes to front-end prototypes, experiment dashboards, and research communication, turning complex technical narratives into clear visual experiences."
+    email: "iris.gao@example.edu"
+    links:
+      homepage: "https://example.edu/iris-gao"
+      github: "https://github.com/example/iris-gao"
+      linkedin: "https://www.linkedin.com/in/iris-gao-lab/"
+
+  - name:
+      zh: "吴思明"
+      en: "Siming Wu"
+    group_id: "alumni"
+    rank: 1
+    title:
+      zh: "2025 届博士毕业生"
+      en: "Ph.D. Alumnus, Class of 2025"
+    role:
+      zh: ""
+      en: ""
+    avatar: "/assets/images/team/avatar-mosaic.svg"
+    bio:
+      zh: "曾负责实验室早期空间推理项目与评测框架建设。"
+      en: "Siming previously led early work on spatial reasoning projects and evaluation tooling in the lab."
+    email: ""
+    destination:
+      zh: "加入北欧一家机器人公司，担任高级研究工程师"
+      en: "Joined a robotics company in Northern Europe as a senior research engineer"
+    links:
+      linkedin: "https://www.linkedin.com/in/siming-wu-alumni/"
+
+  - name:
+      zh: "邱若琪"
+      en: "Ruqi Qiu"
+    group_id: "alumni"
+    rank: 2
+    title:
+      zh: "2024 届硕士毕业生"
+      en: "Master Alumna, Class of 2024"
+    role:
+      zh: ""
+      en: ""
+    avatar: "/assets/images/team/avatar-sunrise.svg"
+    bio:
+      zh: "曾参与设计智能与生成内容方向的多项合作课题。"
+      en: "Ruqi contributed to several collaborative projects on design intelligence and generative media."
+    email: ""
+    destination:
+      zh: "前往英国攻读人机交互方向博士学位"
+      en: "Pursuing a Ph.D. in human-computer interaction in the United Kingdom"
+    links:
+      homepage: "https://example.edu/ruqi-qiu"
+
+news:
+  - date: "2026.04"
+    category:
+      zh: "实验室动态"
+      en: "Lab Event"
+    title:
+      zh: "实验室发布新一代空间智能体评测看板"
+      en: "Lab Releases a New Evaluation Dashboard for Spatial Agents"
+    description:
+      zh: "我们上线了一套面向长时程任务的评测可视化系统，支持按场景、任务类型和错误模式追踪模型表现。"
+      en: "We launched a new evaluation dashboard for long-horizon tasks, making it easier to trace model behavior by scene, task family, and failure mode."
+    link: "https://example.org/news/spatial-agent-dashboard"
+
+  - date: "2026.03"
+    category:
+      zh: "开源项目"
+      en: "Open Source"
+    title:
+      zh: "AtlasBench 与相关分析工具正式开源"
+      en: "AtlasBench and Its Analysis Toolkit Are Now Open Source"
+    description:
+      zh: "AtlasBench 的任务定义、分析脚本和可视化工具已同步开放，方便团队快速复现实验并建立对比基线。"
+      en: "The task definitions, analysis scripts, and visualization toolkit for AtlasBench are now public to help teams reproduce results and build comparison baselines."
+    link: "https://github.com/example-lab/atlasbench"
+
+  - date: "2026.02"
+    category:
+      zh: "学术合作"
+      en: "Collaboration"
+    title:
+      zh: "与工业设计团队启动人机共创系统联合研究"
+      en: "Joint Research Started on Human-AI Co-Creation with an Industrial Design Team"
+    description:
+      zh: "新合作将围绕生成式界面、研究资料组织和多轮创意反馈展开，覆盖从概念发散到方案收敛的完整流程。"
+      en: "The new collaboration explores generative interfaces, research material organization, and iterative feedback across the full concept-to-decision pipeline."
+    link: "#"
+
+  - date: "2026.01"
+    category:
+      zh: "荣誉奖项"
+      en: "Awards"
+    title:
+      zh: "团队论文入选国际会议 Oral 报告"
+      en: "Lab Paper Selected for an Oral Presentation at a Major Conference"
+    description:
+      zh: "AtlasBench 在评测设计与实验透明性方面获得评审高度评价，并入选大会 Oral 展示环节。"
+      en: "AtlasBench received strong recognition for evaluation design and experimental transparency and was selected for an Oral presentation slot."
+    link: "https://example.org/news/oral-atlasbench"
+
+  - date: "2025.12"
+    category:
+      zh: "基础设施"
+      en: "Infrastructure"
+    title:
+      zh: "多模态实验队列与日志系统完成升级"
+      en: "Multimodal Experiment Queue and Logging Stack Upgraded"
+    description:
+      zh: "新版实验基础设施将训练日志、评测指标和模型配置统一纳入一套可查询面板，减少了结果回溯成本。"
+      en: "The upgraded infrastructure unifies training logs, evaluation metrics, and model configurations into one searchable panel, reducing the cost of experiment tracing."
+    link: "#"
+
+  - date: "2025.11"
+    category:
+      zh: "招生动态"
+      en: "Admissions"
+    title:
+      zh: "新一轮博士与硕士招募面向空间智能与设计智能方向开放"
+      en: "New Ph.D. and Master Openings Announced for Spatial and Design Intelligence"
+    description:
+      zh: "本轮招募重点关注具身规划、文档智能、生成式交互与多模态系统工程，希望吸引研究与工程兼具的候选人。"
+      en: "This round of admissions prioritizes embodied planning, document intelligence, generative interaction, and multimodal systems engineering."
+    link: "https://example.org/apply"
+
+  - date: "2025.10"
+    category:
+      zh: "实验室动态"
+      en: "Lab Event"
+    title:
+      zh: "研究周会改版为问题驱动式结构"
+      en: "Weekly Research Meetings Reframed Around Problem-Driven Sessions"
+    description:
+      zh: "我们将原有的项目更新式周会，调整为问题定义、失败复盘和实验设计共创并重的结构，以提升讨论质量。"
+      en: "The lab has redesigned its weekly meetings to focus on problem framing, failure reviews, and collaborative experiment design."
+    link: "#"
+
+  - date: "2025.09"
+    category:
+      zh: "开源项目"
+      en: "Open Source"
+    title:
+      zh: "文档智能原型工具 Document Weave 发布预览版"
+      en: "Preview Release of the Document Intelligence Tool Document Weave"
+    description:
+      zh: "预览版支持复杂 PDF 结构解析、引文网络浏览和跨文档检索，可作为研究资料整理与写作辅助工具。"
+      en: "The preview version supports complex PDF parsing, citation graph browsing, and cross-document retrieval as a research organization assistant."
+    link: "https://example.org/news/document-weave-preview"
+
+  - date: "2025.08"
+    category:
+      zh: "学术合作"
+      en: "Collaboration"
+    title:
+      zh: "与机器人平台团队完成跨设备场景地图接口对接"
+      en: "Cross-Device Scene Map Interfaces Finalized with Robotics Platform Partners"
+    description:
+      zh: "新的地图接口实现了多机器人任务中状态共享与回放分析，为后续协同实验打下了稳定基础。"
+      en: "The new scene map interface enables shared state and replay analysis in multi-robot workflows, creating a stable base for future collaborative experiments."
+    link: "#"
+
+publications:
+  - title:
+      zh: "AtlasBench：面向长时程空间智能体的结构化评测基准"
+      en: "AtlasBench: A Structured Evaluation Benchmark for Long-Horizon Spatial Agents"
+    authors: "<b>Junhao Shen</b>, Olivia Sun, <b>Qinghe Gu</b>*"
+    type: "conference"
+    venue: "CVPR 2026"
+    year: 2026
+    highlight: "Oral"
+    image: "https://picsum.photos/seed/atlasbench/1200/800"
+    abstract:
+      zh: "我们提出了一个覆盖探索、检索、重规划与长期记忆管理的空间智能体评测基准，并给出统一的任务接口与可解释指标设计。"
+      en: "We present a benchmark for spatial agents spanning exploration, retrieval, replanning, and long-term memory management, together with unified task interfaces and interpretable metrics."
+    links:
+      paper: "https://example.org/papers/atlasbench"
+      code: "https://github.com/example-lab/atlasbench"
+      project: "https://example.org/projects/atlasbench"
+
+  - title:
+      zh: "慢时间，快决策：拥挤室内服务机器人中的世界模型规划"
+      en: "Slow Time, Sharp Decisions: World-Model Planning for Service Robots in Crowded Interior Environments"
+    authors: "<b>Muchuan Li</b>, Yuchen Fang, <b>Lan Xu</b>, Marina Ortiz, Taro Sato, <b>Qinghe Gu</b>*"
+    type: "conference"
+    venue: "ICLR 2026"
+    year: 2026
+    highlight: ""
+    abstract:
+      zh: "论文讨论如何在有限感知预算下训练可复用世界模型，并将其用于高拥挤场景中的动作提案、冲突规避与任务恢复。"
+      en: "This paper studies reusable world models trained under restricted perception budgets and shows how they support action proposals, conflict avoidance, and recovery in crowded service scenarios."
+    links:
+      paper: "https://example.org/papers/slow-time-sharp-decisions"
+      code: "https://github.com/example-lab/slow-time-planner"
+
+  - title:
+      zh: "跨模态压缩作为协作智能体系统的中间表示"
+      en: "Cross-Modal Compression as an Intermediate Representation for Collaborative Agent Systems"
+    authors: "<b>Olivia Sun</b>, <b>Qian Zhou</b>, Rui Patel, <b>Qinghe Gu</b>*"
+    type: "preprint"
+    venue: "arXiv"
+    year: 2026
+    highlight: ""
+    links:
+      paper: "https://arxiv.org/abs/2603.01234"
+
+  - title:
+      zh: "从蓝图到行为：可检索设计记忆支持下的多智能体共创"
+      en: "Blueprints to Behaviors: Multi-Agent Co-Creation with Retrieval-Augmented Design Memory"
+    authors: "<b>Qian Zhou</b>, Mengyao Cao, <b>Ning Chen</b>, <b>Qinghe Gu</b>*"
+    type: "journal"
+    venue: "TPAMI 2025"
+    year: 2025
+    highlight: ""
+    image: "https://picsum.photos/seed/blueprints/1200/800"
+    abstract:
+      zh: "我们提出设计记忆检索框架，将视觉草图、过程注释和交互日志整合进统一知识索引，显著提升跨轮次共创的一致性。"
+      en: "We propose a design-memory retrieval framework that unifies sketches, process annotations, and interaction logs into a single knowledge index, improving consistency across collaborative creative sessions."
+    links:
+      paper: "https://example.org/papers/blueprints-to-behaviors"
+      project: "https://example.org/projects/design-memory"
+
+  - title:
+      zh: "多语环境下复杂文档理解的层级对齐方法"
+      en: "Hierarchical Alignment for Multilingual Complex Document Understanding"
+    authors: "<b>Ning Chen</b>, Anlan Lin, Irene Flores, <b>Lan Xu</b>, <b>Qinghe Gu</b>*"
+    type: "conference"
+    venue: "ACL 2025"
+    year: 2025
+    highlight: ""
+    abstract:
+      zh: "该工作探索版式结构、视觉区域与文本单元之间的多层级对齐，对多语种复杂文档解析和问答任务都有稳定收益。"
+      en: "This work investigates multi-level alignment between layout structures, visual regions, and textual units, yielding consistent gains on multilingual document parsing and question answering."
+    links:
+      code: "https://github.com/example-lab/hierarchical-doc-align"
+      project: "https://example.org/projects/doc-align"
+
+  - title:
+      zh: "WeatherShift-Radar：跨天气多传感器场景理解数据集与基线"
+      en: "WeatherShift-Radar: A Cross-Weather Multi-Sensor Dataset and Baselines for Robust Scene Understanding"
+    authors: "<b>Lan Xu</b>, Zixuan Luo, <b>Muchuan Li</b>, Elena Petrova, <b>Qinghe Gu</b>*"
+    type: "conference"
+    venue: "NeurIPS 2025"
+    year: 2025
+    highlight: "Spotlight"
+    image: "https://picsum.photos/seed/weathershift/1200/800"
+    abstract:
+      zh: "我们发布了一个跨天气、多时间段、多设备的场景理解数据集，用于系统评估模型在极端视觉退化条件下的鲁棒性。"
+      en: "We release a cross-weather, multi-time-of-day, multi-device dataset for evaluating scene understanding systems under severe visual degradation."
+    links:
+      paper: "https://example.org/papers/weathershift-radar"
+      code: "https://github.com/example-lab/weathershift-radar"
+      project: "https://example.org/projects/weathershift-radar"
+
+  - title:
+      zh: "OpenRooms++：面向真实室内环境部署的开放世界场景基准"
+      en: "OpenRooms++: An Open-World Scene Benchmark for Deployable Indoor Intelligence"
+    authors: "<b>Junhao Shen</b>, <b>Yiming He</b>, <b>Lan Xu</b>, <b>Qinghe Gu</b>*"
+    type: "conference"
+    venue: "ECCV 2024"
+    year: 2024
+    highlight: ""
+    abstract:
+      zh: "该基准强调开放词汇、任务扰动与长尾物体覆盖，适合验证真实室内服务系统的鲁棒性和可扩展性。"
+      en: "The benchmark emphasizes open vocabulary, task perturbations, and long-tail object coverage for evaluating robustness and scalability in real indoor service systems."
+    links:
+      paper: "https://example.org/papers/openrooms-plus-plus"
+
+  - title:
+      zh: "Document Weave：将页面结构与视觉线索编织进研究型知识引擎"
+      en: "Document Weave: Weaving Page Structure and Visual Cues into Research-Oriented Knowledge Engines"
+    authors: "<b>Ning Chen</b>, <b>Anlan Lin</b>, Sofia Meyer, Arjun Rao, <b>Qinghe Gu</b>*"
+    type: "journal"
+    venue: "IJCV 2024"
+    year: 2024
+    highlight: ""
+    image: "https://picsum.photos/seed/documentweave/1200/800"
+    abstract:
+      zh: "论文提出一个面向研究流程的文档知识引擎，将图表、段落、引用和版式关系共同纳入多模态检索索引。"
+      en: "The paper presents a document knowledge engine for research workflows that jointly indexes charts, paragraphs, citations, and layout relations."
+    links:
+      paper: "https://example.org/papers/document-weave"
+      code: "https://github.com/example-lab/document-weave"
+
+  - title:
+      zh: "用于密集场景事件理解的稀疏对话记忆"
+      en: "Sparse Conversations for Dense Scenes: Dialogue Memory for Event Understanding"
+    authors: "<b>Yuchen Fang</b>, Iris Gao, <b>Qian Zhou</b>, <b>Qinghe Gu</b>*"
+    type: "preprint"
+    venue: "arXiv"
+    year: 2024
+    highlight: ""
+    links:
+      paper: "https://arxiv.org/abs/2409.09876"
+      code: "https://github.com/example-lab/sparse-conversations"
+
+  - title:
+      zh: "SignalGarden：弱监督多模态事件建模的声景学习框架"
+      en: "SignalGarden: A Soundscape Learning Framework for Weakly Supervised Multimodal Event Modeling"
+    authors: "<b>Qian Zhou</b>, Ruqi Qiu, <b>Ning Chen</b>, <b>Qinghe Gu</b>*"
+    type: "journal"
+    venue: "TCSVT 2023"
+    year: 2023
+    highlight: ""
+    image: "https://picsum.photos/seed/signalgarden/1200/800"
+    abstract:
+      zh: "该工作围绕弱监督音视频建模，提出对环境声纹与视觉动态进行联合表示学习的方案，以改善复杂事件的分离能力。"
+      en: "This work studies weakly supervised audio-visual modeling and proposes joint representation learning over soundscapes and visual dynamics to better separate complex events."
+    links:
+      paper: "https://example.org/papers/signalgarden"
+
+  - title:
+      zh: "LatticeTrack：面向长尾开放目标的层级跟踪器"
+      en: "LatticeTrack: A Hierarchical Tracker for Long-Tail Open-World Targets"
+    authors: "<b>Muchuan Li</b>, <b>Lan Xu</b>, Helena Park, <b>Qinghe Gu</b>*"
+    type: "conference"
+    venue: "ICCV 2023"
+    year: 2023
+    highlight: "Best Paper Finalist"
+    abstract:
+      zh: "LatticeTrack 通过目标语义、几何状态和上下文记忆的联合更新机制，在开放世界长尾跟踪任务上展现了优异性能。"
+      en: "LatticeTrack jointly updates semantic, geometric, and contextual memory states, delivering strong performance on long-tail open-world tracking tasks."
+    links:
+      paper: "https://example.org/papers/latticetrack"
+      project: "https://example.org/projects/latticetrack"
+
+positions:
+  - title:
+      zh: "博士生 (空间智能方向)"
+      en: "Ph.D. Candidates in Spatial Intelligence"
+    count:
+      zh: "2 名 / 年"
+      en: "2 positions per year"
+    department:
+      zh: "智能系统研究中心 / 设计创意学院"
+      en: "Center for Intelligent Systems / College of Design and Innovation"
+    icon: "🛰️"
+    theme: "blue"
+    description:
+      zh: "适合对三维场景理解、世界模型和长期任务评测感兴趣的申请者。我们希望你具备扎实的编程能力，并愿意做系统型研究。"
+      en: "This role is for applicants interested in 3D scene understanding, world models, and long-horizon evaluation. Strong programming ability and a systems research mindset are highly valued."
+    tags:
+      zh: ["3D 视觉", "世界模型", "系统研究", "学术写作"]
+      en: ["3D Vision", "World Models", "Systems Research", "Academic Writing"]
+    link: "https://example.org/apply/phd-spatial"
+
+  - title:
+      zh: "硕士生 (设计智能方向)"
+      en: "Master Students in Design Intelligence"
+    count:
+      zh: "3 名 / 年"
+      en: "3 positions per year"
+    department:
+      zh: "设计创意学院"
+      en: "College of Design and Innovation"
+    icon: "🎛️"
+    theme: "cyan"
+    description:
+      zh: "欢迎对生成式交互、知识组织、前端原型和研究工具链感兴趣的同学加入，鼓励研究与产品能力并重。"
+      en: "We welcome students interested in generative interaction, knowledge organization, front-end prototyping, and research tooling, especially those who enjoy both research and product thinking."
+    tags:
+      zh: ["生成式交互", "前端原型"]
+      en: ["Generative Interaction", "Front-End Prototyping"]
+    link: "https://example.org/apply/master-design"
+
+  - title:
+      zh: "科研实习生 (机器人控制)"
+      en: "Research Intern in Robot Control"
+    count:
+      zh: "若干"
+      en: "Multiple openings"
+    department:
+      zh: "机器人系统联合实验平台"
+      en: "Joint Robotics Systems Platform"
+    icon: "🦿"
+    theme: "emerald"
+    description:
+      zh: "实习内容覆盖现场实验支持、控制策略验证和实验数据整理，适合希望快速接触具身智能真实工作流的同学。"
+      en: "The internship covers field experiment support, control policy validation, and experiment data organization, making it ideal for students who want exposure to real embodied AI workflows."
+    tags:
+      zh:
+        - "机器人控制"
+        - "实验工程"
+        - "部署验证"
+        - "数据整理"
+      en:
+        - "Robot Control"
+        - "Experiment Engineering"
+        - "Deployment Validation"
+        - "Data Operations"
+    link: "https://example.org/apply/intern-robotics"
+
+  - title:
+      zh: "联合培养访问研究生"
+      en: "Visiting Graduate Researcher"
+    count:
+      zh: "1-2 名 / 学期"
+      en: "1-2 positions per semester"
+    department:
+      zh: "跨校联合研究计划"
+      en: "Inter-University Joint Research Program"
+    icon: "🧩"
+    theme: "violet"
+    description:
+      zh: "欢迎在外校已有稳定研究积累的同学来组里参与 4-6 个月的专题合作，适合文档智能、音视频理解和评测平台方向。"
+      en: "Students with stable research progress at their home institutions are welcome to join us for a 4-6 month focused collaboration, especially in document intelligence, audio-visual understanding, and evaluation platforms."
+    tags:
+      zh:
+        - "联合培养"
+        - "专题合作"
+      en:
+        - "Joint Program"
+        - "Focused Collaboration"
+    link: "https://example.org/apply/visiting-researcher"
+
+  - title:
+      zh: "研究助理 (实验运营与内容系统)"
+      en: "Research Assistant in Lab Operations and Content Systems"
+    count:
+      zh: "1 名"
+      en: "1 opening"
+    department:
+      zh: "实验运营与研究支持组"
+      en: "Research Operations and Support Team"
+    icon: "🗂️"
+    theme: "slate"
+    description:
+      zh: "岗位面向擅长信息组织、内容编辑和工作流搭建的候选人，负责实验记录、资料归档、研究主页与可视化内容维护。"
+      en: "This role is intended for candidates strong in information organization, editorial work, and workflow design, supporting experiment records, documentation, website content, and visual research communication."
+    tags:
+      zh: []
+      en: []
+    link: "#"
+
+research:
+  - icon: "🛰️"
+    title:
+      zh: "空间智能与三维场景地图"
+      en: "Spatial Intelligence and 3D Scene Mapping"
+    description:
+      zh: "围绕大尺度空间感知、语义地图构建和真实场景表示学习展开研究，目标是让智能体拥有可共享、可推理、可持续更新的环境记忆。"
+      en: "We study large-scale spatial perception, semantic map construction, and scene representation learning so agents can build shared, queryable, and continuously updated memories of the world."
+    points:
+      zh:
+        - "多层级三维场景表示与语义压缩"
+        - "跨设备空间地图对齐与共享"
+        - "开放环境中的鲁棒重定位"
+        - "稀疏观测下的场景补全"
+        - "具备时序记忆的地图更新策略"
+      en:
+        - "Multi-level 3D representations with semantic compression"
+        - "Cross-device spatial map alignment and sharing"
+        - "Robust relocalization in open environments"
+        - "Scene completion under sparse observations"
+        - "Map update policies with temporal memory"
+    image: "/assets/images/research/spatial-fabric.svg"
+
+  - icon: "🤖"
+    title:
+      zh: "具身规划与世界模型"
+      en: "Embodied Planning and World Models"
+    description:
+      zh: "关注机器人如何在有限观察、开放目标和长任务链条件下进行推理、规划和自我纠错，强调世界模型与动作决策之间的闭环。"
+      en: "This direction focuses on reasoning, planning, and self-correction for embodied systems under partial observations, open goals, and long task chains, with an emphasis on closing the loop between world models and action."
+    points:
+      zh:
+        - "长时程任务分解与子目标生成"
+        - "基于文本和示教的混合规划"
+        - "多智能体协作中的状态共享"
+        - "失败恢复与自我反思机制"
+      en:
+        - "Long-horizon task decomposition and subgoal generation"
+        - "Hybrid planning from language and demonstrations"
+        - "State sharing in multi-agent collaboration"
+        - "Failure recovery and self-reflection loops"
+    image: "/assets/images/research/agent-arena.svg"
+
+  - icon: "🎛️"
+    title:
+      zh: "设计智能与生成式交互"
+      en: "Design Intelligence and Generative Interaction"
+    description:
+      zh: "探索面向设计、创作和知识整理的生成式工具链，把模型能力转化为结构清晰、反馈即时且可被团队协作消费的交互系统。"
+      en: "We explore generative toolchains for design, creation, and knowledge work, converting model capability into interaction systems that are structured, responsive, and truly collaborative."
+    points:
+      zh:
+        - "可控生成式界面组件"
+        - "研究流程中的协作式内容生成"
+      en:
+        - "Controllable generative interface components"
+        - "Collaborative content generation for research workflows"
+    image: "/assets/images/research/design-intelligence.svg"
+
+  - icon: "🦿"
+    title:
+      zh: "动态环境中的机器人控制"
+      en: "Robot Control in Dynamic Environments"
+    description:
+      zh: "面向室内服务、园区巡检和半结构化工作现场，研究兼顾安全性、恢复能力和实时性的运动控制与任务执行策略。"
+      en: "Targeting indoor service, campus inspection, and semi-structured work sites, we study control and execution strategies that balance safety, recovery, and real-time performance."
+    points:
+      zh:
+        - "复杂地形下的移动控制"
+        - "视觉伺服与接触感知融合"
+        - "动作失败后的快速重规划"
+        - "多机器人任务编队"
+        - "现场运行状态监控"
+      en:
+        - "Mobility control on challenging terrain"
+        - "Fusion of visual servoing and contact sensing"
+        - "Fast replanning after action failures"
+        - "Multi-robot task formation"
+        - "Runtime state monitoring in the field"
+    image: "/assets/images/research/robotics-field.svg"
+
+  - icon: "🔍"
+    title:
+      zh: "开放世界识别与长尾学习"
+      en: "Open-World Recognition and Long-Tail Learning"
+    description:
+      zh: "研究模型如何在类别不断扩展、分布持续漂移的环境中保持识别能力与校准能力，重点关注未知类发现和知识迁移。"
+      en: "We study how models retain recognition quality and calibration as categories expand and distributions drift, with a focus on unknown discovery and knowledge transfer."
+    points:
+      zh: []
+      en: []
+
+  - icon: "📄"
+    title:
+      zh: "文档智能与多模态知识挖掘"
+      en: "Document Intelligence and Multimodal Knowledge Mining"
+    description:
+      zh: "聚焦复杂版式文档、图表、流程图与知识图谱的联合解析，希望建立兼顾结构理解和内容检索的研究型文档系统。"
+      en: "This area targets complex documents, charts, diagrams, and knowledge graphs to build research-oriented document systems that combine structural understanding with retrieval."
+    points:
+      zh:
+        - "版式结构与语义单元联合建模"
+        - "跨文档知识对齐与问答"
+      en:
+        - "Joint modeling of layout structure and semantic units"
+        - "Cross-document knowledge alignment and question answering"
+
+  - icon: "🎧"
+    title:
+      zh: "音视频场景理解与事件推理"
+      en: "Audio-Visual Scene Understanding and Event Reasoning"
+    description:
+      zh: "关注嘈杂环境、多事件并发和长视频条件下的场景理解，强调对人、物体、声音和语境变化的联合建模。"
+      en: "We focus on scene understanding in noisy, multi-event, long-form settings, jointly modeling people, objects, sound, and contextual changes over time."
+    points:
+      zh:
+        - "多事件边界检测"
+        - "音视频线索对齐"
+        - "环境声驱动的行为预测"
+        - "跨模态注意力可解释性分析"
+      en:
+        - "Boundary detection for overlapping events"
+        - "Alignment of audio and visual cues"
+        - "Behavior prediction driven by ambient sound"
+        - "Interpretability analysis for cross-modal attention"
+
+  - icon: "⚙️"
+    title:
+      zh: "高效多模态系统与边缘部署"
+      en: "Efficient Multimodal Systems and Edge Deployment"
+    description:
+      zh: "面向资源受限设备、持续运行服务和多模型协作链路，研究高效推理、缓存复用、模型裁剪与在线调度策略。"
+      en: "For resource-constrained devices, continuous services, and multi-model pipelines, we study efficient inference, cache reuse, compression, and online scheduling strategies."
+    points:
+      zh:
+        - "多模型级联调度"
+        - "面向边缘设备的视觉模型蒸馏"
+        - "跨任务共享缓存设计"
+        - "推理延迟与能耗协同优化"
+        - "在线服务监控与回退策略"
+      en:
+        - "Cascaded scheduling for multiple models"
+        - "Vision model distillation for edge devices"
+        - "Shared cache design across tasks"
+        - "Joint optimization of latency and energy"
+        - "Monitoring and rollback strategies for online services"

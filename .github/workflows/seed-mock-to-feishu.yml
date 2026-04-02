@@ -1,0 +1,56 @@
+name: Seed Mock Data to Feishu
+
+on:
+  workflow_dispatch:
+    inputs:
+      confirm:
+        description: '输入 SEED_MOCK_TO_FEISHU 以确认覆盖当前飞书表内容'
+        required: true
+        type: string
+      data_file:
+        description: 'Mock 数据文件路径'
+        required: false
+        default: 'mock_data/feishu_seed.yml'
+        type: string
+
+concurrency:
+  group: seed-mock-to-feishu
+  cancel-in-progress: false
+
+jobs:
+  seed-mock:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    permissions:
+      contents: read
+
+    steps:
+      - name: Validate confirmation
+        run: |
+          if [ "${{ github.event.inputs.confirm }}" != "SEED_MOCK_TO_FEISHU" ]; then
+            echo "Confirmation mismatch. Refusing to overwrite Feishu tables."
+            exit 1
+          fi
+
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.10'
+          cache: 'pip'
+
+      - name: Install dependencies
+        run: |
+          pip install pyyaml requests
+
+      - name: Seed mock data to Feishu
+        env:
+          FEISHU_APP_ID: ${{ secrets.FEISHU_APP_ID }}
+          FEISHU_APP_SECRET: ${{ secrets.FEISHU_APP_SECRET }}
+          FEISHU_APP_TOKEN: ${{ secrets.FEISHU_APP_TOKEN }}
+        run: |
+          python scripts/seed_mock_to_feishu.py \
+            --data-file "${{ github.event.inputs.data_file }}" \
+            --yes
