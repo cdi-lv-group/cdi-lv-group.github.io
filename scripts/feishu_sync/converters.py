@@ -2,6 +2,8 @@ from __future__ import annotations
 
 from datetime import datetime
 
+DEFAULT_TEAM_AVATAR = "/assets/images/team/default-avatar.svg"
+
 
 def _get_text(field) -> str:
     if field in (None, "None"):
@@ -59,6 +61,7 @@ def _format_date(field) -> str:
 def convert_team(records: list[dict]) -> list[dict]:
     people = []
     for record in records:
+        avatar = _get_text(record.get("local_avatar_path")) or DEFAULT_TEAM_AVATAR
         item = {
             "name": {
                 "zh": _get_text(record.get("Name_zh")),
@@ -75,7 +78,7 @@ def convert_team(records: list[dict]) -> list[dict]:
                 "zh": _get_text(record.get("Role_zh")),
                 "en": _get_text(record.get("Role_en")),
             },
-            "avatar": _get_text(record.get("local_avatar_path")),
+            "avatar": avatar,
             "bio": {
                 "zh": _get_text(record.get("Bio_zh")),
                 "en": _get_text(record.get("Bio_en")),

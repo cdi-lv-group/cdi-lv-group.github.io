@@ -11,6 +11,8 @@ THEME_FALLBACKS = {
     "cyan": "blue",
 }
 
+DEFAULT_TEAM_AVATAR = "/assets/images/team/default-avatar.svg"
+
 
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(
@@ -247,7 +249,7 @@ class MockFeishuSeeder:
         if not task.media:
             return fields
 
-        source_value = self.clean_text(source_record.get(task.media.field.lower()))
+        source_value = self.resolve_media_source_value(task_name, task, source_record)
         if not source_value or source_value == "#":
             return fields
 
@@ -264,6 +266,16 @@ class MockFeishuSeeder:
             label = self.record_label(task_name, source_record)
             print(f"   ⚠️ 跳过附件 {task.media.field} [{label}]: {exc}")
         return fields
+
+    def resolve_media_source_value(self, task_name: str, task, source_record: dict) -> str:
+        source_value = self.clean_text(source_record.get(task.media.field.lower()))
+        if source_value:
+            return source_value
+
+        if task_name == "team" and task.media.field == "Avatar":
+            return DEFAULT_TEAM_AVATAR
+
+        return ""
 
     def resolve_media_payload(
         self,

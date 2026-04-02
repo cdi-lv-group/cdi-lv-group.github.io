@@ -1,91 +1,170 @@
 # Auto-generated from Feishu Bitable: 团队成员
 # Sync Time: 2026-04-02 01:27:22
 
+# Auto-generated mock dataset (enriched)
+# Default avatar: /assets/images/team/default-avatar.svg will be used when no personal avatar is provided.
+
 - name:
-    zh: 郑七
-    en: Sun Yang
-  group_id: master
-  year: 2022
+    zh: 郭炜炜
+    en: Weiwei Guo
+  group_id: professor
+  rank: 1
+  year: 2008
   title:
-    zh: 硕士生
-    en: Master Student
-  avatar: ''
+    zh: 教授 / 博导
+    en: Professor / Ph.D. Supervisor
+  role:
+    zh: 课题组负责人
+    en: Principal Investigator
+  avatar: /assets/images/team/guo_weiwei.jpg
   bio:
-    zh: 我专注于计算机视觉。
-    en: I am a master student.
-  email: user5@example.com
-  dest:
-    zh: 杭州
-    en: Hangzhou
-  links:
-    homepage: http://homepage.com/user5
-    github: https://github.com/user5
-    scholar: https://scholar.google.com/citations?user=user5
-    linkedin: https://linkedin.com/in/user5
-    zhihu: https://zhihu.com/user5
-- name:
-    zh: 王五
-    en: Wang Hong
-  group_id: researchers
-  year: 2020
-  title:
-    zh: 研究员
-    en: Researcher
-  avatar: ''
-  bio:
-    zh: 我从事自然语言处理工作。
-    en: I am a researcher.
-  email: user3@example.com
-  dest:
-    zh: 深圳
-    en: Shenzhen
-  links:
-    homepage: http://homepage.com/user3
-    github: https://github.com/user3
-    scholar: https://scholar.google.com/citations?user=user3
-    linkedin: https://linkedin.com/in/user3
-    zhihu: https://zhihu.com/user3
-- name:
-    zh: 赵六
-    en: Li Ming
-  group_id: phd
-  year: 2020
-  title:
-    zh: 博士生
-    en: PhD Student
-  avatar: ''
-  bio:
-    zh: 我研究深度学习。
-    en: I am a phd student.
-  email: user4@example.com
-  dest:
-    zh: 广州
-    en: Guangzhou
-  links:
-    homepage: http://homepage.com/user4
-    github: https://github.com/user4
-    scholar: https://scholar.google.com/citations?user=user4
-    linkedin: https://linkedin.com/in/user4
-    zhihu: https://zhihu.com/user4
-- name:
-    zh: 李四
-    en: Jane Smith
-  group_id: associate_prof
-  year: 2016
-  title:
-    zh: 副教授
-    en: Associate Professor
-  avatar: ''
-  bio:
-    zh: 我专注于机器学习研究。
-    en: I am an associate professor.
-  email: user2@example.com
-  dest:
+    zh: 我主要研究多模态感知与具身智能，关注理论与工程结合。
+    en: Research interests: multimodal perception and embodied AI.
+  email: guo@example.com
+  destination:
     zh: 上海
     en: Shanghai
   links:
-    homepage: http://homepage.com/user2
-    github: https://github.com/user2
-    scholar: https://scholar.google.com/citations?user=user2
-    linkedin: https://linkedin.com/in/user2
-    zhihu: https://zhihu.com/user2
+    homepage: /pages/people/guo-weiwei.html
+    github: https://github.com/guo_weiwei
+    scholar: https://scholar.google.com/citations?user=guo
+
+- name:
+    zh: 陈思远
+    en: Siyuan Chen
+  group_id: associate_prof
+  rank: 2
+  year: 2012
+  title:
+    zh: 副教授
+    en: Associate Professor
+  role:
+    zh: 联合负责人
+    en: Co-Director
+  avatar: /assets/images/team/avatar_chen.jpg
+  bio:
+    zh: 研究方向为大规模三维场景理解与神经渲染。
+    en: Works on large-scale 3D scene understanding and neural rendering.
+  email: chen@example.com
+  destination:
+    zh: 上海
+    en: Shanghai
+  links:
+    scholar: https://scholar.google.com/citations?user=chen
+    homepage: /pages/people/chen-siyuan.html
+
+- name:
+    zh: 李嘉诚
+    en: Jiacheng Li
+  group_id: researchers
+  rank: 1
+  year: 2019
+  title:
+    zh: 博士后
+    en: Postdoctoral Researcher
+  role:
+    zh: 具身智能组长
+    en: Embodied AI Lead
+  avatar: /assets/images/team/avatar_li.jpg
+  bio:
+    zh: 负责机器人在复杂环境中的长期规划研究。
+    en: Focused on long-horizon planning for robots in complex environments.
+  email: li@example.com
+  links:
+    github: https://github.com/li_jc
+
+- name:
+    zh: 左文彬
+    en: Wenbin Zuo
+  group_id: phd
+  rank: 1
+  year: 2021
+  title:
+    zh: 博士生
+    en: Ph.D. Student
+  role:
+    zh: 核心骨干
+    en: Core Member
+  avatar: /assets/images/team/wenbinzuo.jpg
+  bio:
+    zh: 研究3D视觉、点云和多模态学习。
+    en: Research on 3D vision, point clouds and multimodal learning.
+  email: wenbin@example.com
+  links:
+    github: https://github.com/wbzuo
+    scholar: https://scholar.google.com/citations?user=wbzuo
+
+- name:
+    zh: 王浩然
+    en: Haoran Wang
+  group_id: master
+  rank: 1
+  year: 2023
+  title:
+    zh: 硕士生
+    en: Master Student
+  avatar: /assets/images/team/default-avatar.svg
+  bio:
+    zh: 对视觉语言模型和端到端感知有浓厚兴趣。
+    en: Interested in vision-language models and end-to-end perception.
+  email: haoran@example.com
+  destination:
+    zh: 上海
+    en: Shanghai
+  links:
+    github: https://github.com/haoran
+
+- name:
+    zh: 赵子轩
+    en: Zixuan Zhao
+  group_id: undergrad
+  rank: 1
+  year: 2022
+  title:
+    zh: 本科生
+    en: Undergraduate
+  avatar: /assets/images/team/default-avatar.svg
+  bio:
+    zh: 本科生，参与SLAM相关项目的实习研究。
+    en: Undergraduate working on SLAM-related research internship.
+  email: zixuan@example.com
+  links:
+    github: https://github.com/zixuan
+
+- name:
+    zh: 吴晓波
+    en: Xiaobo Wu
+  group_id: interns
+  rank: 1
+  year: 2024
+  title:
+    zh: 算法实习生
+    en: Algorithm Intern
+  avatar: /assets/images/team/default-avatar.svg
+  bio:
+    zh: 负责数据标注与清洗工作。
+    en: Assists in large-scale dataset annotation and cleaning.
+  email: xiaobo@example.com
+  links:
+    github: https://github.com/xiaobo
+
+- name:
+    zh: 孙建勋
+    en: Jianxun Sun
+  group_id: alumni
+  rank: 1
+  year: 2024
+  title:
+    zh: 硕士毕业生
+    en: M.S. Alumnus
+  avatar: /assets/images/team/default-avatar.svg
+  bio:
+    zh: 现就职于国外高校攻读博士。
+    en: Currently pursuing a Ph.D. abroad.
+  email: jianxun@example.com
+  destination:
+    zh: 斯坦福大学
+    en: Stanford University
+  links:
+    linkedin: https://linkedin.com/in/jianxun
+

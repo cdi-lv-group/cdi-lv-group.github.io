@@ -69,7 +69,7 @@
   group_id: "alumni"
   rank: 1
   title: { zh: "2025届 博士毕业生", en: "Ph.D. Alumnus, Class of 2025" }
-  avatar: "/assets/images/team/default_avatar.jpg"
+  avatar: "/assets/images/team/default-avatar.svg"
   destination: 
     zh: "🌟 毕业去向：华为诺亚方舟实验室 (高级研究员)"
     en: "🌟 Destination: Huawei Noah's Ark Lab (Senior Researcher)"

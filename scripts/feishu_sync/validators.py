@@ -17,6 +17,7 @@ ALLOWED_GROUP_IDS = {
 ALLOWED_POSITION_THEMES = {"slate", "blue", "cyan", "emerald", "violet"}
 ALLOWED_PUBLICATION_TYPES = {"conference", "journal", "preprint", "workshop", "book"}
 EMPTY_LITERALS = {"", "#", "none", "null", "n/a", "na", "nil"}
+DEFAULT_TEAM_AVATAR = "/assets/images/team/default-avatar.svg"
 
 
 @dataclass
@@ -103,7 +104,7 @@ def _validate_team(record: dict) -> tuple[dict | None, str]:
         "year": _normalize_int(record.get("year")),
         "title": title,
         "role": role,
-        "avatar": _clean_text(record.get("avatar")),
+        "avatar": _clean_text(record.get("avatar")) or DEFAULT_TEAM_AVATAR,
         "bio": bio,
         "email": _clean_email(record.get("email")),
         "destination": destination,

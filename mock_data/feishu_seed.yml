@@ -236,6 +236,26 @@ team:
       github: "https://github.com/example/yiming-he"
 
   - name:
+      zh: "程书宁"
+      en: "Shuning Cheng"
+    group_id: "undergrad"
+    rank: 2
+    year: 2023
+    title:
+      zh: "本科生"
+      en: "Undergraduate Student"
+    role:
+      zh: "可视化工具维护"
+      en: "Visualization Tooling"
+    bio:
+      zh: "主要参与实验日志可视化、数据质检脚本和网页交互细节优化，擅长把零散工具收束成稳定工作流。"
+      en: "Shuning contributes to experiment log visualization, data QA scripts, and UI polish, with a knack for turning scattered helpers into stable workflows."
+    email: "shuning.cheng@example.edu"
+    links:
+      github: "https://github.com/example/shuning-cheng"
+      zhihu: "https://www.zhihu.com/people/example-shuning"
+
+  - name:
       zh: "高伊然"
       en: "Iris Gao"
     group_id: "interns"
@@ -255,6 +275,25 @@ team:
       homepage: "https://example.edu/iris-gao"
       github: "https://github.com/example/iris-gao"
       linkedin: "https://www.linkedin.com/in/iris-gao-lab/"
+
+  - name:
+      zh: "唐见微"
+      en: "Jianwei Tang"
+    group_id: "interns"
+    rank: 2
+    title:
+      zh: "科研实习生"
+      en: "Research Intern"
+    role:
+      zh: ""
+      en: ""
+    avatar: ""
+    bio:
+      zh: "参与数据集标注规范、机器人测试脚本和实验复盘整理，偏好做能直接提升团队协作效率的小系统。"
+      en: "Jianwei works on annotation protocols, robot test scripts, and experiment retrospectives, especially small systems that directly improve team efficiency."
+    email: ""
+    links:
+      github: "https://github.com/example/jianwei-tang"
 
   - name:
       zh: "吴思明"
@@ -299,6 +338,28 @@ team:
       en: "Pursuing a Ph.D. in human-computer interaction in the United Kingdom"
     links:
       homepage: "https://example.edu/ruqi-qiu"
+
+  - name:
+      zh: "陶知远"
+      en: "Zhiyuan Tao"
+    group_id: "alumni"
+    rank: 3
+    year: 2022
+    title:
+      zh: "2023 届本科毕业生"
+      en: "Undergraduate Alumnus, Class of 2023"
+    role:
+      zh: ""
+      en: ""
+    bio:
+      zh: "曾协助构建多模态数据处理工具链与网页展示模块。"
+      en: "Zhiyuan helped build the multimodal data processing toolchain and several website presentation modules."
+    email: ""
+    destination:
+      zh: "加入上海一家 AI 创业公司，负责多模态产品工程"
+      en: "Joined an AI startup in Shanghai as a multimodal product engineer"
+    links:
+      linkedin: "https://www.linkedin.com/in/zhiyuan-tao-alumni/"
 
 news:
   - date: "2026.04"
@@ -407,6 +468,30 @@ news:
     description:
       zh: "新的地图接口实现了多机器人任务中状态共享与回放分析，为后续协同实验打下了稳定基础。"
       en: "The new scene map interface enables shared state and replay analysis in multi-robot workflows, creating a stable base for future collaborative experiments."
+    link: "#"
+
+  - date: "2025.07"
+    category:
+      zh: "实验室动态"
+      en: "Lab Event"
+    title:
+      zh: "研究主页切换为全量数据驱动内容架构"
+      en: "Research Website Migrated to a Fully Data-Driven Content Architecture"
+    description:
+      zh: "新版内容架构将成员、论文、研究方向与招生信息统一到结构化数据源中，方便后续同步、校验与版本管理。"
+      en: "The new site architecture unifies people, publications, research areas, and positions under structured data sources, making sync, validation, and versioning much easier."
+    link: "https://example.org/news/data-driven-site"
+
+  - date: "2025.06"
+    category:
+      zh: "基础设施"
+      en: "Infrastructure"
+    title:
+      zh: "实验资产命名规范与自动校验流程上线"
+      en: "Automated Validation for Research Asset Naming and Packaging Goes Live"
+    description:
+      zh: "我们为图片、数据集快照、实验配置和论文附属材料建立了统一命名规范，并在同步前自动检查缺失项与异常格式。"
+      en: "We introduced a naming and packaging standard for images, dataset snapshots, experiment configs, and paper artifacts, with automated checks before synchronization."
     link: "#"
 
 publications:
@@ -573,6 +658,35 @@ publications:
       paper: "https://example.org/papers/latticetrack"
       project: "https://example.org/projects/latticetrack"
 
+  - title:
+      zh: "PaperDock：面向实验室日常协作的论文资料工作台"
+      en: "PaperDock: A Research Material Workbench for Everyday Lab Collaboration"
+    authors: "<b>Anlan Lin</b>, Iris Gao, <b>Ning Chen</b>, <b>Qinghe Gu</b>*"
+    type: "workshop"
+    venue: "CHI Workshop 2023"
+    year: 2023
+    highlight: ""
+    abstract:
+      zh: "该系统面向论文精读、文献笔记与资料共享场景，将结构化摘录、图表快照和任务清单组织在统一界面中。"
+      en: "The system supports paper reading groups, literature notes, and shared research materials by organizing structured excerpts, figure snapshots, and task lists in one interface."
+    links:
+      paper: "https://example.org/papers/paperdock"
+      project: "https://example.org/projects/paperdock"
+
+  - title:
+      zh: "空间交互设计中的可解释智能体"
+      en: "Explainable Agents in Spatial Interaction Design"
+    authors: "<b>Qinghe Gu</b>, <b>Qian Zhou</b>, <b>Lan Xu</b>"
+    type: "book"
+    venue: "Springer"
+    year: 2022
+    highlight: ""
+    abstract:
+      zh: "本书总结了空间交互设计中的智能体建模、反馈机制与可解释性交互原则，连接学术研究与真实设计实践。"
+      en: "This book summarizes agent modeling, feedback mechanisms, and interpretable interaction principles for spatial interaction design, bridging research and real design practice."
+    links:
+      paper: "https://example.org/books/explainable-agents-spatial-design"
+
 positions:
   - title:
       zh: "博士生 (空间智能方向)"
@@ -680,6 +794,31 @@ positions:
       zh: []
       en: []
     link: "#"
+
+  - title:
+      zh: "全栈工程师 (研究产品原型)"
+      en: "Full-Stack Engineer for Research Product Prototypes"
+    count:
+      zh: "1 名"
+      en: "1 opening"
+    department:
+      zh: "研究工具与系统原型组"
+      en: "Research Tools and Systems Prototyping Group"
+    icon: "🧪"
+    theme: "blue"
+    description:
+      zh: "希望你能够独立推动从数据接口、服务编排到前端展示的一体化原型开发，适合对研究产品化和交互系统都感兴趣的工程师。"
+      en: "We are looking for someone who can independently build end-to-end prototypes across data interfaces, service orchestration, and front-end presentation, especially if you enjoy both research productization and interaction systems."
+    tags:
+      zh:
+        - "前后端协同"
+        - "原型开发"
+        - "数据可视化"
+      en:
+        - "Full-Stack Collaboration"
+        - "Prototype Development"
+        - "Data Visualization"
+    link: "https://example.org/apply/fullstack-prototype"
 
 research:
   - icon: "🛰️"
