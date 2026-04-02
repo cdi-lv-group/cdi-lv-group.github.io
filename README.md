@@ -310,6 +310,29 @@ python scripts/seed_mock_to_feishu.py --yes
 
 表名、输出文件与 converter 映射在 `feishu_config.yml` 中维护。当前团队数据的正式输出文件名为 `_data/team.yml`，不再使用旧的 `people.yml` 命名。
 
+### 直接通过 GitHub Actions 初始化飞书表
+
+如果你已经手动删除了受管的 5 张飞书表，或者当前这份多维表还是空的，可以直接通过 GitHub Actions 重建标准表结构：
+
+1. 打开仓库的 `Actions`
+2. 选择 `Init Feishu Tables`
+3. 点击 `Run workflow`
+4. 在 `confirm` 输入框里填写：`INIT_FEISHU_TABLES`
+
+对应工作流文件是 [init-feishu-tables.yml](/Users/wbzuo/Documents/04-Developer/Source-Code/github/cdi-lv-group.github.io/.github/workflows/init-feishu-tables.yml)。
+
+这条 Action 会：
+
+- 调用 [init_feishu_table.py](/Users/wbzuo/Documents/04-Developer/Source-Code/github/cdi-lv-group.github.io/scripts/init_feishu_table.py)
+- 在当前 `FEISHU_APP_TOKEN` 指向的多维表中创建缺失的标准数据表
+- 为每张新表写入 1 条示例行
+
+注意：
+
+- 它不会删除已有表；如果你想用全新的 schema，先手动删除这 5 张受管表再运行它
+- 建议保留同一个 `base`，不要删除整本多维表，否则 `FEISHU_APP_TOKEN` 也要跟着更新
+- 初始化完成后，如果你想把整套多样化 mock 数据灌进去，再运行下面的 `Seed Mock Data to Feishu`
+
 ### 单独把 mock 数据写入飞书
 
 如果你想单独用仓库里的模拟数据回填飞书表，而不是从飞书拉取真实数据，可以使用：
