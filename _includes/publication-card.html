@@ -1,0 +1,161 @@
+{% assign paper = include.paper %}
+{% assign variant = include.variant | default: "summary" %}
+{% assign title_zh = paper.title.zh | default: paper.title %}
+{% assign title_en = paper.title.en | default: paper.title %}
+{% assign venue_label = paper.venue.en | default: paper.venue %}
+{% assign highlight_zh = paper.highlight.zh | default: paper.highlight %}
+{% assign highlight_en = paper.highlight.en | default: paper.highlight %}
+{% assign outer_class = include.outer_class | default: "" %}
+{% assign image_class = include.image_class | default: "h-72 w-full object-cover md:h-80" %}
+{% assign inner_class = include.inner_class | default: "lg:grid-cols-[0.96fr_1.04fr] lg:items-end" %}
+
+{% capture normalized_href %}{% include link-url.html url=include.href %}{% endcapture %}
+{% assign normalized_href = normalized_href | strip %}
+{% assign has_href = normalized_href != "" %}
+{% assign is_external_href = false %}
+{% if normalized_href contains 'http://' or normalized_href contains 'https://' %}
+  {% assign is_external_href = true %}
+{% endif %}
+
+{% assign show_abstract = false %}
+{% if include.show_abstract and include.show_abstract != 'false' %}
+  {% assign show_abstract = true %}
+{% endif %}
+
+{% assign show_actions = false %}
+{% if include.show_actions and include.show_actions != 'false' %}
+  {% assign show_actions = true %}
+{% endif %}
+
+{% assign show_image = true %}
+{% if include.show_image == false or include.show_image == 'false' %}
+  {% assign show_image = false %}
+{% endif %}
+
+{% if variant == "feature" %}
+  {% capture wrapper_class %}pub-entry pub-entry--feature {{ outer_class }}{% endcapture %}
+  {% if has_href and show_actions == false %}
+  <a href="{{ normalized_href }}" class="{{ wrapper_class | strip }}"{% if include.reveal %} data-reveal="{{ include.reveal }}"{% endif %}{% if include.stage %} data-stage="{{ include.stage }}"{% endif %}{% if is_external_href %} target="_blank" rel="noopener noreferrer"{% endif %}>
+  {% else %}
+  <article class="{{ wrapper_class | strip }}"{% if include.reveal %} data-reveal="{{ include.reveal }}"{% endif %}{% if include.stage %} data-stage="{{ include.stage }}"{% endif %}>
+  {% endif %}
+    {% if include.ghost %}
+    <div class="pub-entry__ghost">{{ include.ghost }}</div>
+    {% endif %}
+
+    <div class="grid gap-6 {{ inner_class }}">
+      {% if paper.image and show_image %}
+      <div class="pub-entry__media">
+        <img src="{% if paper.image contains 'http' %}{{ paper.image }}{% else %}{{ paper.image | relative_url }}{% endif %}" alt="{{ title_zh }}" class="{{ image_class }}">
+      </div>
+      {% endif %}
+
+      <div class="relative z-10">
+        <div class="flex flex-wrap gap-2">
+          {% if paper.type %}
+          <span class="chip text-[11px] font-black uppercase tracking-[0.16em] text-sky-600 dark:text-cyan-300">{{ paper.type | capitalize }}</span>
+          {% endif %}
+          {% if venue_label %}
+          <span class="chip text-[11px] font-black uppercase tracking-[0.16em] text-slate-500 dark:text-slate-300">{{ venue_label }}</span>
+          {% endif %}
+          {% if paper.highlight %}
+          <span class="chip text-[11px] font-black uppercase tracking-[0.16em] text-red-500 dark:text-red-300">
+            <span class="lang-zh">{{ highlight_zh }}</span>
+            <span class="lang-en">{{ highlight_en }}</span>
+          </span>
+          {% endif %}
+        </div>
+
+        <h3 class="mt-5 text-3xl font-black leading-tight text-slate-900 dark:text-white">
+          <span class="lang-zh">{{ title_zh }}</span>
+          <span class="lang-en">{{ title_en }}</span>
+        </h3>
+
+        <p class="mt-4 text-sm leading-relaxed text-slate-500 dark:text-slate-400">{{ paper.authors }}</p>
+
+        {% if show_abstract and paper.abstract %}
+        <p class="mt-5 text-sm leading-relaxed text-slate-600 dark:text-slate-300">
+          <span class="lang-zh">{{ paper.abstract.zh | default: paper.abstract }}</span>
+          <span class="lang-en">{{ paper.abstract.en | default: paper.abstract }}</span>
+        </p>
+        {% endif %}
+
+        {% if show_actions %}
+        <div class="mt-6 flex flex-wrap gap-3">
+          {% if paper.links.paper and paper.links.paper != "#" %}
+          <a href="{{ paper.links.paper }}" target="_blank" rel="noopener noreferrer" class="inline-flex items-center rounded-full bg-sky-600 px-4 py-2 text-sm font-black text-white transition-colors hover:bg-sky-700 dark:bg-cyan-400 dark:text-slate-950 dark:hover:bg-cyan-300">Paper</a>
+          {% endif %}
+          {% if paper.links.code and paper.links.code != "#" %}
+          <a href="{{ paper.links.code }}" target="_blank" rel="noopener noreferrer" class="inline-flex items-center rounded-full border border-slate-200/90 bg-white/70 px-4 py-2 text-sm font-black text-slate-700 transition-colors hover:border-sky-300 hover:text-sky-600 dark:border-slate-700 dark:bg-slate-900/70 dark:text-slate-200 dark:hover:border-cyan-400 dark:hover:text-cyan-300">Code</a>
+          {% endif %}
+          {% if paper.links.project and paper.links.project != "#" %}
+          <a href="{{ paper.links.project }}" target="_blank" rel="noopener noreferrer" class="inline-flex items-center rounded-full border border-slate-200/90 bg-white/70 px-4 py-2 text-sm font-black text-slate-700 transition-colors hover:border-sky-300 hover:text-sky-600 dark:border-slate-700 dark:bg-slate-900/70 dark:text-slate-200 dark:hover:border-cyan-400 dark:hover:text-cyan-300">Project</a>
+          {% endif %}
+        </div>
+        {% endif %}
+      </div>
+    </div>
+  {% if has_href and show_actions == false %}
+  </a>
+  {% else %}
+  </article>
+  {% endif %}
+{% else %}
+  {% capture wrapper_class %}pub-entry {{ outer_class }}{% endcapture %}
+  {% if has_href and show_actions == false %}
+  <a href="{{ normalized_href }}" class="{{ wrapper_class | strip }}"{% if include.reveal %} data-reveal="{{ include.reveal }}"{% endif %}{% if is_external_href %} target="_blank" rel="noopener noreferrer"{% endif %}>
+  {% else %}
+  <article class="{{ wrapper_class | strip }}"{% if include.reveal %} data-reveal="{{ include.reveal }}"{% endif %}>
+  {% endif %}
+    <div class="relative z-10">
+      <div class="flex flex-wrap gap-2">
+        {% if paper.type %}
+        <span class="chip text-[11px] font-black uppercase tracking-[0.16em] text-sky-600 dark:text-cyan-300">{{ paper.type | capitalize }}</span>
+        {% endif %}
+        {% if include.meta_secondary == "venue" and venue_label %}
+        <span class="chip text-[11px] font-black uppercase tracking-[0.16em] text-slate-500 dark:text-slate-300">{{ venue_label }}</span>
+        {% elsif paper.year %}
+        <span class="text-xs font-black uppercase tracking-[0.18em] text-slate-400 dark:text-slate-500">{{ paper.year }}</span>
+        {% endif %}
+        {% if include.show_highlight and include.show_highlight != 'false' and paper.highlight %}
+        <span class="chip text-[11px] font-black uppercase tracking-[0.16em] text-red-500 dark:text-red-300">
+          <span class="lang-zh">{{ highlight_zh }}</span>
+          <span class="lang-en">{{ highlight_en }}</span>
+        </span>
+        {% endif %}
+      </div>
+
+      <h3 class="mt-4 text-xl font-black leading-tight text-slate-900 dark:text-white">
+        <span class="lang-zh">{{ title_zh }}</span>
+        <span class="lang-en">{{ title_en }}</span>
+      </h3>
+
+      <p class="mt-3 text-sm leading-relaxed text-slate-500 dark:text-slate-400">{{ paper.authors }}</p>
+
+      {% if show_abstract and paper.abstract %}
+      <p class="mt-4 text-sm leading-relaxed text-slate-600 dark:text-slate-300">
+        <span class="lang-zh">{{ paper.abstract.zh | default: paper.abstract }}</span>
+        <span class="lang-en">{{ paper.abstract.en | default: paper.abstract }}</span>
+      </p>
+      {% endif %}
+
+      {% if show_actions %}
+      <div class="mt-5 flex flex-wrap gap-2 lg:justify-end">
+        {% if paper.links.paper and paper.links.paper != "#" %}
+        <a href="{{ paper.links.paper }}" target="_blank" rel="noopener noreferrer" class="inline-flex items-center rounded-full bg-sky-600 px-4 py-2 text-sm font-black text-white transition-colors hover:bg-sky-700 dark:bg-cyan-400 dark:text-slate-950 dark:hover:bg-cyan-300">Paper</a>
+        {% endif %}
+        {% if paper.links.code and paper.links.code != "#" %}
+        <a href="{{ paper.links.code }}" target="_blank" rel="noopener noreferrer" class="inline-flex items-center rounded-full border border-slate-200/90 bg-white/70 px-4 py-2 text-sm font-black text-slate-700 transition-colors hover:border-sky-300 hover:text-sky-600 dark:border-slate-700 dark:bg-slate-900/70 dark:text-slate-200 dark:hover:border-cyan-400 dark:hover:text-cyan-300">Code</a>
+        {% endif %}
+        {% if paper.links.project and paper.links.project != "#" %}
+        <a href="{{ paper.links.project }}" target="_blank" rel="noopener noreferrer" class="inline-flex items-center rounded-full border border-slate-200/90 bg-white/70 px-4 py-2 text-sm font-black text-slate-700 transition-colors hover:border-sky-300 hover:text-sky-600 dark:border-slate-700 dark:bg-slate-900/70 dark:text-slate-200 dark:hover:border-cyan-400 dark:hover:text-cyan-300">Project</a>
+        {% endif %}
+      </div>
+      {% endif %}
+    </div>
+  {% if has_href and show_actions == false %}
+  </a>
+  {% else %}
+  </article>
+  {% endif %}
+{% endif %}

@@ -1,0 +1,15 @@
+.DS_Store
+
+# Jekyll build artifacts
+_site/
+.jekyll-cache/
+.jekyll-metadata
+.sass-cache/
+
+# Ruby / local tooling
+.bundle/
+vendor/bundle/
+
+# Editor / OS noise
+.idea/
+.vscode/

@@ -3,144 +3,167 @@ layout: default
 title: 团队成员
 ---
 
-<section class="bg-white dark:bg-slate-900 border-b border-slate-100 dark:border-slate-800 py-16 md:py-24 relative overflow-hidden z-0 transition-colors duration-300">
-    
-    <div class="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHBhdGggZD0iTTAgMGg0MHY0MEgweiIgZmlsbD0ibm9uZSIvPjxwYXRoIGQ9Ik0wIDM5LjVMMDQwIDM5LjUiIHN0cm9rZT0icmdiYSgwLCAwLCAwLCAwLjAzKSIgc3Ryb2tlLXdpZHRoPSIxIi8+PHBhdGggZD0iTTM5LjUgMEwzOS41IDQwIiBzdHJva2U9InJnYmEoMCwgMCwgMCwgMC4wMykiIHN0cm9rZS13aWR0aD0iMSIvPjwvc3ZnPg==')] opacity-60 dark:opacity-10 dark:invert transition-all duration-300 -z-10"></div>
-    
-    <div class="absolute top-0 right-0 w-[40rem] h-[40rem] bg-cyan-50 dark:bg-cyan-900/20 rounded-full blur-3xl opacity-60 -translate-y-1/2 translate-x-1/3 transition-colors duration-300 -z-10"></div>
-    <div class="absolute bottom-0 left-0 w-[30rem] h-[30rem] bg-blue-50 dark:bg-blue-900/20 rounded-full blur-3xl opacity-40 translate-y-1/3 -translate-x-1/3 transition-colors duration-300 -z-10"></div>
-    
-    <div class="max-w-6xl mx-auto px-4 relative z-10 text-center md:text-left">
-        <div class="inline-block mb-4 px-4 py-1.5 rounded-full bg-blue-50 dark:bg-slate-800 border border-blue-100 dark:border-blue-900 text-blue-600 dark:text-blue-400 text-sm font-bold tracking-wide shadow-sm transition-colors duration-300">
-            <span class="lang-zh">{{ site.people_header.badge.zh }}</span>
-            <span class="lang-en">{{ site.people_header.badge.en }}</span>
+{% assign teacher_members = "" | split: "" %}
+{% assign professor_members = site.data.team | where: "group_id", "professor" %}
+{% assign associate_prof_members = site.data.team | where: "group_id", "associate_prof" %}
+{% assign assistant_prof_members = site.data.team | where: "group_id", "assistant_prof" %}
+{% assign teacher_members = teacher_members | concat: professor_members | concat: associate_prof_members | concat: assistant_prof_members %}
+
+{% assign graduate_members = "" | split: "" %}
+{% assign phd_members = site.data.team | where: "group_id", "phd" %}
+{% assign master_members = site.data.team | where: "group_id", "master" %}
+{% assign graduate_members = graduate_members | concat: phd_members | concat: master_members %}
+
+{% assign other_members = "" | split: "" %}
+{% assign researcher_members = site.data.team | where: "group_id", "researchers" %}
+{% assign undergrad_members = site.data.team | where: "group_id", "undergrad" %}
+{% assign intern_members = site.data.team | where: "group_id", "interns" %}
+{% assign other_members = other_members | concat: researcher_members | concat: undergrad_members | concat: intern_members %}
+
+{% assign alumni_members = site.data.team | where: "group_id", "alumni" %}
+
+{% include page-header.html header=site.people_header accent="cyan" %}
+
+<section class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-14 md:py-18">
+  <div class="grid gap-10 xl:grid-cols-[0.62fr_1.38fr] xl:items-start">
+    {% include chapter-intro.html
+      serial="PEOPLE"
+      accent="sky"
+      reveal="left"
+      kicker_zh="团队地图"
+      kicker_en="Team Atlas"
+      title_zh="这页不只是成员列表，而是研究组织结构的可视化切面"
+      title_en="This Page Is Not Just a Roster, but a Visible Slice of the Research Organization"
+      description_zh="从教授、研究员到博士、硕士、本科与校友，每一组都代表不同的研究角色和协作方式。你可以先从团队结构看整体，再进入具体人物。"
+      description_en="From professors and researchers to Ph.D. students, master students, undergraduates, and alumni, each group reflects a different role in the lab's research structure and collaboration model."
+    %}
+
+    <div class="exhibit-index" data-reveal="scale">
+      {% if teacher_members.size > 0 %}
+      <a href="#group-teachers" class="exhibit-index__item">
+        <span class="exhibit-index__num">{{ teacher_members.size }}</span>
+        <div class="min-w-0">
+          <p class="text-lg font-black leading-tight text-slate-900 dark:text-white">
+            <span class="lang-zh">老师</span>
+            <span class="lang-en">Faculty</span>
+          </p>
+          <p class="mt-3 text-sm leading-relaxed text-slate-500 dark:text-slate-400">
+            <span class="lang-zh">教授、副教授和助理教授统一放在同一个栏目里，方便集中浏览核心教师团队。</span>
+            <span class="lang-en">Professors, associate professors, and assistant professors are grouped together for a clearer faculty overview.</span>
+          </p>
         </div>
-        
-        <h1 class="text-4xl md:text-6xl font-extrabold text-slate-900 dark:text-white mb-6 tracking-tight leading-tight transition-colors duration-300">
-            <span class="lang-zh">
-                {{ site.people_header.title_main.zh }}
-                <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-500 dark:from-blue-400 dark:to-cyan-300">{{ site.people_header.title_gradient.zh }}</span>
-                {{ site.people_header.title_suffix.zh }}
-            </span>
-            <span class="lang-en">
-                {{ site.people_header.title_main.en }}
-                <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-500 dark:from-blue-400 dark:to-cyan-300">{{ site.people_header.title_gradient.en }}</span>
-                {{ site.people_header.title_suffix.en }}
-            </span>
-        </h1>
-        
-        <p class="text-lg md:text-xl text-slate-500 dark:text-slate-400 max-w-3xl leading-relaxed font-light mx-auto md:mx-0 transition-colors duration-300">
-            <span class="lang-zh">{{ site.people_header.description.zh }}</span>
-            <span class="lang-en">{{ site.people_header.description.en }}</span>
-        </p>
+      </a>
+      {% endif %}
+
+      {% if graduate_members.size > 0 %}
+      <a href="#group-graduate-students" class="exhibit-index__item">
+        <span class="exhibit-index__num">{{ graduate_members.size }}</span>
+        <div class="min-w-0">
+          <p class="text-lg font-black leading-tight text-slate-900 dark:text-white">
+            <span class="lang-zh">博士与硕士</span>
+            <span class="lang-en">Ph.D. & Master Students</span>
+          </p>
+          <p class="mt-3 text-sm leading-relaxed text-slate-500 dark:text-slate-400">
+            <span class="lang-zh">博士生和硕士生放在同一个栏目里，更贴近实验室日常培养与协作关系。</span>
+            <span class="lang-en">Ph.D. and master students are placed in one section to better reflect everyday collaboration and mentorship.</span>
+          </p>
+        </div>
+      </a>
+      {% endif %}
+
+      {% if other_members.size > 0 %}
+      <a href="#group-others" class="exhibit-index__item">
+        <span class="exhibit-index__num">{{ other_members.size }}</span>
+        <div class="min-w-0">
+          <p class="text-lg font-black leading-tight text-slate-900 dark:text-white">
+            <span class="lang-zh">其他成员</span>
+            <span class="lang-en">Other Members</span>
+          </p>
+          <p class="mt-3 text-sm leading-relaxed text-slate-500 dark:text-slate-400">
+            <span class="lang-zh">研究员、本科生和实习生集中展示，体现不同参与方式下的研究支持与系统协作。</span>
+            <span class="lang-en">Researchers, undergraduates, and interns are grouped together to show broader participation in the lab's research and systems work.</span>
+          </p>
+        </div>
+      </a>
+      {% endif %}
+
+      {% if alumni_members.size > 0 %}
+      <a href="#group-alumni" class="exhibit-index__item">
+        <span class="exhibit-index__num">{{ alumni_members.size }}</span>
+        <div class="min-w-0">
+          <p class="text-lg font-black leading-tight text-slate-900 dark:text-white">
+            <span class="lang-zh">过往学生</span>
+            <span class="lang-en">Alumni & Former Students</span>
+          </p>
+          <p class="mt-3 text-sm leading-relaxed text-slate-500 dark:text-slate-400">
+            <span class="lang-zh">校友区做得更大一些，突出实验室培养路径及其延展出去的学术与产业网络。</span>
+            <span class="lang-en">The alumni section is given more presence to emphasize the lab's training path and the network it grows into.</span>
+          </p>
+        </div>
+      </a>
+      {% endif %}
     </div>
+  </div>
 </section>
 
+<section class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pb-8">
+  <div class="space-y-12 md:space-y-14">
+    {% if teacher_members.size > 0 %}
+    {% include team-group-section.html
+      section_id="group-teachers"
+      serial="01"
+      title_zh="老师"
+      title_en="Faculty"
+      description_zh="教授、副教授和助理教授统一放在这里，强调实验室核心教师团队的整体结构与研究判断。"
+      description_en="Professors, associate professors, and assistant professors are presented together to emphasize the lab's core faculty structure and academic direction."
+      color="indigo"
+      layout="lead"
+      members=teacher_members
+    %}
+    {% endif %}
 
-<section class="max-w-6xl mx-auto px-4 py-16">
-    
-    {% for group in site.data.groups %}
-        {% assign members = site.data.team | where: "group_id", group.id | sort: "rank" %}
-        
-        {% if members.size > 0 %}
-        <div class="mb-24">
-            <div class="flex items-center space-x-4 mb-10 border-l-4 border-{{ group.color }}-500 pl-4">
-                <h2 class="text-2xl font-bold text-slate-800 dark:text-white uppercase tracking-wide">
-                    <span class="lang-zh">{{ group.title.zh }}</span>
-                    <span class="lang-en">{{ group.title.en }}</span>
-                </h2>
-                {% if group.subtitle %}
-                <span class="text-slate-400 dark:text-slate-500 font-light italic ml-2 lang-zh">{{ group.subtitle }}</span>
-                {% endif %}
-            </div>
+    {% if graduate_members.size > 0 %}
+    {% include team-group-section.html
+      section_id="group-graduate-students"
+      serial="02"
+      title_zh="博士与硕士"
+      title_en="Ph.D. & Master Students"
+      description_zh="博士生和硕士生统一展示，更贴近实验室在项目推进、论文产出和日常协作中的真实结构。"
+      description_en="Ph.D. and master students are shown together to better reflect how projects, papers, and daily collaboration actually unfold in the lab."
+      color="blue"
+      layout="compact"
+      members=graduate_members
+    %}
+    {% endif %}
 
-            {% if group.id == 'professor' or group.id == 'researchers' %}
-                <div class="space-y-10">
-                    {% for member in members %}
-                    <div class="bg-white dark:bg-slate-800 rounded-[2.5rem] p-8 md:p-10 border border-slate-100 dark:border-slate-700 shadow-sm hover:shadow-2xl transition-all duration-500 flex flex-col md:flex-row items-center gap-10">
-                        <img src="{{ site.baseurl }}{{ member.avatar | default: '/assets/images/team/default_avatar.jpg' }}" class="w-48 h-48 md:w-60 md:h-60 rounded-3xl object-cover shadow-xl border-4 border-white dark:border-slate-700">
-                        <div class="flex-1 text-center md:text-left">
-                            <div class="mb-4">
-                                <span class="px-3 py-1 rounded-full bg-{{ group.color }}-50 dark:bg-{{ group.color }}-900/30 text-{{ group.color }}-600 dark:text-{{ group.color }}-400 text-xs font-bold mb-3 inline-block uppercase tracking-wider">
-                                    <span class="lang-zh">{{ member.title.zh }}</span>
-                                    <span class="lang-en">{{ member.title.en }}</span>
-                                </span>
-                                <h3 class="text-4xl font-bold text-slate-900 dark:text-white mb-2">
-                                    <span class="lang-zh">{{ member.name.zh }}</span>
-                                    <span class="lang-en">{{ member.name.en }}</span>
-                                </h3>
-                                {% if member.role %}
-                                <p class="text-{{ group.color }}-600 dark:text-{{ group.color }}-400 font-bold text-xl uppercase tracking-wider">
-                                    <span class="lang-zh">{{ member.role.zh }}</span>
-                                    <span class="lang-en">{{ member.role.en }}</span>
-                                </p>
-                                {% endif %}
-                            </div>
-                            <p class="text-slate-600 dark:text-slate-300 leading-relaxed mb-6 text-base italic font-light">
-                                <span class="lang-zh">"{{ member.bio.zh }}"</span>
-                                <span class="lang-en">"{{ member.bio.en }}"</span>
-                            </p>
-                            
-                            <div class="flex flex-wrap justify-center md:justify-start gap-3">
-                                {% include team-links.html links=member.links email=member.email color=group.color %}
-                            </div>
-                        </div>
-                    </div>
-                    {% endfor %}
-                </div>
+    {% if other_members.size > 0 %}
+    {% include team-group-section.html
+      section_id="group-others"
+      serial="03"
+      title_zh="其他成员"
+      title_en="Other Members"
+      description_zh="研究员、本科生和实习生共同组成实验室的重要支撑层，连接方向探索、系统实现与研究传播。"
+      description_en="Researchers, undergraduates, and interns form an important support layer that connects exploration, implementation, and research communication."
+      color="emerald"
+      layout="compact"
+      members=other_members
+    %}
+    {% endif %}
 
-            {% elsif group.id == 'alumni' %}
-                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-                    {% for member in members %}
-                    <div class="group relative bg-white dark:bg-slate-800 rounded-2xl p-6 border border-slate-100 dark:border-slate-700 shadow-sm hover:shadow-lg transition-all flex flex-col h-full">
-                        <div class="flex items-center space-x-3 mb-2">
-                            <div class="w-2 h-2 rounded-full bg-{{ group.color }}-400"></div>
-                            <span class="font-bold text-slate-800 dark:text-white text-lg">
-                                <span class="lang-zh">{{ member.name.zh }}</span>
-                                <span class="lang-en">{{ member.name.en }}</span>
-                            </span>
-                        </div>
-                        <p class="text-xs text-slate-500 mb-4 uppercase font-medium">
-                            <span class="lang-zh">{{ member.title.zh }}</span>
-                            <span class="lang-en">{{ member.title.en }}</span>
-                        </p>
-                        <div class="mt-auto">
-                            <div class="text-xs font-semibold text-{{ group.color }}-700 dark:text-{{ group.color }}-300 bg-{{ group.color }}-50 dark:bg-{{ group.color }}-900/30 px-3 py-2.5 rounded-xl leading-relaxed">
-                                <span class="lang-zh">{{ member.destination.zh }}</span>
-                                <span class="lang-en">{{ member.destination.en }}</span>
-                            </div>
-                        </div>
-                    </div>
-                    {% endfor %}
-                </div>
-
-            {% else %}
-                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
-                    {% for member in members %}
-                    <div class="group bg-white dark:bg-slate-800 rounded-[2rem] p-8 border border-slate-100 dark:border-slate-700 shadow-sm hover:shadow-xl transition-all flex flex-col sm:flex-row gap-8">
-                        <img src="{{ site.baseurl }}{{ member.avatar | default: '/assets/images/team/default_avatar.jpg' }}" class="w-28 h-28 md:w-32 md:h-32 rounded-2xl object-cover shrink-0 group-hover:scale-105 transition-transform">
-                        <div class="flex-1 flex flex-col">
-                            <h3 class="text-2xl font-bold text-slate-900 dark:text-white mb-1">
-                                <span class="lang-zh">{{ member.name.zh }}</span>
-                                <span class="lang-en">{{ member.name.en }}</span>
-                            </h3>
-                            <span class="text-xs font-bold text-{{ group.color }}-600 dark:text-{{ group.color }}-400 bg-{{ group.color }}-50 dark:bg-{{ group.color }}-900/20 px-2 py-1 rounded-md uppercase mb-4 inline-block self-start">
-                                <span class="lang-zh">{{ member.title.zh }}</span>
-                                <span class="lang-en">{{ member.title.en }}</span>
-                            </span>
-                            <p class="text-slate-500 dark:text-slate-400 text-sm leading-relaxed mb-6 italic line-clamp-3 flex-grow">
-                                <span class="lang-zh">"{{ member.bio.zh }}"</span>
-                                <span class="lang-en">"{{ member.bio.en }}"</span>
-                            </p>
-                            <div class="flex flex-wrap gap-2 mt-auto">
-                                {% include team-links.html links=member.links email=member.email color=group.color small=true %}
-                            </div>
-                        </div>
-                    </div>
-                    {% endfor %}
-                </div>
-            {% endif %}
-        </div>
-        {% endif %}
-    {% endfor %}
+    {% if alumni_members.size > 0 %}
+    {% include team-group-section.html
+      section_id="group-alumni"
+      serial="04"
+      title_zh="过往学生"
+      title_en="Alumni & Former Students"
+      description_zh="校友区保留更大的展示体量，用来突出实验室培养路径，以及成员毕业后在学术界和产业界的延展去向。"
+      description_en="The alumni section is intentionally larger so the page can better show the lab's training path and where former members continue in academia and industry."
+      color="slate"
+      layout="alumni_feature"
+      members=alumni_members
+    %}
+    {% endif %}
+  </div>
 </section>
+
+{% include narrative-band.html band=site.cta_bands.people accent="sky" %}

@@ -1,17 +1,37 @@
-app_token: IIfwbseJuabBJBsZfGCcnNGinrB
+app_token_env: FEISHU_APP_TOKEN
+sync:
+  skip_sample_row: true
 tables:
-  people:
+  team:
     table_name: 团队成员
-    output_file: _data/people.yml
+    output_file: _data/team.yml
+    converter: team
+    media:
+      field: Avatar
+      folder: team
+      slug_key: Name_en
   news:
     table_name: 新闻动态
     output_file: _data/news.yml
+    converter: news
   publications:
     table_name: 学术论文
     output_file: _data/publications.yml
+    converter: publications
+    media:
+      field: Image
+      folder: papers
+      slug_key: Title_en
+      truncate_words: 3
   positions:
     table_name: 招聘与招生
     output_file: _data/positions.yml
+    converter: positions
   research:
     table_name: 研究方向
     output_file: _data/research.yml
+    converter: research
+    media:
+      field: Image
+      folder: research
+      slug_key: Title_en

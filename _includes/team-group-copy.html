@@ -1,0 +1,33 @@
+{% assign group = include.group %}
+{% assign variant = include.variant | default: "section" %}
+{% assign lead_group_ids = "professor,associate_prof,assistant_prof,researchers" | split: "," %}
+
+{% if variant == "atlas" %}
+  {% if group.id == "alumni" %}
+  <span class="lang-zh">展示团队培养之后延展出的去向网络与长期影响。</span>
+  <span class="lang-en">Showing where the lab's people go and how the network extends over time.</span>
+  {% elsif lead_group_ids contains group.id %}
+  <span class="lang-zh">主舞台角色，承担研究方向定义、项目组织、课程建设与系统推进。</span>
+  <span class="lang-en">Main-stage roles that shape directions, projects, academic programs, and systems execution.</span>
+  {% else %}
+  <span class="lang-zh">围绕不同培养阶段组织协作与研究推进。</span>
+  <span class="lang-en">Organized around different growth stages in the lab's research pipeline.</span>
+  {% endif %}
+{% else %}
+  {% if group.id == "professor" %}
+  <span class="lang-zh">定义整体研究方向、方法边界与长期学术判断。</span>
+  <span class="lang-en">Setting long-term directions, method boundaries, and academic judgment for the lab.</span>
+  {% elsif group.id == "associate_prof" or group.id == "assistant_prof" %}
+  <span class="lang-zh">连接主方向与关键子课题，推动课程建设、合作研究与中长期项目布局。</span>
+  <span class="lang-en">Connecting flagship themes with key sub-directions through teaching, collaboration, and mid-term project building.</span>
+  {% elsif group.id == "researchers" %}
+  <span class="lang-zh">连接研究主题、系统实现与实验推进节奏。</span>
+  <span class="lang-en">Connecting themes, systems implementation, and experimental velocity.</span>
+  {% elsif group.id == "alumni" %}
+  <span class="lang-zh">展示成员培养路径在学术界与产业界的延展去向。</span>
+  <span class="lang-en">Showing how the lab's training path extends into academia and industry.</span>
+  {% else %}
+  <span class="lang-zh">围绕当前培养阶段组织研究与协作分工。</span>
+  <span class="lang-en">Organized around the current stage of growth and contribution in the lab.</span>
+  {% endif %}
+{% endif %}

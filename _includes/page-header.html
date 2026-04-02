@@ -1,0 +1,124 @@
+{% assign header = include.header %}
+{% assign accent = include.accent | default: "cyan" %}
+{% assign badge_zh = header.badge.zh %}
+{% assign badge_en = header.badge.en %}
+{% assign facts = header.facts %}
+{% assign notes = header.eyebrow_notes %}
+{% if include.inject_group_name %}
+  {% assign badge_zh = badge_zh | replace: '%NAME%', site.lab.group_short_name %}
+  {% assign badge_en = badge_en | replace: '%NAME%', site.lab.group_short_name %}
+{% endif %}
+
+<section class="page-hero border-b border-slate-200/70 dark:border-slate-800/80">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24 relative z-10">
+    <div class="stage-shell page-stage px-6 py-10 md:px-10 md:py-12" data-stage="header" data-reveal="scale">
+      <div class="absolute -right-10 -top-10 h-40 w-40 rounded-full bg-{{ accent }}-100/80 blur-3xl dark:bg-{{ accent }}-500/15"></div>
+      <div class="absolute -bottom-16 left-12 h-44 w-44 rounded-full bg-sky-100/70 blur-3xl dark:bg-sky-500/10"></div>
+
+      <div class="relative z-10 grid gap-10 lg:grid-cols-[1.08fr_0.92fr] lg:items-end">
+        <div>
+          <div class="page-hero__badge inline-flex items-center gap-3 rounded-full px-4 py-2 text-sm font-semibold tracking-wide text-sky-700 dark:text-cyan-300">
+            {% if include.pulse %}
+              <span class="relative flex h-2.5 w-2.5">
+                <span class="absolute inline-flex h-full w-full animate-ping rounded-full bg-cyan-400 opacity-75"></span>
+                <span class="relative inline-flex h-2.5 w-2.5 rounded-full bg-sky-500"></span>
+              </span>
+            {% endif %}
+            <span class="lang-zh">{{ badge_zh }}</span>
+            <span class="lang-en">{{ badge_en }}</span>
+          </div>
+
+          {% if notes %}
+          <div class="mt-5 flex flex-wrap gap-2">
+            {% for note in notes %}
+            <span class="chip text-xs font-bold uppercase tracking-[0.16em] text-slate-500 dark:text-slate-300">
+              <span class="lang-zh">{{ note.zh }}</span>
+              <span class="lang-en">{{ note.en }}</span>
+            </span>
+            {% endfor %}
+          </div>
+          {% endif %}
+
+          <h1 class="mt-7 text-4xl font-black leading-[1.02] text-slate-900 dark:text-white md:text-6xl">
+            <span class="lang-zh">
+              {{ header.title_main.zh }}
+              <span class="text-transparent bg-clip-text bg-gradient-to-r from-sky-600 via-cyan-500 to-teal-500 dark:from-sky-300 dark:via-cyan-300 dark:to-teal-300">{{ header.title_gradient.zh }}</span>
+              {{ header.title_suffix.zh }}
+            </span>
+            <span class="lang-en">
+              {{ header.title_main.en }}
+              <span class="text-transparent bg-clip-text bg-gradient-to-r from-sky-600 via-cyan-500 to-teal-500 dark:from-sky-300 dark:via-cyan-300 dark:to-teal-300">{{ header.title_gradient.en }}</span>
+              {{ header.title_suffix.en }}
+            </span>
+          </h1>
+
+          <p class="mt-6 max-w-3xl text-lg leading-relaxed text-slate-600 dark:text-slate-300 md:text-xl">
+            <span class="lang-zh">{{ header.description.zh }}</span>
+            <span class="lang-en">{{ header.description.en }}</span>
+          </p>
+        </div>
+
+        <div class="grid gap-4">
+          {% if facts %}
+            {% for fact in facts %}
+              {% if forloop.first %}
+              <div class="stage-rail p-6">
+                <p class="section-kicker text-[0.68rem] font-black uppercase text-sky-600 dark:text-cyan-300">
+                  <span class="lang-zh">{{ fact.label.zh }}</span>
+                  <span class="lang-en">{{ fact.label.en }}</span>
+                </p>
+                <p class="mt-3 text-xl font-black leading-snug text-slate-900 dark:text-white">
+                  <span class="lang-zh">{{ fact.value.zh }}</span>
+                  <span class="lang-en">{{ fact.value.en }}</span>
+                </p>
+              </div>
+              {% else %}
+              <div class="panel-surface panel-surface--compact p-5">
+                <p class="section-kicker text-[0.68rem] font-black uppercase text-slate-400 dark:text-slate-500">
+                  <span class="lang-zh">{{ fact.label.zh }}</span>
+                  <span class="lang-en">{{ fact.label.en }}</span>
+                </p>
+                <p class="mt-2 text-base font-bold leading-snug text-slate-900 dark:text-white">
+                  <span class="lang-zh">{{ fact.value.zh }}</span>
+                  <span class="lang-en">{{ fact.value.en }}</span>
+                </p>
+              </div>
+              {% endif %}
+            {% endfor %}
+          {% else %}
+          <div class="stage-rail p-6">
+            <p class="section-kicker text-[0.68rem] font-black uppercase text-sky-600 dark:text-cyan-300">
+              <span class="lang-zh">展示方式</span>
+              <span class="lang-en">Presentation</span>
+            </p>
+            <p class="mt-3 text-xl font-black leading-snug text-slate-900 dark:text-white">
+              <span class="lang-zh">中英双语同屏协作</span>
+              <span class="lang-en">Bilingual by design</span>
+            </p>
+          </div>
+          <div class="panel-surface panel-surface--compact p-5">
+            <p class="section-kicker text-[0.68rem] font-black uppercase text-slate-400 dark:text-slate-500">
+              <span class="lang-zh">内容更新</span>
+              <span class="lang-en">Content Flow</span>
+            </p>
+            <p class="mt-2 text-base font-bold leading-snug text-slate-900 dark:text-white">
+              <span class="lang-zh">数据驱动，结构清晰</span>
+              <span class="lang-en">Data-first updates</span>
+            </p>
+          </div>
+          <div class="panel-surface panel-surface--compact p-5">
+            <p class="section-kicker text-[0.68rem] font-black uppercase text-slate-400 dark:text-slate-500">
+              <span class="lang-zh">阅读体验</span>
+              <span class="lang-en">Reading Mode</span>
+            </p>
+            <p class="mt-2 text-base font-bold leading-snug text-slate-900 dark:text-white">
+              <span class="lang-zh">移动端与桌面端统一优化</span>
+              <span class="lang-en">Desktop and mobile ready</span>
+            </p>
+          </div>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

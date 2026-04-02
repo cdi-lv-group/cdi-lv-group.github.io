@@ -1,0 +1,130 @@
+{% assign item = include.item %}
+{% assign variant = include.variant | default: "timeline" %}
+{% assign title_zh = item.title.zh | default: item.title %}
+{% assign title_en = item.title.en | default: item.title %}
+{% assign category_zh = item.category.zh | default: item.category %}
+{% assign category_en = item.category.en | default: item.category %}
+{% assign outer_class = include.outer_class | default: "" %}
+
+{% assign raw_href = "" %}
+{% if item.link and item.link != "#" %}
+  {% assign raw_href = item.link %}
+{% elsif include.fallback_href %}
+  {% assign raw_href = include.fallback_href %}
+{% endif %}
+{% capture normalized_href %}{% include link-url.html url=raw_href %}{% endcapture %}
+{% assign normalized_href = normalized_href | strip %}
+{% assign has_href = normalized_href != "" %}
+{% assign is_external_href = false %}
+{% if normalized_href contains 'http://' or normalized_href contains 'https://' %}
+  {% assign is_external_href = true %}
+{% endif %}
+
+{% assign title_is_link = false %}
+{% if include.title_is_link and include.title_is_link != 'false' %}
+  {% assign title_is_link = true %}
+{% endif %}
+
+{% assign show_button = false %}
+{% if include.show_button and include.show_button != 'false' %}
+  {% assign show_button = true %}
+{% endif %}
+
+{% if variant == "feature" %}
+<article class="timeline-card {{ outer_class | strip }}"{% if include.reveal %} data-reveal="{{ include.reveal }}"{% endif %}>
+  <div class="flex flex-wrap gap-2">
+    <span class="timeline-card__date">{{ item.date }}</span>
+    <span class="chip text-[11px] font-black uppercase tracking-[0.16em] text-sky-600 dark:text-cyan-300">
+      <span class="lang-zh">{{ category_zh }}</span>
+      <span class="lang-en">{{ category_en }}</span>
+    </span>
+  </div>
+
+  <h3 class="mt-5 text-3xl font-black leading-tight text-slate-900 dark:text-white">
+    <span class="lang-zh">{{ title_zh }}</span>
+    <span class="lang-en">{{ title_en }}</span>
+  </h3>
+
+  <p class="mt-5 text-base leading-relaxed text-slate-600 dark:text-slate-300 md:text-lg">
+    <span class="lang-zh">{{ item.description.zh | default: item.description }}</span>
+    <span class="lang-en">{{ item.description.en | default: item.description }}</span>
+  </p>
+
+  {% if show_button and has_href %}
+  <div class="mt-7">
+    <a href="{{ normalized_href }}"{% if is_external_href %} target="_blank" rel="noopener noreferrer"{% endif %} class="inline-flex items-center rounded-2xl bg-slate-900 px-6 py-3 text-sm font-black text-white transition-all duration-300 hover:-translate-y-1 hover:bg-sky-600 hover:shadow-2xl dark:bg-white dark:text-slate-900 dark:hover:bg-cyan-300">
+      <span class="lang-zh">阅读完整动态</span>
+      <span class="lang-en">Read Full Update</span>
+    </a>
+  </div>
+  {% endif %}
+</article>
+{% elsif variant == "summary" %}
+<article class="timeline-card {{ outer_class | strip }}"{% if include.reveal %} data-reveal="{{ include.reveal }}"{% endif %}>
+  <div class="flex items-start justify-between gap-3">
+    <span class="timeline-card__date">{{ item.date }}</span>
+    <span class="text-xs font-black uppercase tracking-[0.18em] text-slate-400 dark:text-slate-500">
+      <span class="lang-zh">{{ category_zh }}</span>
+      <span class="lang-en">{{ category_en }}</span>
+    </span>
+  </div>
+
+  <h3 class="mt-4 text-xl font-black leading-tight text-slate-900 dark:text-white">
+    <span class="lang-zh">{{ title_zh }}</span>
+    <span class="lang-en">{{ title_en }}</span>
+  </h3>
+
+  <p class="mt-3 text-sm leading-relaxed text-slate-500 dark:text-slate-400">
+    <span class="lang-zh">{{ item.description.zh | default: item.description }}</span>
+    <span class="lang-en">{{ item.description.en | default: item.description }}</span>
+  </p>
+</article>
+{% else %}
+<article class="timeline-card {{ outer_class | strip }}"{% if include.reveal %} data-reveal="{{ include.reveal }}"{% endif %}>
+  <div class="grid gap-4 lg:grid-cols-[auto_1fr_auto] lg:items-start">
+    <div class="timeline-card__date">{{ item.date }}</div>
+
+    <div class="min-w-0">
+      <div class="flex flex-wrap gap-2">
+        {% if include.compact_category %}
+        <p class="section-kicker text-[0.64rem] font-black uppercase text-slate-400 dark:text-slate-500">
+          <span class="lang-zh">{{ category_zh }}</span>
+          <span class="lang-en">{{ category_en }}</span>
+        </p>
+        {% else %}
+        <span class="chip text-[11px] font-black uppercase tracking-[0.16em] text-sky-600 dark:text-cyan-300">
+          <span class="lang-zh">{{ category_zh }}</span>
+          <span class="lang-en">{{ category_en }}</span>
+        </span>
+        {% endif %}
+      </div>
+
+      {% if title_is_link and has_href %}
+      <a href="{{ normalized_href }}"{% if is_external_href %} target="_blank" rel="noopener noreferrer"{% endif %} class="mt-2 block text-lg font-bold leading-snug text-slate-900 transition-colors hover:text-sky-600 dark:text-white dark:hover:text-cyan-300 md:text-2xl">
+        <span class="lang-zh">{{ title_zh }}</span>
+        <span class="lang-en">{{ title_en }}</span>
+      </a>
+      {% else %}
+      <h3 class="mt-4 text-xl font-black leading-tight text-slate-900 dark:text-white md:text-2xl">
+        <span class="lang-zh">{{ title_zh }}</span>
+        <span class="lang-en">{{ title_en }}</span>
+      </h3>
+      {% endif %}
+
+      <p class="mt-3 text-sm leading-relaxed text-slate-500 dark:text-slate-400 md:text-base">
+        <span class="lang-zh">{{ item.description.zh | default: item.description }}</span>
+        <span class="lang-en">{{ item.description.en | default: item.description }}</span>
+      </p>
+    </div>
+
+    {% if show_button and has_href %}
+    <div class="flex flex-wrap gap-2 lg:justify-end">
+      <a href="{{ normalized_href }}"{% if is_external_href %} target="_blank" rel="noopener noreferrer"{% endif %} class="inline-flex items-center rounded-full border border-slate-200/90 bg-white/70 px-4 py-2 text-sm font-black text-slate-700 transition-colors hover:border-sky-300 hover:text-sky-600 dark:border-slate-700 dark:bg-slate-900/70 dark:text-slate-200 dark:hover:border-cyan-400 dark:hover:text-cyan-300">
+        <span class="lang-zh">了解更多</span>
+        <span class="lang-en">Learn More</span>
+      </a>
+    </div>
+    {% endif %}
+  </div>
+</article>
+{% endif %}

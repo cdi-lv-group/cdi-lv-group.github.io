@@ -3,242 +3,317 @@ layout: default
 title: 首页
 ---
 
-<section class="relative pt-24 pb-20 md:pb-32 overflow-hidden">
-  <div class="absolute inset-0 bg-gradient-to-b from-slate-50 to-white dark:from-slate-900 dark:to-slate-900 transition-colors duration-300 -z-10"></div>
-  <div class="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHBhdGggZD0iTTAgMGg0MHY0MEgweiIgZmlsbD0ibm9uZSIvPjxwYXRoIGQ9Ik0wIDM5LjVMMDQwIDM5LjUiIHN0cm9rZT0icmdiYSgwLCAwLCAwLCAwLjAzKSIgc3Ryb2tlLXdpZHRoPSIxIi8+PHBhdGggZD0iTTM5LjUgMEwzOS41IDQwIiBzdHJva2U9InJnYmEoMCwgMCwgMCwgMC4wMykiIHN0cm9rZS13aWR0aD0iMSIvPjwvc3ZnPg==')] opacity-50 dark:opacity-10 dark:invert transition-all duration-300 -z-10"></div>
-  <div class="absolute top-0 right-0 w-[40rem] h-[40rem] bg-blue-100 dark:bg-blue-900/30 rounded-full blur-3xl opacity-40 -translate-y-1/2 translate-x-1/3 transition-colors duration-300 -z-10"></div>
-  
-  <div class="max-w-6xl mx-auto px-4 text-center">
-    
-    <div class="inline-block mb-6 px-5 py-2 rounded-full bg-white dark:bg-slate-800 border border-blue-100 dark:border-blue-900 text-blue-600 dark:text-blue-400 text-sm font-bold tracking-wide shadow-sm hover:shadow-md transition-all">
-      <span class="lang-zh">{{ site.hero.badge.zh }}</span>
-      <span class="lang-en">{{ site.hero.badge.en }}</span>
-    </div>
-    
-    <h1 class="text-5xl md:text-7xl font-extrabold text-slate-900 dark:text-white mb-8 tracking-tight leading-tight transition-colors duration-300">
-      <span class="lang-zh">
-        {{ site.hero.title_main.zh }} <br class="hidden md:block" />
-        <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-500 dark:from-blue-400 dark:to-cyan-300">{{ site.hero.title_gradient.zh }}</span>
-      </span>
-      <span class="lang-en">
-        {{ site.hero.title_main.en }} <br class="hidden md:block" />
-        <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-500 dark:from-blue-400 dark:to-cyan-300">{{ site.hero.title_gradient.en }}</span>
-      </span>
-    </h1>
-    
-    <p class="text-xl md:text-2xl text-slate-500 dark:text-slate-400 mb-12 max-w-3xl mx-auto leading-relaxed font-light transition-colors duration-300">
-      <span class="lang-zh">{{ site.hero.description.zh }}</span>
-      <span class="lang-en">{{ site.hero.description.en }}</span>
-    </p>
-    
-    <div class="flex flex-col sm:flex-row justify-center items-center space-y-4 sm:space-y-0 sm:space-x-6 mb-16">
-      <a href="{{ site.hero.primary_btn.url | relative_url }}" class="w-full sm:w-auto bg-blue-600 text-white px-10 py-4 rounded-2xl font-bold hover:bg-blue-700 hover:shadow-lg hover:-translate-y-1 transition-all duration-300">
-        <span class="lang-zh">{{ site.hero.primary_btn.text.zh }}</span>
-        <span class="lang-en">{{ site.hero.primary_btn.text.en }}</span>
-      </a>
-      <a href="{{ site.hero.secondary_btn.url | relative_url }}" class="w-full sm:w-auto bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-300 px-10 py-4 rounded-2xl font-bold hover:bg-slate-50 dark:hover:bg-slate-700 transition-all duration-300">
-        <span class="lang-zh">{{ site.hero.secondary_btn.text.zh }}</span>
-        <span class="lang-en">{{ site.hero.secondary_btn.text.en }}</span>
-      </a>
-    </div>
+{% assign research_count = site.data.research | size %}
+{% assign publication_count = site.data.publications | size %}
+{% assign news_count = site.data.news | size %}
+{% assign position_count = site.data.positions | size %}
+{% assign latest_news = site.data.news | first %}
+{% assign latest_paper = site.data.publications | first %}
 
-    <div class="relative max-w-5xl mx-auto rounded-[2rem] overflow-hidden shadow-2xl border-4 border-white dark:border-slate-800 transition-colors duration-300">
-      <div class="absolute inset-0 bg-blue-900/10 mix-blend-multiply z-10"></div>
-      <img src="{{ site.hero.image }}" alt="Hero Visual" class="w-full h-64 md:h-96 object-cover transform hover:scale-105 transition-transform duration-700">
-    </div>
-  </div>
-</section>
-
-<section class="max-w-6xl mx-auto px-4 py-20 border-t border-slate-100 dark:border-slate-800 transition-colors duration-300">
-  <div class="flex flex-col md:flex-row justify-between items-end mb-12 gap-6">
-      <div class="flex items-center space-x-4 border-l-4 border-blue-600 dark:border-blue-500 pl-4">
-          <div>
-              <h2 class="text-3xl font-bold text-slate-800 dark:text-white tracking-tight transition-colors duration-300 uppercase">
-                <span class="lang-zh">核心研究方向</span>
-                <span class="lang-en">Core Research Areas</span>
-              </h2>
-              <p class="text-slate-400 dark:text-slate-500 font-light italic transition-colors duration-300 text-sm mt-1">
-                <span class="lang-zh">探索人工智能与设计的边界</span>
-                <span class="lang-en">Exploring the boundaries of AI & Design</span>
-              </p>
-          </div>
-      </div>
-      
-      <div class="hidden md:block">
-          <a href="{{ site.baseurl }}/pages/research.html" class="group flex items-center space-x-2 text-blue-600 dark:text-blue-400 font-bold hover:text-blue-700 transition-all">
-              <span class="lang-zh">了解研究详情</span>
-              <span class="lang-en">More Details</span>
-              <svg class="w-5 h-5 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
-              </svg>
-          </a>
-      </div>
-  </div>
-
-  <div class="grid md:grid-cols-3 gap-8">
-    {% for item in site.data.research %}
-    <a href="{{ site.baseurl }}/pages/research.html" class="group bg-white dark:bg-slate-800 p-10 rounded-[2.5rem] shadow-sm border border-slate-100 dark:border-slate-700 hover:shadow-2xl hover:border-blue-100 dark:hover:border-blue-500 hover:-translate-y-2 transition-all duration-500 flex flex-col h-full cursor-pointer relative overflow-hidden">
-      
-      <div class="absolute -right-4 -bottom-4 text-8xl font-black text-slate-50 dark:text-slate-700/30 italic group-hover:text-blue-50 dark:group-hover:text-blue-900/20 transition-colors pointer-events-none">
-        0{{ forloop.index }}
-      </div>
-
-      <div class="w-16 h-16 bg-blue-50 dark:bg-slate-700 text-blue-600 dark:text-blue-400 rounded-2xl flex items-center justify-center text-3xl mb-6 group-hover:bg-blue-600 group-hover:text-white dark:group-hover:bg-blue-500 transition-colors duration-300 shadow-sm relative z-10">
-        {{ item.icon }}
-      </div>
-      
-      <h3 class="text-2xl font-bold mb-4 text-slate-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors duration-300 relative z-10">
-        <span class="lang-zh">{{ item.title.zh | default: item.title }}</span>
-        <span class="lang-en">{{ item.title.en | default: item.title }}</span>
-      </h3>
-      <p class="text-slate-500 dark:text-slate-400 leading-relaxed flex-grow transition-colors duration-300 relative z-10">
-        <span class="lang-zh">{{ item.description.zh | default: item.description }}</span>
-        <span class="lang-en">{{ item.description.en | default: item.description }}</span>
-      </p>
-      
-      <div class="mt-6 pt-6 border-t border-slate-50 dark:border-slate-700 flex justify-end transition-all duration-300 relative z-10">
-         <span class="w-10 h-10 rounded-full bg-blue-50 dark:bg-slate-700 flex items-center justify-center text-blue-600 dark:text-blue-400 group-hover:bg-blue-600 group-hover:text-white transition-all">
-           <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
-           </svg>
-         </span>
-      </div>
-    </a>
-    {% endfor %}
-  </div>
-
-  <div class="mt-10 md:hidden text-center">
-      <a href="{{ site.baseurl }}/pages/research.html" class="inline-flex items-center space-x-2 text-blue-600 font-bold">
-          <span class="lang-zh">了解更多研究详情</span>
-          <span class="lang-en">View All Areas</span>
-          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"></path></svg>
-      </a>
-  </div>
-</section>
-
-<section class="bg-slate-50 dark:bg-slate-900 py-20 transition-colors duration-300">
-  <div class="max-w-6xl mx-auto px-4 grid md:grid-cols-2 gap-12">
-      
-      <div>
-          <div class="flex items-center space-x-4 mb-8 border-l-4 border-blue-600 pl-4">
-              <h2 class="text-2xl font-bold text-slate-800 dark:text-white tracking-tight transition-colors duration-300">
-                <span class="lang-zh">最新动态</span>
-                <span class="lang-en">Latest News</span>
-              </h2>
-          </div>
-          
-          <div class="bg-white dark:bg-slate-800 rounded-[2rem] p-8 border border-slate-100 dark:border-slate-700 shadow-sm h-full flex flex-col transition-colors duration-300">
-            <ul class="space-y-6 flex-grow">
-              {% for item in site.data.news limit:3 %}
-              <li class="flex items-start gap-4 pb-6 border-b border-slate-50 dark:border-slate-700/50 last:border-0 last:pb-0">
-                <span class="text-blue-600 dark:text-blue-400 font-bold shrink-0 w-20 pt-0.5">{{ item.date }}</span>
-                <div class="flex-1">
-                  <a href="{% if item.link and item.link != '#' %}{{ item.link }}{% else %}{{ site.baseurl }}/pages/news.html{% endif %}" class="font-bold text-slate-800 dark:text-slate-200 hover:text-blue-600 dark:hover:text-blue-400 transition-colors block mb-1 text-sm leading-snug">
-                    <span class="lang-zh">{{ item.title.zh | default: item.title }}</span>
-                    <span class="lang-en">{{ item.title.en | default: item.title }}</span>
-                  </a>
-                  <p class="text-slate-500 dark:text-slate-400 leading-relaxed text-xs line-clamp-2 transition-colors duration-300">
-                    <span class="lang-zh">{{ item.description.zh | default: item.description }}</span>
-                    <span class="lang-en">{{ item.description.en | default: item.description }}</span>
-                  </p>
-                </div>
-              </li>
-              {% endfor %}
-            </ul>
-            <a href="{{ site.baseurl }}/pages/news.html" class="mt-6 inline-block text-sm font-semibold text-blue-600 dark:text-blue-400 hover:text-blue-800 transition-colors">
-                <span class="lang-zh">查看所有新闻 &rarr;</span>
-                <span class="lang-en">View All News &rarr;</span>
-            </a>
-          </div>
-      </div>
-
-      <div>
-          <div class="flex items-center space-x-4 mb-8 border-l-4 border-indigo-500 dark:border-indigo-400 pl-4">
-              <h2 class="text-2xl font-bold text-slate-800 dark:text-white tracking-tight transition-colors duration-300">
-                <span class="lang-zh">精选成果</span>
-                <span class="lang-en">Selected Publications</span>
-              </h2>
-          </div>
-          
-          <div class="bg-white dark:bg-slate-800 rounded-[2rem] p-8 border border-slate-100 dark:border-slate-700 shadow-sm h-full flex flex-col justify-between transition-colors duration-300">
-              <div class="space-y-6 flex-grow">
-                  {% for paper in site.data.publications limit:3 %}
-                  <div class="group border-b border-slate-50 dark:border-slate-700/50 pb-5 last:border-0 last:pb-0">
-                      
-                      <div class="flex items-center gap-2 mb-2">
-                          <span class="inline-block px-2 py-0.5 bg-indigo-50 dark:bg-indigo-900/40 text-indigo-600 dark:text-indigo-300 text-xs font-bold rounded">
-                              {{ paper.venue }}
-                          </span>
-                          {% if paper.highlight %}
-                          <span class="inline-block px-2 py-0.5 bg-red-50 dark:bg-red-900/40 text-red-600 dark:text-red-300 text-[0.65rem] font-bold rounded uppercase">
-                              🔥 
-                              <span class="lang-zh">{{ paper.highlight.zh | default: paper.highlight }}</span>
-                              <span class="lang-en">{{ paper.highlight.en | default: paper.highlight }}</span>
-                          </span>
-                          {% endif %}
-                      </div>
-                      
-                      <h3 class="text-sm font-bold text-slate-900 dark:text-slate-200 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors leading-snug mb-1">
-                          <a href="{% if paper.links.paper %}{{ paper.links.paper }}{% else %}{{ site.baseurl }}/pages/publications.html{% endif %}" target="_blank">
-                              <span class="lang-zh">{{ paper.title.zh | default: paper.title }}</span>
-                              <span class="lang-en">{{ paper.title.en | default: paper.title }}</span>
-                          </a>
-                      </h3>
-                      
-                      <p class="text-xs text-slate-500 dark:text-slate-400 italic line-clamp-1 transition-colors duration-300">{{ paper.authors }}</p>
-                  </div>
-                  {% endfor %}
-              </div>
-              <a href="{{ site.baseurl }}/pages/publications.html" class="mt-6 inline-block text-sm font-semibold text-blue-600 dark:text-blue-400 hover:text-blue-800 transition-colors">
-                <span class="lang-zh">浏览所有论文 &rarr;</span>
-                <span class="lang-en">View All Publications &rarr;</span>
-              </a>
-          </div>
-      </div>
-
-  </div>
-</section>
-
-<section class="max-w-6xl mx-auto px-4 py-20">
-    <div class="relative group">
-        <div class="absolute -inset-1 bg-gradient-to-r from-blue-600 to-cyan-500 rounded-[3rem] blur opacity-25 group-hover:opacity-50 transition duration-1000 group-hover:duration-200"></div>
-        
-        <div class="relative bg-white dark:bg-slate-900 rounded-[3rem] p-10 md:p-16 border border-slate-100 dark:border-slate-800 shadow-xl overflow-hidden transition-colors duration-300">
-            
-            <div class="absolute top-0 right-0 w-64 h-64 bg-blue-50 dark:bg-blue-900/20 rounded-full blur-3xl -mr-32 -mt-32 transition-colors"></div>
-            
-            <div class="relative z-10 flex flex-col md:flex-row items-center justify-between gap-10">
-                <div class="text-center md:text-left flex-1">
-                    <div class="inline-flex items-center space-x-2 px-4 py-1.5 rounded-full bg-blue-50 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 text-sm font-black mb-6 tracking-widest uppercase">
-                        <span class="relative flex h-2 w-2 mr-2">
-                            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
-                            <span class="relative inline-flex rounded-full h-2 w-2 bg-blue-500"></span>
-                        </span>
-                        <span class="lang-zh">招贤纳士</span>
-                        <span class="lang-en">We Are Hiring</span>
-                    </div>
-                    
-                    <h2 class="text-3xl md:text-5xl font-black text-slate-900 dark:text-white mb-6 leading-tight">
-                        <span class="lang-zh">准备好定义 <br class="hidden md:block" /><span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-500">智能的未来</span> 了吗？</span>
-                        <span class="lang-en">Ready to Define the <br class="hidden md:block" /><span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-500">Future of AI</span>?</span>
-                    </h2>
-                    
-                    <p class="text-lg text-slate-500 dark:text-slate-400 max-w-2xl leading-relaxed mb-0 transition-colors">
-                        <span class="lang-zh">我们常年寻找充满热忱的博士生、硕士生及科研实习生。如果你对 3D 视觉和具身智能充满热忱，欢迎加入我们！</span>
-                        <span class="lang-en">We are constantly looking for passionate Ph.D., Master students, and Research Interns. Join us to explore the boundaries of 3D Vision and Embodied AI.</span>
-                    </p>
-                </div>
-
-                <div class="shrink-0">
-                    <a href="{{ site.baseurl }}/pages/contact.html" class="inline-flex items-center justify-center px-8 py-5 bg-slate-900 dark:bg-white text-white dark:text-slate-900 rounded-2xl font-black text-lg hover:scale-105 hover:shadow-2xl active:scale-95 transition-all duration-300 group/btn">
-                        <span class="lang-zh">立即申请</span>
-                        <span class="lang-en">Apply Now</span>
-                        <svg class="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
-                        </svg>
-                    </a>
-                </div>
-            </div>
+<section class="relative overflow-hidden pt-10 pb-16 md:pb-24">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="grid gap-10 xl:grid-cols-[1.02fr_0.98fr] xl:items-end">
+      <div data-reveal="left">
+        <div class="inline-flex items-center gap-3 rounded-full border border-white/80 bg-white/70 px-5 py-2 text-sm font-semibold tracking-wide text-sky-700 shadow-sm backdrop-blur dark:border-slate-700/80 dark:bg-slate-900/70 dark:text-cyan-300">
+          <span class="relative flex h-2.5 w-2.5">
+            <span class="absolute inline-flex h-full w-full animate-ping rounded-full bg-cyan-400 opacity-75"></span>
+            <span class="relative inline-flex h-2.5 w-2.5 rounded-full bg-sky-500"></span>
+          </span>
+          <span class="lang-zh">{{ site.hero.badge.zh }}</span>
+          <span class="lang-en">{{ site.hero.badge.en }}</span>
         </div>
+
+        {% if site.hero.eyebrow_notes %}
+        <div class="mt-5 flex flex-wrap gap-2">
+          {% for note in site.hero.eyebrow_notes %}
+          <span class="chip text-[11px] font-black uppercase tracking-[0.16em] text-slate-500 dark:text-slate-300">
+            <span class="lang-zh">{{ note.zh }}</span>
+            <span class="lang-en">{{ note.en }}</span>
+          </span>
+          {% endfor %}
+        </div>
+        {% endif %}
+
+        <h1 class="mt-7 text-5xl font-black leading-[0.96] text-slate-900 dark:text-white md:text-7xl">
+          <span class="lang-zh">
+            {{ site.hero.title_main.zh }}
+            <span class="block text-transparent bg-clip-text bg-gradient-to-r from-sky-600 via-cyan-500 to-teal-500 dark:from-sky-300 dark:via-cyan-300 dark:to-teal-300">{{ site.hero.title_gradient.zh }}</span>
+          </span>
+          <span class="lang-en">
+            {{ site.hero.title_main.en }}
+            <span class="block text-transparent bg-clip-text bg-gradient-to-r from-sky-600 via-cyan-500 to-teal-500 dark:from-sky-300 dark:via-cyan-300 dark:to-teal-300">{{ site.hero.title_gradient.en }}</span>
+          </span>
+        </h1>
+
+        <p class="mt-8 max-w-3xl text-lg leading-relaxed text-slate-600 dark:text-slate-300 md:text-xl">
+          <span class="lang-zh">{{ site.hero.description.zh }}</span>
+          <span class="lang-en">{{ site.hero.description.en }}</span>
+        </p>
+
+        <div class="mt-10 flex flex-col gap-4 sm:flex-row">
+          <a href="{{ site.hero.primary_btn.url | relative_url }}" class="inline-flex items-center justify-center rounded-2xl bg-slate-900 px-7 py-4 text-base font-black text-white transition-all duration-300 hover:-translate-y-1 hover:bg-sky-600 hover:shadow-2xl dark:bg-white dark:text-slate-900 dark:hover:bg-cyan-300">
+            <span class="lang-zh">{{ site.hero.primary_btn.text.zh }}</span>
+            <span class="lang-en">{{ site.hero.primary_btn.text.en }}</span>
+          </a>
+          <a href="{{ site.hero.secondary_btn.url | relative_url }}" class="inline-flex items-center justify-center rounded-2xl border border-slate-200/80 bg-white/70 px-7 py-4 text-base font-bold text-slate-700 transition-all duration-300 hover:-translate-y-1 hover:border-sky-200 hover:text-sky-600 dark:border-slate-700/80 dark:bg-slate-900/70 dark:text-slate-200 dark:hover:border-cyan-400 dark:hover:text-cyan-300">
+            <span class="lang-zh">{{ site.hero.secondary_btn.text.zh }}</span>
+            <span class="lang-en">{{ site.hero.secondary_btn.text.en }}</span>
+          </a>
+        </div>
+
+        <div class="mt-10 grid gap-4 md:grid-cols-6">
+          <div class="stage-rail p-5 md:col-span-2">
+            <p class="section-kicker text-[0.68rem] font-black uppercase text-sky-600 dark:text-cyan-300">
+              <span class="lang-zh">研究展示系统</span>
+              <span class="lang-en">Research Display System</span>
+            </p>
+            <p class="mt-3 text-lg font-black leading-snug text-slate-900 dark:text-white">
+              <span class="lang-zh">以研究方向、成果陈列与实验室时间线构成完整浏览路径。</span>
+              <span class="lang-en">A complete browsing path built from research themes, publication staging, and a lab timeline.</span>
+            </p>
+          </div>
+
+          <div class="panel-surface p-4 md:col-span-1">
+            <p class="section-kicker text-[0.62rem] font-black uppercase text-slate-400 dark:text-slate-500">
+              <span class="lang-zh">方向</span>
+              <span class="lang-en">Areas</span>
+            </p>
+            <p class="mt-2 text-3xl font-black text-slate-900 dark:text-white">{{ research_count }}</p>
+          </div>
+
+          <div class="panel-surface p-4 md:col-span-1">
+            <p class="section-kicker text-[0.62rem] font-black uppercase text-slate-400 dark:text-slate-500">
+              <span class="lang-zh">论文</span>
+              <span class="lang-en">Papers</span>
+            </p>
+            <p class="mt-2 text-3xl font-black text-slate-900 dark:text-white">{{ publication_count }}</p>
+          </div>
+
+          <div class="panel-surface p-4 md:col-span-1">
+            <p class="section-kicker text-[0.62rem] font-black uppercase text-slate-400 dark:text-slate-500">
+              <span class="lang-zh">新闻</span>
+              <span class="lang-en">Updates</span>
+            </p>
+            <p class="mt-2 text-3xl font-black text-slate-900 dark:text-white">{{ news_count }}</p>
+          </div>
+
+          <div class="panel-surface p-4 md:col-span-1">
+            <p class="section-kicker text-[0.62rem] font-black uppercase text-slate-400 dark:text-slate-500">
+              <span class="lang-zh">岗位</span>
+              <span class="lang-en">Openings</span>
+            </p>
+            <p class="mt-2 text-3xl font-black text-slate-900 dark:text-white">{{ position_count }}</p>
+          </div>
+        </div>
+      </div>
+
+      <div data-reveal="scale">
+        <div class="stage-shell p-4 md:p-6" data-stage="home-hero">
+          <div class="relative overflow-hidden rounded-[2rem] border border-white/70 dark:border-slate-700/80">
+            <div class="absolute right-6 top-5 z-20 text-[5rem] font-black tracking-[-0.12em] text-white/20">01</div>
+            <div class="absolute inset-0 z-10 bg-gradient-to-t from-slate-950/68 via-slate-900/18 to-sky-500/10"></div>
+            <img src="{{ site.hero.image }}" alt="Hero Visual" class="h-[420px] w-full object-cover md:h-[560px]">
+
+            {% if latest_news %}
+            <div class="panel-surface absolute left-5 top-5 z-20 max-w-xs p-4">
+              <p class="section-kicker text-[0.64rem] font-black uppercase text-sky-600 dark:text-cyan-300">
+                <span class="lang-zh">最新动态</span>
+                <span class="lang-en">Latest Update</span>
+              </p>
+              <p class="mt-2 text-xs font-bold uppercase tracking-[0.18em] text-slate-400 dark:text-slate-500">{{ latest_news.date }}</p>
+              <p class="mt-3 text-sm font-bold leading-snug text-slate-900 dark:text-white">
+                <span class="lang-zh">{{ latest_news.title.zh | default: latest_news.title }}</span>
+                <span class="lang-en">{{ latest_news.title.en | default: latest_news.title }}</span>
+              </p>
+            </div>
+            {% endif %}
+
+            {% if latest_paper %}
+            <div class="stage-rail absolute bottom-5 right-5 z-20 max-w-sm p-5">
+              <p class="section-kicker text-[0.64rem] font-black uppercase text-sky-600 dark:text-cyan-300">
+                <span class="lang-zh">精选成果</span>
+                <span class="lang-en">Featured Work</span>
+              </p>
+              <p class="mt-3 text-xs font-black uppercase tracking-[0.18em] text-slate-400 dark:text-slate-500">{{ latest_paper.venue.en | default: latest_paper.venue }}</p>
+              <p class="mt-2 text-base font-bold leading-snug text-slate-900 dark:text-white">
+                <span class="lang-zh">{{ latest_paper.title.zh | default: latest_paper.title }}</span>
+                <span class="lang-en">{{ latest_paper.title.en | default: latest_paper.title }}</span>
+              </p>
+            </div>
+            {% endif %}
+
+            {% if site.hero.stage_tags %}
+            <div class="absolute bottom-5 left-5 z-20 flex max-w-md flex-wrap gap-2">
+              {% for tag in site.hero.stage_tags %}
+              <span class="chip border-white/20 bg-slate-950/45 text-[11px] font-black uppercase tracking-[0.14em] text-white">
+                <span class="lang-zh">{{ tag.zh }}</span>
+                <span class="lang-en">{{ tag.en }}</span>
+              </span>
+              {% endfor %}
+            </div>
+            {% endif %}
+          </div>
+        </div>
+      </div>
     </div>
+  </div>
 </section>
+
+<section class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-20">
+  <div class="grid gap-10 xl:grid-cols-[0.62fr_1.38fr] xl:items-start">
+    {% include chapter-intro.html
+      serial="01"
+      accent="sky"
+      reveal="left"
+      kicker_zh="研究版图"
+      kicker_en="Research Landscape"
+      title_zh="用更像展陈目录的方式浏览研究方向"
+      title_en="Browse Our Themes Like a Curated Exhibition Atlas"
+      description_zh="从空间地图、世界模型到设计智能与文档系统，我们把研究链路拆成可以被快速理解、跳转和延伸阅读的章节。"
+      description_en="From spatial maps and world models to design intelligence and document systems, the research pipeline is organized into chapters that are easy to understand, jump through, and revisit."
+      link_url="/pages/research.html"
+      link_text_zh="进入研究展陈页"
+      link_text_en="Enter Research Gallery"
+    %}
+
+    <div class="grid gap-6 xl:grid-cols-[1.08fr_0.92fr]">
+      {% for item in site.data.research limit:1 %}
+      <a href="{{ '/pages/research.html#area-1' | relative_url }}" class="feature-card p-6 md:p-8 xl:min-h-[33rem]" data-reveal="scale">
+        <div class="feature-card__ghost">01</div>
+        <div class="relative z-10 flex h-full flex-col">
+          <div class="flex items-center gap-4">
+            <div class="flex h-16 w-16 items-center justify-center rounded-2xl bg-sky-50 text-4xl text-sky-600 dark:bg-slate-800 dark:text-cyan-300">{{ item.icon }}</div>
+            <div class="chip text-[11px] font-black uppercase tracking-[0.14em] text-slate-500 dark:text-slate-300">
+              <span class="lang-zh">主舞台方向</span>
+              <span class="lang-en">Main Stage Theme</span>
+            </div>
+          </div>
+
+          <h3 class="mt-8 text-3xl font-black leading-tight text-slate-900 dark:text-white">
+            <span class="lang-zh">{{ item.title.zh | default: item.title }}</span>
+            <span class="lang-en">{{ item.title.en | default: item.title }}</span>
+          </h3>
+
+          <p class="mt-5 max-w-2xl text-base leading-relaxed text-slate-600 dark:text-slate-300 md:text-lg">
+            <span class="lang-zh">{{ item.description.zh | default: item.description }}</span>
+            <span class="lang-en">{{ item.description.en | default: item.description }}</span>
+          </p>
+
+          {% if item.image %}
+          <div class="research-media mt-8">
+            <img src="{{ site.baseurl }}{{ item.image }}" alt="{{ item.title.zh | default: item.title }}" class="h-64 w-full object-cover md:h-72">
+          </div>
+          {% endif %}
+        </div>
+      </a>
+      {% endfor %}
+
+      <div class="grid gap-6">
+        {% for item in site.data.research offset:1 limit:2 %}
+        {% assign research_preview_index = forloop.index | plus: 1 %}
+        <a href="{{ site.baseurl }}/pages/research.html#area-{{ research_preview_index }}" class="feature-card p-6" data-reveal="right">
+          <div class="relative z-10">
+            <div class="flex items-center gap-3">
+              <div class="flex h-14 w-14 items-center justify-center rounded-2xl bg-white/80 text-3xl text-sky-600 shadow-sm dark:bg-slate-900/70 dark:text-cyan-300">{{ item.icon }}</div>
+              <span class="text-xs font-black uppercase tracking-[0.18em] text-slate-400 dark:text-slate-500">0{{ research_preview_index }}</span>
+            </div>
+            <h3 class="mt-5 text-2xl font-black leading-tight text-slate-900 dark:text-white">
+              <span class="lang-zh">{{ item.title.zh | default: item.title }}</span>
+              <span class="lang-en">{{ item.title.en | default: item.title }}</span>
+            </h3>
+            <p class="mt-3 text-sm leading-relaxed text-slate-500 dark:text-slate-400">
+              <span class="lang-zh">{{ item.description.zh | default: item.description }}</span>
+              <span class="lang-en">{{ item.description.en | default: item.description }}</span>
+            </p>
+          </div>
+        </a>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-10 md:py-16">
+  <div class="grid gap-10 xl:grid-cols-[1.12fr_0.88fr] xl:items-start">
+    <div class="grid gap-5" data-reveal="left">
+      {% for item in site.data.news limit:3 %}
+      {% include news-card.html
+        item=item
+        variant="timeline"
+        outer_class="p-5 md:p-6"
+        fallback_href="/pages/news.html"
+        title_is_link=true
+        compact_category=true
+      %}
+      {% endfor %}
+    </div>
+
+    {% include chapter-intro.html
+      serial="02"
+      accent="sky"
+      reveal="right"
+      extra_class="xl:order-first"
+      kicker_zh="实验室时间线"
+      kicker_en="Lab Timeline"
+      title_zh="论文、合作与系统建设在同一时间轴里展开"
+      title_en="Papers, Collaborations, and Systems Unfold on One Timeline"
+      description_zh="首页保留一条更紧凑的时间线入口，帮助访问者先快速理解实验室最近在发生什么，再决定进入更完整的新闻页面。"
+      description_en="The home page keeps a compact timeline so visitors can quickly understand what the lab has been doing recently before diving into the full news page."
+      link_url="/pages/news.html"
+      link_text_zh="浏览完整时间线"
+      link_text_en="Browse Full Timeline"
+    %}
+  </div>
+</section>
+
+<section class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16">
+  <div class="grid gap-10 xl:grid-cols-[0.6fr_1.4fr] xl:items-start">
+    {% include chapter-intro.html
+      serial="03"
+      accent="sky"
+      reveal="left"
+      kicker_zh="代表成果"
+      kicker_en="Featured Work"
+      title_zh="把论文呈现成更像成果陈列而不是普通列表"
+      title_en="Present Publications as a Gallery Rather Than a Plain List"
+      description_zh="我们让精选论文先占据主舞台，再用紧凑卡片补充其余成果。这样用户能先感受到代表性工作，再进入完整年份章节。"
+      description_en="A featured publication takes the main stage first, while compact cards extend the rest of the story. Visitors encounter representative work before opening the full year-based archive."
+      link_url="/pages/publications.html"
+      link_text_zh="进入成果陈列页"
+      link_text_en="Enter Publication Gallery"
+    %}
+
+    <div class="grid gap-6 xl:grid-cols-[1.1fr_0.9fr]">
+      {% for paper in site.data.publications limit:1 %}
+      {% assign home_featured_paper_href = paper.links.paper | default: "/pages/publications.html" %}
+      {% include publication-card.html
+        paper=paper
+        variant="feature"
+        href=home_featured_paper_href
+        outer_class="p-6 md:p-8"
+        inner_class="lg:grid-cols-[0.96fr_1.04fr] lg:items-end"
+        image_class="h-72 w-full object-cover"
+        reveal="scale"
+        ghost="03"
+        show_abstract=true
+      %}
+      {% endfor %}
+
+      <div class="grid gap-5">
+        {% for paper in site.data.publications offset:1 limit:2 %}
+        {% assign home_paper_href = paper.links.paper | default: "/pages/publications.html" %}
+        {% include publication-card.html
+          paper=paper
+          variant="summary"
+          href=home_paper_href
+          outer_class="p-5"
+          reveal="right"
+          meta_secondary="year"
+        %}
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</section>
+
+{% include narrative-band.html band=site.cta_bands.join accent="sky" %}

@@ -1,13 +1,4 @@
-# ==========================================
-# LV课题组 团队分类与全局颜色绑定字典
-# ==========================================
-# 添加新分类模板:
-# - id: "unique_id"      # [必填] 与 team.yml 中的 group_id 对应
-#   title:               # [必填] 双语显示标题
-#     zh: "中文标题"
-#     en: "English Title"
-#   color: "indigo"      # [选填] 颜色绑定: indigo, purple, blue, cyan, green, orange, gray
-# ==========================================
+# Mock groups for UI coverage
 
 - id: "professor"
   title:

@@ -5,8 +5,7 @@ title: "LV课题组 | LV Group"
 description: "致力于多模态感知、推理与交互的共性基础研究。"
 author: "Wenbin Zuo"
 url: "https://cdi-lv-group.github.io"
-baseurl: "" 
-
+baseurl: ""
 
 # ==========================================
 # 首页 Hero 区域配置
@@ -15,30 +14,42 @@ hero:
   badge:
     zh: "同济大学 · LV 课题组"
     en: "Tongji University · LV Research Group"
-  
   title_main:
     zh: "探索物理世界的"
     en: "Exploring the Physical Boundaries of"
-  
   title_gradient:
     zh: "3D感知与具身智能"
     en: "3D Perception & Embodied AI"
-  
   description:
     zh: "致力于多模态感知、推理与交互的共性基础研究，探索空天智能与智能体在复杂真实世界中的前沿边界。"
     en: "Dedicated to foundational research in multimodal perception, reasoning, and interaction, exploring the cutting-edge boundaries of aerospace intelligence and embodied agents in complex real-world environments."
-  
   primary_btn:
-    text: { zh: "了解团队", en: "Meet the Team" }
+    text:
+      zh: "了解团队"
+      en: "Meet the Team"
     url: "/pages/people.html"
-  
   secondary_btn:
-    text: { zh: "研究方向", en: "Research Areas" }
+    text:
+      zh: "研究方向"
+      en: "Research Areas"
     url: "/pages/research.html"
-  
   image: "https://images.unsplash.com/photo-1620712943543-bcc4688e7485?q=80&w=2000&auto=format&fit=crop"
-
-
+  eyebrow_notes:
+    - zh: "策展式学术首页"
+      en: "Curated academic landing page"
+    - zh: "双语同步阅读"
+      en: "Bilingual reading mode"
+    - zh: "数据驱动内容结构"
+      en: "Data-driven content structure"
+  stage_tags:
+    - zh: "空间智能"
+      en: "Spatial Intelligence"
+    - zh: "具身规划"
+      en: "Embodied Planning"
+    - zh: "设计智能"
+      en: "Design Intelligence"
+    - zh: "文档智能"
+      en: "Document Intelligence"
 
 # ==========================================
 # 研究方向页面 Header 配置
@@ -47,23 +58,44 @@ research_header:
   badge:
     zh: "研究方向"
     en: "Research Areas"
-  
   title_main:
     zh: "探索智能的"
     en: "Exploring the"
-  
   title_gradient:
     zh: "物理边界"
     en: "Physical Boundaries"
-  
   title_suffix:
-    zh: "" # 中文标题后缀为空
+    zh: ""
     en: "of AI"
-  
   description:
     zh: "我们致力于多模态感知、3D视觉与具身智能的基础理论与前沿应用研究，旨在让智能体在复杂、不确定的真实世界中具备强大的自主行为能力。"
     en: "We are dedicated to foundational theories and cutting-edge applications in multimodal perception, 3D vision, and embodied AI, aiming to equip agents with robust autonomous behaviors in complex, real-world environments."
-
+  eyebrow_notes:
+    - zh: "编号化研究展陈"
+      en: "Numbered research exhibition"
+    - zh: "页内索引直达章节"
+      en: "Indexed section navigation"
+    - zh: "文字与图像交替叙事"
+      en: "Alternating text-image narrative"
+  facts:
+    - label:
+        zh: "研究结构"
+        en: "Research Structure"
+      value:
+        zh: "从空间、文档到机器人控制"
+        en: "From spatial reasoning to robotics"
+    - label:
+        zh: "浏览方式"
+        en: "Browse Mode"
+      value:
+        zh: "索引跳转 + 章节阅读"
+        en: "Index jumps and sectional reading"
+    - label:
+        zh: "内容形态"
+        en: "Content Shape"
+      value:
+        zh: "支持有图、无图与开放主题"
+        en: "Supports image-rich and open-frontier themes"
 
 # ==========================================
 # 学术论文页面 Header 配置
@@ -72,19 +104,44 @@ publications_header:
   badge:
     zh: "科研产出"
     en: "Research Output"
-  
   title_main:
     zh: "探索与突破："
-    en: "Exploration & Breakthroughs: "
-  
+    en: "Exploration & Breakthroughs:"
   title_gradient:
     zh: "学术成果"
     en: "Publications"
-  
+  title_suffix:
+    zh: ""
+    en: ""
   description:
     zh: "我们在 CVPR, ICCV, NeurIPS 等国际顶级学术会议与期刊上持续发表多模态感知、3D视觉与具身智能领域的研究成果。"
     en: "We continuously publish our research on multimodal perception, 3D vision, and embodied AI in top-tier international conferences and journals such as CVPR, ICCV, and NeurIPS."
-
+  eyebrow_notes:
+    - zh: "精选成果主舞台"
+      en: "Featured work main stage"
+    - zh: "年份轨道纵向陈列"
+      en: "Year-driven vertical exhibition"
+    - zh: "统一论文元信息系统"
+      en: "Unified publication metadata system"
+  facts:
+    - label:
+        zh: "阅读节奏"
+        en: "Reading Rhythm"
+      value:
+        zh: "精选成果 + 年份章节"
+        en: "Featured work plus year chapters"
+    - label:
+        zh: "展示形态"
+        en: "Display Variants"
+      value:
+        zh: "图像卡、紧凑卡与摘要卡并行"
+        en: "Image cards, compact cards, and abstract cards"
+    - label:
+        zh: "链接系统"
+        en: "Action System"
+      value:
+        zh: "论文、代码与项目一体化"
+        en: "Paper, code, and project actions"
 
 # ==========================================
 # 团队成员页面 Header 配置
@@ -93,22 +150,42 @@ people_header:
   badge:
     zh: "团队成员"
     en: "Our Team"
-  
   title_main:
-    zh: "汇聚智能领域的 "
-    en: "Pioneering "
-  
+    zh: "汇聚智能领域的"
+    en: "Pioneering"
   title_gradient:
     zh: "创新先锋"
     en: "Innovative Minds"
-  
   title_suffix:
     zh: ""
-    en: " in AI"
-  
+    en: "in AI"
   description:
     zh: "我们是一群致力于探索人工智能前沿的研究者、工程师和创新者。通过跨学科的协作，我们在感知与具身智能领域不断追求卓越，共同构建未来。"
     en: "We are a community of passionate researchers, engineers, and innovators exploring the frontiers of AI. Through interdisciplinary collaboration, we strive for excellence in perception and embodied intelligence."
+  eyebrow_notes:
+    - zh: "多层次成员结构"
+      en: "Multi-level team structure"
+    - zh: "研究与工程并重"
+      en: "Research and engineering together"
+  facts:
+    - label:
+        zh: "组织方式"
+        en: "Organization"
+      value:
+        zh: "按角色分组，按贡献展开"
+        en: "Grouped by role and contribution"
+    - label:
+        zh: "成员画像"
+        en: "Profiles"
+      value:
+        zh: "支持简介、链接与去向"
+        en: "Profiles include bios, links, and destinations"
+    - label:
+        zh: "协作模式"
+        en: "Culture"
+      value:
+        zh: "双语展示与开放合作"
+        en: "Bilingual presentation and open collaboration"
 
 # ==========================================
 # 新闻动态页面 Header 配置
@@ -117,18 +194,42 @@ news_header:
   badge:
     zh: "新闻动态"
     en: "Latest News"
-  
   title_main:
-    zh: "记录实验室的 "
-    en: "Capturing Our "
-  
+    zh: "记录实验室的"
+    en: "Capturing Our"
   title_gradient:
     zh: "重要时刻"
     en: "Milestones"
-  
+  title_suffix:
+    zh: ""
+    en: ""
   description:
     zh: "记录 LV 课题组在学术研究、开源项目、团队建设与产业合作上的每一个重要里程碑。"
     en: "Highlighting LV Lab's significant progress in academic research, open-source projects, team building, and industrial collaborations."
+  eyebrow_notes:
+    - zh: "时间线叙事"
+      en: "Timeline narrative"
+    - zh: "研究、开源与协作并行"
+      en: "Research, open source, and collaboration"
+  facts:
+    - label:
+        zh: "信息维度"
+        en: "Coverage"
+      value:
+        zh: "论文、合作、开源与团队进展"
+        en: "Papers, collaborations, releases, and milestones"
+    - label:
+        zh: "阅读方式"
+        en: "Reading Mode"
+      value:
+        zh: "按时间滚动浏览"
+        en: "Scroll through milestones by date"
+    - label:
+        zh: "外链支持"
+        en: "External Links"
+      value:
+        zh: "支持延伸阅读与项目跳转"
+        en: "Supports deep links to projects and news"
 
 # ==========================================
 # 加入我们页面 Header 配置
@@ -137,22 +238,242 @@ join_header:
   badge:
     zh: "加入 %NAME%"
     en: "Join %NAME%"
-  
   title_main:
-    zh: "与我们一起探索 "
-    en: "Exploring the "
-  
+    zh: "与我们一起探索"
+    en: "Exploring the"
   title_gradient:
     zh: "智能的物理边界"
     en: "Physical Boundaries"
-  
   title_suffix:
     zh: ""
-    en: " of AI"
-  
+    en: "of AI"
   description:
     zh: "我们常年招收对 3D 视觉、多模态感知与具身智能充满热忱的优秀博士生、硕士生及科研实习生。如果你热爱硬核技术并渴望在顶级学术舞台发声，欢迎加入！"
     en: "We are constantly looking for talented Ph.D., Master students, and Research Interns passionate about 3D Vision, Multimodal Perception, and Embodied AI. If you love hardcore technology, join us!"
+  eyebrow_notes:
+    - zh: "机会、证明与申请路径"
+      en: "Openings, proof, and application path"
+    - zh: "从岗位到行动一页完成"
+      en: "From roles to action in one page"
+  facts:
+    - label:
+        zh: "岗位类型"
+        en: "Role Types"
+      value:
+        zh: "博士、硕士、实习与访问研究"
+        en: "Ph.D., Master, Intern, and Visiting roles"
+    - label:
+        zh: "申请节奏"
+        en: "Application Flow"
+      value:
+        zh: "机会浏览 -> 价值确认 -> 立即投递"
+        en: "Browse roles, verify fit, and apply"
+    - label:
+        zh: "团队风格"
+        en: "Team Character"
+      value:
+        zh: "硬核研究与系统落地并重"
+        en: "Rigorous research with systems execution"
+
+join_process:
+  steps:
+    - title:
+        zh: "准备你的研究快照"
+        en: "Prepare Your Research Snapshot"
+      description:
+        zh: "用一页简历、成绩单和 1-2 个最能代表你的项目，快速说明你做过什么、会什么、接下来想探索什么。"
+        en: "Prepare a CV, transcript, and one or two representative projects so we can quickly understand what you have built, what you know, and what you want to explore next."
+    - title:
+        zh: "写一封有判断力的邮件"
+        en: "Write an Email with Clear Intent"
+      description:
+        zh: "不要只说“想加入”。请直接说明你感兴趣的研究方向、希望投入的时间周期，以及为什么这个方向和你的背景匹配。"
+        en: "Do more than say you want to join. Explain the research direction you care about, your expected availability, and why your background fits that theme."
+    - title:
+        zh: "把兴趣落到可执行合作"
+        en: "Turn Interest into Executable Collaboration"
+      description:
+        zh: "如果进入后续沟通，我们通常会围绕论文阅读、已有系统、实验实现或原型任务继续判断匹配度。"
+        en: "If we continue the conversation, we usually assess fit through paper reading, existing systems, implementation tasks, or lightweight prototypes."
+  subject_label:
+    zh: "邮件主题建议"
+    en: "Suggested Subject"
+  subject_value:
+    zh: "[申请博士/硕士/实习] - 姓名 - 本科学校 - 入学年份"
+    en: "[Apply-PhD/Master/Intern] - Name - Univ - Year"
+  contact_label:
+    zh: "联系窗口"
+    en: "Contact Window"
+  contact_value:
+    zh: "发送至实验室邮箱，并附上简历、成绩单和代表项目。"
+    en: "Send your message to the lab mailbox with your CV, transcript, and representative projects attached."
+  response_label:
+    zh: "沟通方式"
+    en: "Conversation Flow"
+  response_value:
+    zh: "如果方向契合，我们会继续约时间沟通研究兴趣、项目经验和投入安排。"
+    en: "If the direction is a good match, we will follow up to discuss your research interests, project experience, and timeline."
+
+# ==========================================
+# 可复用叙事横幅配置
+# ==========================================
+cta_bands:
+  research:
+    kicker:
+      zh: "成果入口"
+      en: "Research Outcomes"
+    title:
+      zh: "从研究方向走向论文与系统"
+      en: "From Research Themes to Papers and Systems"
+    description:
+      zh: "这些研究方向最终会沉淀为顶会论文、可复现实验系统和开放共享的代码资产。继续向下浏览我们的成果陈列页。"
+      en: "These research themes flow into top-tier papers, reproducible experiment systems, and openly shared code assets. Continue into our publication gallery."
+    primary_btn:
+      text:
+        zh: "查看学术成果"
+        en: "View Publications"
+      url: "/pages/publications.html"
+    secondary_btn:
+      text:
+        zh: "访问 GitHub"
+        en: "Visit GitHub"
+      url: "https://github.com/cdi-lv-group"
+    aside_label:
+      zh: "继续阅读"
+      en: "Next Layer"
+    items:
+      - zh: "精选成果主舞台与年度章节"
+        en: "A featured work stage plus yearly chapters"
+      - zh: "论文、代码、项目入口统一编排"
+        en: "Paper, code, and project links aligned"
+      - zh: "适配长标题、长作者与不同摘要密度"
+        en: "Built for long titles, long author lists, and mixed abstract density"
+  publications:
+    kicker:
+      zh: "开源延展"
+      en: "Open Source Layer"
+    title:
+      zh: "论文之外，我们也持续构建可复用的研究资产"
+      en: "Beyond Papers, We Build Reusable Research Assets"
+    description:
+      zh: "我们的成果不仅停留在论文页面，也会延展为开源代码、评测基准、演示系统和研究工具链。"
+      en: "Our work does not stop at papers. It expands into open-source code, evaluation benchmarks, demos, and research toolchains."
+    primary_btn:
+      text:
+        zh: "访问实验室 GitHub"
+        en: "Visit Lab GitHub"
+      url: "https://github.com/cdi-lv-group"
+    secondary_btn:
+      text:
+        zh: "了解研究方向"
+        en: "Explore Research Areas"
+      url: "/pages/research.html"
+    aside_label:
+      zh: "你会看到"
+      en: "What You Will Find"
+    items:
+      - zh: "与论文同步发布的代码与项目主页"
+        en: "Code releases and project sites aligned with papers"
+      - zh: "可复用的实验素材与演示内容"
+        en: "Reusable experiment assets and demonstrations"
+      - zh: "从研究原型走向系统落地的连续链路"
+        en: "A continuous path from prototypes to systems"
+  join:
+    kicker:
+      zh: "申请入口"
+      en: "Application Entry"
+    title:
+      zh: "准备好把你的研究兴趣带进真实系统了吗？"
+      en: "Ready to Bring Your Research Interests into Real Systems?"
+    description:
+      zh: "如果你对空间智能、设计智能、机器人控制或研究运营系统感兴趣，欢迎直接联系。我们更看重持续学习能力、工程推进力和扎实的研究判断。"
+      en: "If you are interested in spatial intelligence, design intelligence, robot control, or research operations systems, we would love to hear from you. We value learning velocity, engineering momentum, and research judgment."
+    primary_btn:
+      text:
+        zh: "立即发送邮件"
+        en: "Email Us Now"
+      url: "mailto:2511992@tongji.edu.cn"
+    secondary_btn:
+      text:
+        zh: "查看团队成员"
+        en: "Meet the Team"
+      url: "/pages/people.html"
+    aside_label:
+      zh: "申请步骤"
+      en: "Application Steps"
+    items:
+      - zh: "准备个人简历与成绩单"
+        en: "Prepare your CV and transcript"
+      - zh: "按建议格式组织邮件主题"
+        en: "Format the email subject clearly"
+      - zh: "简要说明你的研究兴趣与可投入时间"
+        en: "Explain your interests and availability"
+    note_label:
+      zh: "邮件主题建议"
+      en: "Suggested Subject"
+    note_value:
+      zh: "[申请博士/硕士/实习] - 姓名 - 本科学校 - 入学年份"
+      en: "[Apply-PhD/Master/Intern] - Name - Univ - Year"
+  people:
+    kicker:
+      zh: "团队入口"
+      en: "Team Entry"
+    title:
+      zh: "从核心研究者到校友网络，团队结构同样是一种研究展示"
+      en: "From Core Researchers to Alumni, the Team Structure Is Also a Research Display"
+    description:
+      zh: "团队不仅是人员名单，更是实验室研究结构、协作方式和长期成长路径的可视化切面。继续查看岗位信息，了解如何加入。"
+      en: "The team is more than a list of names. It is a visible slice of the lab's research structure, collaboration model, and long-term growth path. Continue to the Join page to see how you can get involved."
+    primary_btn:
+      text:
+        zh: "查看开放岗位"
+        en: "View Open Positions"
+      url: "/pages/contact.html"
+    secondary_btn:
+      text:
+        zh: "回到首页"
+        en: "Back to Home"
+      url: "/"
+    aside_label:
+      zh: "页面阅读方式"
+      en: "How to Read This Page"
+    items:
+      - zh: "教授与研究员作为主舞台人物展开"
+        en: "Professors and researchers are staged as main figures"
+      - zh: "学生分组以角色层次与研究方向组织"
+        en: "Student groups are organized by role and research tier"
+      - zh: "校友部分展示团队延展出的去向网络"
+        en: "Alumni reveal the network that extends beyond the lab"
+  news:
+    kicker:
+      zh: "动态延展"
+      en: "News Extension"
+    title:
+      zh: "时间线之外，我们也把成果沉淀为持续可访问的开源入口"
+      en: "Beyond the Timeline, We Turn Progress into Lasting Open Access Entry Points"
+    description:
+      zh: "如果你想持续追踪实验室的代码、模型和演示内容，可以直接关注 GitHub 组织。新闻页负责讲述过程，开源主页负责沉淀资产。"
+      en: "If you want to continuously follow the lab's code, models, and demos, the GitHub organization is the most direct entry point. The news page tells the story, while the open-source hub stores the assets."
+    primary_btn:
+      text:
+        zh: "前往 GitHub"
+        en: "Go to GitHub"
+      url: "https://github.com/cdi-lv-group"
+    secondary_btn:
+      text:
+        zh: "查看论文页"
+        en: "View Publications"
+      url: "/pages/publications.html"
+    aside_label:
+      zh: "你会得到"
+      en: "What You Get"
+    items:
+      - zh: "论文同步发布的代码与项目入口"
+        en: "Code and project entry points released with papers"
+      - zh: "实验系统、演示内容与工具链更新"
+        en: "Experiment systems, demos, and tooling updates"
+      - zh: "从新闻事件延展到可复用研究资产"
+        en: "A path from individual events to reusable research assets"
 
 # 构建与基础设置
 timezone: "Asia/Shanghai"
@@ -166,18 +487,18 @@ plugins:
 
 # 实验室基础信息 (双语支持)
 lab:
-  name: 
+  name:
     zh: "CDI 实验室"
     en: "CDI Lab"
   group_short_name: "LV Group"
   group_full_name: "Lifelike Interaction and Visuomotor Perception Group"
-  school: 
+  school:
     zh: "同济大学"
     en: "Tongji University"
-  institute: 
+  institute:
     zh: "设计创意学院 && 上海自主智能无人系统科学中心"
     en: "College of Design and Innovation && Shanghai Institute of Intelligent Science and Control"
-  location: 
+  location:
     zh: "上海市杨浦区四平路1239号"
     en: "1239 Siping Road, Yangpu District, Shanghai"
   email: "2511992@tongji.edu.cn"
@@ -188,45 +509,45 @@ lab:
 # ==========================================
 navigation:
   - url: "/"
-    title: 
+    title:
       zh: "课题主页"
       en: "Home"
   - url: "/pages/research.html"
-    title: 
+    title:
       zh: "研究方向"
       en: "Research"
   - url: "/pages/publications.html"
-    title: 
+    title:
       zh: "学术论文"
       en: "Publications"
   - url: "/pages/people.html"
-    title: 
+    title:
       zh: "团队成员"
       en: "People"
   - url: "/pages/news.html"
-    title: 
+    title:
       zh: "新闻动态"
       en: "News"
   - url: "/pages/contact.html"
-    title: 
+    title:
       zh: "联系加入"
       en: "Join Us"
 
 # 友情链接数据
 links:
-  - name: 
-      zh: 同济大学
-      en: Tongji University
-    url: https://www.tongji.edu.cn
   - name:
-      zh: 设计创意学院
-      en: College of Design and Innovation
-    url:  https://tjdi.tongji.edu.cn/
+      zh: "同济大学"
+      en: "Tongji University"
+    url: "https://www.tongji.edu.cn"
   - name:
-      zh: 上海自主智能无人系统科学中心
-      en: Shanghai Institute of Intelligent Science and Control
-    url: https://srias.tongji.edu.cn/
+      zh: "设计创意学院"
+      en: "College of Design and Innovation"
+    url: "https://tjdi.tongji.edu.cn/"
   - name:
-      zh: CDI 实验室
-      en: CDI Lab
-    url: http://www.tongjicdi.com/
+      zh: "上海自主智能无人系统科学中心"
+      en: "Shanghai Institute of Intelligent Science and Control"
+    url: "https://srias.tongji.edu.cn/"
+  - name:
+      zh: "CDI 实验室"
+      en: "CDI Lab"
+    url: "http://www.tongjicdi.com/"

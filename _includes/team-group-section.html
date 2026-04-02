@@ -1,0 +1,64 @@
+{% assign group = include.group %}
+{% assign members = include.members %}
+{% assign lead_group_ids = "professor,associate_prof,assistant_prof,researchers" | split: "," %}
+{% assign section_id = include.section_id | default: group.id %}
+{% assign section_color = include.color | default: group.color | default: "sky" %}
+{% assign section_title_zh = include.title_zh | default: group.title.zh %}
+{% assign section_title_en = include.title_en | default: group.title.en %}
+{% assign layout = include.layout | default: "" %}
+{% assign serial = include.serial | default: include.group_index %}
+{% if layout == "" %}
+  {% if lead_group_ids contains group.id %}
+    {% assign layout = "lead" %}
+  {% elsif group.id == "alumni" %}
+    {% assign layout = "alumni" %}
+  {% else %}
+    {% assign layout = "compact" %}
+  {% endif %}
+{% endif %}
+
+<section id="{{ section_id }}" class="space-y-6" data-reveal="scale">
+  <div class="grid gap-8 xl:grid-cols-[0.55fr_1.45fr] xl:items-start">
+    <div class="chapter-shell pl-6">
+      <p class="section-serial">{{ serial }}</p>
+      <p class="section-kicker mt-5 text-[0.72rem] font-black uppercase text-{{ section_color }}-600 dark:text-{{ section_color }}-300">
+        <span class="lang-zh">{{ section_title_zh }}</span>
+        <span class="lang-en">{{ section_title_en }}</span>
+      </p>
+      <p class="mt-4 text-base leading-relaxed text-slate-600 dark:text-slate-300 md:text-lg">
+        {% if include.description_zh or include.description_en %}
+        <span class="lang-zh">{{ include.description_zh }}</span>
+        <span class="lang-en">{{ include.description_en }}</span>
+        {% else %}
+        {% include team-group-copy.html group=group variant="section" %}
+        {% endif %}
+      </p>
+    </div>
+
+    {% if layout == "lead" %}
+    <div class="space-y-6">
+      {% for member in members %}
+      {% include member-card.html member=member variant="lead" color=section_color %}
+      {% endfor %}
+    </div>
+    {% elsif layout == "alumni_feature" %}
+    <div class="grid gap-6 md:grid-cols-2">
+      {% for member in members %}
+      {% include member-card.html member=member variant="alumni_feature" color=section_color index=forloop.index %}
+      {% endfor %}
+    </div>
+    {% elsif layout == "alumni" %}
+    <div class="grid gap-5 md:grid-cols-2 xl:grid-cols-3">
+      {% for member in members %}
+      {% include member-card.html member=member variant="alumni" color=section_color index=forloop.index %}
+      {% endfor %}
+    </div>
+    {% else %}
+    <div class="grid gap-5 md:grid-cols-2">
+      {% for member in members %}
+      {% include member-card.html member=member variant="compact" color=section_color %}
+      {% endfor %}
+    </div>
+    {% endif %}
+  </div>
+</section>

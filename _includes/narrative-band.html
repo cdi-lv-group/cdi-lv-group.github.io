@@ -1,0 +1,91 @@
+{% assign band = include.band %}
+{% assign accent = include.accent | default: "sky" %}
+{% capture primary_url %}{% include link-url.html url=band.primary_btn.url %}{% endcapture %}
+{% assign primary_url = primary_url | strip %}
+{% assign primary_external = false %}
+{% if primary_url contains 'http://' or primary_url contains 'https://' %}
+  {% assign primary_external = true %}
+{% endif %}
+{% capture secondary_url %}{% include link-url.html url=band.secondary_btn.url %}{% endcapture %}
+{% assign secondary_url = secondary_url | strip %}
+{% assign secondary_external = false %}
+{% if secondary_url contains 'http://' or secondary_url contains 'https://' %}
+  {% assign secondary_external = true %}
+{% endif %}
+
+<section class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-20">
+  <div class="band-shell" data-band data-reveal="scale">
+    <div class="grid gap-10 lg:grid-cols-[1.08fr_0.92fr] lg:items-end">
+      <div class="band-copy">
+        <p class="section-kicker text-[0.72rem] font-black uppercase text-{{ accent }}-600 dark:text-{{ accent }}-300">
+          <span class="lang-zh">{{ band.kicker.zh }}</span>
+          <span class="lang-en">{{ band.kicker.en }}</span>
+        </p>
+
+        <h2 class="mt-4 text-3xl font-black leading-tight text-slate-900 dark:text-white md:text-5xl">
+          <span class="lang-zh">{{ band.title.zh }}</span>
+          <span class="lang-en">{{ band.title.en }}</span>
+        </h2>
+
+        <p class="mt-5 max-w-3xl text-base leading-relaxed text-slate-600 dark:text-slate-300 md:text-lg">
+          <span class="lang-zh">{{ band.description.zh }}</span>
+          <span class="lang-en">{{ band.description.en }}</span>
+        </p>
+
+        <div class="band-actions mt-8 flex flex-col gap-3 sm:flex-row">
+          {% if band.primary_btn and primary_url != "" %}
+          <a href="{{ primary_url }}" class="inline-flex items-center justify-center rounded-2xl bg-slate-900 px-7 py-4 text-base font-black text-white transition-all duration-300 hover:-translate-y-1 hover:bg-sky-600 hover:shadow-2xl dark:bg-white dark:text-slate-900 dark:hover:bg-cyan-300"{% if primary_external %} target="_blank" rel="noopener noreferrer"{% endif %}>
+            <span class="lang-zh">{{ band.primary_btn.text.zh }}</span>
+            <span class="lang-en">{{ band.primary_btn.text.en }}</span>
+          </a>
+          {% endif %}
+
+          {% if band.secondary_btn and secondary_url != "" %}
+          <a href="{{ secondary_url }}" class="inline-flex items-center justify-center rounded-2xl border border-slate-200/80 bg-white/70 px-7 py-4 text-base font-bold text-slate-700 transition-all duration-300 hover:-translate-y-1 hover:border-sky-200 hover:text-sky-600 dark:border-slate-700/80 dark:bg-slate-900/70 dark:text-slate-200 dark:hover:border-cyan-400 dark:hover:text-cyan-300"{% if secondary_external %} target="_blank" rel="noopener noreferrer"{% endif %}>
+            <span class="lang-zh">{{ band.secondary_btn.text.zh }}</span>
+            <span class="lang-en">{{ band.secondary_btn.text.en }}</span>
+          </a>
+          {% endif %}
+        </div>
+      </div>
+
+      <div class="panel-surface p-6 md:p-7">
+        {% if band.aside_label %}
+        <p class="section-kicker text-[0.68rem] font-black uppercase text-slate-400 dark:text-slate-500">
+          <span class="lang-zh">{{ band.aside_label.zh }}</span>
+          <span class="lang-en">{{ band.aside_label.en }}</span>
+        </p>
+        {% endif %}
+
+        {% if band.items %}
+        <div class="mt-5 space-y-3">
+          {% for item in band.items %}
+          <div class="band-list-item">
+            <span class="band-list-item__index">0{{ forloop.index }}</span>
+            <p class="text-sm font-semibold leading-relaxed text-slate-700 dark:text-slate-200 md:text-base">
+              <span class="lang-zh">{{ item.zh }}</span>
+              <span class="lang-en">{{ item.en }}</span>
+            </p>
+          </div>
+          {% endfor %}
+        </div>
+        {% endif %}
+
+        {% if band.note_value %}
+        <div class="mt-6 rounded-[1.4rem] border border-slate-200/80 bg-white/75 p-4 dark:border-slate-700/80 dark:bg-slate-900/80">
+          {% if band.note_label %}
+          <p class="text-xs font-black uppercase tracking-[0.18em] text-slate-400 dark:text-slate-500">
+            <span class="lang-zh">{{ band.note_label.zh }}</span>
+            <span class="lang-en">{{ band.note_label.en }}</span>
+          </p>
+          {% endif %}
+          <code class="mt-3 block text-sm font-medium leading-relaxed text-slate-600 dark:text-slate-200 break-all">
+            <span class="lang-zh">{{ band.note_value.zh }}</span>
+            <span class="lang-en">{{ band.note_value.en }}</span>
+          </code>
+        </div>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</section>

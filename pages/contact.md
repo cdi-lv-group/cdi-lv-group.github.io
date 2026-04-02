@@ -3,208 +3,178 @@ layout: default
 title: 联系加入
 ---
 
-<section class="bg-white dark:bg-slate-900 border-b border-slate-100 dark:border-slate-800 py-16 md:py-24 relative overflow-hidden z-0 transition-colors duration-300">
-    <div class="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHBhdGggZD0iTTAgMGg0MHY0MEgweiIgZmlsbD0ibm9uZSIvPjxwYXRoIGQ9Ik0wIDM5LjVMMDQwIDM5LjUiIHN0cm9rZT0icmdiYSgwLCAwLCAwLCAwLjAzKSIgc3Ryb2tlLXdpZHRoPSIxIi8+PHBhdGggZD0iTTM5LjUgMEwzOS41IDQwIiBzdHJva2U9InJnYmEoMCwgMCwgMCwgMC4wMykiIHN0cm9rZS13aWR0aD0iMSIvPjwvc3ZnPg==')] dark:opacity-[0.05] dark:invert opacity-40 -z-10 transition-opacity"></div>
-    <div class="absolute top-0 right-0 w-[40rem] h-[40rem] bg-cyan-50 dark:bg-cyan-900/20 rounded-full blur-3xl opacity-60 -translate-y-1/2 translate-x-1/3 transition-colors duration-300 -z-10"></div>
-    
-    <div class="max-w-6xl mx-auto px-4 relative z-10 text-center md:text-left">
-        
-        <div class="inline-block mb-6 px-5 py-2 rounded-full bg-blue-50/50 dark:bg-slate-800/50 border border-blue-100 dark:border-blue-900/50 text-blue-600 dark:text-blue-400 text-sm font-bold tracking-wide shadow-sm hover:shadow-md transition-all duration-300 backdrop-blur-sm">
-            <div class="flex items-center space-x-2">
-                <span class="relative flex h-2 w-2">
-                    <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
-                    <span class="relative inline-flex rounded-full h-2 w-2 bg-blue-500"></span>
-                </span>
-                
-                <span class="lang-zh">
-                    {{ site.join_header.badge.zh | replace: '%NAME%', site.lab.group_short_name }}
-                </span>
-                <span class="lang-en font-medium tracking-wider">
-                    {{ site.join_header.badge.en | replace: '%NAME%', site.lab.group_short_name }}
-                </span>
-            </div>
-        </div>
+{% include page-header.html header=site.join_header accent="sky" pulse=true inject_group_name=true %}
 
-        <h1 class="text-4xl md:text-6xl font-extrabold text-slate-900 dark:text-white mb-6 tracking-tight leading-tight transition-colors">
-            <span class="lang-zh">
-                {{ site.join_header.title_main.zh }} <br class="hidden md:block" /> 
-                <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-500 dark:from-blue-400 dark:to-cyan-300">{{ site.join_header.title_gradient.zh }}</span>
-                {{ site.join_header.title_suffix.zh }}
-            </span>
-            <span class="lang-en">
-                {{ site.join_header.title_main.en }} <br class="hidden md:block" /> 
-                <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-500 dark:from-blue-400 dark:to-cyan-300">{{ site.join_header.title_gradient.en }}</span>
-                {{ site.join_header.title_suffix.en }}
-            </span>
-        </h1>
+<section class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-14 md:py-20">
+  <div class="grid gap-10 xl:grid-cols-[0.6fr_1.4fr] xl:items-start">
+    {% include chapter-intro.html
+      serial="OPEN"
+      accent="sky"
+      reveal="left"
+      kicker_zh="岗位机会"
+      kicker_en="Open Positions"
+      title_zh="从核心博士方向到研究运营支持，机会按角色层次展开"
+      title_en="From Core Ph.D. Roles to Research Operations Support"
+      description_zh="这不是一组简单的信息卡，而是一条从高强度研究岗位到系统支持岗位的机会序列。你可以先看最核心的主舞台岗位，再浏览其余方向。"
+      description_en="This is not just a set of information cards. It is an opportunity sequence that spans high-intensity research roles and support roles. Start with the main-stage opening, then browse the rest."
+    %}
 
-        <p class="text-lg md:text-xl text-slate-500 dark:text-slate-400 max-w-3xl leading-relaxed font-light mx-auto md:mx-0 transition-colors">
-            <span class="lang-zh">{{ site.join_header.description.zh }}</span>
-            <span class="lang-en">{{ site.join_header.description.en }}</span>
-        </p>
-    </div>
-</section>
+    <div class="grid gap-6 xl:grid-cols-[1.06fr_0.94fr]">
+      {% for position in site.data.positions limit:1 %}
+      {% include position-card.html
+        position=position
+        variant="feature"
+        outer_class="px-6 py-7 md:px-8 md:py-8"
+        reveal="scale"
+        stage="featured-position"
+      %}
+      {% endfor %}
 
-<section class="max-w-6xl mx-auto px-4 py-16 md:py-24">
-    <div class="flex items-center space-x-4 mb-12 border-l-4 border-blue-600 dark:border-blue-500 pl-4 transition-colors">
-        <h2 class="text-3xl font-bold text-slate-800 dark:text-white tracking-tight transition-colors">
-            <span class="lang-zh">开放职位</span>
-            <span class="lang-en">Open Positions</span>
-        </h2>
-    </div>
-
-    <div class="grid md:grid-cols-3 gap-8">
-        {% for position in site.data.positions %}
-        {% if position.theme == "blue" %}
-            {% assign color_class = "blue" %}
-        {% elsif position.theme == "cyan" %}
-            {% assign color_class = "cyan" %}
-        {% elsif position.theme == "green" %}
-            {% assign color_class = "green" %}
-        {% else %}
-            {% assign color_class = "slate" %}
-        {% endif %}
-
-        <div class="bg-white dark:bg-slate-800 rounded-[2.5rem] p-8 border border-slate-100 dark:border-slate-700 shadow-sm hover:shadow-2xl hover:-translate-y-2 transition-all duration-500 flex flex-col h-full border-t-4 border-t-{{ color_class }}-500">
-            
-            <div class="flex justify-between items-start mb-6">
-                <div class="w-14 h-14 bg-{{ color_class }}-50 dark:bg-{{ color_class }}-900/30 text-{{ color_class }}-600 dark:text-{{ color_class }}-400 rounded-2xl flex items-center justify-center text-3xl shadow-sm transition-colors">
-                    {{ position.icon }}
-                </div>
-                {% if position.count %}
-                <span class="inline-flex items-center px-3 py-1 rounded-full text-[10px] font-black uppercase tracking-widest bg-{{ color_class }}-50 dark:bg-{{ color_class }}-900/30 text-{{ color_class }}-600 dark:text-{{ color_class }}-400 border border-{{ color_class }}-100 dark:border-{{ color_class }}-800 transition-colors">
-                    <span class="lang-zh">名额: {{ position.count.zh }}</span>
-                    <span class="lang-en">{{ position.count.en }}</span>
-                </span>
-                {% endif %}
-            </div>
-
-            <h3 class="text-2xl font-bold text-slate-900 dark:text-white mb-2 transition-colors">
-                <span class="lang-zh">{{ position.title.zh }}</span>
-                <span class="lang-en">{{ position.title.en }}</span>
-            </h3>
-            
-            <div class="inline-flex items-center gap-1.5 px-3 py-1.5 bg-slate-50 dark:bg-slate-700/50 border border-slate-100 dark:border-slate-600 rounded-lg text-xs font-semibold text-slate-600 dark:text-slate-300 mb-6 w-fit transition-colors">
-                <svg class="w-3.5 h-3.5 opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1v1H9V7zm5 0h1v1h-1V7zm-5 4h1v1H9v-1zm5 0h1v1h-1v-1zm-5 4h1v1H9v-1zm5 0h1v1h-1v-1z"></path></svg>
-                <span class="lang-zh">招生依托：{{ position.department.zh }}</span>
-                <span class="lang-en">Affiliation: {{ position.department.en }}</span>
-            </div>
-
-            <p class="text-slate-500 dark:text-slate-400 text-sm leading-relaxed mb-8 flex-grow transition-colors font-light">
-                <span class="lang-zh">{{ position.description.zh }}</span>
-                <span class="lang-en">{{ position.description.en }}</span>
-            </p>
-            
-            <div class="flex flex-wrap gap-2 mt-auto pt-6 border-t border-slate-50 dark:border-slate-700/50">
-                <div class="lang-zh flex flex-wrap gap-2">
-                    {% for tag in position.tags.zh %}
-                    <span class="flex items-center gap-1.5 text-xs font-bold text-{{ color_class }}-600 dark:text-{{ color_class }}-400">
-                        <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path></svg> {{ tag }}
-                    </span>
-                    {% endfor %}
-                </div>
-                <div class="lang-en flex flex-wrap gap-2">
-                    {% for tag in position.tags.en %}
-                    <span class="flex items-center gap-1.5 text-xs font-bold text-{{ color_class }}-600 dark:text-{{ color_class }}-400">
-                        <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path></svg> {{ tag }}
-                    </span>
-                    {% endfor %}
-                </div>
-            </div>
-        </div>
+      <div class="grid gap-5 sm:grid-cols-2" data-reveal="right">
+        {% for position in site.data.positions offset:1 %}
+        {% include position-card.html
+          position=position
+          variant="summary"
+          outer_class="p-5"
+        %}
         {% endfor %}
+      </div>
     </div>
+  </div>
 </section>
 
-<section class="bg-slate-50 dark:bg-slate-800/50 py-20 border-y border-slate-100 dark:border-slate-800 transition-colors duration-300">
-    <div class="max-w-6xl mx-auto px-4">
-        <div class="text-center mb-16">
-            <h2 class="text-3xl font-bold text-slate-800 dark:text-white tracking-tight mb-4 transition-colors">
-                <span class="lang-zh">为什么选择我们？</span>
-                <span class="lang-en">Why Join Us?</span>
-            </h2>
+<section class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-10 md:py-14">
+  <div class="grid gap-10 xl:grid-cols-[0.6fr_1.4fr] xl:items-start">
+    {% include chapter-intro.html
+      serial="PROOF"
+      accent="sky"
+      reveal="left"
+      kicker_zh="为什么加入我们"
+      kicker_en="Why Join Us"
+      title_zh="把团队的说服力做成可被快速感知的信誉层"
+      title_en="Turn Team Strength into a Readable Layer of Credibility"
+      description_zh="我们希望申请者能在很短时间里感受到：这里不仅有方向，也有算力、指导、国际交流和真正能落地的研究系统。"
+      description_en="Applicants should quickly understand that this lab offers not only strong directions, but also compute, mentorship, international exposure, and systems that turn ideas into real work."
+    %}
+
+    <div class="grid gap-5 md:grid-cols-3" data-reveal="scale">
+      <article class="proof-card p-6 md:p-7">
+        <div class="flex h-16 w-16 items-center justify-center rounded-2xl bg-sky-50 text-sky-600 dark:bg-slate-800 dark:text-cyan-300">
+          <svg class="h-8 w-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"></path>
+          </svg>
         </div>
-        
-        <div class="grid md:grid-cols-3 gap-12">
-            <div class="text-center group">
-                <div class="w-20 h-20 mx-auto bg-white dark:bg-slate-800 rounded-3xl flex items-center justify-center shadow-sm mb-6 group-hover:-translate-y-2 transition-all duration-300 border border-slate-100 dark:border-slate-700">
-                    <svg class="w-10 h-10 text-blue-600 dark:text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"></path></svg>
-                </div>
-                <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-3">
-                    <span class="lang-zh">充足的算力保障</span>
-                    <span class="lang-en">Abundant Computing Power</span>
-                </h3>
-                <p class="text-slate-500 dark:text-slate-400 text-sm leading-relaxed">
-                    <span class="lang-zh">配备大规模高性能 GPU 计算集群，告别算力焦虑。</span>
-                    <span class="lang-en">Equipped with large-scale high-performance GPU clusters.</span>
-                </p>
-            </div>
-            <div class="text-center group">
-                <div class="w-20 h-20 mx-auto bg-white dark:bg-slate-800 rounded-3xl flex items-center justify-center shadow-sm mb-6 group-hover:-translate-y-2 transition-all duration-300 border border-slate-100 dark:border-slate-700">
-                    <svg class="w-10 h-10 text-cyan-600 dark:text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"></path></svg>
-                </div>
-                <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-3">
-                    <span class="lang-zh">一对一学术指导</span>
-                    <span class="lang-en">Mentorship</span>
-                </h3>
-                <p class="text-slate-500 dark:text-slate-400 text-sm leading-relaxed">
-                    <span class="lang-zh">导师亲自指导 Idea 构思与论文撰写。</span>
-                    <span class="lang-en">Direct guidance from mentors on ideas and writing.</span>
-                </p>
-            </div>
-            <div class="text-center group">
-                <div class="w-20 h-20 mx-auto bg-white dark:bg-slate-800 rounded-3xl flex items-center justify-center shadow-sm mb-6 group-hover:-translate-y-2 transition-all duration-300 border border-slate-100 dark:border-slate-700">
-                    <svg class="w-10 h-10 text-green-600 dark:text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-                </div>
-                <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-3">
-                    <span class="lang-zh">开放的国际视野</span>
-                    <span class="lang-en">Global Vision</span>
-                </h3>
-                <p class="text-slate-500 dark:text-slate-400 text-sm leading-relaxed">
-                    <span class="lang-zh">资助参与国际顶会交流（CVPR/NeurIPS等）。</span>
-                    <span class="lang-en">Funding for international conferences like CVPR.</span>
-                </p>
-            </div>
+        <h3 class="mt-6 text-2xl font-black leading-tight text-slate-900 dark:text-white">
+          <span class="lang-zh">充足算力与实验支持</span>
+          <span class="lang-en">Compute and Experiment Support</span>
+        </h3>
+        <p class="mt-4 text-sm leading-relaxed text-slate-500 dark:text-slate-400">
+          <span class="lang-zh">大规模 GPU 算力、实验平台和数据支持并行推进，减少研究推进过程中的基础设施阻力。</span>
+          <span class="lang-en">Large-scale GPU access, experiment platforms, and data support move in parallel to reduce infrastructure drag during research execution.</span>
+        </p>
+      </article>
+
+      <article class="proof-card p-6 md:p-7">
+        <div class="flex h-16 w-16 items-center justify-center rounded-2xl bg-cyan-50 text-cyan-600 dark:bg-cyan-900/20 dark:text-cyan-300">
+          <svg class="h-8 w-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"></path>
+          </svg>
         </div>
+        <h3 class="mt-6 text-2xl font-black leading-tight text-slate-900 dark:text-white">
+          <span class="lang-zh">近距离指导与协作反馈</span>
+          <span class="lang-en">Close Mentorship and Iterative Feedback</span>
+        </h3>
+        <p class="mt-4 text-sm leading-relaxed text-slate-500 dark:text-slate-400">
+          <span class="lang-zh">我们强调研究判断、系统实现和表达能力一起成长，鼓励从 idea 到实验到写作的完整闭环。</span>
+          <span class="lang-en">We care about research judgment, system execution, and communication together, and encourage a full loop from idea to experiment to writing.</span>
+        </p>
+      </article>
+
+      <article class="proof-card p-6 md:p-7">
+        <div class="flex h-16 w-16 items-center justify-center rounded-2xl bg-emerald-50 text-emerald-600 dark:bg-emerald-900/20 dark:text-emerald-300">
+          <svg class="h-8 w-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+          </svg>
+        </div>
+        <h3 class="mt-6 text-2xl font-black leading-tight text-slate-900 dark:text-white">
+          <span class="lang-zh">国际合作与开放生态</span>
+          <span class="lang-en">Global Collaboration and Open Ecosystems</span>
+        </h3>
+        <p class="mt-4 text-sm leading-relaxed text-slate-500 dark:text-slate-400">
+          <span class="lang-zh">研究成果面向国际顶会、开放代码与跨机构合作，帮助成员更早进入真实学术与系统生态。</span>
+          <span class="lang-en">Work is oriented toward top venues, open-source releases, and cross-institution collaboration so members can enter real academic and systems ecosystems earlier.</span>
+        </p>
+      </article>
     </div>
+  </div>
 </section>
 
-<section class="max-w-4xl mx-auto px-4 py-20 mb-20">
-    <div class="bg-gradient-to-br from-blue-600 to-indigo-700 rounded-[3.5rem] p-10 md:p-14 text-white shadow-2xl relative overflow-hidden transition-colors duration-300">
-        <div class="absolute top-0 right-0 w-80 h-80 bg-white/10 rounded-full blur-3xl -mr-20 -mt-20"></div>
-        
-        <div class="relative z-10 flex flex-col md:flex-row items-center gap-12">
-            <div class="flex-1 text-center md:text-left">
-                <h2 class="text-4xl font-black mb-6">
-                    <span class="lang-zh">如何申请？</span>
-                    <span class="lang-en">How to Apply?</span>
-                </h2>
-                <p class="text-blue-50 opacity-90 mb-8 text-lg font-light leading-relaxed">
-                    <span class="lang-zh">请将个人简历及成绩单发送至下方邮箱。</span>
-                    <span class="lang-en">Please send your CV and transcripts to the following email.</span>
-                </p>
-                
-                <div class="bg-black/20 backdrop-blur-md border border-white/10 rounded-2xl p-6 mb-10 text-left">
-                    <p class="font-bold text-white mb-3 flex items-center gap-2">
-                        <span class="lang-zh">📌 邮件主题格式建议：</span>
-                        <span class="lang-en">📌 Subject Format:</span>
-                    </p>
-                    <code class="block bg-white/10 p-4 rounded-xl text-blue-100 text-sm break-all font-mono">
-                        <span class="lang-zh">[申请博士/硕士/实习] - 姓名 - 本科学校 - 入学年份</span>
-                        <span class="lang-en">[Apply-PhD/Master/Intern] - Name - Univ - Year</span>
-                    </code>
-                </div>
-                
-                <a href="mailto:{{ site.lab.email }}" class="inline-flex items-center justify-center gap-3 bg-white text-blue-600 px-10 py-5 rounded-2xl font-black text-xl hover:scale-105 transition shadow-xl w-full md:w-auto">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
-                    <span class="lang-zh">立即发送邮件</span>
-                    <span class="lang-en">Email Us Now</span>
-                </a>
-            </div>
-            
-            <div class="hidden lg:block w-48 h-48 bg-white/10 rounded-full flex items-center justify-center border border-white/20">
-                <span class="text-7xl animate-bounce">✉️</span>
-            </div>
+<section class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-10 md:py-14">
+  <div class="grid gap-10 xl:grid-cols-[0.58fr_1.42fr] xl:items-start">
+    {% include chapter-intro.html
+      serial="APPLY"
+      accent="sky"
+      reveal="left"
+      kicker_zh="如何申请"
+      kicker_en="Application Steps"
+      title_zh="把表达兴趣这件事，变成一条清晰而高质量的进入路径"
+      title_en="Turn Interest into a Clear, High-Quality Entry Path"
+      description_zh="我们更希望看到的是研究判断、执行潜力和真实投入意愿。下面这组步骤，会帮助你把联系邮件写得更具体，也更容易让双方快速判断匹配度。"
+      description_en="We care more about research judgment, execution potential, and genuine commitment. These steps help you make first contact more concrete so both sides can quickly evaluate fit."
+    %}
+
+    <div class="grid gap-6 xl:grid-cols-[1.06fr_0.94fr]">
+      <div class="grid gap-5 md:grid-cols-3">
+        {% for step in site.join_process.steps %}
+        <article class="position-card p-5 md:p-6" data-reveal="scale">
+          <span class="exhibit-index__num">0{{ forloop.index }}</span>
+          <h3 class="mt-5 text-xl font-black leading-tight text-slate-900 dark:text-white">
+            <span class="lang-zh">{{ step.title.zh }}</span>
+            <span class="lang-en">{{ step.title.en }}</span>
+          </h3>
+          <p class="mt-4 text-sm leading-relaxed text-slate-500 dark:text-slate-400">
+            <span class="lang-zh">{{ step.description.zh }}</span>
+            <span class="lang-en">{{ step.description.en }}</span>
+          </p>
+        </article>
+        {% endfor %}
+      </div>
+
+      <div class="grid gap-5" data-reveal="right">
+        <div class="stage-rail p-6 md:p-7">
+          <p class="section-kicker text-[0.68rem] font-black uppercase text-sky-600 dark:text-cyan-300">
+            <span class="lang-zh">{{ site.join_process.subject_label.zh }}</span>
+            <span class="lang-en">{{ site.join_process.subject_label.en }}</span>
+          </p>
+          <code class="mt-4 block text-sm font-medium leading-relaxed text-slate-700 dark:text-slate-100 break-all">
+            <span class="lang-zh">{{ site.join_process.subject_value.zh }}</span>
+            <span class="lang-en">{{ site.join_process.subject_value.en }}</span>
+          </code>
         </div>
+
+        <div class="panel-surface p-6 md:p-7">
+          <p class="section-kicker text-[0.68rem] font-black uppercase text-slate-400 dark:text-slate-500">
+            <span class="lang-zh">{{ site.join_process.contact_label.zh }}</span>
+            <span class="lang-en">{{ site.join_process.contact_label.en }}</span>
+          </p>
+          <a href="mailto:{{ site.lab.email }}" class="mt-4 inline-flex items-center rounded-full border border-slate-200/90 bg-white/75 px-4 py-2 text-sm font-black text-sky-600 transition-colors hover:border-sky-300 hover:text-sky-700 dark:border-slate-700 dark:bg-slate-900/70 dark:text-cyan-300 dark:hover:border-cyan-400 dark:hover:text-cyan-200">{{ site.lab.email }}</a>
+          <p class="mt-4 text-sm leading-relaxed text-slate-500 dark:text-slate-400">
+            <span class="lang-zh">{{ site.join_process.contact_value.zh }}</span>
+            <span class="lang-en">{{ site.join_process.contact_value.en }}</span>
+          </p>
+
+          <p class="mt-6 text-xs font-black uppercase tracking-[0.18em] text-slate-400 dark:text-slate-500">
+            <span class="lang-zh">{{ site.join_process.response_label.zh }}</span>
+            <span class="lang-en">{{ site.join_process.response_label.en }}</span>
+          </p>
+          <p class="mt-3 text-sm leading-relaxed text-slate-600 dark:text-slate-300">
+            <span class="lang-zh">{{ site.join_process.response_value.zh }}</span>
+            <span class="lang-en">{{ site.join_process.response_value.en }}</span>
+          </p>
+        </div>
+      </div>
     </div>
+  </div>
 </section>
+
+{% include narrative-band.html band=site.cta_bands.join accent="sky" %}

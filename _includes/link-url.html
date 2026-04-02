@@ -1,0 +1,10 @@
+{% assign target_url = include.url | default: "" %}
+{% assign first_char = target_url | slice: 0, 1 %}
+{% if target_url == blank %}
+{% elsif target_url contains '://' or target_url contains 'mailto:' or target_url contains 'tel:' %}
+{{ target_url }}
+{% elsif first_char == '#' %}
+{{ target_url }}
+{% else %}
+{{ target_url | relative_url }}
+{% endif %}

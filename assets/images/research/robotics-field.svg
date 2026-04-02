@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900" fill="none">
+  <defs>
+    <linearGradient id="bg" x1="140" y1="100" x2="1480" y2="820" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#2563EB"/>
+      <stop offset="1" stop-color="#0F766E"/>
+    </linearGradient>
+  </defs>
+  <rect width="1600" height="900" rx="48" fill="url(#bg)"/>
+  <path d="M0 660c150-92 308-138 474-138 220 0 408 74 562 112 170 42 354 34 564-20v286H0V660Z" fill="rgba(255,255,255,0.14)"/>
+  <rect x="360" y="316" width="170" height="170" rx="24" fill="rgba(255,255,255,0.16)"/>
+  <rect x="668" y="258" width="200" height="228" rx="28" fill="rgba(255,255,255,0.16)"/>
+  <rect x="1000" y="332" width="210" height="154" rx="24" fill="rgba(255,255,255,0.16)"/>
+  <text x="180" y="760" fill="white" font-family="Arial, sans-serif" font-size="78" font-weight="700">Field Control</text>
+</svg>

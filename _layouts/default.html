@@ -4,185 +4,172 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% if page.title and page.url != '/' %}{{ page.title }} | {% endif %}{{ site.title }}</title>
-    
-    <script>
-        // 黑暗模式初始化
-        if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-            document.documentElement.classList.add('dark');
-        } else {
-            document.documentElement.classList.remove('dark');
-        }
 
-        // 语言初始化 (读取 URL 参数 ?lang=en 或 localStorage)
-        const urlParams = new URLSearchParams(window.location.search);
-        let savedLang = urlParams.get('lang') || localStorage.getItem('lang') || 'zh';
-        document.documentElement.lang = savedLang;
+    <script>
+        (function () {
+            var root = document.documentElement;
+            var savedTheme = localStorage.getItem('color-theme');
+            var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+            var theme = savedTheme || (prefersDark ? 'dark' : 'light');
+            var params = new URLSearchParams(window.location.search);
+            var lang = params.get('lang') || localStorage.getItem('lang') || 'zh';
+
+            root.classList.toggle('dark', theme === 'dark');
+            root.lang = lang;
+        })();
     </script>
 
     <script src="https://cdn.tailwindcss.com"></script>
-    <script>tailwind.config = { darkMode: 'class', }</script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    
-    <style>
-        body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; transition: background-color 0.3s ease, color 0.3s ease; }
-        .glass-nav { background: rgba(255, 255, 255, 0.85); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(226, 232, 240, 0.8); }
-        .dark .glass-nav { background: rgba(15, 23, 42, 0.85); border-bottom: 1px solid rgba(30, 41, 59, 0.8); }
-        
-        /* 核心 CSS：根据 HTML 的 lang 属性隐藏对应的语言区块 */
-        html[lang="zh"] .lang-en { display: none !important; }
-        html[lang="en"] .lang-zh { display: none !important; }
-    </style>
+    <script>
+        tailwind.config = {
+            darkMode: 'class'
+        };
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700;900&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ '/assets/css/site.css' | relative_url }}">
 </head>
 
-<body class="bg-slate-50 text-slate-900 dark:bg-slate-900 dark:text-slate-200 flex flex-col min-h-screen">
+<body class="min-h-screen text-slate-900 dark:text-slate-100">
+    <a href="#main-content" class="skip-link">Skip to content</a>
+    <div class="site-canvas">
+        <div class="site-canvas__orb site-canvas__orb--one"></div>
+        <div class="site-canvas__orb site-canvas__orb--two"></div>
+    </div>
 
-    <nav class="glass-nav sticky top-0 z-50">
-        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between h-16 items-center">
-                
-                <div class="flex-shrink-0 flex flex-col justify-center cursor-pointer" onclick="window.location.href='{{ '/' | relative_url }}'">
-                    <a class="text-xl font-bold tracking-tight text-blue-600 dark:text-blue-400 leading-none mb-1">
-                        {{ site.lab.group_short_name }} <span class="text-slate-400 dark:text-slate-500 font-light ml-1">Lab</span>
+    <div class="site-shell flex min-h-screen flex-col">
+        <nav class="glass-nav sticky top-0 z-50">
+            <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex items-center justify-between gap-4 py-3">
+                    <a href="{{ '/' | relative_url }}" class="flex min-w-0 flex-col">
+                        <span class="text-[0.68rem] font-semibold uppercase tracking-[0.28em] text-sky-600 dark:text-cyan-300">Tongji University</span>
+                        <span class="font-display mt-1 text-xl font-bold tracking-tight text-slate-900 dark:text-white">{{ site.lab.group_short_name }}</span>
+                        <span class="truncate text-[0.62rem] uppercase tracking-[0.2em] text-slate-500 dark:text-slate-400">{{ site.lab.group_full_name }}</span>
                     </a>
-                    <span class="text-[0.6rem] text-slate-500 dark:text-slate-400 font-medium tracking-wide uppercase leading-none">
-                        {{ site.lab.group_full_name }}
-                    </span>
-                </div>
 
-                <div class="hidden md:flex items-center space-x-6">
-                    <div class="flex items-baseline space-x-6 text-sm font-medium">
-                        {% for item in site.navigation %}
-                            <a href="{{ item.url | relative_url }}" class="{% if page.url == item.url %}text-blue-600 dark:text-blue-400 font-bold{% else %}text-slate-600 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-400{% endif %} transition duration-300">
-                               <span class="lang-zh">{{ item.title.zh }}</span>
-                               <span class="lang-en">{{ item.title.en }}</span>
+                    <div class="hidden md:flex items-center gap-6">
+                        <div class="flex items-center gap-6 text-sm font-medium">
+                            {% for item in site.navigation %}
+                            <a href="{{ item.url | relative_url }}" class="nav-link {% if page.url == item.url %}is-active text-slate-900 dark:text-white{% else %}text-slate-600 hover:text-slate-900 dark:text-slate-300 dark:hover:text-white{% endif %}">
+                                <span class="lang-zh">{{ item.title.zh }}</span>
+                                <span class="lang-en">{{ item.title.en }}</span>
                             </a>
-                        {% endfor %}
+                            {% endfor %}
+                        </div>
                     </div>
-                    
-                    <div class="flex items-center bg-slate-100 dark:bg-slate-800 rounded-lg p-0.5 border border-slate-200 dark:border-slate-700">
-                        <button onclick="switchLang('zh')" id="btn-zh" class="px-2 py-1 text-[10px] font-bold rounded-md transition-all">中</button>
-                        <button onclick="switchLang('en')" id="btn-en" class="px-2 py-1 text-[10px] font-bold rounded-md transition-all">EN</button>
+
+                    <div class="flex items-center gap-2 md:gap-3">
+                        <div class="lang-toggle control-pill flex items-center rounded-full p-1 text-[11px] font-bold">
+                            <button data-set-lang="zh" class="rounded-full px-3 py-1.5 text-slate-600 dark:text-slate-300">中</button>
+                            <button data-set-lang="en" class="rounded-full px-3 py-1.5 text-slate-600 dark:text-slate-300">EN</button>
+                        </div>
+
+                        <button data-toggle-theme class="theme-toggle control-pill flex h-10 w-10 items-center justify-center rounded-full text-slate-600 dark:text-slate-300" aria-label="Toggle theme">
+                            <svg data-theme-icon="dark" class="h-5 w-5" fill="currentColor" viewBox="0 0 20 20">
+                                <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path>
+                            </svg>
+                            <svg data-theme-icon="light" class="hidden h-5 w-5" fill="currentColor" viewBox="0 0 20 20">
+                                <path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path>
+                            </svg>
+                        </button>
+
+                        <button data-toggle-menu class="menu-toggle control-pill flex h-10 w-10 items-center justify-center rounded-full text-slate-600 dark:text-slate-300 md:hidden" aria-label="Toggle menu" aria-expanded="false">
+                            <svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                            </svg>
+                        </button>
                     </div>
-                    
-                    <button id="theme-toggle" class="text-slate-500 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 focus:outline-none rounded-lg text-sm p-2 transition-colors">
-                        <svg id="theme-toggle-dark-icon" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg>
-                        <svg id="theme-toggle-light-icon" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path></svg>
-                    </button>
+                </div>
+
+                <div data-mobile-menu class="mobile-panel md:hidden">
+                    <div class="soft-card mb-4 rounded-[1.8rem] p-4">
+                        <div class="space-y-2">
+                            {% for item in site.navigation %}
+                            <a href="{{ item.url | relative_url }}" class="mobile-link {% if page.url == item.url %}is-active{% endif %}">
+                                <span class="font-semibold text-slate-900 dark:text-white">
+                                    <span class="lang-zh">{{ item.title.zh }}</span>
+                                    <span class="lang-en">{{ item.title.en }}</span>
+                                </span>
+                            </a>
+                            {% endfor %}
+                        </div>
+
+                        <div class="mt-4 rounded-2xl bg-slate-50/80 p-4 text-sm text-slate-500 dark:bg-slate-900/70 dark:text-slate-300">
+                            <p class="font-semibold text-slate-900 dark:text-white">{{ site.lab.group_short_name }}</p>
+                            <p class="mt-1">
+                                <span class="lang-zh">{{ site.lab.school.zh }}</span>
+                                <span class="lang-en">{{ site.lab.school.en }}</span>
+                            </p>
+                            <a href="mailto:{{ site.lab.email }}" class="mt-2 inline-flex items-center gap-2 text-sky-600 dark:text-cyan-300">{{ site.lab.email }}</a>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
-    </nav>
+        </nav>
 
-    <main class="flex-grow">
-        {{ content }}
-    </main>
+        <main id="main-content" class="flex-1">
+            {{ content }}
+        </main>
 
-    <section class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12 mt-10 border-t border-slate-100 dark:border-slate-800/50 transition-colors">
-        <div class="flex items-center space-x-3 mb-8">
-            <div class="h-1 w-6 bg-blue-600 dark:bg-blue-500 rounded-full"></div>
-            <h2 class="text-xs font-black uppercase tracking-[0.2em] text-slate-400 dark:text-slate-500">
-                <span class="lang-zh">友情链接</span>
-                <span class="lang-en">Quick Links</span>
-            </h2>
-        </div>
-        
-        <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-            {% for link in site.links %}
-            <a href="{{ link.url }}" target="_blank" rel="noopener noreferrer" 
-               class="group p-4 rounded-2xl border border-slate-100 dark:border-slate-800 bg-white/40 dark:bg-slate-800/40 hover:bg-white dark:hover:bg-slate-800 hover:border-blue-200 dark:hover:border-blue-700 hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
-                <div class="flex flex-col">
-                    <span class="text-sm font-bold text-slate-700 dark:text-slate-200 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
-                        <span class="lang-zh">{{ link.name.zh }}</span>
-                        <span class="lang-en">{{ link.name.en }}</span>
-                    </span>
-                    <span class="text-[10px] text-slate-400 dark:text-slate-500 mt-1.5 font-medium truncate opacity-60 group-hover:opacity-100 transition-opacity uppercase tracking-tighter">
-                        {{ link.url | remove: "https://" | remove: "http://" | remove: "www." }}
-                    </span>
+        <section class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-14">
+            <div class="soft-card rounded-[2.6rem] p-6 md:p-8" data-reveal="scale">
+                <div class="mb-8 flex items-center gap-3">
+                    <div class="h-1 w-8 rounded-full bg-gradient-to-r from-sky-500 to-cyan-400"></div>
+                    <h2 class="section-kicker text-[0.72rem] font-black uppercase text-slate-500 dark:text-slate-400">
+                        <span class="lang-zh">友情链接</span>
+                        <span class="lang-en">Quick Links</span>
+                    </h2>
                 </div>
-            </a>
-            {% endfor %}
-        </div>
-    </section>
 
-    <footer class="bg-white dark:bg-slate-900 border-t border-slate-200 dark:border-slate-800 py-12 transition-colors">
-        <div class="max-w-6xl mx-auto px-4 flex flex-col md:flex-row justify-between items-center text-center md:text-left gap-6">
-            <div>
-                <p class="text-slate-800 dark:text-slate-200 font-bold text-lg mb-1">{{ site.lab.group_short_name }}</p>
-                <p class="text-slate-500 dark:text-slate-400 text-[10px] tracking-widest uppercase mb-2">{{ site.lab.group_full_name }}</p>
-                <p class="text-slate-400 dark:text-slate-500 text-sm mt-2 font-light">
-                    &copy; {{ "now" | date: "%Y" }} 
-                    <span class="lang-zh">{{ site.lab.school.zh }}</span>
-                    <span class="lang-en">{{ site.lab.school.en }}</span>. All rights reserved.
-                </p>
+                <div class="grid grid-cols-1 gap-4 sm:grid-cols-2 xl:grid-cols-4">
+                    {% for link in site.links %}
+                    <a href="{{ link.url }}" target="_blank" rel="noopener noreferrer" class="group rounded-[1.75rem] border border-slate-200/70 bg-white/60 p-5 transition-all duration-300 hover:-translate-y-1 hover:border-sky-200 hover:shadow-xl dark:border-slate-700/70 dark:bg-slate-900/50 dark:hover:border-cyan-500/40">
+                        <p class="font-display text-lg font-bold text-slate-900 transition-colors group-hover:text-sky-600 dark:text-white dark:group-hover:text-cyan-300">
+                            <span class="lang-zh">{{ link.name.zh }}</span>
+                            <span class="lang-en">{{ link.name.en }}</span>
+                        </p>
+                        <p class="mt-2 text-xs uppercase tracking-[0.18em] text-slate-400 dark:text-slate-500">
+                            {{ link.url | remove: "https://" | remove: "http://" | remove: "www." }}
+                        </p>
+                    </a>
+                    {% endfor %}
+                </div>
             </div>
-            <div class="text-slate-400 dark:text-slate-500 text-xs md:text-sm text-center md:text-right space-y-1 font-light">
-                <p>
-                    <span class="lang-zh">{{ site.lab.institute.zh }}</span>
-                    <span class="lang-en">{{ site.lab.institute.en }}</span>
-                </p>
-                <p>
-                    <span class="lang-zh">{{ site.lab.location.zh }}</span>
-                    <span class="lang-en">{{ site.lab.location.en }}</span>
-                </p>
+        </section>
+
+        <footer class="border-t border-slate-200/70 py-12 dark:border-slate-800/80">
+            <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="soft-card rounded-[2.6rem] p-6 md:p-8" data-reveal="scale">
+                    <div class="grid gap-8 md:grid-cols-[1.1fr_0.9fr] md:items-end">
+                        <div>
+                            <p class="section-kicker text-[0.72rem] font-black uppercase text-sky-600 dark:text-cyan-300">Academic Research Group</p>
+                            <h2 class="mt-3 font-display text-2xl font-bold text-slate-900 dark:text-white">{{ site.lab.group_short_name }}</h2>
+                            <p class="mt-2 text-sm uppercase tracking-[0.2em] text-slate-400 dark:text-slate-500">{{ site.lab.group_full_name }}</p>
+                            <p class="mt-5 max-w-2xl text-sm leading-relaxed text-slate-500 dark:text-slate-400">
+                                <span class="lang-zh">{{ site.lab.institute.zh }}</span>
+                                <span class="lang-en">{{ site.lab.institute.en }}</span>
+                            </p>
+                        </div>
+
+                        <div class="space-y-4 text-sm text-slate-500 dark:text-slate-400 md:text-right">
+                            <p>
+                                <span class="lang-zh">{{ site.lab.location.zh }}</span>
+                                <span class="lang-en">{{ site.lab.location.en }}</span>
+                            </p>
+                            <div class="flex flex-wrap justify-start gap-3 md:justify-end">
+                                <a href="mailto:{{ site.lab.email }}" class="inline-flex items-center rounded-full border border-slate-200/80 px-4 py-2 font-semibold text-slate-700 transition-colors hover:border-sky-300 hover:text-sky-600 dark:border-slate-700 dark:text-slate-200 dark:hover:border-cyan-400 dark:hover:text-cyan-300">{{ site.lab.email }}</a>
+                                <a href="{{ site.lab.github }}" target="_blank" rel="noopener noreferrer" class="inline-flex items-center rounded-full border border-slate-200/80 px-4 py-2 font-semibold text-slate-700 transition-colors hover:border-sky-300 hover:text-sky-600 dark:border-slate-700 dark:text-slate-200 dark:hover:border-cyan-400 dark:hover:text-cyan-300">GitHub</a>
+                            </div>
+                            <p class="text-xs uppercase tracking-[0.2em] text-slate-400 dark:text-slate-500">&copy; {{ "now" | date: "%Y" }} {{ site.lab.school.en }}</p>
+                        </div>
+                    </div>
+                </div>
             </div>
-        </div>
-    </footer>
+        </footer>
+    </div>
 
-    <script>
-        // --- 语言切换逻辑 ---
-        function switchLang(lang) {
-            document.documentElement.lang = lang;
-            localStorage.setItem('lang', lang);
-            updateLangBtnStyle();
-            
-            // 无刷新修改 URL 参数
-            const url = new URL(window.location);
-            url.searchParams.set('lang', lang);
-            window.history.pushState({}, '', url);
-        }
-
-        function updateLangBtnStyle() {
-            const currentLang = document.documentElement.lang;
-            const btnZh = document.getElementById('btn-zh');
-            const btnEn = document.getElementById('btn-en');
-            
-            const activeClass = "bg-white dark:bg-slate-600 shadow-sm text-blue-600 dark:text-white";
-            const inactiveClass = "text-slate-500 hover:text-slate-700 dark:hover:text-slate-300";
-
-            if (currentLang === 'zh') {
-                btnZh.className = `px-2 py-1 text-[10px] font-bold rounded-md transition-all ${activeClass}`;
-                btnEn.className = `px-2 py-1 text-[10px] font-bold rounded-md transition-all ${inactiveClass}`;
-            } else {
-                btnEn.className = `px-2 py-1 text-[10px] font-bold rounded-md transition-all ${activeClass}`;
-                btnZh.className = `px-2 py-1 text-[10px] font-bold rounded-md transition-all ${inactiveClass}`;
-            }
-        }
-        
-        updateLangBtnStyle();
-
-        // --- 暗黑模式逻辑 ---
-        const themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
-        const themeToggleLightIcon = document.getElementById('theme-toggle-light-icon');
-        const themeToggleBtn = document.getElementById('theme-toggle');
-
-        if (document.documentElement.classList.contains('dark')) {
-            themeToggleLightIcon.classList.remove('hidden');
-        } else {
-            themeToggleDarkIcon.classList.remove('hidden');
-        }
-
-        themeToggleBtn.addEventListener('click', function() {
-            themeToggleDarkIcon.classList.toggle('hidden');
-            themeToggleLightIcon.classList.toggle('hidden');
-            
-            if (document.documentElement.classList.contains('dark')) {
-                document.documentElement.classList.remove('dark');
-                localStorage.setItem('color-theme', 'light');
-            } else {
-                document.documentElement.classList.add('dark');
-                localStorage.setItem('color-theme', 'dark');
-            }
-        });
-    </script>
+    <script src="{{ '/assets/js/site.js' | relative_url }}"></script>
 </body>
 </html>

@@ -1,189 +1,350 @@
-# 🎓 Academic Group Web Engine (Bilingual & Data-Driven)
+# Academic Group Web Engine
 
-这是一个面向科研课题组（Research Groups）设计的**数据驱动型**静态网站模板。它通过“数据与代码分离”的架构，支持通过 **飞书 (Feishu/Lark)** 等云端平台同步更新，自动生成专业且美观的中英双语学术主页。
+这是一个面向科研课题组的双语、数据驱动型 Jekyll 网站模板。站点内容由 `_data/` 中的 YAML 文件驱动，页面结构与视觉系统集中在 `_layouts/`、`_includes/`、`assets/css/` 和 `assets/js/` 中，飞书同步逻辑位于 `scripts/feishu_sync/`。
 
-## 🛠️ 技术栈 (Tech Stack)
+当前仓库默认包含一套高质量但虚构的 mock 数据，用于验证页面分支覆盖、视觉密度和模板完整性。
 
-* **SSG**: Jekyll / Hugo (支持 GitHub Pages / Vercel 自动部署)
-* **Data**: YAML 1.2 (位于 `_data/` 目录，全站单一事实来源)
-* **Automation**: GitHub Actions + Python API Sync (支持多平台同步)
-* **UI**: Tailwind CSS / Bootstrap (响应式设计，学术风格)
+## 快速开始
 
+### 本地预览
 
-## 📝 数据维护手册 (Data Dictionary & Templates)
-
-全站内容由 `_data/` 目录下的六个核心 YAML 文件驱动。更新时请确保所有**必填字段**完整。
-
-### 1. 团队分类字典 (`team_groups.yml`)
-
-定义全站的身份分组与视觉色彩。`id` 必须与成员表中的 `group_id` 严格对应。
-
-```yaml
-# 模板示例
-- id: "phd"                  # [必填] 唯一标识符，关联 people.yml
-  title:                     # [必填] 双语分组标题
-    zh: "博士研究生"
-    en: "Ph.D. Students"
-  color: "blue"              # [选填] 绑定颜色：indigo, purple, blue, cyan, green, orange, gray
-
+```bash
+jekyll serve
 ```
 
-### 2. 团队成员 (`people.yml`)
+如果 `4000` 端口被占用：
 
-用于展示老师、学生及校友。
+```bash
+jekyll serve --host 127.0.0.1 --port 4002
+```
+
+### 构建检查
+
+```bash
+jekyll build --source . --destination /tmp/jekyll-build
+```
+
+### 你最常改的地方
+
+- 改站点文案和页头展示：
+  编辑 `_config.yml`
+- 改成员、论文、新闻、研究方向、招生信息：
+  编辑 `_data/*.yml`
+- 改页面结构和组件：
+  编辑 `_includes/`、`_layouts/`、`pages/`、`index.md`
+- 改视觉和交互：
+  编辑 `assets/css/site.css`、`assets/js/site.js`
+
+## 技术栈
+
+- SSG: Jekyll 4
+- Data: YAML 1.2
+- UI: Tailwind CDN + 自定义 CSS/JS
+- Automation: GitHub Actions + Python 同步脚本
+- Content Sync: Feishu/Lark Bitable -> YAML
+
+## 目录结构
+
+- `_data/`
+  站点内容数据源，当前包含 `groups.yml`、`team.yml`、`research.yml`、`publications.yml`、`news.yml`、`positions.yml`
+- `_includes/`
+  可复用组件，例如 `page-header.html`、`chapter-intro.html`、`narrative-band.html`、`publication-card.html`、`news-card.html`、`position-card.html`、`team-links.html`
+- `_layouts/default.html`
+  全站布局骨架、导航、页脚、语言与主题控制
+- `assets/css/site.css`
+  全站视觉 token、组件样式、动效和响应式规则
+- `assets/js/site.js`
+  语言切换、主题切换、移动端菜单和 reveal 动效
+- `scripts/feishu_sync/`
+  飞书同步的模块化实现
+- `feishu_config.yml`
+  飞书表到 `_data/*.yml` 的映射配置
+
+## 数据文件说明
+
+### `groups.yml`
+
+定义团队分组和视觉色彩，`id` 需要与 `team.yml` 中的 `group_id` 对应。
 
 ```yaml
-# 模板示例
-- name: { zh: "姓名", en: "Name" }      # [必填] 双语姓名
-  group_id: "phd"                      # [必填] 对应 team_groups 中的 id
-  rank: 10                             # [选填] 排序权重，越小越靠前
-  title: { zh: "博士生", en: "Ph.D. Student" } # [必填] 身份/年级描述
-  role: { zh: "核心骨干", en: "Core Member" } # [选填] 实验室职务
-  avatar: "/assets/images/team/x.jpg"  # [选填] 头像路径，建议 1:1 正方形
-  bio:                                 # [选填] 个人简介
-    zh: "中文简介内容..."
-    en: "English biography..."
-  email: "xxx@tongji.edu.cn"           # [选填] 邮箱地址
-  destination:                         # [仅校友选填] 毕业去向
-    zh: "🎓 毕业于：XX大学/公司"
-    en: "🎓 Joined XX Univ/Co."
-  links:                               # [选填] 社交/学术链接图标
+- id: "phd"
+  title:
+    zh: "博士研究生"
+    en: "Ph.D. Students"
+  color: "blue"
+```
+
+### `team.yml`
+
+成员数据，支持双语姓名、身份、角色、简介、头像、邮箱、社交链接和校友去向。
+
+```yaml
+- name:
+    zh: "姓名"
+    en: "Name"
+  group_id: "phd"
+  rank: 10
+  title:
+    zh: "博士生"
+    en: "Ph.D. Student"
+  role:
+    zh: "核心骨干"
+    en: "Core Member"
+  avatar: "/assets/images/team/default-avatar.svg"
+  bio:
+    zh: "中文简介"
+    en: "English bio"
+  email: "name@example.edu"
+  destination:
+    zh: "校友去向"
+    en: "Alumni destination"
+  links:
     homepage: "https://..."
     scholar: "https://..."
     github: "https://..."
-    linkedin: "https://..."
-    zhihu: "https://..."
-
 ```
 
-### 3. 学术论文 (`publications.yml`)
+### `research.yml`
 
-系统会自动提取 `year` 字段进行年度聚类，并按发表时间排序。
-
-```yaml
-# 模板示例
-- title: 
-    zh: "中文论文标题"
-    en: "English Paper Title"
-  authors: "Author A, <b>Wenbin Zuo</b>*" # [必填] 核心成员加粗 <b>，通讯作者加 *
-  type: "conference"                      # [必填] conference/journal/preprint
-  venue: "CVPR 2026"                      # [必填] 发表场所（会议/期刊名）
-  year: 2026                              # [必填] 纯数字年份，用于分组
-  highlight: "Oral"                       # [选填] 荣誉徽标（如 Oral/Spotlight）
-  image: "/assets/img/pub/teaser.jpg"     # [选填] 效果图/Teaser，建议 16:9
-  abstract:                               # [选填] 简短摘要
-    zh: "这是一段中文摘要介绍..."
-    en: "This is a short English abstract..."
-  links:                                  # [选填] 资源链接矩阵
-    paper: "https://..."                  # PDF/arXiv 链接
-    code: "https://..."                   # GitHub 仓库
-    project: "https://..."                 # 项目主页
-    video: "https://..."                   # 视频讲解
-
-```
-
-### 4. 新闻动态 (`news.yml`)
-
-驱动首页的时间轴展示。
+研究方向数据，支持图标、双语标题、描述、图片和重点列表。
 
 ```yaml
-# 模板示例
-- date: "2026.03"             # [必填] 日期，建议使用 YYYY.MM 格式
-  category:                   # [必填] 新闻分类
-    zh: "荣誉奖项"
-    en: "Awards"
-  title:                      # [必填] 新闻标题
-    zh: "实验室获得某某优秀奖"
-    en: "Lab wins the Best Award"
-  description:                # [选填] 详细描述
-    zh: "详细描述内容..."
-    en: "Detailed description..."
-  link: "#"                   # [选填] 详情链接，若无则设为 "#"
-
-```
-
-### 5. 招聘与招生 (`positions.yml`)
-
-用于发布实验室人才招募信息。
-
-```yaml
-# 模板示例
-- title: { zh: "职位名称", en: "Position Title" } # [必填]
-  count: { zh: "1-2名", en: "1-2 seats" }         # [必填] 招录人数/频率
-  department: { zh: "同济大学", en: "TJ Univ" }    # [必填] 依托单位
-  icon: "🚀"                                     # [必填] 展示 Emoji 图标
-  theme: "blue"                                  # [必填] 视觉主题色（见视觉字典）
-  description:                                   # [必填] 详细要求与福利
-    zh: "职位要求描述..."
-    en: "Position requirements..."
-  tags:                                          # [选填] 核心关键词标签
-    zh: ["深度学习", "视觉感知"]
-    en: ["Deep Learning", "Vision"]
-  link: "#"                                      # [选填] 申请链接或详情页
-
-```
-
-### 6. 研究方向 (`research.yml`)
-
-实验室核心科研能力的展示板块。
-
-```yaml
-# 模板示例
-- icon: "🔬"                               # [必填] 核心图标
-  title: { zh: "研究方向", en: "Research Area" } # [必填]
-  image: "https://..."                    # [选填] 背景配图 URL
-  description:                            # [必填] 宏观方向描述
-    zh: "中文简介..."
-    en: "English description..."
-  points:                                 # [选填] 细分研究点列表
+- icon: "🔬"
+  title:
+    zh: "研究方向"
+    en: "Research Area"
+  description:
+    zh: "中文简介"
+    en: "English description"
+  image: "/assets/images/research/example.svg"
+  points:
     zh: ["细分方向 1", "细分方向 2"]
     en: ["Sub-field 1", "Sub-field 2"]
-
 ```
 
----
+### `publications.yml`
 
-## 🚀 部署与更新说明 (Deployment Guide)
+论文数据，按 `year` 分组展示，支持类型、亮点、图片、摘要和资源链接。
 
-### 方案 A：直接修改文件 (开发者推荐)
+```yaml
+- title:
+    zh: "中文论文标题"
+    en: "English Paper Title"
+  authors: "Author A, <b>Lab Member</b>*"
+  type: "conference"
+  venue: "CVPR 2026"
+  year: 2026
+  highlight: "Oral"
+  image: "https://..."
+  abstract:
+    zh: "中文摘要"
+    en: "English abstract"
+  links:
+    paper: "https://..."
+    code: "https://..."
+    project: "https://..."
+```
 
-1. Fork 本仓库并开启 GitHub Pages。
-2. 修改 `_data/` 下的 `.yml` 文件并提交。
-3. GitHub Actions 会自动触发构建。
+### `news.yml`
 
-### 方案 B：云端表单管理 (实验室成员推荐)
+新闻动态数据，用于首页和新闻页的时间线叙事。
 
-1. 关联飞书多维表格（Bitable）。
-2. 使用本项目提供的 `sync_all.py` 脚本，将表格数据一键拉取并转换为 YAML。
-3. 实现“填表即更新”的极简体验。
+```yaml
+- date: "2026.03"
+  category:
+    zh: "开源项目"
+    en: "Open Source"
+  title:
+    zh: "新闻标题"
+    en: "News Title"
+  description:
+    zh: "中文描述"
+    en: "English description"
+  link: "https://..."
+```
 
----
+### `positions.yml`
 
-## 📸 图片托管建议
+招生与招聘数据，支持主题色、标签、人数和申请链接。
 
-为了保证网站加载性能：
+```yaml
+- title:
+    zh: "博士生 (空间智能方向)"
+    en: "Ph.D. Candidates in Spatial Intelligence"
+  count:
+    zh: "2 名 / 年"
+    en: "2 positions per year"
+  department:
+    zh: "智能系统研究中心"
+    en: "Center for Intelligent Systems"
+  icon: "🛰️"
+  theme: "blue"
+  description:
+    zh: "岗位描述"
+    en: "Position description"
+  tags:
+    zh: ["3D 视觉", "世界模型"]
+    en: ["3D Vision", "World Models"]
+  link: "https://..."
+```
 
-* **头像:** 建议正方形，压缩至 500px 以内。
-* **论文图:** 建议 16:9，宽度不超过 800px。
-* **托管方案:** 可使用本地路径 `/assets/images/`，或利用 GitHub Issues/图床获取永久 URL。
+## 页面配置
 
----
+页面级展示文案统一在 `_config.yml` 中配置，除了传统的 `hero` 和各页面 header 之外，还支持以下扩展字段：
 
-## 🤝 贡献与定制
+- `eyebrow_notes`
+  页头或首页顶部的小型展示标签
+- `facts`
+  页头右侧的事实条与辅助说明
+- `join_process`
+  Join 页面中的申请步骤、邮件主题建议和沟通说明
+- `cta_bands`
+  页面底部 narrative band 的标题、描述、按钮和侧栏列表
+- `stage_tags`
+  首页 Hero 视觉舞台中的主题标签
 
-本模板致力于成为最懂学术圈的网页模板。如果你有更好的 UI 设计或功能建议，欢迎提交 Issue 或 Pull Request。
+这些配置不会改变 `_data` schema，只负责驱动页面展示层。
 
-**License:** MIT
+## 内容维护速查
 
-**Maintainer:** [Wenbin Zuo/LV Group]
+### 只想改页面内容
 
----
+1. 修改 `_data/*.yml` 或 `_config.yml`
+2. 运行 `jekyll serve`
+3. 检查中英文、深浅色、移动端
 
+### 只想改视觉表现
 
-## 🗓️ 后续计划 (Future Roadmap)
+1. 修改 `assets/css/site.css`
+2. 如需交互，再改 `assets/js/site.js`
+3. 打开首页、Research、Publications、People、News、Contact 六页回归检查
 
-* **飞书 CMS 集成**: 支持通过飞书多维表格（Bitable）在线更新数据，实现“填表即发布”。
-* **更多主题支持**: 增加多种学术风格的主题配色。
-* **BibTeX 支持**: 自动从 BibTeX 文件生成 `publications.yml` 数据。
+### 只想改模板结构
 
-=======
+1. 优先改 `_includes/` 里的共享组件
+2. 再改 `pages/*.md` 和 `index.md`
+3. 最后执行一次 `jekyll build`
+
+## 本地开发
+
+安装好本机 Jekyll 环境后，在仓库根目录运行：
+
+```bash
+jekyll serve
+```
+
+如果默认端口 `4000` 被占用，可以指定端口：
+
+```bash
+jekyll serve --host 127.0.0.1 --port 4002
+```
+
+构建检查：
+
+```bash
+jekyll build --source . --destination /tmp/jekyll-build
+```
+
+## 当前内容策略
+
+- `_data/` 里现在是用于页面验证的 mock 数据，不代表真实成员或真实论文
+- 页面已经采用展览感设计系统，优先复用共享组件，而不是在页面里重复写结构
+- `team.yml` 是正式团队数据文件名，不再使用旧的 `people.yml`
+
+## 飞书同步
+
+飞书同步采用模块化脚本结构：
+
+- `scripts/feishu_sync/config.py`
+- `scripts/feishu_sync/reader.py`
+- `scripts/feishu_sync/converters.py`
+- `scripts/feishu_sync/validators.py`
+- `scripts/feishu_sync/pipeline.py`
+
+运行同步前需要准备环境变量：
+
+- `FEISHU_APP_ID`
+- `FEISHU_APP_SECRET`
+- `FEISHU_APP_TOKEN`
+
+`feishu_config.yml` 现在默认通过 `app_token_env` 读取 `FEISHU_APP_TOKEN`，不再把 app token 明文写进仓库。
+
+### 自动同步
+
+仓库已经内置 GitHub Actions 自动同步工作流 [sync.yml](/Users/wbzuo/Documents/04-Developer/Source-Code/github/cdi-lv-group.github.io/.github/workflows/sync.yml)。
+
+只要你在仓库的 GitHub Secrets 中配置好下面 3 个值：
+
+- `FEISHU_APP_ID`
+- `FEISHU_APP_SECRET`
+- `FEISHU_APP_TOKEN`
+
+它就会自动执行：
+
+- 每天 1 次从飞书多维表拉取最新数据，当前计划时间约为北京时间 08:00
+- 自动更新 `_data/` 和 `assets/images/`
+- 数据有变化时自动提交并推送到 `main`
+- 你也可以在 GitHub Actions 页面手动点 `Run workflow` 立即同步
+
+如果你当前 `_data/` 里放的是页面验证用 mock 数据，请注意：自动同步会用飞书真实数据覆盖这些文件。
+
+本地运行同步脚本前，请先安装 Python 依赖：
+
+```bash
+pip install pyyaml requests
+```
+
+常用入口：
+
+```bash
+python scripts/sync_all.py
+python scripts/init_feishu_table.py
+```
+
+入口脚本：
+
+- `scripts/sync_all.py`
+- `scripts/test.py`
+
+表名、输出文件与 converter 映射在 `feishu_config.yml` 中维护。当前团队数据的正式输出文件名为 `_data/team.yml`，不再使用旧的 `people.yml` 命名。
+
+## 设计系统说明
+
+当前前端采用一套展览感视觉系统，核心组件包括：
+
+- `stage`
+  主舞台式内容容器，用于首页 Hero、Research 章节、精选论文和核心岗位
+- `panel`
+  轻量信息面板，用于补充事实、摘要和次级说明
+- `rail`
+  纵向信息强调条，用于章节、年份或去向信息
+- `band`
+  叙事型 CTA 横幅，用于页面尾部的承接与转化
+- `chip`
+  元信息标签，用于类型、分类、角色和小型状态信息
+
+## 建议流程
+
+### 直接维护 YAML
+
+1. 修改 `_data/*.yml`
+2. 本地运行 `jekyll serve`
+3. 验证中英文、深浅色、移动端布局
+4. 提交变更
+
+### 通过飞书维护
+
+1. 在飞书多维表中维护内容
+2. 配置 `feishu_config.yml`
+3. 运行同步脚本生成 `_data/*.yml`
+4. 再执行 `jekyll build` 或 `jekyll serve` 验证页面
+
+## 备注
+
+- 当前仓库可能处于脏工作区，请在提交前确认哪些改动属于你本次要保留的内容
+- `_site/`、`.jekyll-cache/`、`.DS_Store` 已加入 `.gitignore`
+- mock 数据仅用于页面验证，不代表真实实验室成员与成果
+
+## License
+
+MIT

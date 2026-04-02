@@ -1,0 +1,130 @@
+{% assign position = include.position %}
+{% assign variant = include.variant | default: "summary" %}
+{% assign tags_zh = position.tags.zh %}
+{% assign tags_en = position.tags.en %}
+{% assign tag_count = tags_zh | size %}
+{% assign outer_class = include.outer_class | default: "" %}
+
+{% if position.theme == "blue" %}
+  {% assign color_class = "blue" %}
+{% elsif position.theme == "cyan" %}
+  {% assign color_class = "cyan" %}
+{% elsif position.theme == "green" or position.theme == "emerald" %}
+  {% assign color_class = "emerald" %}
+{% elsif position.theme == "violet" %}
+  {% assign color_class = "violet" %}
+{% else %}
+  {% assign color_class = "slate" %}
+{% endif %}
+
+{% capture normalized_href %}{% include link-url.html url=position.link %}{% endcapture %}
+{% assign normalized_href = normalized_href | strip %}
+{% if normalized_href == "" or normalized_href == "#" %}
+  {% assign normalized_href = "mailto:" | append: site.lab.email %}
+{% endif %}
+{% assign is_external_href = false %}
+{% if normalized_href contains 'http://' or normalized_href contains 'https://' %}
+  {% assign is_external_href = true %}
+{% endif %}
+
+{% if variant == "feature" %}
+<article class="stage-shell {{ outer_class | strip }}"{% if include.reveal %} data-reveal="{{ include.reveal }}"{% endif %}{% if include.stage %} data-stage="{{ include.stage }}"{% endif %}>
+  <div class="flex flex-wrap items-center gap-3">
+    <div class="flex h-16 w-16 items-center justify-center rounded-2xl bg-{{ color_class }}-50 text-4xl text-{{ color_class }}-600 dark:bg-{{ color_class }}-900/30 dark:text-{{ color_class }}-300">{{ position.icon }}</div>
+    <span class="chip text-[11px] font-black uppercase tracking-[0.16em] text-slate-500 dark:text-slate-300">
+      <span class="lang-zh">核心招募</span>
+      <span class="lang-en">Main Recruiting Role</span>
+    </span>
+    {% if position.count %}
+    <span class="chip text-[11px] font-black uppercase tracking-[0.16em] text-{{ color_class }}-600 dark:text-{{ color_class }}-300">
+      <span class="lang-zh">{{ position.count.zh }}</span>
+      <span class="lang-en">{{ position.count.en }}</span>
+    </span>
+    {% endif %}
+  </div>
+
+  <h3 class="mt-7 text-3xl font-black leading-tight text-slate-900 dark:text-white">
+    <span class="lang-zh">{{ position.title.zh }}</span>
+    <span class="lang-en">{{ position.title.en }}</span>
+  </h3>
+
+  <div class="mt-5 inline-flex items-center gap-2 rounded-full border border-slate-200/80 bg-white/70 px-4 py-2 text-xs font-black uppercase tracking-[0.16em] text-slate-500 dark:border-slate-700/80 dark:bg-slate-900/70 dark:text-slate-300">
+    <span class="lang-zh">招生依托：{{ position.department.zh }}</span>
+    <span class="lang-en">Affiliation: {{ position.department.en }}</span>
+  </div>
+
+  <p class="mt-6 max-w-2xl text-base leading-relaxed text-slate-600 dark:text-slate-300 md:text-lg">
+    <span class="lang-zh">{{ position.description.zh }}</span>
+    <span class="lang-en">{{ position.description.en }}</span>
+  </p>
+
+  <div class="mt-7 flex flex-wrap gap-2 lang-zh">
+    {% if tag_count > 0 %}
+      {% for tag in tags_zh %}
+      <span class="chip text-xs font-bold text-{{ color_class }}-600 dark:text-{{ color_class }}-300">{{ tag }}</span>
+      {% endfor %}
+    {% else %}
+    <span class="chip text-xs font-bold text-{{ color_class }}-600 dark:text-{{ color_class }}-300">{{ include.fallback_tag_zh | default: "研究运营支持" }}</span>
+    {% endif %}
+  </div>
+
+  <div class="mt-7 flex flex-wrap gap-2 lang-en">
+    {% if tag_count > 0 %}
+      {% for tag in tags_en %}
+      <span class="chip text-xs font-bold text-{{ color_class }}-600 dark:text-{{ color_class }}-300">{{ tag }}</span>
+      {% endfor %}
+    {% else %}
+    <span class="chip text-xs font-bold text-{{ color_class }}-600 dark:text-{{ color_class }}-300">{{ include.fallback_tag_en | default: "Research Operations Support" }}</span>
+    {% endif %}
+  </div>
+
+  <div class="mt-8">
+    <a href="{{ normalized_href }}"{% if is_external_href %} target="_blank" rel="noopener noreferrer"{% endif %} class="inline-flex items-center rounded-2xl bg-slate-900 px-6 py-3 text-sm font-black text-white transition-all duration-300 hover:-translate-y-1 hover:bg-sky-600 hover:shadow-2xl dark:bg-white dark:text-slate-900 dark:hover:bg-cyan-300">
+      <span class="lang-zh">查看申请入口</span>
+      <span class="lang-en">Open Application</span>
+    </a>
+  </div>
+</article>
+{% else %}
+<article class="position-card {{ outer_class | strip }}"{% if include.reveal %} data-reveal="{{ include.reveal }}"{% endif %}>
+  <div class="flex items-start justify-between gap-3">
+    <div class="flex h-12 w-12 items-center justify-center rounded-2xl bg-{{ color_class }}-50 text-2xl text-{{ color_class }}-600 dark:bg-{{ color_class }}-900/30 dark:text-{{ color_class }}-300">{{ position.icon }}</div>
+    {% if position.count %}
+    <span class="text-[10px] font-black uppercase tracking-[0.16em] text-slate-400 dark:text-slate-500">
+      <span class="lang-zh">{{ position.count.zh }}</span>
+      <span class="lang-en">{{ position.count.en }}</span>
+    </span>
+    {% endif %}
+  </div>
+
+  <h3 class="mt-5 text-xl font-black leading-tight text-slate-900 dark:text-white">
+    <span class="lang-zh">{{ position.title.zh }}</span>
+    <span class="lang-en">{{ position.title.en }}</span>
+  </h3>
+
+  <p class="mt-3 text-sm leading-relaxed text-slate-500 dark:text-slate-400">
+    <span class="lang-zh">{{ position.description.zh }}</span>
+    <span class="lang-en">{{ position.description.en }}</span>
+  </p>
+
+  <div class="mt-5 flex flex-wrap gap-2 lang-zh">
+    {% if tag_count > 0 %}
+      {% for tag in tags_zh limit:2 %}
+      <span class="chip text-[11px] font-black text-{{ color_class }}-600 dark:text-{{ color_class }}-300">{{ tag }}</span>
+      {% endfor %}
+    {% else %}
+    <span class="chip text-[11px] font-black text-{{ color_class }}-600 dark:text-{{ color_class }}-300">{{ include.fallback_tag_zh | default: "内容系统" }}</span>
+    {% endif %}
+  </div>
+
+  <div class="mt-5 flex flex-wrap gap-2 lang-en">
+    {% if tag_count > 0 %}
+      {% for tag in tags_en limit:2 %}
+      <span class="chip text-[11px] font-black text-{{ color_class }}-600 dark:text-{{ color_class }}-300">{{ tag }}</span>
+      {% endfor %}
+    {% else %}
+    <span class="chip text-[11px] font-black text-{{ color_class }}-600 dark:text-{{ color_class }}-300">{{ include.fallback_tag_en | default: "Content Systems" }}</span>
+    {% endif %}
+  </div>
+</article>
+{% endif %}

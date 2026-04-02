@@ -1,0 +1,39 @@
+{% capture intro_link_url %}{% include link-url.html url=include.link_url %}{% endcapture %}
+{% assign intro_link_url = intro_link_url | strip %}
+{% assign intro_link_external = false %}
+{% if intro_link_url contains 'http://' or intro_link_url contains 'https://' %}
+  {% assign intro_link_external = true %}
+{% endif %}
+
+<div class="chapter-shell pl-6 {% if include.extra_class %}{{ include.extra_class }}{% endif %}"{% if include.reveal %} data-reveal="{{ include.reveal }}"{% endif %}>
+  <p class="section-serial">{{ include.serial }}</p>
+
+  {% if include.kicker_zh or include.kicker_en %}
+  <p class="section-kicker mt-5 text-[0.72rem] font-black uppercase text-{{ include.accent | default: 'sky' }}-600 dark:text-{{ include.accent | default: 'sky' }}-300">
+    <span class="lang-zh">{{ include.kicker_zh }}</span>
+    <span class="lang-en">{{ include.kicker_en }}</span>
+  </p>
+  {% endif %}
+
+  <h2 class="mt-4 text-3xl font-black leading-tight text-slate-900 dark:text-white md:text-5xl">
+    <span class="lang-zh">{{ include.title_zh }}</span>
+    <span class="lang-en">{{ include.title_en }}</span>
+  </h2>
+
+  {% if include.description_zh or include.description_en %}
+  <p class="mt-5 max-w-md text-base leading-relaxed text-slate-600 dark:text-slate-300 md:text-lg">
+    <span class="lang-zh">{{ include.description_zh }}</span>
+    <span class="lang-en">{{ include.description_en }}</span>
+  </p>
+  {% endif %}
+
+  {% if intro_link_url != "" %}
+  <a href="{{ intro_link_url }}" class="mt-7 inline-flex items-center gap-3 text-sm font-black uppercase tracking-[0.18em] text-{{ include.accent | default: 'sky' }}-600 transition-colors hover:text-{{ include.accent | default: 'sky' }}-700 dark:text-cyan-300 dark:hover:text-cyan-200"{% if intro_link_external %} target="_blank" rel="noopener noreferrer"{% endif %}>
+    <span class="lang-zh">{{ include.link_text_zh }}</span>
+    <span class="lang-en">{{ include.link_text_en }}</span>
+    <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+    </svg>
+  </a>
+  {% endif %}
+</div>
