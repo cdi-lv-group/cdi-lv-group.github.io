@@ -1,41 +1,223 @@
 # Auto-generated from Feishu Bitable: 学术论文
-# Sync Time: 2026-04-02 01:27:23
+# Sync Time: 2026-04-02 10:12:09
 
 - title:
-    zh: 深度学习在自然语言处理中的应用
-    en: Deep Learning for Natural Language Processing
-  authors: 张三, 李四, 王五
-  type: journal
-  venue: NeurIPS 2017
-  year: 2017
-  highlight: This paper provides a comprehensive review of deep learning techniques
-    for natural language processing.
+    zh: 慢时间，快决策：拥挤室内服务机器人中的世界模型规划
+    en: 'Slow Time, Sharp Decisions: World-Model Planning for Service Robots in Crowded
+      Interior Environments'
+  authors: <b>Muchuan Li</b>, Yuchen Fang, <b>Lan Xu</b>, Marina Ortiz, Taro Sato,
+    <b>Qinghe Gu</b>*
+  type: conference
+  venue: ICLR 2026
+  year: 2026
+  highlight: ''
   image: ''
   abstract:
-    zh: 深度学习在自然语言处理中的应用是一篇发表在NeurIPS 2017上的论文
-    en: Deep Learning for NLP is a comprehensive review of recent advances in the
-      field.
+    zh: 论文讨论如何在有限感知预算下训练可复用世界模型，并将其用于高拥挤场景中的动作提案、冲突规避与任务恢复。
+    en: This paper studies reusable world models trained under restricted perception
+      budgets and shows how they support action proposals, conflict avoidance, and
+      recovery in crowded service scenarios.
   links:
-    paper: https://www.sciencedirect.com/science/article/pii/S0031320317300986
-    code: https://github.com/abc/Deep-Learning-for-NLP
-    project: https://github.com/abc/Deep-Learning-for-NLP
-    video: https://www.youtube.com/watch?v=abc123
+    paper: https://example.org/papers/slow-time-sharp-decisions
+    code: https://github.com/example-lab/slow-time-planner
 - title:
-    zh: 卷积神经网络在图像识别中的应用
-    en: Convolutional Neural Networks for Image Recognition
-  authors: 赵六, 钱七, 孙八
-  type: journal
-  venue: CVPR 2016
-  year: 2016
-  highlight: This paper explores the application of convolutional neural networks
-    in image recognition and demonstrates their effectiveness through extensive experiments.
+    zh: 跨模态压缩作为协作智能体系统的中间表示
+    en: Cross-Modal Compression as an Intermediate Representation for Collaborative
+      Agent Systems
+  authors: <b>Olivia Sun</b>, <b>Qian Zhou</b>, Rui Patel, <b>Qinghe Gu</b>*
+  type: preprint
+  venue: arXiv
+  year: 2026
+  highlight: ''
   image: ''
   abstract:
-    zh: 卷积神经网络在图像识别中的应用是一篇发表在CVPR 2016上的论文
-    en: Convolutional Neural Networks (CNNs) have achieved remarkable success in image
-      recognition tasks.
+    zh: ''
+    en: ''
   links:
-    paper: https://www.sciencedirect.com/science/article/pii/S0031320316302915
-    code: https://github.com/def/CNN-for-Image-Recognition
-    project: https://github.com/def/CNN-for-Image-Recognition
-    video: https://www.youtube.com/watch?v=def456
+    paper: https://arxiv.org/abs/2603.01234
+- title:
+    zh: AtlasBench：面向长时程空间智能体的结构化评测基准
+    en: 'AtlasBench: A Structured Evaluation Benchmark for Long-Horizon Spatial Agents'
+  authors: <b>Junhao Shen</b>, Olivia Sun, <b>Qinghe Gu</b>*
+  type: conference
+  venue: CVPR 2026
+  year: 2026
+  highlight: Oral
+  image: ''
+  abstract:
+    zh: 我们提出了一个覆盖探索、检索、重规划与长期记忆管理的空间智能体评测基准，并给出统一的任务接口与可解释指标设计。
+    en: We present a benchmark for spatial agents spanning exploration, retrieval,
+      replanning, and long-term memory management, together with unified task interfaces
+      and interpretable metrics.
+  links:
+    paper: https://example.org/papers/atlasbench
+    code: https://github.com/example-lab/atlasbench
+    project: https://example.org/projects/atlasbench
+- title:
+    zh: WeatherShift-Radar：跨天气多传感器场景理解数据集与基线
+    en: 'WeatherShift-Radar: A Cross-Weather Multi-Sensor Dataset and Baselines for
+      Robust Scene Understanding'
+  authors: <b>Lan Xu</b>, Zixuan Luo, <b>Muchuan Li</b>, Elena Petrova, <b>Qinghe
+    Gu</b>*
+  type: conference
+  venue: NeurIPS 2025
+  year: 2025
+  highlight: Spotlight
+  image: ''
+  abstract:
+    zh: 我们发布了一个跨天气、多时间段、多设备的场景理解数据集，用于系统评估模型在极端视觉退化条件下的鲁棒性。
+    en: We release a cross-weather, multi-time-of-day, multi-device dataset for evaluating
+      scene understanding systems under severe visual degradation.
+  links:
+    paper: https://example.org/papers/weathershift-radar
+    code: https://github.com/example-lab/weathershift-radar
+    project: https://example.org/projects/weathershift-radar
+- title:
+    zh: 多语环境下复杂文档理解的层级对齐方法
+    en: Hierarchical Alignment for Multilingual Complex Document Understanding
+  authors: <b>Ning Chen</b>, Anlan Lin, Irene Flores, <b>Lan Xu</b>, <b>Qinghe Gu</b>*
+  type: conference
+  venue: ACL 2025
+  year: 2025
+  highlight: ''
+  image: ''
+  abstract:
+    zh: 该工作探索版式结构、视觉区域与文本单元之间的多层级对齐，对多语种复杂文档解析和问答任务都有稳定收益。
+    en: This work investigates multi-level alignment between layout structures, visual
+      regions, and textual units, yielding consistent gains on multilingual document
+      parsing and question answering.
+  links:
+    code: https://github.com/example-lab/hierarchical-doc-align
+    project: https://example.org/projects/doc-align
+- title:
+    zh: 从蓝图到行为：可检索设计记忆支持下的多智能体共创
+    en: 'Blueprints to Behaviors: Multi-Agent Co-Creation with Retrieval-Augmented
+      Design Memory'
+  authors: <b>Qian Zhou</b>, Mengyao Cao, <b>Ning Chen</b>, <b>Qinghe Gu</b>*
+  type: journal
+  venue: TPAMI 2025
+  year: 2025
+  highlight: ''
+  image: ''
+  abstract:
+    zh: 我们提出设计记忆检索框架，将视觉草图、过程注释和交互日志整合进统一知识索引，显著提升跨轮次共创的一致性。
+    en: We propose a design-memory retrieval framework that unifies sketches, process
+      annotations, and interaction logs into a single knowledge index, improving consistency
+      across collaborative creative sessions.
+  links:
+    paper: https://example.org/papers/blueprints-to-behaviors
+    project: https://example.org/projects/design-memory
+- title:
+    zh: 用于密集场景事件理解的稀疏对话记忆
+    en: 'Sparse Conversations for Dense Scenes: Dialogue Memory for Event Understanding'
+  authors: <b>Yuchen Fang</b>, Iris Gao, <b>Qian Zhou</b>, <b>Qinghe Gu</b>*
+  type: preprint
+  venue: arXiv
+  year: 2024
+  highlight: ''
+  image: ''
+  abstract:
+    zh: ''
+    en: ''
+  links:
+    paper: https://arxiv.org/abs/2409.09876
+    code: https://github.com/example-lab/sparse-conversations
+- title:
+    zh: OpenRooms++：面向真实室内环境部署的开放世界场景基准
+    en: 'OpenRooms++: An Open-World Scene Benchmark for Deployable Indoor Intelligence'
+  authors: <b>Junhao Shen</b>, <b>Yiming He</b>, <b>Lan Xu</b>, <b>Qinghe Gu</b>*
+  type: conference
+  venue: ECCV 2024
+  year: 2024
+  highlight: ''
+  image: ''
+  abstract:
+    zh: 该基准强调开放词汇、任务扰动与长尾物体覆盖，适合验证真实室内服务系统的鲁棒性和可扩展性。
+    en: The benchmark emphasizes open vocabulary, task perturbations, and long-tail
+      object coverage for evaluating robustness and scalability in real indoor service
+      systems.
+  links:
+    paper: https://example.org/papers/openrooms-plus-plus
+- title:
+    zh: Document Weave：将页面结构与视觉线索编织进研究型知识引擎
+    en: 'Document Weave: Weaving Page Structure and Visual Cues into Research-Oriented
+      Knowledge Engines'
+  authors: <b>Ning Chen</b>, <b>Anlan Lin</b>, Sofia Meyer, Arjun Rao, <b>Qinghe Gu</b>*
+  type: journal
+  venue: IJCV 2024
+  year: 2024
+  highlight: ''
+  image: ''
+  abstract:
+    zh: 论文提出一个面向研究流程的文档知识引擎，将图表、段落、引用和版式关系共同纳入多模态检索索引。
+    en: The paper presents a document knowledge engine for research workflows that
+      jointly indexes charts, paragraphs, citations, and layout relations.
+  links:
+    paper: https://example.org/papers/document-weave
+    code: https://github.com/example-lab/document-weave
+- title:
+    zh: SignalGarden：弱监督多模态事件建模的声景学习框架
+    en: 'SignalGarden: A Soundscape Learning Framework for Weakly Supervised Multimodal
+      Event Modeling'
+  authors: <b>Qian Zhou</b>, Ruqi Qiu, <b>Ning Chen</b>, <b>Qinghe Gu</b>*
+  type: journal
+  venue: TCSVT 2023
+  year: 2023
+  highlight: ''
+  image: ''
+  abstract:
+    zh: 该工作围绕弱监督音视频建模，提出对环境声纹与视觉动态进行联合表示学习的方案，以改善复杂事件的分离能力。
+    en: This work studies weakly supervised audio-visual modeling and proposes joint
+      representation learning over soundscapes and visual dynamics to better separate
+      complex events.
+  links:
+    paper: https://example.org/papers/signalgarden
+- title:
+    zh: PaperDock：面向实验室日常协作的论文资料工作台
+    en: 'PaperDock: A Research Material Workbench for Everyday Lab Collaboration'
+  authors: <b>Anlan Lin</b>, Iris Gao, <b>Ning Chen</b>, <b>Qinghe Gu</b>*
+  type: workshop
+  venue: CHI Workshop 2023
+  year: 2023
+  highlight: ''
+  image: ''
+  abstract:
+    zh: 该系统面向论文精读、文献笔记与资料共享场景，将结构化摘录、图表快照和任务清单组织在统一界面中。
+    en: The system supports paper reading groups, literature notes, and shared research
+      materials by organizing structured excerpts, figure snapshots, and task lists
+      in one interface.
+  links:
+    paper: https://example.org/papers/paperdock
+    project: https://example.org/projects/paperdock
+- title:
+    zh: LatticeTrack：面向长尾开放目标的层级跟踪器
+    en: 'LatticeTrack: A Hierarchical Tracker for Long-Tail Open-World Targets'
+  authors: <b>Muchuan Li</b>, <b>Lan Xu</b>, Helena Park, <b>Qinghe Gu</b>*
+  type: conference
+  venue: ICCV 2023
+  year: 2023
+  highlight: Best Paper Finalist
+  image: ''
+  abstract:
+    zh: LatticeTrack 通过目标语义、几何状态和上下文记忆的联合更新机制，在开放世界长尾跟踪任务上展现了优异性能。
+    en: LatticeTrack jointly updates semantic, geometric, and contextual memory states,
+      delivering strong performance on long-tail open-world tracking tasks.
+  links:
+    paper: https://example.org/papers/latticetrack
+    project: https://example.org/projects/latticetrack
+- title:
+    zh: 空间交互设计中的可解释智能体
+    en: Explainable Agents in Spatial Interaction Design
+  authors: <b>Qinghe Gu</b>, <b>Qian Zhou</b>, <b>Lan Xu</b>
+  type: book
+  venue: Springer
+  year: 2022
+  highlight: ''
+  image: ''
+  abstract:
+    zh: 本书总结了空间交互设计中的智能体建模、反馈机制与可解释性交互原则，连接学术研究与真实设计实践。
+    en: This book summarizes agent modeling, feedback mechanisms, and interpretable
+      interaction principles for spatial interaction design, bridging research and
+      real design practice.
+  links:
+    paper: https://example.org/books/explainable-agents-spatial-design

@@ -1,170 +1,432 @@
 # Auto-generated from Feishu Bitable: 团队成员
-# Sync Time: 2026-04-02 01:27:22
-
-# Auto-generated mock dataset (enriched)
-# Default avatar: /assets/images/team/default-avatar.svg will be used when no personal avatar is provided.
+# Sync Time: 2026-04-02 10:12:07
 
 - name:
-    zh: 郭炜炜
-    en: Weiwei Guo
-  group_id: professor
+    zh: 高伊然
+    en: Iris Gao
+  group_id: interns
   rank: 1
-  year: 2008
+  year: null
   title:
-    zh: 教授 / 博导
-    en: Professor / Ph.D. Supervisor
+    zh: 科研实习生
+    en: Research Intern
   role:
-    zh: 课题组负责人
-    en: Principal Investigator
-  avatar: /assets/images/team/guo_weiwei.jpg
+    zh: ''
+    en: ''
+  avatar: /assets/images/team/default-avatar.svg
   bio:
-    zh: 我主要研究多模态感知与具身智能，关注理论与工程结合。
-    en: Research interests: multimodal perception and embodied AI.
-  email: guo@example.com
+    zh: 参与前端原型、实验看板与研究内容传播设计，擅长将复杂技术叙事转化为清晰的视觉表达。
+    en: Iris contributes to front-end prototypes, experiment dashboards, and research
+      communication, turning complex technical narratives into clear visual experiences.
+  email: iris.gao@example.edu
   destination:
-    zh: 上海
-    en: Shanghai
+    zh: ''
+    en: ''
   links:
-    homepage: /pages/people/guo-weiwei.html
-    github: https://github.com/guo_weiwei
-    scholar: https://scholar.google.com/citations?user=guo
-
+    homepage: https://example.edu/iris-gao
+    github: https://github.com/example/iris-gao
+    linkedin: https://www.linkedin.com/in/iris-gao-lab/
 - name:
-    zh: 陈思远
-    en: Siyuan Chen
-  group_id: associate_prof
-  rank: 2
-  year: 2012
-  title:
-    zh: 副教授
-    en: Associate Professor
-  role:
-    zh: 联合负责人
-    en: Co-Director
-  avatar: /assets/images/team/avatar_chen.jpg
-  bio:
-    zh: 研究方向为大规模三维场景理解与神经渲染。
-    en: Works on large-scale 3D scene understanding and neural rendering.
-  email: chen@example.com
-  destination:
-    zh: 上海
-    en: Shanghai
-  links:
-    scholar: https://scholar.google.com/citations?user=chen
-    homepage: /pages/people/chen-siyuan.html
-
-- name:
-    zh: 李嘉诚
-    en: Jiacheng Li
-  group_id: researchers
-  rank: 1
-  year: 2019
-  title:
-    zh: 博士后
-    en: Postdoctoral Researcher
-  role:
-    zh: 具身智能组长
-    en: Embodied AI Lead
-  avatar: /assets/images/team/avatar_li.jpg
-  bio:
-    zh: 负责机器人在复杂环境中的长期规划研究。
-    en: Focused on long-horizon planning for robots in complex environments.
-  email: li@example.com
-  links:
-    github: https://github.com/li_jc
-
-- name:
-    zh: 左文彬
-    en: Wenbin Zuo
+    zh: 沈君昊
+    en: Junhao Shen
   group_id: phd
   rank: 1
-  year: 2021
+  year: null
   title:
     zh: 博士生
     en: Ph.D. Student
   role:
-    zh: 核心骨干
-    en: Core Member
-  avatar: /assets/images/team/wenbinzuo.jpg
+    zh: 项目统筹
+    en: Project Coordinator
+  avatar: /assets/images/team/default-avatar.svg
   bio:
-    zh: 研究3D视觉、点云和多模态学习。
-    en: Research on 3D vision, point clouds and multimodal learning.
-  email: wenbin@example.com
+    zh: 围绕空间智能体评测与训练基础设施展开研究，正在搭建覆盖数据、任务、指标与可视化分析的实验平台。
+    en: Junhao studies evaluation and training infrastructure for spatial agents,
+      building an experimentation stack that spans datasets, tasks, metrics, and visual
+      analytics.
+  email: junhao.shen@example.edu
+  destination:
+    zh: ''
+    en: ''
   links:
-    github: https://github.com/wbzuo
-    scholar: https://scholar.google.com/citations?user=wbzuo
-
+    homepage: https://example.edu/junhao-shen
+    github: https://github.com/example/junhao-shen
+    scholar: https://scholar.example.edu/junhao-shen
 - name:
-    zh: 王浩然
-    en: Haoran Wang
+    zh: 许澜
+    en: Lan Xu
+  group_id: associate_prof
+  rank: 1
+  year: null
+  title:
+    zh: 副教授
+    en: Associate Professor
+  role:
+    zh: 感知系统负责人
+    en: Perception Systems Lead
+  avatar: /assets/images/team/default-avatar.svg
+  bio:
+    zh: 研究重点是开放世界视觉识别与多传感器场景理解，擅长将学术问题拆解成工程上可验证的系统模块。
+    en: Lan focuses on open-world recognition and multi-sensor scene understanding,
+      with a strong interest in translating research problems into verifiable system
+      modules.
+  email: lan.xu@example.edu
+  destination:
+    zh: ''
+    en: ''
+  links:
+    homepage: https://example.edu/lan-xu
+    github: https://github.com/example/lan-xu
+    linkedin: https://www.linkedin.com/in/lan-xu-lab/
+- name:
+    zh: 李沐川
+    en: Muchuan Li
+  group_id: researchers
+  rank: 1
+  year: null
+  title:
+    zh: 博士后研究员
+    en: Postdoctoral Researcher
+  role:
+    zh: 具身智能方向负责人
+    en: Embodied AI Lead
+  avatar: /assets/images/team/default-avatar.svg
+  bio:
+    zh: 主要推进机器人世界模型、长时程任务规划与多智能体协同决策，希望构建真正能够进入现场工作的智能系统。
+    en: Muchuan leads work on robot world models, long-horizon planning, and multi-agent
+      coordination, aiming to build embodied systems that can be deployed in the field.
+  email: muchuan.li@example.edu
+  destination:
+    zh: ''
+    en: ''
+  links:
+    github: https://github.com/example/muchuan-li
+    scholar: https://scholar.example.edu/muchuan-li
+- name:
+    zh: 陈宁
+    en: Ning Chen
+  group_id: assistant_prof
+  rank: 1
+  year: null
+  title:
+    zh: 助理教授
+    en: Assistant Professor
+  role:
+    zh: ''
+    en: ''
+  avatar: /assets/images/team/default-avatar.svg
+  bio:
+    zh: 聚焦文档智能与多模态知识抽取，探索结构化信息如何帮助大模型在专业场景中提升稳定性与可解释性。
+    en: Ning studies document intelligence and multimodal knowledge extraction, especially
+      how structured signals improve stability and interpretability in professional
+      AI systems.
+  email: ning.chen@example.edu
+  destination:
+    zh: ''
+    en: ''
+  links:
+    homepage: https://example.edu/ning-chen
+- name:
+    zh: 顾清和
+    en: Qinghe Gu
+  group_id: professor
+  rank: 1
+  year: null
+  title:
+    zh: 教授 / 博导
+    en: Professor / Ph.D. Supervisor
+  role:
+    zh: 实验室负责人
+    en: Lab Director
+  avatar: /assets/images/team/default-avatar.svg
+  bio:
+    zh: 长期研究具身智能、空间推理与跨模态学习，关注如何让智能体在复杂真实环境中稳定感知、计划并完成协作任务。
+    en: Qinghe works on embodied intelligence, spatial reasoning, and cross-modal
+      learning, focusing on how agents can perceive, plan, and collaborate robustly
+      in complex real environments.
+  email: qinghe.gu@example.edu
+  destination:
+    zh: ''
+    en: ''
+  links:
+    homepage: https://example.edu/qinghe-gu
+    scholar: https://scholar.example.edu/qinghe-gu
+- name:
+    zh: 吴思明
+    en: Siming Wu
+  group_id: alumni
+  rank: 1
+  year: null
+  title:
+    zh: 2025 届博士毕业生
+    en: Ph.D. Alumnus, Class of 2025
+  role:
+    zh: ''
+    en: ''
+  avatar: /assets/images/team/default-avatar.svg
+  bio:
+    zh: 曾负责实验室早期空间推理项目与评测框架建设。
+    en: Siming previously led early work on spatial reasoning projects and evaluation
+      tooling in the lab.
+  email: ''
+  destination:
+    zh: 加入北欧一家机器人公司，担任高级研究工程师
+    en: Joined a robotics company in Northern Europe as a senior research engineer
+  links:
+    linkedin: https://www.linkedin.com/in/siming-wu-alumni/
+- name:
+    zh: 何一鸣
+    en: Yiming He
+  group_id: undergrad
+  rank: 1
+  year: null
+  title:
+    zh: 本科生
+    en: Undergraduate Student
+  role:
+    zh: ''
+    en: ''
+  avatar: /assets/images/team/default-avatar.svg
+  bio:
+    zh: 在实验室负责三维场景数据清洗与基准复现，对 SLAM、点云可视化和工程效率工具很感兴趣。
+    en: Yiming supports 3D scene data curation and benchmark reproduction, with strong
+      interests in SLAM, point cloud visualization, and productivity tooling.
+  email: ''
+  destination:
+    zh: ''
+    en: ''
+  links:
+    github: https://github.com/example/yiming-he
+- name:
+    zh: 罗子轩
+    en: Zixuan Luo
   group_id: master
   rank: 1
-  year: 2023
+  year: null
   title:
     zh: 硕士生
     en: Master Student
+  role:
+    zh: ''
+    en: ''
   avatar: /assets/images/team/default-avatar.svg
   bio:
-    zh: 对视觉语言模型和端到端感知有浓厚兴趣。
-    en: Interested in vision-language models and end-to-end perception.
-  email: haoran@example.com
+    zh: 研究兴趣包括开放词汇检测与面向设计场景的视觉搜索系统，喜欢把复杂模型做成可交互原型。
+    en: Zixuan is interested in open-vocabulary detection and visual search for design
+      scenarios, with a habit of turning complex models into interactive prototypes.
+  email: zixuan.luo@example.edu
   destination:
-    zh: 上海
-    en: Shanghai
+    zh: ''
+    en: ''
   links:
-    github: https://github.com/haoran
-
+    github: https://github.com/example/zixuan-luo
+    zhihu: https://www.zhihu.com/people/example-zixuan
 - name:
-    zh: 赵子轩
-    en: Zixuan Zhao
+    zh: 程书宁
+    en: Shuning Cheng
   group_id: undergrad
-  rank: 1
-  year: 2022
+  rank: 2
+  year: 2023
   title:
     zh: 本科生
-    en: Undergraduate
+    en: Undergraduate Student
+  role:
+    zh: 可视化工具维护
+    en: Visualization Tooling
   avatar: /assets/images/team/default-avatar.svg
   bio:
-    zh: 本科生，参与SLAM相关项目的实习研究。
-    en: Undergraduate working on SLAM-related research internship.
-  email: zixuan@example.com
-  links:
-    github: https://github.com/zixuan
-
-- name:
-    zh: 吴晓波
-    en: Xiaobo Wu
-  group_id: interns
-  rank: 1
-  year: 2024
-  title:
-    zh: 算法实习生
-    en: Algorithm Intern
-  avatar: /assets/images/team/default-avatar.svg
-  bio:
-    zh: 负责数据标注与清洗工作。
-    en: Assists in large-scale dataset annotation and cleaning.
-  email: xiaobo@example.com
-  links:
-    github: https://github.com/xiaobo
-
-- name:
-    zh: 孙建勋
-    en: Jianxun Sun
-  group_id: alumni
-  rank: 1
-  year: 2024
-  title:
-    zh: 硕士毕业生
-    en: M.S. Alumnus
-  avatar: /assets/images/team/default-avatar.svg
-  bio:
-    zh: 现就职于国外高校攻读博士。
-    en: Currently pursuing a Ph.D. abroad.
-  email: jianxun@example.com
+    zh: 主要参与实验日志可视化、数据质检脚本和网页交互细节优化，擅长把零散工具收束成稳定工作流。
+    en: Shuning contributes to experiment log visualization, data QA scripts, and
+      UI polish, with a knack for turning scattered helpers into stable workflows.
+  email: shuning.cheng@example.edu
   destination:
-    zh: 斯坦福大学
-    en: Stanford University
+    zh: ''
+    en: ''
   links:
-    linkedin: https://linkedin.com/in/jianxun
-
+    github: https://github.com/example/shuning-cheng
+    zhihu: https://www.zhihu.com/people/example-shuning
+- name:
+    zh: 林安澜
+    en: Anlan Lin
+  group_id: master
+  rank: 2
+  year: null
+  title:
+    zh: 硕士生
+    en: Master Student
+  role:
+    zh: ''
+    en: ''
+  avatar: /assets/images/team/default-avatar.svg
+  bio:
+    zh: 目前主要负责新闻线索抽取和实验记录自动整理，希望把研究过程中重复而琐碎的信息组织工作系统化。
+    en: Anlan works on information extraction for research operations and hopes to
+      systematize the repetitive but essential work of experiment documentation.
+  email: ''
+  destination:
+    zh: ''
+    en: ''
+  links: {}
+- name:
+    zh: 唐见微
+    en: Jianwei Tang
+  group_id: interns
+  rank: 2
+  year: null
+  title:
+    zh: 科研实习生
+    en: Research Intern
+  role:
+    zh: ''
+    en: ''
+  avatar: /assets/images/team/default-avatar.svg
+  bio:
+    zh: 参与数据集标注规范、机器人测试脚本和实验复盘整理，偏好做能直接提升团队协作效率的小系统。
+    en: Jianwei works on annotation protocols, robot test scripts, and experiment
+      retrospectives, especially small systems that directly improve team efficiency.
+  email: ''
+  destination:
+    zh: ''
+    en: ''
+  links:
+    github: https://github.com/example/jianwei-tang
+- name:
+    zh: 周茜
+    en: Qian Zhou
+  group_id: researchers
+  rank: 2
+  year: null
+  title:
+    zh: 研究科学家
+    en: Research Scientist
+  role:
+    zh: ''
+    en: ''
+  avatar: /assets/images/team/default-avatar.svg
+  bio:
+    zh: 从事视觉生成模型与设计工具研究，关注高质量视觉内容生成在人机共创流程中的系统整合。
+    en: Qian works on visual generation models and design tooling, focusing on how
+      high-quality generative systems integrate into human-AI co-creation workflows.
+  email: ''
+  destination:
+    zh: ''
+    en: ''
+  links:
+    homepage: https://example.edu/qian-zhou
+- name:
+    zh: 邱若琪
+    en: Ruqi Qiu
+  group_id: alumni
+  rank: 2
+  year: null
+  title:
+    zh: 2024 届硕士毕业生
+    en: Master Alumna, Class of 2024
+  role:
+    zh: ''
+    en: ''
+  avatar: /assets/images/team/default-avatar.svg
+  bio:
+    zh: 曾参与设计智能与生成内容方向的多项合作课题。
+    en: Ruqi contributed to several collaborative projects on design intelligence
+      and generative media.
+  email: ''
+  destination:
+    zh: 前往英国攻读人机交互方向博士学位
+    en: Pursuing a Ph.D. in human-computer interaction in the United Kingdom
+  links:
+    homepage: https://example.edu/ruqi-qiu
+- name:
+    zh: 方雨辰
+    en: Yuchen Fang
+  group_id: phd
+  rank: 2
+  year: null
+  title:
+    zh: 博士生
+    en: Ph.D. Student
+  role:
+    zh: ''
+    en: ''
+  avatar: /assets/images/team/default-avatar.svg
+  bio:
+    zh: 研究音视频联合推理与时序感知，希望让多模态模型在嘈杂环境中依然保持对事件、动作和意图的可靠理解。
+    en: Yuchen studies audio-visual reasoning and temporal perception, aiming to keep
+      multimodal systems reliable in noisy, dynamic environments.
+  email: yuchen.fang@example.edu
+  destination:
+    zh: ''
+    en: ''
+  links:
+    github: https://github.com/example/yuchen-fang
+- name:
+    zh: 陶知远
+    en: Zhiyuan Tao
+  group_id: alumni
+  rank: 3
+  year: 2022
+  title:
+    zh: 2023 届本科毕业生
+    en: Undergraduate Alumnus, Class of 2023
+  role:
+    zh: ''
+    en: ''
+  avatar: /assets/images/team/default-avatar.svg
+  bio:
+    zh: 曾协助构建多模态数据处理工具链与网页展示模块。
+    en: Zhiyuan helped build the multimodal data processing toolchain and several
+      website presentation modules.
+  email: ''
+  destination:
+    zh: 加入上海一家 AI 创业公司，负责多模态产品工程
+    en: Joined an AI startup in Shanghai as a multimodal product engineer
+  links:
+    linkedin: https://www.linkedin.com/in/zhiyuan-tao-alumni/
+- name:
+    zh: 曹梦遥
+    en: Mengyao Cao
+  group_id: master
+  rank: 3
+  year: null
+  title:
+    zh: 硕士生
+    en: Master Student
+  role:
+    zh: ''
+    en: ''
+  avatar: /assets/images/team/default-avatar.svg
+  bio:
+    zh: 关注多模态检索增强生成和轻量化部署，希望缩短学术原型到真实产品验证之间的距离。
+    en: Mengyao studies multimodal retrieval-augmented generation and lightweight
+      deployment to shorten the path from research prototypes to product validation.
+  email: mengyao.cao@example.edu
+  destination:
+    zh: ''
+    en: ''
+  links:
+    homepage: https://example.edu/mengyao-cao
+    github: https://github.com/example/mengyao-cao
+- name:
+    zh: 孙雨棠
+    en: Olivia Sun
+  group_id: phd
+  rank: 3
+  year: null
+  title:
+    zh: 博士生
+    en: Ph.D. Student
+  role:
+    zh: ''
+    en: ''
+  avatar: /assets/images/team/default-avatar.svg
+  bio:
+    zh: 关注机器人操作中的语义表征压缩与动作策略蒸馏，尝试在有限算力条件下实现稳定、快速、可迁移的控制能力。
+    en: Olivia focuses on semantic compression and policy distillation for robot manipulation,
+      seeking stable and transferable control under limited compute budgets.
+  email: ''
+  destination:
+    zh: ''
+    en: ''
+  links:
+    homepage: https://example.edu/olivia-sun
+    linkedin: https://www.linkedin.com/in/olivia-sun-lab/

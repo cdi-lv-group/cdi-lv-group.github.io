@@ -1,144 +1,153 @@
 # Auto-generated from Feishu Bitable: 招聘与招生
-# Sync Time: 2026-04-02 01:27:26
+# Sync Time: 2026-04-02 10:12:11
 
 - title:
-    zh: 百度招聘
-    en: Baidu Recruitment
+    zh: 博士生 (空间智能方向)
+    en: Ph.D. Candidates in Spatial Intelligence
   department:
-    zh: 计算机学院
-    en: Computer Science College
+    zh: 智能系统研究中心 / 设计创意学院
+    en: Center for Intelligent Systems / College of Design and Innovation
   count:
-    zh: 100+
-    en: ''
+    zh: 2 名 / 年
+    en: 2 positions per year
   theme: blue
-  icon: icon1
+  icon: 🛰️
   description:
-    zh: 百度招聘是一个很好的机会
-    en: We are recruiting talented individuals for our various positions.
+    zh: 适合对三维场景理解、世界模型和长期任务评测感兴趣的申请者。我们希望你具备扎实的编程能力，并愿意做系统型研究。
+    en: This role is for applicants interested in 3D scene understanding, world models,
+      and long-horizon evaluation. Strong programming ability and a systems research
+      mindset are highly valued.
   tags:
     zh:
-    - 百度招聘
+    - 3D 视觉
+    - 世界模型
+    - 系统研究
+    - 学术写作
     en:
-    - Baidu Recruitment
-    - Computer Science College
-  link: https://www.baidu.com
+    - 3D Vision
+    - World Models
+    - Systems Research
+    - Academic Writing
+  link: https://example.org/apply/phd-spatial
 - title:
-    zh: 2026年春季招聘
-    en: 2026 Spring Recruitment
+    zh: 硕士生 (设计智能方向)
+    en: Master Students in Design Intelligence
   department:
-    zh: 计算机学院
-    en: School of Computer Science
+    zh: 设计创意学院
+    en: College of Design and Innovation
   count:
-    zh: 100人
-    en: '100'
+    zh: 3 名 / 年
+    en: 3 positions per year
   theme: blue
-  icon: icon1
+  icon: 🎛️
   description:
-    zh: 我们正在寻找有才华的人加入我们的团队。
-    en: We are looking for talented individuals to join our team.
+    zh: 欢迎对生成式交互、知识组织、前端原型和研究工具链感兴趣的同学加入，鼓励研究与产品能力并重。
+    en: We welcome students interested in generative interaction, knowledge organization,
+      front-end prototyping, and research tooling, especially those who enjoy both
+      research and product thinking.
   tags:
     zh:
-    - 春季招聘
-    - 计算机科学
-    - 人才
+    - 生成式交互
+    - 前端原型
     en:
-    - spring recruitment
-    - computer science
-    - talent
-  link: https://www.example.com
+    - Generative Interaction
+    - Front-End Prototyping
+  link: https://example.org/apply/master-design
 - title:
-    zh: 2026年秋季招生
-    en: 2026 Fall Enrollment
+    zh: 科研实习生 (机器人控制)
+    en: Research Intern in Robot Control
   department:
-    zh: 商学院
-    en: School of Business
+    zh: 机器人系统联合实验平台
+    en: Joint Robotics Systems Platform
   count:
-    zh: 50人
-    en: '50'
+    zh: 若干
+    en: Multiple openings
   theme: emerald
-  icon: icon2
+  icon: 🦿
   description:
-    zh: 我们很高兴宣布即将到来的学期秋季招生。
-    en: We are excited to announce our fall enrollment for the upcoming semester.
+    zh: 实习内容覆盖现场实验支持、控制策略验证和实验数据整理，适合希望快速接触具身智能真实工作流的同学。
+    en: The internship covers field experiment support, control policy validation,
+      and experiment data organization, making it ideal for students who want exposure
+      to real embodied AI workflows.
   tags:
     zh:
-    - 秋季招生
-    - 商业
-    - 教育
+    - 机器人控制
+    - 实验工程
+    - 部署验证
+    - 数据整理
     en:
-    - fall enrollment
-    - business
-    - education
-  link: https://www.example.com
+    - Robot Control
+    - Experiment Engineering
+    - Deployment Validation
+    - Data Operations
+  link: https://example.org/apply/intern-robotics
 - title:
-    zh: 2026年冬季招生
-    en: 2026 Winter Enrollment
+    zh: 联合培养访问研究生
+    en: Visiting Graduate Researcher
   department:
-    zh: 文学院
-    en: School of Arts and Humanities
+    zh: 跨校联合研究计划
+    en: Inter-University Joint Research Program
   count:
-    zh: 30人
-    en: '30'
+    zh: 1-2 名 / 学期
+    en: 1-2 positions per semester
   theme: violet
-  icon: icon3
+  icon: 🧩
   description:
-    zh: 加入我们，体验丰富的冬季学期。
-    en: Join us for an enriching winter semester experience.
+    zh: 欢迎在外校已有稳定研究积累的同学来组里参与 4-6 个月的专题合作，适合文档智能、音视频理解和评测平台方向。
+    en: Students with stable research progress at their home institutions are welcome
+      to join us for a 4-6 month focused collaboration, especially in document intelligence,
+      audio-visual understanding, and evaluation platforms.
   tags:
     zh:
-    - 冬季招生
-    - 人文艺术
-    - 教育
+    - 联合培养
+    - 专题合作
     en:
-    - winter enrollment
-    - arts and humanities
-    - education
-  link: https://www.example.com
+    - Joint Program
+    - Focused Collaboration
+  link: https://example.org/apply/visiting-researcher
 - title:
-    zh: 2026年夏季招聘
-    en: 2026 Summer Recruitment
+    zh: 研究助理 (实验运营与内容系统)
+    en: Research Assistant in Lab Operations and Content Systems
   department:
-    zh: 医学院
-    en: School of Medicine
+    zh: 实验运营与研究支持组
+    en: Research Operations and Support Team
   count:
-    zh: 80人
-    en: '80'
+    zh: 1 名
+    en: 1 opening
   theme: slate
-  icon: icon4
+  icon: 🗂️
   description:
-    zh: 与我们一起探索医学领域的激动人心的机会。
-    en: Discover exciting opportunities in the field of medicine with us.
+    zh: 岗位面向擅长信息组织、内容编辑和工作流搭建的候选人，负责实验记录、资料归档、研究主页与可视化内容维护。
+    en: This role is intended for candidates strong in information organization, editorial
+      work, and workflow design, supporting experiment records, documentation, website
+      content, and visual research communication.
   tags:
-    zh:
-    - 夏季招聘
-    - 医学
-    - 医疗
-    en:
-    - summer recruitment
-    - medicine
-    - healthcare
-  link: https://www.example.com
+    zh: []
+    en: []
+  link: ''
 - title:
-    zh: 2026年春季招生
-    en: 2026 Spring Enrollment
+    zh: 全栈工程师 (研究产品原型)
+    en: Full-Stack Engineer for Research Product Prototypes
   department:
-    zh: 法学院
-    en: School of Law
+    zh: 研究工具与系统原型组
+    en: Research Tools and Systems Prototyping Group
   count:
-    zh: 40人
-    en: '40'
+    zh: 1 名
+    en: 1 opening
   theme: blue
-  icon: icon5
+  icon: 🧪
   description:
-    zh: 通过我们全面的春季招生计划扩大您的法律知识。
-    en: Expand your legal knowledge with our comprehensive spring enrollment program.
+    zh: 希望你能够独立推动从数据接口、服务编排到前端展示的一体化原型开发，适合对研究产品化和交互系统都感兴趣的工程师。
+    en: We are looking for someone who can independently build end-to-end prototypes
+      across data interfaces, service orchestration, and front-end presentation, especially
+      if you enjoy both research productization and interaction systems.
   tags:
     zh:
-    - 春季招生
-    - 法律
-    - 教育
+    - 前后端协同
+    - 原型开发
+    - 数据可视化
     en:
-    - spring enrollment
-    - law
-    - education
-  link: https://www.example.com
+    - Full-Stack Collaboration
+    - Prototype Development
+    - Data Visualization
+  link: https://example.org/apply/fullstack-prototype

@@ -1,58 +1,137 @@
 # Auto-generated from Feishu Bitable: 新闻动态
-# Sync Time: 2026-04-02 01:27:28
+# Sync Time: 2026-04-02 10:12:08
 
-- date: '2026-03-28'
+- date: '2026-04-01'
   category:
-    zh: 基础设施
-    en: Infrastructure
+    zh: 实验室动态
+    en: Lab Event
   title:
-    zh: 基础设施
-    en: New Infrastructure Launch
+    zh: 实验室发布新一代空间智能体评测看板
+    en: Lab Releases a New Evaluation Dashboard for Spatial Agents
   description:
-    zh: 新基础设施启动
-    en: New Infrastructure Launch
-  link: https://infrastructure.com
-- date: '2026-03-26'
-  category:
-    zh: 荣誉奖项
-    en: Awards
-  title:
-    zh: 荣誉奖项
-    en: Awards Ceremony
-  description:
-    zh: 荣誉奖项颁奖典礼
-    en: Awards Ceremony
-  link: https://awards.com
-- date: '2026-03-24'
-  category:
-    zh: 学术合作
-    en: Collaboration
-  title:
-    zh: 学术合作
-    en: Academic Collaboration
-  description:
-    zh: 学术合作会议
-    en: Academic Collaboration Meeting
-  link: https://collaboration.com
-- date: '2026-03-22'
+    zh: 我们上线了一套面向长时程任务的评测可视化系统，支持按场景、任务类型和错误模式追踪模型表现。
+    en: We launched a new evaluation dashboard for long-horizon tasks, making it easier
+      to trace model behavior by scene, task family, and failure mode.
+  link: https://example.org/news/spatial-agent-dashboard
+- date: '2026-03-01'
   category:
     zh: 开源项目
     en: Open Source
   title:
-    zh: 开源项目
-    en: Open Source Project
+    zh: AtlasBench 与相关分析工具正式开源
+    en: AtlasBench and Its Analysis Toolkit Are Now Open Source
   description:
-    zh: 开源项目公告
-    en: Open Source Project Announcement
-  link: https://opensource.com
-- date: '2026-03-20'
+    zh: AtlasBench 的任务定义、分析脚本和可视化工具已同步开放，方便团队快速复现实验并建立对比基线。
+    en: The task definitions, analysis scripts, and visualization toolkit for AtlasBench
+      are now public to help teams reproduce results and build comparison baselines.
+  link: https://github.com/example-lab/atlasbench
+- date: '2026-02-01'
+  category:
+    zh: 学术合作
+    en: Collaboration
+  title:
+    zh: 与工业设计团队启动人机共创系统联合研究
+    en: Joint Research Started on Human-AI Co-Creation with an Industrial Design Team
+  description:
+    zh: 新合作将围绕生成式界面、研究资料组织和多轮创意反馈展开，覆盖从概念发散到方案收敛的完整流程。
+    en: The new collaboration explores generative interfaces, research material organization,
+      and iterative feedback across the full concept-to-decision pipeline.
+  link: ''
+- date: '2026-01-01'
+  category:
+    zh: 荣誉奖项
+    en: Awards
+  title:
+    zh: 团队论文入选国际会议 Oral 报告
+    en: Lab Paper Selected for an Oral Presentation at a Major Conference
+  description:
+    zh: AtlasBench 在评测设计与实验透明性方面获得评审高度评价，并入选大会 Oral 展示环节。
+    en: AtlasBench received strong recognition for evaluation design and experimental
+      transparency and was selected for an Oral presentation slot.
+  link: https://example.org/news/oral-atlasbench
+- date: '2025-12-01'
+  category:
+    zh: 基础设施
+    en: Infrastructure
+  title:
+    zh: 多模态实验队列与日志系统完成升级
+    en: Multimodal Experiment Queue and Logging Stack Upgraded
+  description:
+    zh: 新版实验基础设施将训练日志、评测指标和模型配置统一纳入一套可查询面板，减少了结果回溯成本。
+    en: The upgraded infrastructure unifies training logs, evaluation metrics, and
+      model configurations into one searchable panel, reducing the cost of experiment
+      tracing.
+  link: ''
+- date: '2025-11-01'
+  category:
+    zh: 招生动态
+    en: Admissions
+  title:
+    zh: 新一轮博士与硕士招募面向空间智能与设计智能方向开放
+    en: New Ph.D. and Master Openings Announced for Spatial and Design Intelligence
+  description:
+    zh: 本轮招募重点关注具身规划、文档智能、生成式交互与多模态系统工程，希望吸引研究与工程兼具的候选人。
+    en: This round of admissions prioritizes embodied planning, document intelligence,
+      generative interaction, and multimodal systems engineering.
+  link: https://example.org/apply
+- date: '2025-10-01'
   category:
     zh: 实验室动态
     en: Lab Event
   title:
+    zh: 研究周会改版为问题驱动式结构
+    en: Weekly Research Meetings Reframed Around Problem-Driven Sessions
+  description:
+    zh: 我们将原有的项目更新式周会，调整为问题定义、失败复盘和实验设计共创并重的结构，以提升讨论质量。
+    en: The lab has redesigned its weekly meetings to focus on problem framing, failure
+      reviews, and collaborative experiment design.
+  link: ''
+- date: '2025-09-01'
+  category:
+    zh: 开源项目
+    en: Open Source
+  title:
+    zh: 文档智能原型工具 Document Weave 发布预览版
+    en: Preview Release of the Document Intelligence Tool Document Weave
+  description:
+    zh: 预览版支持复杂 PDF 结构解析、引文网络浏览和跨文档检索，可作为研究资料整理与写作辅助工具。
+    en: The preview version supports complex PDF parsing, citation graph browsing,
+      and cross-document retrieval as a research organization assistant.
+  link: https://example.org/news/document-weave-preview
+- date: '2025-08-01'
+  category:
+    zh: 学术合作
+    en: Collaboration
+  title:
+    zh: 与机器人平台团队完成跨设备场景地图接口对接
+    en: Cross-Device Scene Map Interfaces Finalized with Robotics Platform Partners
+  description:
+    zh: 新的地图接口实现了多机器人任务中状态共享与回放分析，为后续协同实验打下了稳定基础。
+    en: The new scene map interface enables shared state and replay analysis in multi-robot
+      workflows, creating a stable base for future collaborative experiments.
+  link: ''
+- date: '2025-07-01'
+  category:
     zh: 实验室动态
     en: Lab Event
+  title:
+    zh: 研究主页切换为全量数据驱动内容架构
+    en: Research Website Migrated to a Fully Data-Driven Content Architecture
   description:
-    zh: 实验室动态事件
-    en: This is a lab event
-  link: https://labevent.com
+    zh: 新版内容架构将成员、论文、研究方向与招生信息统一到结构化数据源中，方便后续同步、校验与版本管理。
+    en: The new site architecture unifies people, publications, research areas, and
+      positions under structured data sources, making sync, validation, and versioning
+      much easier.
+  link: https://example.org/news/data-driven-site
+- date: '2025-06-01'
+  category:
+    zh: 基础设施
+    en: Infrastructure
+  title:
+    zh: 实验资产命名规范与自动校验流程上线
+    en: Automated Validation for Research Asset Naming and Packaging Goes Live
+  description:
+    zh: 我们为图片、数据集快照、实验配置和论文附属材料建立了统一命名规范，并在同步前自动检查缺失项与异常格式。
+    en: We introduced a naming and packaging standard for images, dataset snapshots,
+      experiment configs, and paper artifacts, with automated checks before synchronization.
+  link: ''

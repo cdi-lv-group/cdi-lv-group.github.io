@@ -1,91 +1,160 @@
 # Auto-generated from Feishu Bitable: 研究方向
-# Sync Time: 2026-04-02 01:27:24
+# Sync Time: 2026-04-02 10:12:12
 
-- icon: icon1
+- icon: 🛰️
   title:
-    zh: 人工智能
-    en: Artificial Intelligence
+    zh: 空间智能与三维场景地图
+    en: Spatial Intelligence and 3D Scene Mapping
   description:
-    zh: 人工智能是研究、开发用于模拟、延伸和扩展人的智能的理论、方法、技术及应用系统的一门新的技术科学。
-    en: Artificial Intelligence is the study, development of theories, methods, technologies,
-      and application systems for simulating, extending, and expanding human intelligence.
+    zh: 围绕大尺度空间感知、语义地图构建和真实场景表示学习展开研究，目标是让智能体拥有可共享、可推理、可持续更新的环境记忆。
+    en: We study large-scale spatial perception, semantic map construction, and scene
+      representation learning so agents can build shared, queryable, and continuously
+      updated memories of the world.
   points:
     zh:
-    - 人工智能
+    - 多层级三维场景表示与语义压缩
+    - 跨设备空间地图对齐与共享
+    - 开放环境中的鲁棒重定位
+    - 稀疏观测下的场景补全
+    - 具备时序记忆的地图更新策略
     en:
-    - 人工智能
+    - Multi-level 3D representations with semantic compression
+    - Cross-device spatial map alignment and sharing
+    - Robust relocalization in open environments
+    - Scene completion under sparse observations
+    - Map update policies with temporal memory
   image: ''
-- icon: ai.png
+- icon: 🤖
   title:
-    zh: 人工智能
-    en: Artificial Intelligence
+    zh: 具身规划与世界模型
+    en: Embodied Planning and World Models
   description:
-    zh: 人工智能是研究、开发用于模拟、延伸和扩展人的智能的理论、方法、技术及应用系统的一门新的技术科学。
-    en: Artificial intelligence is the study, development, theory, methods, technology,
-      and application systems for simulating, extending, and expanding human intelligence.
+    zh: 关注机器人如何在有限观察、开放目标和长任务链条件下进行推理、规划和自我纠错，强调世界模型与动作决策之间的闭环。
+    en: This direction focuses on reasoning, planning, and self-correction for embodied
+      systems under partial observations, open goals, and long task chains, with an
+      emphasis on closing the loop between world models and action.
   points:
     zh:
-    - 人工智能
+    - 长时程任务分解与子目标生成
+    - 基于文本和示教的混合规划
+    - 多智能体协作中的状态共享
+    - 失败恢复与自我反思机制
+    en:
+    - Long-horizon task decomposition and subgoal generation
+    - Hybrid planning from language and demonstrations
+    - State sharing in multi-agent collaboration
+    - Failure recovery and self-reflection loops
+  image: ''
+- icon: 🎛️
+  title:
+    zh: 设计智能与生成式交互
+    en: Design Intelligence and Generative Interaction
+  description:
+    zh: 探索面向设计、创作和知识整理的生成式工具链，把模型能力转化为结构清晰、反馈即时且可被团队协作消费的交互系统。
+    en: We explore generative toolchains for design, creation, and knowledge work,
+      converting model capability into interaction systems that are structured, responsive,
+      and truly collaborative.
+  points:
+    zh:
+    - 可控生成式界面组件
+    - 研究流程中的协作式内容生成
+    en:
+    - Controllable generative interface components
+    - Collaborative content generation for research workflows
+  image: ''
+- icon: 🦿
+  title:
+    zh: 动态环境中的机器人控制
+    en: Robot Control in Dynamic Environments
+  description:
+    zh: 面向室内服务、园区巡检和半结构化工作现场，研究兼顾安全性、恢复能力和实时性的运动控制与任务执行策略。
+    en: Targeting indoor service, campus inspection, and semi-structured work sites,
+      we study control and execution strategies that balance safety, recovery, and
+      real-time performance.
+  points:
+    zh:
+    - 复杂地形下的移动控制
+    - 视觉伺服与接触感知融合
+    - 动作失败后的快速重规划
+    - 多机器人任务编队
+    - 现场运行状态监控
+    en:
+    - Mobility control on challenging terrain
+    - Fusion of visual servoing and contact sensing
+    - Fast replanning after action failures
+    - Multi-robot task formation
+    - Runtime state monitoring in the field
+  image: ''
+- icon: 🔍
+  title:
+    zh: 开放世界识别与长尾学习
+    en: Open-World Recognition and Long-Tail Learning
+  description:
+    zh: 研究模型如何在类别不断扩展、分布持续漂移的环境中保持识别能力与校准能力，重点关注未知类发现和知识迁移。
+    en: We study how models retain recognition quality and calibration as categories
+      expand and distributions drift, with a focus on unknown discovery and knowledge
+      transfer.
+  points:
+    zh: []
     en: []
   image: ''
-- icon: bigdata.png
+- icon: 📄
   title:
-    zh: 大数据
-    en: Big Data
+    zh: 文档智能与多模态知识挖掘
+    en: Document Intelligence and Multimodal Knowledge Mining
   description:
-    zh: 大数据指的是所涉及的数据量规模巨大到无法通过人工，在合理时间内达到截取、管理、处理、并整理成为人类所能解读的信息。
-    en: Big data refers to the scale of the data involved is so large that it cannot
-      be intercepted, managed, processed, and organized into information that humans
-      can interpret within a reasonable time through manual means.
+    zh: 聚焦复杂版式文档、图表、流程图与知识图谱的联合解析，希望建立兼顾结构理解和内容检索的研究型文档系统。
+    en: This area targets complex documents, charts, diagrams, and knowledge graphs
+      to build research-oriented document systems that combine structural understanding
+      with retrieval.
   points:
     zh:
-    - 大数据
+    - 版式结构与语义单元联合建模
+    - 跨文档知识对齐与问答
     en:
-    - 大数据是指规模巨大到无法通过人工在合理时间内处理的数据集。
+    - Joint modeling of layout structure and semantic units
+    - Cross-document knowledge alignment and question answering
   image: ''
-- icon: cloud.png
+- icon: 🎧
   title:
-    zh: 云计算
-    en: Cloud Computing
+    zh: 音视频场景理解与事件推理
+    en: Audio-Visual Scene Understanding and Event Reasoning
   description:
-    zh: 云计算是分布式计算的一种，指的是通过网络“云”将巨大的数据计算处理程序分解成无数个小程序，然后，通过多部服务器组成的系统进行处理和分析这些小程序得到结果并返回给用户。
-    en: Cloud computing is a form of distributed computing that refers to breaking
-      down huge data computing processing programs into countless small programs through
-      the network "cloud", and then the system composed of multiple servers processes
-      and analyzes these small programs to obtain results and return them to the user.
+    zh: 关注嘈杂环境、多事件并发和长视频条件下的场景理解，强调对人、物体、声音和语境变化的联合建模。
+    en: We focus on scene understanding in noisy, multi-event, long-form settings,
+      jointly modeling people, objects, sound, and contextual changes over time.
   points:
     zh:
-    - 云计算
+    - 多事件边界检测
+    - 音视频线索对齐
+    - 环境声驱动的行为预测
+    - 跨模态注意力可解释性分析
     en:
-    - 云计算是分布式计算的一种，指通过网络将巨大的数据计算处理程序分解成无数个小程序，通过多部服务器组成的系统进行处理和分析，得到结果并返回给用户。
+    - Boundary detection for overlapping events
+    - Alignment of audio and visual cues
+    - Behavior prediction driven by ambient sound
+    - Interpretability analysis for cross-modal attention
   image: ''
-- icon: blockchain.png
+- icon: ⚙️
   title:
-    zh: 区块链
-    en: Blockchain
+    zh: 高效多模态系统与边缘部署
+    en: Efficient Multimodal Systems and Edge Deployment
   description:
-    zh: 区块链是分布式数据存储、点对点传输、共识机制、加密算法等计算机技术的新型应用模式。
-    en: Blockchain is a new application model of computer technologies such as distributed
-      data storage, peer-to-peer transmission, consensus mechanism, and encryption
-      algorithm.
+    zh: 面向资源受限设备、持续运行服务和多模型协作链路，研究高效推理、缓存复用、模型裁剪与在线调度策略。
+    en: For resource-constrained devices, continuous services, and multi-model pipelines,
+      we study efficient inference, cache reuse, compression, and online scheduling
+      strategies.
   points:
     zh:
-    - 区块链
+    - 多模型级联调度
+    - 面向边缘设备的视觉模型蒸馏
+    - 跨任务共享缓存设计
+    - 推理延迟与能耗协同优化
+    - 在线服务监控与回退策略
     en:
-    - 区块链是分布式数据存储、点对点传输、共识机制、加密算法等计算机技术的新型应用模式。
-  image: ''
-- icon: iot.png
-  title:
-    zh: 物联网
-    en: Internet of Things
-  description:
-    zh: 物联网是通过各种信息传感器、射频识别技术、全球定位系统、红外感应器、激光扫描器等各种装置与技术，实时采集任何需要监控、连接、互动的物体或过程，采集其声、光、热、电、力学、化学、生物、位置等各种需要的信息，通过各类可能的网络接入，实现物与物、物与人的泛在连接，实现对物品和过程的智能化感知、识别和管理。
-    en: The Internet of Things (IoT) is a network of physical objects that are embedded
-      with sensors, software, and other technologies to connect and exchange data
-      with other devices and systems over the Internet or other networks.
-  points:
-    zh:
-    - 物联网
-    en:
-    - 物联网是通过各种信息传感器、射频识别技术、全球定位系统、红外感应器、激光扫描器等各种装置与技术，实时采集任何需要监控、连接、互动的物体或过程，采集其声、光、热、电、力学、化学、生物、位置等各种需要的信息，通过各类可能的网络接入，实现物与物、物与人的泛在连接，实现对物品和过程的智能化感知、识别和管理。
+    - Cascaded scheduling for multiple models
+    - Vision model distillation for edge devices
+    - Shared cache design across tasks
+    - Joint optimization of latency and energy
+    - Monitoring and rollback strategies for online services
   image: ''
