@@ -291,7 +291,7 @@ jekyll build --source . --destination /tmp/jekyll-build
 本地运行同步脚本前，请先安装 Python 依赖：
 
 ```bash
-pip install pyyaml requests
+pip install -r requirements.txt
 ```
 
 常用入口：
